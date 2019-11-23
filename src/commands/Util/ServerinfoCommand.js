@@ -52,7 +52,6 @@ module.exports = class ServerinfoCommand extends Command {
             }, 1000)
             const collector = msg.createReactionCollector((r, u) => (r.emoji.name === '⬅', '➡') && (u.id !== this.client.user.id && u.id === message.author.id))
             collector.on('collect', r => {
-                r.remove(message.author.id)
                 switch (r.emoji.name) {
                     case '⬅':
                         msg.edit(embed)

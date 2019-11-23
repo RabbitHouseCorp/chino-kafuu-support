@@ -15,11 +15,11 @@ module.exports = class AvatarCommand extends Command {
     run({message, args, server}, t) {
             
         let member = message.mentions.users.first() || this.client.users.get(args[0]) || message.author
-        let avatar = member.displayAvatarURL()
+        let avatar = `${member.displayAvatarURL()}?size=2048`
 
         const embed = new MessageEmbed()
         .setColor(this.client.colors.default)
-        .setImage(`${avatar}?size=2048`)
+        .setImage(avatar)
         .setTimestamp()
         .setFooter(t('commands:avatar.his-avatar', {member: member.tag}), avatar)
         .setDescription(t('commands:avatar.download', {avatar: avatar}))

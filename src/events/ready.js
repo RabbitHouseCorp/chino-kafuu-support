@@ -12,7 +12,7 @@ module.exports = class {
       console.log("Connected to DBL")
     })
     console.log(`${this.client.user.username} has be connected to Discord`)
-    this.client.owner = await this.client.fetchUser('395788326835322882')
+    this.client.owner = await this.client.users.fetch('395788326835322882')
     this.client.lavalinkManager = new lavalinkManager(this.client)
     let status = [
         {name: `se precisar de suporte, use ${this.client.config.prefix}ajuda`, type: 'PLAYING'},
@@ -32,7 +32,7 @@ module.exports = class {
       
     setInterval(() => {
       let randomStatus = status[Math.floor(Math.random() * status.length)]
-      this.client.user.setPresence({game: randomStatus})
+      this.client.user.setPresence({activity: randomStatus})
     }, 30000)
   }
 }

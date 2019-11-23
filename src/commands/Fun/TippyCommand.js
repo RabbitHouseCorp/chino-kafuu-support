@@ -16,7 +16,7 @@ module.exports = class PatCommand extends Command {
     }
     run({message, args, server}, t) {
         
-        let tippy = this.client.api.piadas
+        let tippy = this.client.apis.piadas
         let piada = tippy[Math.floor(Math.random() * tippy.length)]
         message.channel.createWebhook('Tippy', 'https://giffiles.alphacoders.com/184/184302.gif').then(wh => {
             wh.send(piada)

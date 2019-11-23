@@ -14,7 +14,7 @@ module.exports = class LoliCommand extends Command {
     }
     async run({message, args, server}, t) {
 
-        let img = this.client.api.loli[Math.floor(Math.random() * this.client.api.dance.length)]
+        let img = this.client.apis.loli[Math.floor(Math.random() * this.client.api.dance.length)]
         const embed = new MessageEmbed()
         .setColor(this.client.colors.action)
         .setImage(img)

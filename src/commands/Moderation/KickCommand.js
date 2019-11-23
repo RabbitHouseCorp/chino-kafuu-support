@@ -17,7 +17,7 @@ module.exports = class KickCommand extends Command {
         const member = message.mentions.users.first() || this.client.users.get(args[0])
         if (!member) return message.chinoReply('error', t('commands:mention-null'))
         let reason = args.slice(1).join(" ")
-        if (reason) {
+        if (!reason) {
             reason = t("commands:no-reason")
         }
 

@@ -17,13 +17,9 @@ module.exports = class AvatarCommand extends Command {
         let member = message.mentions.users.first() || this.client.users.get(args[0]) || message.author
         let avatar = member.displayAvatarURL()
 
-        if (avatar.endsWith('.gif')) {
-            avatar = `${member.displayAvatarURL()}?size=2048`
-        }
-
         const embed = new MessageEmbed()
         .setColor(this.client.colors.default)
-        .setImage(avatar)
+        .setImage(`${avatar}?size=2048`)
         .setTimestamp()
         .setFooter(t('commands:avatar.his-avatar', {member: member.tag}), avatar)
         .setDescription(t('commands:avatar.download', {avatar: avatar}))

@@ -22,7 +22,7 @@ module.exports = class AnimeCommand extends Command {
         if (!search) return message.channel.send(t('commands:anime.args-null', {author: message.author, emoji: this.client.emotes.error}))
   
         malScraper.getInfoFromName(search).then((data) => {
-            const embed = new this.client.Discord.MessageEmbed()
+            const embed = new MessageEmbed()
             .setThumbnail(data.picture)
             .setColor(this.client.colors.default)
             .setTitle(t('commands:anime.sinopse'))

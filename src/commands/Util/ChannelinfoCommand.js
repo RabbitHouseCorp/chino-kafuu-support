@@ -1,6 +1,6 @@
 const Command = require("../../structures/command")
 const moment = require('moment')
-
+const { MessageEmbed } = require("discord.js")
 module.exports = class ChannelInfoCommand extends Command {
     constructor(client) {
         super(client, {
@@ -17,7 +17,7 @@ module.exports = class ChannelInfoCommand extends Command {
             
         let channel = message.mentions.channels.first() || message.guild.channels.get(args[0]) || message.guild.channels.find(c => c.name === args.join(' ')) || message.channel
 
-        const embed = new this.client.Discord.MessageEmbed()
+        const embed = new MessageEmbed()
         .setColor(this.client.colors.default)
         .addField(t('commands:channelinfo.mention'), `\`${channel}\``, true)
         .addField(t('commands:channelinfo.id'), `\`${channel.id}\``, true)

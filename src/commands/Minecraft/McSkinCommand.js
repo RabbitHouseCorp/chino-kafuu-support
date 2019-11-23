@@ -15,7 +15,7 @@ module.exports = class McSkinCommand extends Command {
             
         if (!args[0]) return message.chinoReply('error', t('commands:mc'))
         const body = `https://mc-heads.net/skin/${args[0]}`
-        const embed = new this.client.Discord.MessageEmbed()
+        const embed = new MessageEmbed()
         .setTimestamp()
         .setColor(this.client.colors.mine)
         .setImage(body)

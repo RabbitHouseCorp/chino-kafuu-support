@@ -1,6 +1,5 @@
 const Command = require("../../structures/command")
-const Discord = require('discord.js')
-const moment = require('moment')
+const { MessageEmbed } = require("discord.js")
 module.exports = class ServericonCommand extends Command {
   constructor(client) {
     super(client, {
@@ -20,7 +19,7 @@ module.exports = class ServericonCommand extends Command {
       guild = message.guild
     }
     const img = `${guild.iconURL()}?size=2048`.replace('jpg',"png")
-    const embed = new this.client.Discord.MessageEmbed()
+    const embed = new MessageEmbed()
     .setImage(img)
     .setColor(this.client.colors.default)
     .setDescription(`[Download](${img})`)

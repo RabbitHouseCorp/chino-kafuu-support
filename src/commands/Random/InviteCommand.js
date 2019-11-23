@@ -1,4 +1,5 @@
 const Command = require("../../structures/command")
+const { MessageEmbed } = require("discord.js")
 module.exports = class InviteCommand extends Command {
     constructor(client) {
        super(client, {
@@ -13,7 +14,7 @@ module.exports = class InviteCommand extends Command {
    } 
     run({message, args, server}, t) {
         
-        const embed = new this.client.Discord.MessageEmbed()
+        const embed = new MessageEmbed()
         .setColor(this.client.colors.default)
         .addField(t('commands:invite.MyInvite'), t('commands:invite.invite', {clientID: this.client.user.id}))
     

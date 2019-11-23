@@ -41,7 +41,7 @@ module.exports = class TempMuteCommand extends Command {
 
         if (message.member.highestRole.position < message.guild.member(member).highestRole.position) return message.chinoReply("error", t("commands:punishment.unpunished"))
         
-        let embed = new this.client.Discord.MessageEmbed()
+        let embed = new MessageEmbed()
         .setTitle(t('commands:tempmute.title', {member: member.tag}))
         .setColor(this.client.colors.moderation)
         .setThumbnail(member.displayAvatarURL())

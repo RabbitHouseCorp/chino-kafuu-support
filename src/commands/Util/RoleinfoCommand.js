@@ -1,7 +1,7 @@
 const Command = require("../../structures/command")
-const Discord = require('discord.js')
+const { MessageEmbed } = require("discord.js")
 const moment = require('moment')
-const m = require('moment-duration-format')
+require('moment-duration-format')
 module.exports = class RoleinfoCommand extends Command {
     constructor(client) {
         super(client, {
@@ -19,7 +19,7 @@ module.exports = class RoleinfoCommand extends Command {
         let role = message.mentions.roles.first() || message.guild.roles.get(args[0]) || message.guild.roles.find(r => r.name.includes(args.join(' '))) || message.guild.roles.find(r => r.name === args.join(" "))
         if (!role) return message.chinoReply('error', t('commands:roleinfo.args-null'))
     
-        let embed = new this.client.Discord.MessageEmbed()
+        let embed = new MessageEmbed()
         .setColor(role.hexColor)
         .setTitle(t('commands:roleinfo.title', {roleName: role.name}))
         .setThumbnail(`${message.guild.iconURL()}`.replace('jpg', 'png'))

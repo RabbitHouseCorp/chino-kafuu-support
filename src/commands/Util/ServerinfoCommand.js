@@ -1,5 +1,5 @@
 const Command = require("../../structures/command")
-const Discord = require('discord.js')
+const { MessageEmbed } = require("discord.js")
 const moment = require('moment')
 module.exports = class ServerinfoCommand extends Command {
     constructor(client) {
@@ -23,7 +23,7 @@ module.exports = class ServerinfoCommand extends Command {
         let bot = message.guild.members.filter(member => member.user.bot).size
         let roles = `${message.guild.roles.map(r => `\`${r.name}\``).join(', ')}`.replace('`@everyone`,', '')
         
-        const embed = new this.client.Discord.MessageEmbed()
+        const embed = new MessageEmbed()
         embed.setAuthor(t('commands:serverinfo.name', {name: message.guild.name}), message.guild.iconURL())
         embed.setColor(this.client.colors.default)
         message.guild.icon ? embed.setThumbnail(`${message.guild.iconURL()}`.replace('jpg', 'png')) : null
@@ -35,7 +35,7 @@ module.exports = class ServerinfoCommand extends Command {
         embed.addField(t('commands:serverinfo.afkChannel'), `${message.guild.afkChannel}`.replace('null', t('commands:serverinfo.noAfkChannel')), true)
         embed.addField(t('commands:serverinfo.created-at'), moment.utc(message.guild.createdAt).format('LLLL'), true)
     
-        const page2 = new this.client.Discord.MessageEmbed()
+        const page2 = new MessageEmbed()
         page2.setAuthor(t('commands:serverinfo.name', {name: message.guild.name}), message.guild.iconURL())
         page2.setColor(this.client.colors.default)
         message.guild.icon ? page2.setThumbnail(`${message.guild.iconURL()}`.replace('jpg', 'png')) : null

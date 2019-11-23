@@ -18,7 +18,7 @@ module.exports = class McQueryCommand extends Command {
             if (err) return message.chinoReply('error', t('commands:mcquery.error', {err: err}))
             body = JSON.parse(body)
             if (body.online) {
-                const embed = new this.client.Discord.MessageEmbed()
+                const embed = new MessageEmbed()
                 .setColor(this.client.colors.mine)
                 .addField(t('commands:mcquery.serverIP'), args[0], true)
                 .addField('Players online', `${body.players.now}/${body.players.max} players`, true)

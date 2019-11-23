@@ -13,6 +13,7 @@ module.exports = class BlackListCommand extends Command {
 	}
 	async run({message, args, server}, t) {
 		let user = await this.client.database.Users.findById(args[1])
+		let user2 = await this.client.users.fetch(args[1])
 		switch(args[0]) {
 			case "add":
 			if (!user || user === null) return message.chinoReply("error", "usuário não encontrado, tente informar o ID da próxima vez.")
@@ -32,7 +33,7 @@ module.exports = class BlackListCommand extends Command {
 			break;
 			case "view":
 			if (!user || user === null) return message.chinoReply("error", "usuário não encontrado, tente informar o ID da próxima vez.")
-			let msg = `== USER BANNED INFO ==\n\n• User :: ${this.client.users.get(user._id).tag} - (${this.client.users.get(user._id).id})\n• Banned :: ${user.blacklist}\n• Reason :: ${user.blacklistReason}`
+			let msg = `== USER BANNED INFO ==\n\n• User :: ${user2.tag} - (${user2.id})\n• Banned :: ${user.blacklist}\n• Reason :: ${user.blacklistReason}`
 			message.channel.send(msg, {code: "asciidoc"})
 			break;
 			default:

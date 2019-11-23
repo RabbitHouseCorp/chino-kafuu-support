@@ -1,4 +1,5 @@
 const Command = require("../../structures/command")
+const { MessageEmbed } = require("discord.js")
 module.exports = class ReportCommand extends Command {
     constructor(client) {
         super(client, {
@@ -22,7 +23,7 @@ module.exports = class ReportCommand extends Command {
         if (!reason) return message.chinoReply('error', t('commands:report.reasonNull'))
         const channel = message.guild.channels.get(server.channelReport)
 
-        const embed = new this.client.Discord.MessageEmbed()
+        const embed = new MessageEmbed()
         .setColor(this.client.colors.moderation)
         .setThumbnail(member.displayAvatarURL())
         .addField(t('commands:report.memberName'), member.tag, true)

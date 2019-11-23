@@ -1,4 +1,5 @@
 const Command = require("../../structures/command")
+const { MessageEmbed } = require("discord.js")
 module.exports = class AvatarCommand extends Command {
     constructor(client) {
         super(client, {
@@ -20,7 +21,7 @@ module.exports = class AvatarCommand extends Command {
             avatar = `${member.displayAvatarURL()}?size=2048`
         }
 
-        const embed = new this.client.Discord.MessageEmbed()
+        const embed = new MessageEmbed()
         .setColor(this.client.colors.default)
         .setImage(avatar)
         .setTimestamp()

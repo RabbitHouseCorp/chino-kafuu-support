@@ -1,4 +1,5 @@
 const Command = require("../../structures/command")
+const { MessageEmbed } = require("discord.js")
 module.exports = class ChangeAvatarCommand extends Command {
     constructor(client) {
        super(client, {
@@ -17,7 +18,7 @@ module.exports = class ChangeAvatarCommand extends Command {
         if (!avatar || avatar === undefined) return message.chinoReply('error', t('commands:changeavatar.args-null'))
 
         this.client.user.setAvatar(avatar).then(() => {
-            const embed = new this.client.Discord.MessageEmbed()
+            const embed = new MessageEmbed()
             .setColor(this.client.colors.default)
             .setAuthor(t('commands:changeavatar.avatar'), avatar)
             .setImage(avatar)

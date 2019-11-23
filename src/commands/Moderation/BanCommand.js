@@ -23,7 +23,7 @@ module.exports = class BanCommand extends Command {
         
         if (member.id == message.author.id) return message.chinoReply('error', t('commands:ban.banAuthor'))
         if (!message.guild.member(member).bannable) return message.chinoReply('error', t('commands:ban.bannable'))
-        if (message.member.highestRole.position < message.guild.member(member).highestRole.position) return message.chinoReply("error", t("commands:punishment.unpunished"))
+        if (message.member.roles.highest.position < message.guild.member(member).roles.highest.position) return message.chinoReply("error", t("commands:punishment.unpunished"))
 
         const embed = new MessageEmbed()
         .setTitle(t('commands:ban.banned', {member: member.tag}))

@@ -23,7 +23,7 @@ module.exports = class Unmute extends Command {
       reason = t("commands:no-reason")
     }
     
-    if (message.member.highestRole.position < message.guild.member(member).highestRole.position) return message.chinoReply("error", t("commands:punishment.unpunished"))
+    if (message.member.roles.highest.position < message.guild.member(member).roles.highest.position) return message.chinoReply("error", t("commands:punishment.unpunished"))
 
     let embed = new MessageEmbed()
     .setTitle(t('commands:unmute.title', {member: member.tag}))

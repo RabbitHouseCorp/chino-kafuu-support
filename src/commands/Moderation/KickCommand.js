@@ -23,7 +23,7 @@ module.exports = class KickCommand extends Command {
 
         if (member.id == message.author.id) return message.chinoReply('error', t('commands:kick.authorKick'))
         if (!message.member(member).kickable) return message.chinoReply('error', t('commands:kick.kickable'))
-        if (message.member.highestRole.position < message.guild.member(member).highestRole.position) return message.chinoReply("error", t("commands:punishment.unpunished"))
+        if (message.member.roles.highest.position < message.guild.member(member).roles.highest.position) return message.chinoReply("error", t("commands:punishment.unpunished"))
         
         const embed = new MessageEmbed()
         .setTitle(t('commands:kick.kicked', {member: member.tag}))

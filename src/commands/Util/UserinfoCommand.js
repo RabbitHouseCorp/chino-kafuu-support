@@ -29,7 +29,7 @@ module.exports = class UserinfoCommand extends Command {
         .setDescription(t('commands:userinfo.title', {isBot: member.bot ? '<:botTag:579456048142876672>' : '<:Wumpus:579455982053097485>', member: member.tag}), member.displayAvatarURL())
         .addField(t('commands:userinfo.name'), member.tag, true)
         .addField(t('commands:userinfo.id'), member.id, true)
-        .addField(t('commands:userinfo.high'), message.guild.member(member) ? message.guild.member(member).highestRole : "O usuário não está no servidor", true)
+        .addField(t('commands:userinfo.high'), message.guild.member(member) ? message.guild.member(member).roles.highest : "O usuário não está no servidor", true)
         .addField(t('commands:userinfo.status'), status, true)
         .addField(t('commands:userinfo.joinedAt'), message.guild.member(member) ? moment.utc(message.guild.member(member).joinedAt).format('LLLL') : "O usuário não está no servidor", true)
         .addField(t('commands:userinfo.serverComp', {server: guild.size}), (guild.map(g => `\`${g.name}\``).join(", ").length > 1020) ? `${guild.map(g => `\`${g.name}\``).join(", ").substr(0, 1020)}...\`` : guild.map(g => `\`${g.name}\``).join(", "))

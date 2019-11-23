@@ -444,7 +444,7 @@
     },
     "yen": {
         "totalYens": "você possui `{{yens}}` yens",
-        "user-total": "{{member}} possui `{{yens}}`yens"
+        "user-total": "{{member}} possui `{{yens}}` yens"
     },
     "daily": {
         "daily-success": "foi depositado `{{total}}` yens na sua conta.",

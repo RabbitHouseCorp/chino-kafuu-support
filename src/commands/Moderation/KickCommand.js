@@ -1,5 +1,5 @@
 const Command = require("../../structures/command")
-const { RichEmbed } = require("discord.js")
+const { MessageEmbed } = require("discord.js")
 module.exports = class KickCommand extends Command {
     constructor(client) {
        super(client, {
@@ -25,10 +25,10 @@ module.exports = class KickCommand extends Command {
         if (!message.member(member).kickable) return message.chinoReply('error', t('commands:kick.kickable'))
         if (message.member.highestRole.position < message.guild.member(member).highestRole.position) return message.chinoReply("error", t("commands:punishment.unpunished"))
         
-        const embed = new RichEmbed()
+        const embed = new MessageEmbed()
         .setTitle(t('commands:kick.kicked', {member: member.tag}))
         .setColor(this.client.colors.moderation)
-        .setThumbnail(member.displayAvatarURL)
+        .setThumbnail(member.displayAvatarURL())
         .addField(t('commands:punishment.embed.memberName'), member.tag, true)
         .addField(t('commands:punishment.embed.memberID'),member.id, true)
         .addField(t('commands:punishment.embed.staffName'), message.author.tag, true)

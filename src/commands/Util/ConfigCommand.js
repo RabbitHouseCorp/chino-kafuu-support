@@ -1,5 +1,5 @@
 const Command = require("../../structures/command")
-const { RichEmbed } = require("discord.js")
+const { MessageEmbed } = require("discord.js")
 
 module.exports = class ConfigCommand extends Command {
     constructor (client) {
@@ -29,10 +29,10 @@ module.exports = class ConfigCommand extends Command {
             `**${t("commands:config.config-modules.report.module")}**: ${server.reportModule ? t("commands:config.config-modules.enable") : t("commands:config.config-modules.disable")}`
         ]
         
-        const embed = new RichEmbed()
+        const embed = new MessageEmbed()
         .setColor(this.client.colors.default)
         .setTitle(t("commands:config.title"))
-        .setThumbnail(message.guild.iconURL)
+        .setThumbnail(message.guild.iconURL())
         .addField(t("commands:config.how-use"), `${server.prefix}config <options> <set/disable>`)
         .addField(t("commands:config.report.title"), listReport.join("\n"))
         .addField(t("commands:config.punishment.title"), listPunish.join("\n"))

@@ -22,9 +22,9 @@ module.exports = class ReportCommand extends Command {
         if (!reason) return message.chinoReply('error', t('commands:report.reasonNull'))
         const channel = message.guild.channels.get(server.channelReport)
 
-        const embed = new this.client.Discord.RichEmbed()
+        const embed = new this.client.Discord.MessageEmbed()
         .setColor(this.client.colors.moderation)
-        .setThumbnail(member.displayAvatarURL)
+        .setThumbnail(member.displayAvatarURL())
         .addField(t('commands:report.memberName'), member.tag, true)
         .addField(t('commands:report.memberID'), member.id, true)
         .addBlankField(true)

@@ -1,7 +1,7 @@
 const Command = require("../../structures/command")
 const NekosLife = require('nekos.life')
 const neko = new NekosLife()
-const { RichEmbed } = require('discord.js')
+const { MessageEmbed } = require('discord.js')
 module.exports = class PatCommand extends Command {
     constructor (client) {
         super (client, {

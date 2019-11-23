@@ -1,5 +1,5 @@
 const Command = require("../../structures/command")
-const { RichEmbed } = require("discord.js")
+const { MessageEmbed } = require("discord.js")
 const moment = require("moment")
 require("moment-duration-format")
 module.exports = class QueueCommand extends Command {
@@ -21,7 +21,7 @@ module.exports = class QueueCommand extends Command {
         let number = 1
 
         let queue = this.client.player.get(message.guild.id).queue.map(song => `[**${number++}** | ${song.info.title} - ${moment.duration(song.info.length).format("dd:hh:mm:ss")}](${song.info.uri})`).join('\n')
-        const embed = new RichEmbed()
+        const embed = new MessageEmbed()
         .setColor(this.client.colors.default)
         .setDescription(queue)
         

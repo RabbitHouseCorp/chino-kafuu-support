@@ -24,7 +24,7 @@ module.exports = class EmojiinfoCommand extends Command {
         if (emoji.animated === true) animated = t('commands:emojiinfo.animated')
         if (emoji.animated === false) animated = t('commands:emojiinfo.noanimated')
         
-        let embed = new this.client.Discord.RichEmbed()
+        let embed = new this.client.Discord.MessageEmbed()
         .setColor(this.client.colors.default)
         .setThumbnail(emoji.url)
         .addField(t('commands:emojiinfo.name'), `\`${emoji.name} \``, true)

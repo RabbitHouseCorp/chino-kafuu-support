@@ -16,7 +16,7 @@ module.exports = class SayCommand extends Command {
     let say = args.join(' ');
     if (!args.join(" ")) return message.chinoReply('error', t('commands:say'));
     if (!message.member.hasPermission("MENTION_EVERYONE")) {
-      if (!message.member.hasPermission('MANAGE_MESSAGES')) return message.channel.createWebhook(message.author.username, message.author.displayAvatarURL).then(w => {
+      if (!message.member.hasPermission('MANAGE_MESSAGES')) return message.channel.createWebhook(message.author.username, message.author.displayAvatarURL()).then(w => {
         w.send(args.join(' '), {
           disableEveryone: false
         })
@@ -28,7 +28,7 @@ module.exports = class SayCommand extends Command {
          
     } else {
   
-      if (!message.member.hasPermission('MANAGE_MESSAGES')) return message.channel.createWebhook(message.author.username, message.author.displayAvatarURL).then(w => {
+      if (!message.member.hasPermission('MANAGE_MESSAGES')) return message.channel.createWebhook(message.author.username, message.author.displayAvatarURL()).then(w => {
         w.send(args.join(' '), {
           disableEveryone: true
         })

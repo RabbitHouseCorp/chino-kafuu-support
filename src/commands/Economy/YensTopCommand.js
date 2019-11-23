@@ -23,12 +23,12 @@ module.exports = class YensTopCommand extends Command {
             return b.yens - a.yens
         })
         let us = users.map(a => `**${++number} -** \`${a._id}\` - *yens: ${Number(a.yens).toLocaleString()}*`).slice(0, 15)
-        const { RichEmbed } = require("discord.js")
-        let embed = new RichEmbed()
+        const { MessageEmbed } = require("discord.js")
+        let embed = new MessageEmbed()
         .setColor(this.client.colors.default)
         .setTitle(`As ${us.length} pessoas com mais yens`)
         .setDescription(us)
-        .setThumbnail(this.client.user.displayAvatarURL)
+        .setThumbnail(this.client.user.displayAvatarURL())
 
         message.channel.send(embed)
     }

@@ -1,5 +1,5 @@
 const Command = require("../../structures/command")
-const { RichEmbed } = require('discord.js')
+const { MessageEmbed } = require('discord.js')
 const NekosLife = require('nekos.life')
 const neko = new NekosLife()
 module.exports = class EatCommand extends Command {
@@ -18,7 +18,7 @@ module.exports = class EatCommand extends Command {
     let member = message.mentions.users.first() || this.client.users.get(args[0])
     if (!member) return message.chinoReply('error', t('commands:mentioNull'))
     let img = await neko.sfw.feed()
-    const embed = new RichEmbed()
+    const embed = new MessageEmbed()
     .setColor(this.client.colors.action)
     .setImage(img.url)
     .setDescription(t('commands:eat', {author: message.author, member: member}))

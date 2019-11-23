@@ -17,7 +17,7 @@ module.exports = class ChangeAvatarCommand extends Command {
         if (!avatar) return message.chinoReply('error', t('commands:changeavatar.args-null'))
 
         this.client.user.setAvatar(avatar).then(() => {
-            const embed = new this.client.Discord.RichEmbed()
+            const embed = new this.client.Discord.MessageEmbed()
             .setColor(this.client.colors.default)
             .setAuthor(t('commands:changeavatar.avatar'), avatar)
             .setImage(avatar)

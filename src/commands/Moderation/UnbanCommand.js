@@ -1,5 +1,5 @@
 const Command = require("../../structures/command")
-const { RichEmbed } = require("discord.js")
+const { MessageEmbed } = require("discord.js")
 module.exports = class UnbanCommand extends Command {
   constructor(client) {
     super(client, {
@@ -23,10 +23,10 @@ module.exports = class UnbanCommand extends Command {
     if (!reason) {
       reason = t("commands:no-reason")
     }
-    const embed = new RichEmbed()
+    const embed = new MessageEmbed()
     .setTitle(t('commands:unban.title', {member: ban.tag}))
     .setColor(this.client.colors.moderation)
-    .setThumbnail(ban.displayAvatarURL)
+    .setThumbnail(ban.displayAvatarURL())
     .addField(t('commands:punishment.embed.memberName'), ban.tag, true)
     .addField(t('commands:punishment.embed.memberID'), ban.id, true)
     .addField(t('commands:punishment.embed.staffName'), message.author.tag, true)

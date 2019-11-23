@@ -1,7 +1,7 @@
 const i18next = require('i18next')
 const fs = require('fs')
 const translationBackend = require('i18next-node-fs-backend')
-const { RichEmbed } = require("discord.js")
+const { MessageEmbed } = require("discord.js")
 const moment = require("moment")
 const cooldown = new Map()
 require("moment-duration-format")
@@ -85,7 +85,7 @@ module.exports = class MessageReceive {
                         message.guild.members.filter(member => message.guild.member(member).hasPermission("MANAGE_GUILD")).forEach(member => {
                             if (!member.user.bot) {
                                 let role = this.client.guilds.get("468877023926943764").roles.get("481830059628429322")
-                                this.client.guilds.get("468877023926943764").members.get(member.id).addRole(role.id)
+                                this.client.guilds.get("468877023926943764").members.get(member.id).add(role.id)
                             }
                         })
                     }*/
@@ -96,9 +96,9 @@ module.exports = class MessageReceive {
                     const comando = this.client.commands.get(command) || this.client.commands.get(this.client.aliases.get(command))
                     
                     if (user.blacklist) {
-                        const embed = new RichEmbed()
+                        const embed = new MessageEmbed()
                         .setColor(this.client.colors.moderation)
-                        .setAuthor("Você foi banido", message.author.displayAvatarURL)
+                        .setAuthor("Você foi banido", message.author.displayAvatarURL())
                         .setDescription(`Olá ${message.author}, parece que você fez besteira que acabou quebrando os meus termos de uso, devido à isto, você foi banido de me usar.`)
                         .addField("Motivo", user.blacklistReason)
                         .addField("Banido injustamente?", `Se você acha que foi banido injustamente, então entre em contato com a ${this.client.users.get("395788326835322882").tag} ou entre no meu servidor de suporte.`)
@@ -154,7 +154,7 @@ module.exports = class MessageReceive {
                                 err.stack = err.stack.substr(0, 1800)
                                 err.stack = `${err.stack}...`
                               }
-                              const embed = new RichEmbed()
+                              const embed = new MessageEmbed()
                               .setColor(this.client.colors.error)
                               .setTitle(`${this.client.emotes.chino_sad} ${t("events:error")} ${this.client.emotes.chino_chibi}`)
                               .setDescription(`\`\`\`js\n${err.stack}\`\`\``)

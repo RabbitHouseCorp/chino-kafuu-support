@@ -1,5 +1,5 @@
 const Command = require("../../structures/command")
-const { RichEmbed } = require('discord.js')
+const { MessageEmbed } = require('discord.js')
 module.exports = class LoliCommand extends Command {
     constructor (client) {
         super (client, {
@@ -15,7 +15,7 @@ module.exports = class LoliCommand extends Command {
     async run({message, args, server}, t) {
 
         let img = this.client.api.loli[Math.floor(Math.random() * this.client.api.dance.length)]
-        const embed = new RichEmbed()
+        const embed = new MessageEmbed()
         .setColor(this.client.colors.action)
         .setImage(img)
 

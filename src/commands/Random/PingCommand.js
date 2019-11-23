@@ -1,5 +1,5 @@
 const Command = require("../../structures/command")
-const { RichEmbed } = require("discord.js")
+const { MessageEmbed } = require("discord.js")
 module.exports = class PingCommand extends Command {
     constructor(client) {
         super(client, {
@@ -16,7 +16,7 @@ module.exports = class PingCommand extends Command {
         switch (args[0]) {
         case "shards":
         this.client.shard.broadcastEval('this.ping').then(shard => {
-                const embed = new RichEmbed()
+                const embed = new MessageEmbed()
                 .setColor(this.client.colors.default)
                 .setFooter(`${t("commands:ping")} ${this.client.shard.count} shards`)
                 let s = []

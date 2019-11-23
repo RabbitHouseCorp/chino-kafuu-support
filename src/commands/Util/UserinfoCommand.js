@@ -22,10 +22,10 @@ module.exports = class UserinfoCommand extends Command {
         let role = message.guild.member(member) ? message.guild.member(member).roles.map(r => r.name).join(', ') : "O usuário não está no servidor"
         let roleSize = message.guild.member(member) ? message.guild.member(member).roles.size - 1 : "0"
         let color = message.guild.member(member) ? message.guild.member(member).displayHexColor : "#000000"
-        const embed = new this.client.Discord.RichEmbed()
+        const embed = new this.client.Discord.MessageEmbed()
         .setColor(color)
-        .setThumbnail(member.displayAvatarURL)
-        .setDescription(t('commands:userinfo.title', {isBot: member.bot ? '<:botTag:579456048142876672>' : '<:Wumpus:579455982053097485>', member: member.tag}), member.displayAvatarURL)
+        .setThumbnail(member.displayAvatarURL())
+        .setDescription(t('commands:userinfo.title', {isBot: member.bot ? '<:botTag:579456048142876672>' : '<:Wumpus:579455982053097485>', member: member.tag}), member.displayAvatarURL())
         .addField(t('commands:userinfo.name'), member.tag, true)
         .addField(t('commands:userinfo.id'), member.id, true)
         .addField(t('commands:userinfo.high'), message.guild.member(member) ? message.guild.member(member).highestRole : "O usuário não está no servidor", true)
@@ -34,10 +34,10 @@ module.exports = class UserinfoCommand extends Command {
         .addField(t('commands:userinfo.serverComp', {server: guild.size}), (guild.map(g => `\`${g.name}\``).join(", ").length > 1020) ? `${guild.map(g => `\`${g.name}\``).join(", ").substr(0, 1020)}...\`` : guild.map(g => `\`${g.name}\``).join(", "))
         .addField(t('commands:userinfo.created-at'), moment.utc(member.createdAt).format('LLLL'), true)
     
-        const page2 = new this.client.Discord.RichEmbed()
+        const page2 = new this.client.Discord.MessageEmbed()
         .setColor(color)
-        .setThumbnail(member.displayAvatarURL)
-        .setDescription(t('commands:userinfo.title', {isBot: member.bot ? '<:botTag:579456048142876672>' : '<:Wumpus:579455982053097485>', member: member.tag}), member.displayAvatarURL)
+        .setThumbnail(member.displayAvatarURL())
+        .setDescription(t('commands:userinfo.title', {isBot: member.bot ? '<:botTag:579456048142876672>' : '<:Wumpus:579455982053097485>', member: member.tag}), member.displayAvatarURL())
         .addField(t('commands:userinfo.permissions'), message.guild.member(member) ?`\`${message.guild.member(member).permissions.toArray().join(', ')}\``: "O usuário não está no servidor")
         .addField(t('commands:userinfo.roles', {roles: roleSize}), `\`${role}\``.replace('@everyone, ', ''), true)
     

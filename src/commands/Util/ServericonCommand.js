@@ -19,8 +19,8 @@ module.exports = class ServericonCommand extends Command {
     if (!guild) {
       guild = message.guild
     }
-    const img = `${guild.iconURL}?size=2048`.replace('jpg',"png")
-    const embed = new this.client.Discord.RichEmbed()
+    const img = `${guild.iconURL()}?size=2048`.replace('jpg',"png")
+    const embed = new this.client.Discord.MessageEmbed()
     .setImage(img)
     .setColor(this.client.colors.default)
     .setDescription(`[Download](${img})`)

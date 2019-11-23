@@ -41,16 +41,16 @@ module.exports = class TempMuteCommand extends Command {
 
         if (message.member.highestRole.position < message.guild.member(member).highestRole.position) return message.chinoReply("error", t("commands:punishment.unpunished"))
         
-        let embed = new this.client.Discord.RichEmbed()
+        let embed = new this.client.Discord.MessageEmbed()
         .setTitle(t('commands:tempmute.title', {member: member.tag}))
         .setColor(this.client.colors.moderation)
-        .setThumbnail(member.displayAvatarURL)
+        .setThumbnail(member.displayAvatarURL())
         .addField(t('commands:punishment.embed.memberName'), member.tag, true)
         .addField(t('commands:punishment.embed.memberID'), member.id, true)
         .addField(t('commands:punishment.embed.staffName'), message.author.tag, true)
         .addField(t('commands:punishment.embed.reason'), reason, true)
 
-        message.guild.member(member).addRole(role.id).then(() => {
+        message.guild.member(member).add(role.id).then(() => {
             message.channel.send(embed)
             if (server.punishModule) {
                 message.guild.channels.get(server.punishChannel).send(embed).catch(err => {
@@ -59,7 +59,7 @@ module.exports = class TempMuteCommand extends Command {
             }
         })
         setTimeout(function() {
-            message.guild.member(member).removeRole(role.id)
+            message.guild.member(member).remove(role.id)
         }, parse(time));
     }
 }

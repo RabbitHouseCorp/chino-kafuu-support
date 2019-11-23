@@ -1,5 +1,5 @@
 const Command = require("../../structures/command")
-const { RichEmbed } = require("discord.js")
+const { MessageEmbed } = require("discord.js")
 module.exports = class Unmute extends Command {
   constructor(client) {
     super(client, {
@@ -25,16 +25,16 @@ module.exports = class Unmute extends Command {
     
     if (message.member.highestRole.position < message.guild.member(member).highestRole.position) return message.chinoReply("error", t("commands:punishment.unpunished"))
 
-    let embed = new RichEmbed()
+    let embed = new MessageEmbed()
     .setTitle(t('commands:unmute.title', {member: member.tag}))
     .setColor(this.client.colors.moderation)
-    .setThumbnail(member.displayAvatarURL)
+    .setThumbnail(member.displayAvatarURL())
     .addField(t('commands:punishment.embed.memberName'), member.tag, true)
     .addField(t('commands:punishment.embed.memberID'), member.id, true)
     .addField(t('commands:punishment.embed.staffName'), message.author.tag, true)
     .addField(t('commands:punishment.embed.reason'), reason, true)
   
-    message.guild.member(member).removeRole(role.id).then(() => {
+    message.guild.member(member).remove(role.id).then(() => {
       message.channel.send(embed)
       if (server.punishModule) {
         message.guild.channels.get(server.punishChannel).send(embed)

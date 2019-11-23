@@ -1,4 +1,4 @@
-const { RichEmbed } = require("discord.js")
+const { MessageEmbed } = require("discord.js")
 module.exports = class GuildCreate {
   constructor(client) {
     this.client = client
@@ -29,7 +29,7 @@ module.exports = class GuildCreate {
       })
       server.save()
       
-      const embed = new RichEmbed()
+      const embed = new MessageEmbed()
       .setColor(this.client.colors.default)
       .setFooter("Servidor salvo no meu banco de dados com successo!")
       .addField("Obrigada por me adicionar", `Olá, eu sou ${this.client.user.username}, obrigada por me adicionar! Bom, eu sou um bot cheio de funções super divertidas para alegrar o seu dia, se você quiser saber quais os comandos eu tenho, use \`${server.prefix}help\`, está com alguma dúvida? Então entre em meu servidor de suporte usando \`${server.prefix}invite\`, mais uma vez, obrigada por me adicionar e tenha um bom divertimento!`)

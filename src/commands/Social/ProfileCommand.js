@@ -1,4 +1,4 @@
-const { RichEmbed } = require("discord.js")
+const { MessageEmbed } = require("discord.js")
 const Command = require("../../structures/command")
 module.exports = class ProfileCommand extends Command {
     constructor (client) {
@@ -32,10 +32,10 @@ module.exports = class ProfileCommand extends Command {
             `${this.client.emotes.yen} **${t("commands:profile.yens")} »** *\`${Number(user.yens).toLocaleString()}\`*`,
             `${this.client.emotes.sharo_hug_chino} **${t("commands:profile.rep")} »** *\`${user.rep}\`*`
         ]
-        const embed = new RichEmbed()
+        const embed = new MessageEmbed()
         .setColor(user.profileColor)
-        .setAuthor(t("commands:profile.title", {member: member.tag}), member.displayAvatarURL)
-        .setThumbnail(member.displayAvatarURL)
+        .setAuthor(t("commands:profile.title", {member: member.tag}), member.displayAvatarURL())
+        .setThumbnail(member.displayAvatarURL())
         .setDescription(description.join("\n\n"))
 
         message.channel.send(embed)

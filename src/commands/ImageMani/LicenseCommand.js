@@ -18,7 +18,7 @@ module.exports = class LicencaCommand extends Command {
         let user = message.mentions.users.first() || this.client.users.get(args[0]) || message.author
         let canvas = await Canvas.createCanvas(1150, 893)
         let ctx = canvas.getContext('2d')
-        let UserImg = await Canvas.loadImage(user.displayAvatarURL)
+        let UserImg = await Canvas.loadImage(user.displayAvatarURL())
         let Card = await Canvas.loadImage('https://media.discordapp.net/attachments/584149756469575701/597483177937731584/unknown.png?width=360&height=169')
         ctx.rotate(Math.PI * 2 / -30)
         ctx.textAlign = 'center';

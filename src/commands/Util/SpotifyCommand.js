@@ -23,7 +23,7 @@ module.exports = class SpotifyCommand extends Command {
 		let spotifyAlbum = member.presence.game.assets.largeText;
 		let spotifyAuthor = member.presence.game.state;
 
-		let embed = new this.client.Discord.RichEmbed()
+		let embed = new this.client.Discord.MessageEmbed()
 
 		.setAuthor(t('commands:spotify.userListening', {member: member.tag}), 'https://cdn.discordapp.com/emojis/554334875411415107.png?v=1')
 		.setColor(this.client.colors.mine)

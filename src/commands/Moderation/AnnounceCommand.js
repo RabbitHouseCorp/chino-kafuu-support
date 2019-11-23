@@ -18,7 +18,7 @@ module.exports = class AnnounceCommand extends Command {
         let announce = args.slice(1).join(' ')
         if (!announce) return message.chinoReply('error', t('commands:announce.noMsg'))
 
-        const embed = new this.client.Discord.RichEmbed()
+        const embed = new this.client.Discord.MessageEmbed()
         .setColor(this.client.colors.default)
         .setAuthor(t('commands:anunciar.by'))
         .setDescription(announce)

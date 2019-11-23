@@ -22,7 +22,7 @@ module.exports = class StatusCommand extends Command {
         moment.locale(server.lang);
         cpuStat.usagePercent(function(err, percent, seconds) {
             if (err) return console.log(err);
-            let embed = new this.client.Discord.RichEmbed()
+            let embed = new this.client.Discord.MessageEmbed()
             .setColor(this.client.colors.default)
             .setTitle(t('commands:status.title'))
             .addField(t('commands:status.version'), `\`\`\`${require('../../package.json').version}\`\`\``,true)

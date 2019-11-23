@@ -1,5 +1,5 @@
 const Command = require("../../structures/command")
-const { RichEmbed } = require("discord.js")
+const { MessageEmbed } = require("discord.js")
 module.exports = class DJCommand extends Command {
     constructor(client) {
         super(client, {
@@ -14,10 +14,10 @@ module.exports = class DJCommand extends Command {
     } 
     run({message, args, server}, t) {
         
-        const embed = new RichEmbed()
+        const embed = new MessageEmbed()
         .setColor(this.client.colors.default)
         .setDescription(t('commands:dj'))
-        .setThumbnail(this.client.user.displayAvatarURL)
+        .setThumbnail(this.client.user.displayAvatarURL())
         message.channel.send(embed)    
     }
 }

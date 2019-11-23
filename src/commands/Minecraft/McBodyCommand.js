@@ -15,7 +15,7 @@ module.exports = class McBodyCommand extends Command {
             
         if (!args[0]) return message.chinoReply('error', t('commands:mc'))
         const body = `https://mc-heads.net/body/${args[0]}`
-        const embed = new this.client.Discord.RichEmbed()
+        const embed = new this.client.Discord.MessageEmbed()
         .setTimestamp()
         .setColor(this.client.colors.mine)
         .setImage(body)

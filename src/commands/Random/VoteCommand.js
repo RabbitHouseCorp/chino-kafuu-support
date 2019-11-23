@@ -13,7 +13,7 @@ module.exports = class VoteCommand extends Command {
     } 
     run({message, args, server}, t) {
             
-        let embed = new this.client.Discord.RichEmbed()
+        let embed = new this.client.Discord.MessageEmbed()
         .setColor(this.client.colors.default)
         .setDescription(t('commands:vote.voteMsg', {author: message.author.username, prefix: server.prefix}))
         .setFooter(this.client.user.username, this.client.user.avatarURL)

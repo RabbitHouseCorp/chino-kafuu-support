@@ -14,13 +14,13 @@ module.exports = class AvatarCommand extends Command {
     run({message, args, server}, t) {
             
         let member = message.mentions.users.first() || this.client.users.get(args[0]) || message.author
-        let avatar = member.displayAvatarURL
+        let avatar = member.displayAvatarURL()
 
         if (avatar.endsWith('.gif')) {
-            avatar = `${member.displayAvatarURL}?size=2048`
+            avatar = `${member.displayAvatarURL()}?size=2048`
         }
 
-        const embed = new this.client.Discord.RichEmbed()
+        const embed = new this.client.Discord.MessageEmbed()
         .setColor(this.client.colors.default)
         .setImage(avatar)
         .setTimestamp()

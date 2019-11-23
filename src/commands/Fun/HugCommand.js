@@ -1,7 +1,7 @@
 const Command = require("../../structures/command")
 const NekosLife = require('nekos.life')
 const neko = new NekosLife()
-const { RichEmbed } = require('discord.js')
+const { MessageEmbed } = require('discord.js')
 module.exports = class HugCommand extends Command {
     constructor (client) {
         super (client, {
@@ -18,7 +18,7 @@ module.exports = class HugCommand extends Command {
         let member = message.mentions.users.first() || this.client.users.get(args[0])
         if (!member) return message.chinoReply('error', t('commands:mention-null'))
         let img = await neko.sfw.hug()
-        const embed = new RichEmbed()
+        const embed = new MessageEmbed()
         .setColor(this.client.colors.action)
         .setDescription(t('commands:hug', {author: message.author, member: member}))
         .setImage(img.url)

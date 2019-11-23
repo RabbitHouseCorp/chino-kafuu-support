@@ -15,7 +15,7 @@ module.exports = class McAvatarCommand extends Command {
             
         if (!args[0]) return message.chinoReply('error', t('commands:mc'))
         const body = `https://mc-heads.net/avatar/${args[0]}/256.png`
-        const embed = new this.client.Discord.RichEmbed()
+        const embed = new this.client.Discord.MessageEmbed()
         .setTimestamp()
         .setColor(this.client.colors.mine)
         .setImage(body)

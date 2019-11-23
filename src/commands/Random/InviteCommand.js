@@ -13,7 +13,7 @@ module.exports = class InviteCommand extends Command {
    } 
     run({message, args, server}, t) {
         
-        const embed = new this.client.Discord.RichEmbed()
+        const embed = new this.client.Discord.MessageEmbed()
         .setColor(this.client.colors.default)
         .addField(t('commands:invite.MyInvite'), t('commands:invite.invite', {clientID: this.client.user.id}))
     

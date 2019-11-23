@@ -1,5 +1,5 @@
 const Command = require("../../structures/command")
-const { RichEmbed } = require("discord.js")
+const { MessageEmbed } = require("discord.js")
 module.exports = class EvalCommand extends Command {
     constructor(client) {
         super(client, {
@@ -32,7 +32,7 @@ module.exports = class EvalCommand extends Command {
               err.stack = err.stack.substr(0, 1800)
               err.stack = `${err.stack}...`
             }
-            const embed = new RichEmbed()
+            const embed = new MessageEmbed()
             .setColor(this.client.colors.error)
             .setTitle(`${this.client.emotes.chino_sad} ${t("events:error")} ${this.client.emotes.chino_chibi}`)
             .setDescription(`\`\`\`js\n${err.stack}\`\`\``)

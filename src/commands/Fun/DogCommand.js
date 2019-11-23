@@ -1,7 +1,7 @@
 const Command = require("../../structures/command")
 const NekosLife = require('nekos.life')
 const neko = new NekosLife()
-const { RichEmbed } = require('discord.js')
+const { MessageEmbed } = require('discord.js')
 module.exports = class DogCommand extends Command {
   constructor (client) {
     super (client, {
@@ -16,7 +16,7 @@ module.exports = class DogCommand extends Command {
   }
   async run({message, args, server}, t) {
     let img = await neko.sfw.woof()
-    const embed = new RichEmbed()
+    const embed = new MessageEmbed()
     .setColor(this.client.colors.action)
     .setDescription('🐶')
     .setImage(img.url)

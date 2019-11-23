@@ -12,7 +12,7 @@ module.exports = class PingCommand extends Command {
         })
     } 
     run({message, args, server}, t) {
-        let ping = `Ping: \`${Math.round(this.client.ping)}\`ms! | API: \`${Date.now() - message.createdTimestamp}\`ms | Shard: [${this.client.shard.id}/${this.client.shard.count}]`
+        let ping = `Ping: \`${Math.round(this.client.ws.ping)}\`ms! | API: \`${Date.now() - message.createdTimestamp}\`ms | Shard: [${this.client.shard.id}/${this.client.shard.count}]`
         switch (args[0]) {
         case "shards":
         this.client.shard.broadcastEval('this.ping').then(shard => {

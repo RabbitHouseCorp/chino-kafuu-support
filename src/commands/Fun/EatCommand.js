@@ -21,7 +21,7 @@ module.exports = class EatCommand extends Command {
     const embed = new MessageEmbed()
     .setColor(this.client.colors.action)
     .setImage(img.url)
-    .setDescription(t('commands:eat', {author: message.author, member: member}))
+    .setDescription(t('commands:eat', {author: message.author.toString(), member: member.toString()}))
 
     message.channel.send(embed)
   }

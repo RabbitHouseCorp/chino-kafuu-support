@@ -20,7 +20,7 @@ module.exports = class PatCommand extends Command {
         let img = await neko.sfw.pat()
         const embed = new MessageEmbed()
         .setColor(this.client.colors.action)
-        .setDescription(t('commands:pat', {author: message.author, member: member}))
+        .setDescription(t('commands:pat', {author: message.author.toString(), member: member.toString()}))
         .setImage(img.url)
         
         message.channel.send(embed)

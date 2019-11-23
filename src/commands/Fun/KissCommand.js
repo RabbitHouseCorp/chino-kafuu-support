@@ -20,7 +20,7 @@ module.exports = class KissCommand extends Command {
     let img = await neko.sfw.kiss()
     const embed = new MessageEmbed()
     .setColor(this.client.colors.action)
-    .setDescription(t('commands:kiss', {author: message.author, member: member}))
+    .setDescription(t('commands:kiss', {author: message.author.toString(), member: member.toString()}))
     .setImage(img.url)
     
     message.channel.send(embed)

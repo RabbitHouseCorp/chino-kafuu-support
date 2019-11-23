@@ -20,7 +20,7 @@ module.exports = class HugCommand extends Command {
         let img = await neko.sfw.hug()
         const embed = new MessageEmbed()
         .setColor(this.client.colors.action)
-        .setDescription(t('commands:hug', {author: message.author, member: member}))
+        .setDescription(t('commands:hug', {author: message.author.toString(), member: member.toString()}))
         .setImage(img.url)
 
         message.channel.send(embed)

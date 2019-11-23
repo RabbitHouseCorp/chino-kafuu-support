@@ -20,7 +20,7 @@ module.exports = class BakaCommand extends Command {
         let img = await neko.sfw.baka()
         const embed = new MessageEmbed()
         .setColor(this.client.colors.action)
-        .setDescription(t('commands:baka.hasBaka', {member: member, author: message.author}))
+        .setDescription(t('commands:baka.hasBaka', {member: member.toString(), author: message.author.toString()}))
         .setImage(img.url)
 
         message.channel.send(embed)

@@ -19,7 +19,7 @@ module.exports = class DanceCommand extends Command {
         const embed = new MessageEmbed()
         .setColor(this.client.colors.action)
         .setImage(img)
-        .setDescription(t('commands:dance', {author: message.author, member: member}))
+        .setDescription(t('commands:dance', {author: message.author.toString(), member: member.toString()}))
 
         message.channel.send(embed)
     }

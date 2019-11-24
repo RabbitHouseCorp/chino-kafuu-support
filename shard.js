@@ -4,7 +4,8 @@ const shards = new ShardingManager("./index.js", {
   totalShards: 1
 })
 
-shards.on("launch", shard => {
-  console.log(`Starting shard: ${shard.id}`)
+shards.on("shardCreate", (shard) => {
+  console.warn(`Starting shard: ${shard.id}`)
 })
+
 shards.spawn()

@@ -15,7 +15,8 @@ module.exports = class DanceCommand extends Command {
     async run({message, args, server}, t) {
         let member = message.mentions.users.first() || this.client.users.get(args[0])
         if (!member) return message.chinoReply('error', t('commands:mention-null'))
-        let img = this.client.apis.dance[this.client.apis.dance.length]
+        let api = this.client.apis.dance
+        let img = api[Math.floor(Math.random() * api.length)]
         const embed = new MessageEmbed()
         .setColor(this.client.colors.action)
         .setImage(img)

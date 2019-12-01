@@ -1,23 +1,23 @@
 const Command = require("../../structures/command")
 const { MessageEmbed } = require("discord.js")
 module.exports = class DJCommand extends Command {
-    constructor(client) {
-        super(client, {
-            name: 'dj',
-            category: 'music',
-            aliases: [],
-            UserPermission: null,
-            ClientPermission: null,
-            OnlyDevs: false,
-            hidden: false,
-        })
-    } 
-    run({message, args, server}, t) {
+	constructor(client) {
+		super(client, {
+			name: "dj",
+			category: "music",
+			aliases: [],
+			UserPermission: null,
+			ClientPermission: null,
+			OnlyDevs: false,
+			hidden: false,
+		})
+	} 
+	run({message, args, server}, t) {
         
-        const embed = new MessageEmbed()
-        .setColor(this.client.colors.default)
-        .setDescription(t('commands:dj'))
-        .setThumbnail(this.client.user.displayAvatarURL())
-        message.channel.send(embed)    
-    }
+		const embed = new MessageEmbed()
+			.setColor(this.client.colors.default)
+			.setDescription(t("commands:dj"))
+			.setThumbnail(this.client.user.displayAvatarURL())
+		message.channel.send(embed)    
+	}
 }

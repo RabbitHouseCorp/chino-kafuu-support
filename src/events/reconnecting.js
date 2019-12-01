@@ -1,9 +1,9 @@
 module.exports = class Reconnecting {
-  constructor(client) {
-    this.client = client
-  }
+	constructor(client) {
+		this.client = client
+	}
   
-  run() {
-    console.log(`Reconnecting to Discord...`)
-  }
+	run() {
+		console.log("Reconnecting to Discord...")
+	}
 }

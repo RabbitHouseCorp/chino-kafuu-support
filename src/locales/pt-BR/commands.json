@@ -42,7 +42,8 @@
         "authorName": "Denunciado por",
         "authorID": "ID de quem denunciou",
         "channel": "Canal",
-        "reason": "Motivo"
+        "reason": "Motivo",
+        "disable": "este módulo se encontra desativado neste servidor, para ativar o mesmo, use `{{prefix}}config report set #channel`"
     },
     "profile": {
         "title": "Perfil de {{member}}",
@@ -74,7 +75,7 @@
         "he-or-her-need": "{{member}} precisa de mais `7500` yens para poder se casar.",
         "your-is-marred": "você já está casado(a).",
         "he-or-her-is-marred": "{{member}} já é casado(a).",
-        "confirm": "{{member}}, você aceita se casar com {{author}} na saúde e na doença, na riquesa e na pobresa até que a morte os separe?",
+        "confirm": "{{member}}, você aceita se casar com {{author}} na saúde e na doença, na riqueza e na pobreza até que a morte os separe?",
         "successfully-marred": "{{member}}, felicidades para o casal, agora vocês são recém casados.",
         "rejected": "que pena, parece que {{member}} não deseja compartilhar a vida com você, talvez {{member}} não seja o amor da sua vida, acho que houve um erro dos oráculos do amor."
     },

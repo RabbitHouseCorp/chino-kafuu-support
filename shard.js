@@ -1,11 +1,11 @@
 const { ShardingManager } = require("discord.js")
 const shards = new ShardingManager("./index.js", {
-  respawn: true,
-  totalShards: 1
+	respawn: true,
+	totalShards: 1
 })
 
 shards.on("shardCreate", (shard) => {
-  console.warn(`Starting shard: ${shard.id}`)
+	console.warn(`Starting shard: ${shard.id}`)
 })
 
 shards.spawn()

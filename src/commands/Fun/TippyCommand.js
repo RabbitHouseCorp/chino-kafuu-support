@@ -9,7 +9,7 @@ module.exports = class PatCommand extends Command {
 			category: "fun",
 			aliases:["piadas"],
 			UserPermission: null,
-			ClientPermission: null,
+			ClientPermission: ["MANAGE_WEBHOOK"],
 			OnlyDevs: false,
 			hidden: false
 		})

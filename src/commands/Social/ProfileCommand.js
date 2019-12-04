@@ -17,6 +17,16 @@ module.exports = class ProfileCommand extends Command {
 				_id: member.id
 			}).save()
 		}
+		if (user.blacklist) {
+			const bannedEmbed = new MessageEmbed()
+				.setColor(this.client.colors.default)
+				.setAuthor(`${member.tag} está banido.`, member.displayAvatarURL())
+				.setThumbnail(member.displayAvatarURL())
+				.addField("Motivo", user.blacklistReason)
+
+			message.channel.send(bannedEmbed)
+			return
+		}
 		if (args[0] === "color") {
 			if (!args[1]) return message.chinoReply("error", t("commands:profile.colors.args-null"))
 			if (!args[1].includes("#")) return message.chinoReply("error", t("commands:profile.colors.hex"))

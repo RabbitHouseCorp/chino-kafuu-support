@@ -4,7 +4,7 @@ module.exports = class ReloadCommand extends Command {
 	constructor (client) {
 		super(client, {
 			name: "reload",
-			aliases: ["recarregar", "r"],
+			aliases: ["recarregar"],
 			category: "developers",
 			OnlyDevs: true
 		})

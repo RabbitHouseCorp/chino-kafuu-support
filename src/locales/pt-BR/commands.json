@@ -1,4 +1,12 @@
 {
+    "reply": {
+        "args-null": "você precisa informar o ID da mensagem.",
+        "quote-null": "você não informou o que deseja responder.",
+        "message-not-found": "essa mensagem não existe",
+        "is-other-channel": "eu só posso responder mensagens do canal de texto atual.",
+        "saying": "disse",
+        "sended-in": "Enviada no"
+    },
     "remove": {
         "args-null": "você precisa informar o número da música que deseja remover da playlist.",
         "not-number": "você informou algo que não é um número.",

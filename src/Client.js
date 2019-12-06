@@ -7,7 +7,6 @@ module.exports = class Chino extends Client {
 		super(options)
 
 		this.database = require("./database")
-		this.embed = require("./structures/ChinoEmbed")
 		this.commands = new Collection()
 		this.aliases = new Collection()
 		this.events = new EventManager(this)
@@ -15,7 +14,6 @@ module.exports = class Chino extends Client {
 		this.emotes = require("./structures/emotes")
 		this.apis = require("./structures/api")
 		this.player = new Map()
-		this.Discord = require("discord.js")
 		this.config = require("../config.json")
 	}
 	reloadCommand (commandName) {

@@ -8,8 +8,8 @@ module.exports = class VoteCommand extends Command {
 			aliases: ["votar"],
 			UserPermission: null,
 			ClientPermission: null,
-			OnlyDevs: false,
-			hidden: false,
+			OnlyDevs: false
+			
 		})
 	} 
 	run({message, args, server}, t) {

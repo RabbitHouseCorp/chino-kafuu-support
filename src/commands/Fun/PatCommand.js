@@ -10,8 +10,8 @@ module.exports = class PatCommand extends Command {
 			aliases:["cafuné"],
 			UserPermission: null,
 			ClientPermission: null,
-			OnlyDevs: false,
-			hidden: false
+			OnlyDevs: false
+			
 		})
 	}
 	async run({message, args, server}, t) {

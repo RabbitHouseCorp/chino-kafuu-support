@@ -8,8 +8,8 @@ module.exports = class CalculateCommand extends Command {
 			aliases: ["calcular", "calc"],
 			UserPermission: null,
 			ClientPermission: null,
-			OnlyDevs: false,
-			hidden: false,
+			OnlyDevs: false
+			
 		})
 	} 
 	run({message, args, server}, t) {

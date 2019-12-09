@@ -8,8 +8,8 @@ module.exports = class ReportCommand extends Command {
 			aliases: ["reportar"],
 			UserPermission: null,
 			ClientPermission: null,
-			OnlyDevs: false,
-			hidden: false,
+			OnlyDevs: false
+			
 		})
 	} 
 	run({message, args, server}, t) {

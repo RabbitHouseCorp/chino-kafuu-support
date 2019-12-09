@@ -8,8 +8,8 @@ module.exports = class RemoveRoleCommand extends Command {
 			aliases: ["removercargo"],
 			UserPermission: ["MANAGE_ROLES"],
 			ClientPermission: ["MANAGE_ROLES"],
-			OnlyDevs: false,
-			hidden: false,
+			OnlyDevs: false
+			
 		})
 	} 
 	run({message, args, server}, t) {

@@ -10,8 +10,8 @@ module.exports = class CatCommand extends Command {
 			aliases: ["gato", "kitty"],
 			UserPermission: null,
 			ClientPermission: null,
-			OnlyDevs: false,
-			hidden: false
+			OnlyDevs: false
+			
 		}) 
 	}
 	async run({message, args, server}, t) {

@@ -9,8 +9,8 @@ module.exports = class ChannelInfoCommand extends Command {
 			aliases: ["chatinfo"],
 			UserPermission: null,
 			ClientPermission: null,
-			OnlyDevs: false,
-			hidden: false,
+			OnlyDevs: false
+			
 		})
 	} 
 	run({message, args, server}, t) {

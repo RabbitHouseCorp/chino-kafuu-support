@@ -8,8 +8,8 @@ module.exports = class InviteCommand extends Command {
 			aliases: ["convite"],
 			UserPermission: null,
 			ClientPermission: null,
-			OnlyDevs: false,
-			hidden: false,
+			OnlyDevs: false
+			
 		})
 	} 
 	run({message, args, server}, t) {

@@ -8,8 +8,8 @@ module.exports = class EvalCommand extends Command {
 			aliases: ["e"],
 			UserPermission: null,
 			ClientPermission: null,
-			OnlyDevs: true,
-			hidden: true,
+			OnlyDevs: true
+			
 		})
 	}
 	run({message, args, server}, t) {

@@ -8,8 +8,8 @@ module.exports = class TempMuteCommand extends Command {
 			aliases: [],
 			UserPermission: ["KICK_MEMBERS"],
 			ClientPermission: ["MANAGE_ROLES", "MANAGE_CHANNELS"],
-			OnlyDevs: false,
-			hidden: false,
+			OnlyDevs: false
+			
 		})
 	} 
 	async run({message, args, server}, t) {

@@ -7,8 +7,8 @@ module.exports = class ClapCommand extends Command {
 			aliases: ["palmas"],
 			UserPermission: null,
 			ClientPermission: null,
-			OnlyDevs: false,
-			hidden: false
+			OnlyDevs: false
+			
 		})
 	}
 	run({message, args, server}, t) {

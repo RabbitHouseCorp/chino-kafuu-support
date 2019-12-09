@@ -8,8 +8,8 @@ module.exports = class ChangeAvatarCommand extends Command {
 			aliases: ["alteraravatar", "setavatar"],
 			UserPermission: null,
 			ClientPermission: null,
-			OnlyDevs: true,
-			hidden: true,
+			OnlyDevs: true
+			
 		})
 	} 
 	run({message, args, server}, t) {

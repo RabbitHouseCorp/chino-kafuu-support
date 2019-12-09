@@ -8,8 +8,8 @@ module.exports = class LaranjoCommand extends Command {
 			aliases: [],
 			UserPermission: null,
 			ClientPermission: null,
-			OnlyDevs: false,
-			hidden: false
+			OnlyDevs: false
+			
 		})
 	}
 

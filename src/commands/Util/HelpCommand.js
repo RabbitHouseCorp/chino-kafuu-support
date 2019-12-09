@@ -8,8 +8,8 @@ module.exports = class HelpCommand extends Command {
 			aliases: ["ajuda"],
 			UserPermission: null,
 			clientPermission: null,
-			OnlyDevs: false,
-			hidden: false,
+			OnlyDevs: false
+			
 		})
 	} 
 	run({message, args, server}, t) {

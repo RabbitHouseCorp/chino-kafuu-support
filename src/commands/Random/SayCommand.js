@@ -7,8 +7,8 @@ module.exports = class SayCommand extends Command {
 			aliases: ["falar"],
 			UserPermission: null,
 			ClientPermission: null,
-			OnlyDevs: false,
-			hidden: false,
+			OnlyDevs: false
+			
 		})
 	} 
 	run({message, args, server}, t) {

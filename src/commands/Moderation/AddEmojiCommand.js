@@ -7,8 +7,8 @@ module.exports = class AddEmoji extends Command {
 			aliases: ["adicionaremoji"],
 			UserPermission: ["MANAGE_EMOJIS"],
 			ClientPermission: ["MANAGE_EMOJIS"],
-			OnlyDevs: false,
-			hidden: false,
+			OnlyDevs: false
+			
 		})
 	}
 	run({message, args, server}, t) {

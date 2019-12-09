@@ -81,14 +81,6 @@ module.exports = class MessageReceive {
 					if (message.content === message.guild.me.toString()) {
 						message.channel.send(`${t("events:mention.start")} ${message.author}, ${t("events:mention.end", {prefix: server.prefix})}`)
 					}
-					/*if (server.partner) {
-                        message.guild.members.filter(member => message.guild.member(member).hasPermission("MANAGE_GUILD")).forEach(member => {
-                            if (!member.user.bot) {
-                                let role = this.client.guilds.get("468877023926943764").roles.get("481830059628429322")
-                                this.client.guilds.get("468877023926943764").members.get(member.id).add(role.id)
-                            }
-                        })
-                    }*/
                     
 					if (!message.content.startsWith(server.prefix)) return
 					const args = message.content.slice(server.prefix.length).trim().split(/ +/g)
@@ -138,7 +130,7 @@ module.exports = class MessageReceive {
 						}
 					}
 					if (clientPermission !== null) {
-						if (!message.member.hasPermission(clientPermission)) {
+						if (!message.guild.me.hasPermission(clientPermission)) {
 							let perm = clientPermission.map(value => t(`permissions:${value}`)).join(", ")
 							return message.chinoReply("error", `${t("permissions:CLIENT_MISSING_PERMISSION", {perm: perm})}`)
 						}

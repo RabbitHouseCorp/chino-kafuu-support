@@ -8,8 +8,8 @@ module.exports = class RestrictRoleCommand extends Command {
             aliases: ['restringirrole'],
             UserPermission: ['MANAGE_ROLES'],
             ClientPermission: ['MANAGE_ROLES'],
-            OnlyDevs: false,
-            hidden: false
+            OnlyDevs: false
+            
         })
     }
 

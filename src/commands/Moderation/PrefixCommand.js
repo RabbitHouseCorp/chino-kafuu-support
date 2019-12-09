@@ -7,8 +7,8 @@ module.exports = class PrefixCommand extends Command {
 			aliases: ["prefixo"],
 			UserPermission: ["MANAGE_GUILD"],
 			ClientPermission: null,
-			OnlyDevs: false,
-			hidden: false,
+			OnlyDevs: false
+			
 		})
 	} 
 	run({message, args, server}, t) {

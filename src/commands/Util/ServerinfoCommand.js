@@ -9,8 +9,8 @@ module.exports = class ServerinfoCommand extends Command {
 			aliases: [],
 			UserPermission: null,
 			ClientPermission: null,
-			OnlyDevs: false,
-			hidden: false,
+			OnlyDevs: false
+			
 		})
 	} 
 	run({message, args, server}, t) {

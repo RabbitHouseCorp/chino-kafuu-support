@@ -7,8 +7,8 @@ module.exports = class AFKCommand extends Command {
 			aliases: ["awayfromthekeyboard"],
 			UserPermission: null,
 			ClientPermission: null,
-			OnlyDevs: false,
-			hidden: false
+			OnlyDevs: false
+			
 		})
 	}
 

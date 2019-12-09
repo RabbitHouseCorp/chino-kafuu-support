@@ -10,8 +10,8 @@ module.exports = class RoleinfoCommand extends Command {
 			aliases: ["cargoinfo", "rinfo"],
 			UserPermission: null,
 			ClientPermission: null,
-			OnlyDevs: false,
-			hidden: false,
+			OnlyDevs: false
+			
 		})
 	} 
 	run({message, args, server}, t) {

@@ -10,8 +10,8 @@ module.exports = class PatCommand extends Command {
 			aliases:["piadas"],
 			UserPermission: null,
 			ClientPermission: ["MANAGE_WEBHOOK"],
-			OnlyDevs: false,
-			hidden: false
+			OnlyDevs: false
+			
 		})
 	}
 	async run({message, args, server}, t) {

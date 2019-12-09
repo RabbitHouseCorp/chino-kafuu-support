@@ -8,8 +8,8 @@ module.exports = class BanCommand extends Command {
 			aliases: ["banir"],
 			UserPermission: ["BAN_MEMBERS"],
 			ClientPermission: ["BAN_MEMBERS"],
-			OnlyDevs: false,
-			hidden: false,
+			OnlyDevs: false
+			
 		})
 	}
 	async run({message, args, server}, t) {

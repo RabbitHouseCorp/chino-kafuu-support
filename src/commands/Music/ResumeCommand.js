@@ -7,8 +7,8 @@ module.exports = class ResumeCommand extends Command {
 			aliases: ["continuar", "retormar", "unpause"],
 			UserPermission: null,
 			ClientPermission: null,
-			OnlyDevs: false,
-			hidden: false,
+			OnlyDevs: false
+			
 		})
 	} 
 	run({message, args, server}, t) {

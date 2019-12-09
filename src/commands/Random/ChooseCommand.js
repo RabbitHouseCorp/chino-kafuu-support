@@ -7,8 +7,8 @@ module.exports = class ChooseCommand extends Command {
 			aliases: ["escolher"],
 			UserPermission: null,
 			ClientPermission: null,
-			OnlyDevs: false,
-			hidden: false,
+			OnlyDevs: false
+			
 		})
 	} 
 	run({message, args, server}, t) {

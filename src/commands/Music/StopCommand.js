@@ -7,8 +7,8 @@ module.exports = class StopCommand extends Command {
 			aliases: ["parar"],
 			UserPermission: null,
 			ClientPermission: null,
-			OnlyDevs: false,
-			hidden: false,
+			OnlyDevs: false
+			
 		})
 	} 
 	async run({message, args, server}, t) {

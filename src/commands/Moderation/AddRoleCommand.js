@@ -7,8 +7,8 @@ module.exports = class AddRoleCommand extends Command {
 			aliases: ["adicionarcargo"],
 			UserPermission: ["MANAGE_ROLES"],
 			ClientPermission: ["MANAGE_ROLES"],
-			OnlyDevs: false,
-			hidden: false,
+			OnlyDevs: false
+			
 		})
 	} 
 	run({message, args, server}, t) {

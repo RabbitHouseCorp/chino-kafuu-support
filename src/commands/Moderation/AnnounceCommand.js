@@ -7,8 +7,8 @@ module.exports = class AnnounceCommand extends Command {
 			aliases: ["anunciar"],
 			UserPermission: ["MANAGE_GUILD", "MENTION_EVERYONE"],
 			ClientPermission: ["SEND_MESSAGES", "MENTION_EVERYONE"],
-			OnlyDevs: false,
-			hidden: false,
+			OnlyDevs: false
+			
 		})
 	} 
 	run({message, args, server}, t) {

@@ -10,8 +10,8 @@ module.exports = class NekoCommand extends Command {
 			aliases: [],
 			UserPermission: null,
 			ClientPermission: null,
-			OnlyDevs: false,
-			hidden: false
+			OnlyDevs: false
+			
 		})
 	}
 

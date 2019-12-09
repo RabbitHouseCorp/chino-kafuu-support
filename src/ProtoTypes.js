@@ -3,10 +3,10 @@ const emotes = require("./structures/emotes")
 const { CanvasRenderingContext2D } = require("canvas")
 module.exports = class ProtoTypes {
 	static start() {
-		Message.prototype.chinoReply = function send(emoji, message, ...args) {
+		Message.prototype.chinoReply = async function send(emoji, message, ...args) {
 
 			emoji = emotes[emoji]
-			this.channel.send(`${emoji} **|** ${this.author}, ${message}`, ...args)
+			return this.channel.send(`${emoji} **|** ${this.author}, ${message}`, ...args)
 		}
       
 		CanvasRenderingContext2D.prototype.roundRect = function roundRect(x, y, width, height, radius, fill, stroke) {

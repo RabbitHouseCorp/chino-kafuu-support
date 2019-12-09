@@ -10,8 +10,8 @@ module.exports = class HugCommand extends Command {
 			aliases: [],
 			UserPermission: null,
 			ClientPermission: null,
-			OnlyDevs: false,
-			hidden: false
+			OnlyDevs: false
+			
 		})
 	}
 	async run({message, args, server}, t) {

@@ -7,8 +7,8 @@ module.exports = class FakeMsgCommand extends Command {
 			aliases: [],
 			UserPermission: null,
 			ClientPermission: ["MANAGE_WEBHOOK"],
-			OnlyDevs: false,
-			hidden: false
+			OnlyDevs: false
+			
 		})
 	}
 	run({message, args, server}, t) {

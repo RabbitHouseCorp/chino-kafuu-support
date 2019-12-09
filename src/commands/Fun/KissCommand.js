@@ -10,8 +10,8 @@ module.exports = class KissCommand extends Command {
 			aliases: ["beijar"],
 			UserPermission: null,
 			ClientPermission: null,
-			OnlyDevs: false,
-			hidden: false
+			OnlyDevs: false
+			
 		})
 	}
 	async run({message, args, server}, t) {

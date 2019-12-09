@@ -8,8 +8,8 @@ module.exports = class UnbanCommand extends Command {
 			aliases: ["desbanir"],
 			UserPermission: ["BAN_MEMBERS"],
 			ClientPermission: ["BAN_MEMBERS"],
-			OnlyDevs: false,
-			hidden: false,
+			OnlyDevs: false
+			
 		})
 	} 
 	async run({message, args, server}, t) {

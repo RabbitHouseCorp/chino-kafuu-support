@@ -8,8 +8,8 @@ module.exports = class RizeCommand extends Command {
 			aliases: [],
 			UserPermission: null,
 			ClientPermission: null,
-			OnlyDevs: false,
-			hidden: false
+			OnlyDevs: false
+			
 		})
 	}
 

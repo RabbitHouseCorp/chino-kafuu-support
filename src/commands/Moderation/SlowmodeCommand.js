@@ -7,8 +7,8 @@ module.exports = class SlowmodeCommand extends Command {
 			aliases: ["modolento"],
 			UserPermission: ["MANAGE_CHANNELS"],
 			ClientPermission: ["MANAGE_CHANNELS"],
-			OnlyDevs: false,
-			hidden: false,
+			OnlyDevs: false
+			
 		})
 	} 
 	run({message, args, server}, t) {

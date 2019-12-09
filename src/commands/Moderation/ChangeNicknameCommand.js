@@ -7,8 +7,8 @@ module.exports = class ChangeNickCommand extends Command {
 			aliases: ["setnickname","setarapelido", "alteraraplido"],
 			UserPermission: ["MANAGE_NICKNAMES"],
 			ClientPermission: ["MANAGE_NICKNAMES"],
-			OnlyDevs: false,
-			hidden: false,
+			OnlyDevs: false
+			
 		})
 	} 
 	run({message, args, server}, t) {

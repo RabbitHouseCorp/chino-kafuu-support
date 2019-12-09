@@ -8,8 +8,8 @@ module.exports = class KickCommand extends Command {
 			aliases: ["expulsar"],
 			UserPermission: ["KICK_MEMBERS", "MUTE_MEMBERS"],
 			ClientPermission: ["KICK_MEMBERS", "MUTE_MEMBERS", "MANAGE_ROLES"],
-			OnlyDevs: false,
-			hidden: false,
+			OnlyDevs: false
+			
 		})
 	} 
 	run({message, args, server}, t) {

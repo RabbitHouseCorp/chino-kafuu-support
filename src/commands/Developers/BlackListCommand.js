@@ -7,8 +7,8 @@ module.exports = class BlackListCommand extends Command {
 			aliases: ["listanegra"],
 			UserPermission: null,
 			ClientPermission: null,
-			OnlyDevs: true,
-			hidden: true,
+			OnlyDevs: true
+			
 		})
 	}
 	async run({message, args, server}, t) {

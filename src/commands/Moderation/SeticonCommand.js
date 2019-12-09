@@ -7,8 +7,8 @@ module.exports = class SetIconCommand extends Command {
 			aliases: ["alteraricone"],
 			UserPermission: ["MANAGE_GUILD"],
 			ClientPermission: ["MANAGE_GUILD"],
-			OnlyDevs: false,
-			hidden: false,
+			OnlyDevs: false
+			
 		})
 	} 
 	run({message, args, server}, t) {

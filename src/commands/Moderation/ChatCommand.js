@@ -7,8 +7,8 @@ module.exports = class ChatCommand extends Command {
 			aliases: [],
 			UserPermission: ["MANAGE_CHANNELS"],
 			ClientPermission: ["MANAGE_CHANNELS"],
-			OnlyDevs: false,
-			hidden: false,
+			OnlyDevs: false
+			
 		})
 	} 
 	run({message, args, server}, t) {

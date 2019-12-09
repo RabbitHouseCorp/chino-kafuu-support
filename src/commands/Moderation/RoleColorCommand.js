@@ -5,7 +5,6 @@ module.exports = class RoleColorCommand extends Command {
 		super(client, {
 			name: "rolecolor",
 			category: "mod",
-			OnlyDevs: false,
 			UserPermission: ["MANAGE_ROLES"],
 			ClientPermission: ["MANAGE_ROLES"]
 		})

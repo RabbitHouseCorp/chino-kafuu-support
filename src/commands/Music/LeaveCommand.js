@@ -7,8 +7,8 @@ module.exports = class LeaveCommand extends Command {
 			aliases: ["sair"],
 			UserPermission: ["BAN_MEMBERS"],
 			ClientPermission: null,
-			OnlyDevs: false,
-			hidden: false,
+			OnlyDevs: false
+			
 		})
 	} 
 	run({message, args, server}, t) {

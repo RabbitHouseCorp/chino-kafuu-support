@@ -7,8 +7,8 @@ module.exports = class PlayCommand extends Command {
 			aliases: ["tocar"],
 			UserPermission: null,
 			ClientPermission: null,
-			OnlyDevs: false,
-			hidden: false,
+			OnlyDevs: false
+			
 		})
 	} 
 	async run({message, args, server}, t) {

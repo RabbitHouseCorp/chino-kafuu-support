@@ -2,8 +2,7 @@
     "reply": {
         "args-null": "você precisa informar o ID da mensagem.",
         "quote-null": "você não informou o que deseja responder.",
-        "message-not-found": "essa mensagem não existe",
-        "is-other-channel": "eu só posso responder mensagens do canal de texto atual.",
+        "message-not-found": "essa mensagem não existe, ou ela é de outro canal.",
         "saying": "disse",
         "sended-in": "Enviada no"
     },

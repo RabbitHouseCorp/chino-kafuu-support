@@ -8,8 +8,8 @@ module.exports = class RemoveEmojiCommand extends Command {
 			aliases: ["removeremoji"],
 			UserPermission: ["MANAGE_EMOJIS"],
 			ClientPermission: ["MANAGE_EMOJIS"],
-			OnlyDevs: false,
-			hidden: false,
+			OnlyDevs: false
+			
 		})
 	} 
 	run({message, args, server}, t) {

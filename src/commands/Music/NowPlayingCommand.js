@@ -11,8 +11,8 @@ module.exports = class NowPlayingCommand extends Command {
 			aliases:["playingnow", "np"],
 			UserPermission: null,
 			ClientPermission: null,
-			OnlyDevs: false,
-			hidden: false
+			OnlyDevs: false
+			
 		})
 	}
 

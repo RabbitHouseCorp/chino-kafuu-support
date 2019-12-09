@@ -9,8 +9,8 @@ module.exports = class SeekCommand extends Command {
 			aliases: ["posicao"],
 			UserPermission: null,
 			ClientPermission: null,
-			OnlyDevs: false,
-			hidden: false,
+			OnlyDevs: false
+			
 		})
 	} 
 	run({message, args, server}, t) {

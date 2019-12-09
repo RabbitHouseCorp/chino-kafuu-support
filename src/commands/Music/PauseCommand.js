@@ -7,8 +7,8 @@ module.exports = class PauseCommand extends Command {
 			aliases: ["pausar"],
 			UserPermission: null,
 			ClientPermission: null,
-			OnlyDevs: false,
-			hidden: false,
+			OnlyDevs: false
+			
 		})
 	} 
 	run({message, args, server}, t) {

@@ -8,8 +8,8 @@ module.exports = class Unmute extends Command {
 			aliases: ["desmutar"],
 			UserPermission: ["KICK_MEMBERS"],
 			ClientPermission: ["MANAGE_ROLES"],
-			OnlyDevs: false,
-			hidden: false,
+			OnlyDevs: false
+			
 		})
 	} 
 	run({message, args, server}, t) {

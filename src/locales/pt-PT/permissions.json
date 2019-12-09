@@ -25,7 +25,7 @@
     "CHANGE_NICKNAME": "Mudar Apelido",
     "MANAGE_NICKNAMES": "Gerenciar Apelidos",
     "MANAGE_ROLES": "Gerenciar Cargos",
-    "MANAGE_WEBHOOKS": "Gerenciar WebHooks",
+    "MANAGE_WEBHOOK": "Gerenciar WebHooks",
     "MANAGE_EMOJIS": "Gerenciar Emojis",
     "ONLY_DEVS": "não fazes parte da minha equipe de desenvolvimento, portanto não podes executar esse comando!",
     "USER_MISSING_PERMISSION": "não tens a permissão de `{{perm}}` para poder executar este comando.",

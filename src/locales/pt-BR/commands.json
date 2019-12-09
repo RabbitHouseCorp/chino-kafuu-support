@@ -1,4 +1,10 @@
 {
+    "renameemoji": {
+        "args-null": "você não mencionou o emoji que deseja renomear.",
+        "emoji-not-found": "este emoji não se encontra neste servidor.",
+        "emoji-name-null": "você não informou o nome que deseja colocar.",
+        "success": "emoji renomeado com sucesso."
+    },
     "reply": {
         "args-null": "você precisa informar o ID da mensagem.",
         "quote-null": "você não informou o que deseja responder.",

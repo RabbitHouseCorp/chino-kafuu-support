@@ -10,6 +10,7 @@ dbl.on("posted", () => {
 	console.log("Connected to DBL")
 })
 
+dbl.on("error", err => {})
 client.login(config.token)
 client.loadCommands("./src/commands")
 client.loadEvents("./src/events")

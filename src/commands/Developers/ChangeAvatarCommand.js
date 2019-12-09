@@ -14,14 +14,17 @@ module.exports = class ChangeAvatarCommand extends Command {
 	} 
 	run({message, args, server}, t) {
         
-		const avatar = args[0] || message.attachments.first() ? message.attachments.first().url : undefined
-		if (!avatar || avatar === undefined) return message.chinoReply("error", t("commands:changeavatar.args-null"))
+		let avatar = args[0]
+		if (message.attachments.first()) {
+			avatar = message.attachments.first().url
+		}
+		if (!avatar) return message.chinoReply("error", t("commands:changeavatar.args-null"))
 
-		this.client.user.setAvatar(avatar).then(() => {
+		this.client.user.setAvatar(avatar).then(bot => {
 			const embed = new MessageEmbed()
 				.setColor(this.client.colors.default)
-				.setAuthor(t("commands:changeavatar.avatar"), avatar)
-				.setImage(avatar)
+				.setAuthor(t("commands:changeavatar.avatar"), bot.displayAvatarURL())
+				.setImage(`${bot.displayAvatarURL()}?size=2048`)
 
 			message.channel.send(embed)
 		})

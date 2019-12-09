@@ -14,11 +14,12 @@ module.exports = class CreateinviteCommand extends Command {
 	async run({message, args, server}, t) {
             
 		const guild = args.join(" ")
-		if (!guild) return message.channel.send(`<:chino_error:545356006629310495> **|** ${message.author} Indique o ID ou nome do servidor que você deseja pegar o convite.`)
+		if (!guild) return message.channel.send("error", "informe o ID ou nome do servidor que você deseja pegar o convite.")
 		let guilds = this.client.guilds.get(args[0]) || this.client.guilds.find(g => g.name === guild)
-		if (!guilds.member(this.client.user).hasPermission("CREATE_INSTANT_INVITE")) return message.channel.send(`<:chino_sad:557754777136791582> **|** ${message.author} Eu não tenho permissão para criar convites nesse servidor.`)
+		if (!guilds) return message.chinoReply("error", "eu não estou neste servidor.")
+		if (!guilds.me.hasPermission("CREATE_INSTANT_INVITE")) return message.chinoReply("error", "eu não tenho permissão para criar convites neste servidor.")
 		let invite = await this.client.guilds.get(guilds.id).channels.random().createInvite()
 
-		message.channel.send(`<:chino_peek:564106497882062890> **|** ${message.author} Aqui está o convite: ${invite}`)
+		message.chinoReply("chino_peek", `aqui está o convite: ${invite}`)
 	}
 }

@@ -1,8 +1,8 @@
 const config = require("../config.json")
 const mongoose = require("mongoose")
 mongoose.connect(config.mongoose, { useNewUrlParser: true, useUnifiedTopology: true, autoReconnect: true }, (err) => {
-	if (err) return console.log(`(x) Não consegui me conectar no banco de dados \n${err.stack}`)
-	console.log("(>) Eu me conectei no meu banco de dados!")
+	if (err) return console.log(`(x) Error to connecting to database \n${err}`)
+	console.log("Successfully connected to database!")
 })
 let Guild = new mongoose.Schema({
 	_id: { type: String },

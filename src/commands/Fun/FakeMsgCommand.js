@@ -21,12 +21,12 @@ module.exports = class FakeMsgCommand extends Command {
 				webhook.send(botmsg, {
 					disableEveryone: false
 				})
-				webhook.delete()
+				setTimeout(() => webhook.delete(), 5000)
 			} else {
 				webhook.send(botmsg, {
 					disableEveryone: true
 				})
-				webhook.delete()
+				setTimeout(() => webhook.delete(), 5000)
 			}
 		})
 	}

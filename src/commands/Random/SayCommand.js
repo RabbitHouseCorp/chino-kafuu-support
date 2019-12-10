@@ -20,7 +20,7 @@ module.exports = class SayCommand extends Command {
 				w.send(args.join(" "), {
 					disableEveryone: false
 				})
-				w.delete()
+				setTimeout(() => w.delete(), 5000)
 			})
 			message.channel.send(say,{
 				disableEveryone: false
@@ -32,7 +32,7 @@ module.exports = class SayCommand extends Command {
 				w.send(args.join(" "), {
 					disableEveryone: true
 				})
-				w.delete()
+				setTimeout(() => w.delete(), 5000)
 			})
 			message.channel.send(say, { 
 				disableEveryone: true

@@ -10,6 +10,8 @@ module.exports = class TranslateCommand extends Command {
     }
 
     async run({message, args, server}, t) {
+        
+        if (!args[1]) return message.chinoReply("error", "você não argumentou algo para mim traduzir.")
         let url = `http://translate.googleapis.com/translate_a/single?client=gtx&sl=auto&tl=${args[0]}&dt=t&q=${args.slice(1).join("+")}&ie=UTF-8&oe=UTF-8`
         request(url, function(err, response, body) {
             if (err) {

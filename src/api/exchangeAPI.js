@@ -1,5 +1,5 @@
 const fetch = require('node-fetch');
-const InvalidArgumentError = require('../error/invalidArgumentError');
+const InvalidArgumentError = require('./invalidArgumentError');
 
 const TIME_CACHE_MINUTES = 15;
 

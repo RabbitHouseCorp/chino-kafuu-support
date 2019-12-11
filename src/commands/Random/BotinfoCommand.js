@@ -29,7 +29,8 @@ module.exports = class BotinfoCommand extends Command {
 				.addField(t("commands:botinfo.github"), t("commands:botinfo.github-desc"), true)
 				.addField(t("commands:botinfo.twitter"), "[@ChinoKafuuBot](https://twitter.com/ChinoKafuuBot)", true)
 				.addField(t("commands:botinfo.server-suport"), t("commands:botinfo.server-suport-url"), true)
-    
+				.addField("DiscordBot List", `[${t("commands:click-here")}](https://top.gg/bot/481282441294905344/vote)`, true)
+				.addField("Bots para Discord", `[${t("commands:click-here")}](https://botsparadiscord.xyz/bots/481282441294905344/votar)`)
 			const statusEmbed = new MessageEmbed()
 				.setColor(color)
 				.setTitle(t("commands:status.title"))

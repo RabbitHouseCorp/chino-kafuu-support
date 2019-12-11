@@ -1,6 +1,6 @@
 const Command = require("../../structures/command");
 const ExchangeApi = require('../../api/exchangeApi');
-const InvalidArgumentError = require('../../error/invalidArgumentError');
+const InvalidArgumentError = require('../../api/invalidArgumentError');
 
 module.exports = class MoneyCommand extends Command {
     constructor(client) {

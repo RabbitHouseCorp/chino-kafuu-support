@@ -30,6 +30,6 @@ module.exports = class PayCommand extends Command {
 		membro.save()
 		donator.save()
 
-		message.chinoReply("money_with_wings", t("commands:pay.success", {member: member, value: Number(value).toLocaleString()}))
+		message.chinoReply("money_with_wings", t("commands:pay.success", {member: member.toString(), value: Number(value).toLocaleString()}))
 	}
 }

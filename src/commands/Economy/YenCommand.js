@@ -19,7 +19,7 @@ module.exports = class YensCommand extends Command {
 		if (message.author.id === member.id) {
 			message.chinoReply("yen", t("commands:yen.totalYens", {yens: Number(user.yens).toLocaleString()}))
 		} else {
-			message.chinoReply("yen", t("commands:yen.user-total", {member: member, yens: Number(user.yens).toLocaleString()}))
+			message.chinoReply("yen", t("commands:yen.user-total", {member: member.toString(), yens: Number(user.yens).toLocaleString()}))
 		}
 	}
 }

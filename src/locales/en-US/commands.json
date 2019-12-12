@@ -1,24 +1,86 @@
 {
+    "translate": {
+        "args-null": "você não argumentou algo para mim traduzir."
+    },
+    "renameemoji": {
+        "args-null": "você não mencionou o emoji que deseja renomear.",
+        "emoji-not-found": "este emoji não se encontra neste servidor.",
+        "emoji-name-null": "você não informou o nome que deseja colocar.",
+        "success": "emoji renomeado com sucesso."
+    },
+    "reply": {
+        "args-null": "você precisa informar o ID da mensagem.",
+        "quote-null": "você não informou o que deseja responder.",
+        "message-not-found": "essa mensagem não existe, ou ela é de outro canal.",
+        "saying": "disse",
+        "sended-in": "Enviada no"
+    },
+    "remove": {
+        "args-null": "você precisa informar o número da música que deseja remover da playlist.",
+        "not-number": "você informou algo que não é um número.",
+        "max-and-minimum": "você pode remover até **{{max}}** músicas da playlist.",
+        "removed": "música removida da playlist com sucesso."
+    },
+    "config": {
+        "title": "Configurações de módulos",
+        "how-use": "Como usar",
+        "report": {
+            "title": "Módulo de denúncias",
+            "disable": "módulo de denúncias desativado com sucesso.",
+            "enable": "módulo de denúncias ativado com sucesso e canal de denuncias definido."
+        },
+        "punishment": {
+            "enable": "módulo de moderação ativado com sucesso.",
+            "disable": "módulo de moderação desativado com sucesso.",
+            "title": "Módulo de moderação"
+        },
+        "modules": "Módulos",
+        "config-modules": {
+            "punishment": {
+                "channel": "Canal de moderação",
+                "module": "Módulo de moderação"
+            },
+            "report": {
+                "channel": "Canal de denúncia",
+                "module": "Módulo de denúncia"
+            },
+            "enable": "Ativado",
+            "disable": "Desativado"
+        },
+        "no-channel": "Não definido.",
+        "module-not-found": "este módulo não foi encontrado, módulos existentes: `punishment`, `report`.",
+        "options-not-found": "esta opção não foi encontrada, opções disponíveis: `set`, `disable`"
+    },
+    "report": {
+        "success": "denuncia enviada com sucesso.",
+        "memberName": "Usuário",
+        "memberID": "ID do usuário",
+        "authorName": "Denunciado por",
+        "authorID": "ID de quem denunciou",
+        "channel": "Canal",
+        "reason": "Motivo",
+        "disable": "este módulo se encontra desativado neste servidor, para ativar o mesmo, use `{{prefix}}config report set #channel`"
+    },
     "profile": {
-        "title": "Perfil de {{member}}",
-        "aboutme": "Sobre mim",
-        "user-name": "Usuário",
-        "user-id": "ID do usuário",
-        "marred": "Casado(a) com",
+        "title": "{{member}}' profile",
+        "aboutme": "About me",
+        "user-name": "User",
+        "user-id": "User ID",
+        "marred": "Married with",
         "yens": "Yens",
-        "rep": "Reputação",
+        "rep": "Reputation",
         "colors": {
-            "args-null": "você precisa informar cor desejada.",
-            "hex": "você precisa por uma cor em `hex`."
+            "args-null": "argue the desired color",
+            "hex": "your color must be a `hex` color."
         }
     },
     "aboutme": {
-        "args-null": "você precisa informar o que deseja colocar no seu sobremim.",
-        "success": "seu sobremim foi alterado com sucesso para `{{aboutme}}`."
+        "args-null": "argue something to change your aboutme",
+        "success": "successfully changed your aboutme to `{{aboutme}}`."
     },
     "shuffle": "queue successfully shuffled.",
     "clap": {
-        "args-null": "você não informou nada para mim falar."
+        "args-null": "argue something to say."
      },
     "addemoji": {
         "success": "successfully added emoji!",

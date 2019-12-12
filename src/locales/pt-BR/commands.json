@@ -1,4 +1,7 @@
 {
+    "translate": {
+        "args-null": "você não argumentou algo para mim traduzir."
+    },
     "renameemoji": {
         "args-null": "você não mencionou o emoji que deseja renomear.",
         "emoji-not-found": "este emoji não se encontra neste servidor.",

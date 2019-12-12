@@ -17,7 +17,7 @@ module.exports = class DivorceCommand extends Command {
 		if (user.yens < Number(300)) return message.chinoReply("error", t("commands:divorce.author"))
         
 
-		message.channel.send(t("commands:divorce.confirm", {member: member, author: message.author})).then(msg => {
+		message.channel.send(t("commands:divorce.confirm", {member: member.toString(), author: message.author})).then(msg => {
 			setTimeout(() => msg.react("✅"), 500)
 			setTimeout(() => msg.react("❎"), 1000)
 

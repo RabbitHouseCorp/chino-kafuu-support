@@ -13,12 +13,12 @@ module.exports = class MarryCommand extends Command {
 		if (!member) return message.chinoReply("error", t("commands:mention-null"))
 		let user = await this.client.database.Users.findById(member.id)
 		let author = await this.client.database.Users.findById(message.author.id)
-		if (user.yens < Number(7500)) return message.chinoReply("error", t("commands:marry.he-or-her-need", {member: member}))
+		if (user.yens < Number(7500)) return message.chinoReply("error", t("commands:marry.he-or-her-need", {member: member.toString()}))
 		if (author.yens < Number(7500)) return message.chinoReply("error", t("commands:marry.you-need"))
-		if (user.isMarry) return message.chinoReply("error", t("commands:marry.he-or-her-is-marred", {member: member}))
+		if (user.isMarry) return message.chinoReply("error", t("commands:marry.he-or-her-is-marred", {member: member.toString()}))
 		if (author.isMarry) return message.chinoReply("error", t("commands:marry.your-is-marred"))
 
-		message.channel.send(t("commands:marry.confirm", {member: member, author: message.author})).then(msg => {
+		message.channel.send(t("commands:marry.confirm", {member: member.toString(), author: message.author.toString()})).then(msg => {
 			setTimeout(() => msg.react("✅"), 500)
 			setTimeout(() => msg.react("❎"), 1000)
 
@@ -36,11 +36,11 @@ module.exports = class MarryCommand extends Command {
 					author.yens -= Number(7500)
 					author.save()
 					msg.delete()
-					message.chinoReply("tada", t("commands:marry.successfully-marred", {member: member}))
+					message.chinoReply("tada", t("commands:marry.successfully-marred", {member: member.toString()}))
 					break
 				case "❎":
 					msg.delete()
-					message.chinoReply("broken_heart", t("commands:marry.rejected", {member: member}))
+					message.chinoReply("broken_heart", t("commands:marry.rejected", {member: member.toString()}))
 				}
 			})
 		})

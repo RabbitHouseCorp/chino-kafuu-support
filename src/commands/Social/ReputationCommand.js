@@ -29,7 +29,7 @@ module.exports = class ReputationCommand extends Command {
 			author.save()
 			user.save()
 
-			message.reply(t("commands:rep.success", {member: member, rep: user.rep}))
+			message.reply(t("commands:rep.success", {member: member.toString(), rep: user.rep}))
 		} else {
 			message.reply(t("commands:rep.timeout", {time: time}))
 		}

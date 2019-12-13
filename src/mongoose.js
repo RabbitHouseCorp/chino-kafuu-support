@@ -1,6 +1,6 @@
 const config = require("../config.json")
 const mongoose = require("mongoose")
-mongoose.connect(config.mongoose, { useNewUrlParser: true, useUnifiedTopology: true, autoReconnect: true }, (err) => {
+mongoose.connect(config.mongoose, { useNewUrlParser: true, useUnifiedTopology: true }, (err) => {
 	if (err) return console.log(`(x) Error to connecting to database \n${err}`)
 	console.log("Successfully connected to database!")
 })

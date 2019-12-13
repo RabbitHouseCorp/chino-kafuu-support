@@ -6,7 +6,7 @@ module.exports = class Chino extends Client {
 	constructor(options = {}) {
 		super(options)
 
-		this.database = require("./database")
+		this.database = require("./mongoose")
 		this.commands = new Collection()
 		this.aliases = new Collection()
 		this.events = new EventManager(this)

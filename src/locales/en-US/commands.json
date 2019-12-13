@@ -1,65 +1,66 @@
 {
     "translate": {
-        "args-null": "você não argumentou algo para mim traduzir."
+        "args-null": "you didn't argue something for me to translate."
     },
     "renameemoji": {
-        "args-null": "você não mencionou o emoji que deseja renomear.",
-        "emoji-not-found": "este emoji não se encontra neste servidor.",
-        "emoji-name-null": "você não informou o nome que deseja colocar.",
-        "success": "emoji renomeado com sucesso."
+        "args-null": "you didn't mention the emoji you want to rename.",
+        "emoji-not-found": "this emoji is not on this server.",
+        "emoji-name-null": "you didn't enter the name you want to put.",
+        "success": "emoji successfully renamed."
     },
     "reply": {
-        "args-null": "você precisa informar o ID da mensagem.",
-        "quote-null": "você não informou o que deseja responder.",
-        "message-not-found": "essa mensagem não existe, ou ela é de outro canal.",
-        "saying": "disse",
-        "sended-in": "Enviada no"
+        "args-null": "you need to enter the message ID.",
+        "quote-null": "you didn't enter what you want to answer.",
+        "message-not-found": "this message does not exist, or it is from another channel.",
+        "said": "said",
+        "sent-in": "Sent in"
     },
     "remove": {
-        "args-null": "você precisa informar o número da música que deseja remover da playlist.",
-        "not-number": "você informou algo que não é um número.",
-        "max-and-minimum": "você pode remover até **{{max}}** músicas da playlist.",
-        "removed": "música removida da playlist com sucesso."
+        "args-null": "you need to put the number of the song you want to remove from the playlist.",
+        "not-number": "you putting something that is not a number.",
+        "max-and-minimum": "you can remove up to **{{max}}** songs from the playlist.",
+        "removed": "song successfully removed."
     },
     "config": {
-        "title": "Configurações de módulos",
-        "how-use": "Como usar",
+        "title": "Module Settings",
+        "how-use": "How to use",
         "report": {
-            "title": "Módulo de denúncias",
-            "disable": "módulo de denúncias desativado com sucesso.",
-            "enable": "módulo de denúncias ativado com sucesso e canal de denuncias definido."
+            "title": "Report module",
+            "disable": "report module successfully deactivated.",
+            "enable": "report module successfully activated and report channel set."
         },
         "punishment": {
-            "enable": "módulo de moderação ativado com sucesso.",
-            "disable": "módulo de moderação desativado com sucesso.",
-            "title": "Módulo de moderação"
+            "enable": "moderation module activated successfully.",
+            "disable": "moderation module successfully deactivated.",
+            "title": "Moderation Module"
         },
-        "modules": "Módulos",
+        "modules": "Modules",
         "config-modules": {
             "punishment": {
-                "channel": "Canal de moderação",
-                "module": "Módulo de moderação"
+                "channel": "Moderation Channel",
+                "module": "Moderation module"
             },
             "report": {
-                "channel": "Canal de denúncia",
-                "module": "Módulo de denúncia"
+                "channel": "Report channel",
+                "module": "Report module"
             },
-            "enable": "Ativado",
-            "disable": "Desativado"
+            "enable": "Enable",
+            "disable": "Disable"
         },
-        "no-channel": "Não definido.",
-        "module-not-found": "este módulo não foi encontrado, módulos existentes: `punishment`, `report`.",
-        "options-not-found": "esta opção não foi encontrada, opções disponíveis: `set`, `disable`"
+        "no-channel": "Not defined.",
+        "module-not-found": "this module was not found, existing modules: `punishment`, `report`.",
+        "options-not-found": "this option was not found, available options: `set`,` disable`"
     },
     "report": {
-        "success": "denuncia enviada com sucesso.",
-        "memberName": "Usuário",
-        "memberID": "ID do usuário",
-        "authorName": "Denunciado por",
-        "authorID": "ID de quem denunciou",
-        "channel": "Canal",
-        "reason": "Motivo",
-        "disable": "este módulo se encontra desativado neste servidor, para ativar o mesmo, use `{{prefix}}config report set #channel`"
+        "success": "denounces successfully sent.",
+        "memberName": "User",
+        "memberID": "User ID",
+        "authorName": "Reported by",
+        "authorID": "ID who denounced",
+        "channel": "Channel",
+        "reason": "Reason",
+        "disable": "this module is disabled on this server, to enable it, use `{{prefix}} config report set #channel`",
+        "channel-null": "I couldn't find the whistleblower channel, so I disabled the module to avoid future errors."
     },
     "profile": {
         "title": "{{member}}' profile",
@@ -431,7 +432,8 @@
         "queue-null": "the queue is empty."
     },
   "yen": {
-    "totalYens": "you have `{{yens}}` yens"
+    "totalYens": "you have `{{yens}}` yens",
+    "user-total": "{{member}} has `{{yens}}` yens"
   },
   "daily": {
     "daily-success": "has been deposited `{{total}}` yens to your account.",

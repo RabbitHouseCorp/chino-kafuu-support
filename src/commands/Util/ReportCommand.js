@@ -15,13 +15,19 @@ module.exports = class ReportCommand extends Command {
 	run({message, args, server}, t) {
         
 
-		if (server.reportModule == false) return message.chinoReply("error", t("commands:report.disable"))
-		if (server.channelReport == undefined) return message.chinoReply("error", t("commands:report.undefined"))
+		if (server.reportModule === false) return message.chinoReply("error", t("commands:report.disable"))
 		const member = message.mentions.users.first() || this.client.users.get(args[0])
 		if (!member) return message.chinoReply("error", t("commands:mention-null"))
 		const reason = args.slice(1).join(" ")
 		if (!reason) return message.chinoReply("error", t("commands:report.reasonNull"))
 		const channel = message.guild.channels.get(server.channelReport)
+		if (!channel) {
+			server.channelReport = ""
+			server.reportModule = false
+			server.save()
+			message.chinoReply("error", t("comands:report.channel-null"))
+			return
+		}
 
 		const embed = new MessageEmbed()
 			.setColor(this.client.colors.moderation)

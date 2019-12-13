@@ -12,8 +12,8 @@
         "args-null": "você precisa informar o ID da mensagem.",
         "quote-null": "você não informou o que deseja responder.",
         "message-not-found": "essa mensagem não existe, ou ela é de outro canal.",
-        "saying": "disse",
-        "sended-in": "Enviada no"
+        "said": "disse",
+        "sent-in": "Enviada no"
     },
     "remove": {
         "args-null": "você precisa informar o número da música que deseja remover da playlist.",
@@ -59,7 +59,8 @@
         "authorID": "ID de quem denunciou",
         "channel": "Canal",
         "reason": "Motivo",
-        "disable": "este módulo se encontra desativado neste servidor, para ativar o mesmo, use `{{prefix}}config report set #channel`"
+        "disable": "este módulo se encontra desativado neste servidor, para ativar o mesmo, use `{{prefix}}config report set #channel`",
+        "channel-null": "eu não consegui encontrar o canal de denuncias, por este motivo, eu desativei o módulo para evitar futuros erros."
     },
     "profile": {
         "title": "Perfil de {{member}}",
@@ -207,7 +208,7 @@
         "args-null": "você não colocou a quantidade desejada."
     },
     "dance": "{{author}} dançou com {{member}}",
-    "dj": "Bom, a permissão de `DJ` foi criada para eviatem que abusem dos comandos de música (como pular a música que você está escutando ou me tirando do canal de voz em que você também se encotra). Para conseguir essa permissão, você precisa ter permissão para `Gerenciar servidor`, `Banir membros` ou ter o cargo com o nome `DJ`, feito isso, bom divertimento e aproveite os meus comandos de música, até logo.",
+    "dj": "Bom, a permissão de `DJ` foi criada para evitar que abusem dos comandos de música (como pular a música que você está escutando ou me tirando do canal de voz em que você também se encotra). Para conseguir essa permissão, você precisa ter permissão para `Gerenciar servidor`, `Banir membros` ou ter o cargo com o nome `DJ`, feito isso, bom divertimento e aproveite os meus comandos de música, até logo.",
     "eat": "{{author}} deu comida para {{member}}",
     "emoji": {
         "args-null": "indique o emoji que você deseja."

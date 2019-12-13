@@ -13,7 +13,7 @@ module.exports = class TranslateCommand extends Command {
         
         if (!args[1]) return message.chinoReply("error", t("commands:translate.args-null"))
         let url = `http://translate.googleapis.com/translate_a/single?client=gtx&sl=auto&tl=${args[0]}&dt=t&q=${args.slice(1).join("+")}&ie=UTF-8&oe=UTF-8`
-        request(url, function(err, response, body) {
+        request(encodeURI(url), function(err, response, body) {
             if (err) {
                 args[0] = "en"
             }

@@ -1,17 +1,21 @@
-const config = require("./config")
-const Client = require("./src/Client")
-require("./src/ProtoTypes").start()
+require('./src/ProtoTypes').start()
+
+const Client = require('./src/Client')
+const ShardManager = require('./src/ShardManager')
 const DBL = require("dblapi.js")
+const config = require('./config')
+
 const client = new Client({
-	fetchAllMembers: true
+  	fetchAllMembers: true
 })
+if (client.shard) client.shardManager = new ShardManager(client)
 const dbl = new DBL(config.dbltoken, client)
 dbl.on("posted", () => {
-	console.log("Connected to DBL")
+  	console.log("Connected to DBL")
 })
 
-dbl.on("error", err => {})
+client.loadCommands('./src/commands')
+client.loadEvents('./src/events')
 client.login(config.token)
-client.loadCommands("./src/commands")
-client.loadEvents("./src/events")
-console.log("Connected")
+	.then(() => console.log(`${client.shard ? ('Shard '+ client.shard.ids) : 'Bot'} is online.`))
+	.catch((e) => console.log(`Failure connecting to Discord! ${e.message}!`))

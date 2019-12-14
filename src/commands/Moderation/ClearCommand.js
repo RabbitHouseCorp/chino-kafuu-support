@@ -5,8 +5,8 @@ module.exports = class ClearCommand extends Command {
 			name: "clear",
 			category: "mod",
 			aliases: ["limpar", "clean"],
-			UserPermission: ["MANAGE_CHANNELS"],
-			ClientPermission: ["MANAGE_CHANNELS"],
+			UserPermission: ["MANAGE_MESSAGES"],
+			ClientPermission: ["MANAGE_MESSAGES"],
 			OnlyDevs: false
 			
 		})

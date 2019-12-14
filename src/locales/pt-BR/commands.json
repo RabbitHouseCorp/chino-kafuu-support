@@ -77,7 +77,8 @@
     },
     "aboutme": {
         "args-null": "você precisa informar o que deseja colocar no seu sobremim.",
-        "success": "seu sobremim foi alterado com sucesso para `{{aboutme}}`."
+        "success": "seu sobremim foi alterado com sucesso para `{{aboutme}}`.",
+        "limited": "o limite de caracteres é **1024**."
     },
     "divorce": {
         "no-marry": "você não está casado(a), se você deseja se casar com o seu amor verdadeiro, então use `{{prefix}}marry` para poder se casar.",

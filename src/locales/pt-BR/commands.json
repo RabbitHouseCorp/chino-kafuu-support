@@ -1,5 +1,5 @@
 {
-    "restrict": {
+    "restrictemoji": {
         "no-option": "opções disponíveis:\n`add`, `remove`.",
         "args-emoji-null": "este emoji não se encontra neste servidor.",
         "role-null": "este cargo não se encontra no servidor.",

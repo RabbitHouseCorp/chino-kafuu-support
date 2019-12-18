@@ -5,7 +5,7 @@ module.exports = class RestrictRoleCommand extends Command {
         super(client, {
             name: 'restrictrole',
             category: 'mod',
-            aliases: ['restringirrole'],
+            aliases: ['restringirrole', "restrictemoji", "restringiremoji"],
             UserPermission: ['MANAGE_ROLES'],
             ClientPermission: ['MANAGE_ROLES'],
             OnlyDevs: false

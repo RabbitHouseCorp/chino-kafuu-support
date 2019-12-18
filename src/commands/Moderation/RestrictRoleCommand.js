@@ -19,6 +19,9 @@ module.exports = class RestrictRoleCommand extends Command {
         if (!args[2]) return message.chinoReply("error", t("commands:roleinfo.args-null"))
         let emoji = Util.parseEmoji(args[1]) || message.guild.emojis.get(args[1])
         if (!emoji) return message.chinoReply("error", t("commands:restrictemoji.args-emoji-null"))
+        if (message.guild.emojis.get(emoji.id)) {
+            emoji = message.guild.emojis.get(emoji.id)
+        }
         let roles = message.guild.roles.get(args[2].replace(/[<@&>]/g, ""))
         if (!roles) return message.chinoReply("error", t("commands:restrictemoji.role-null"))
         let optionsadd = ["adicionar", "add", "insert"]

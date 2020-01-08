@@ -1,4 +1,5 @@
 const Command = require("../../structures/command")
+const { MessageEmbed } = require("discord.js")
 module.exports = class McSkinCommand extends Command {
 	constructor(client) {
 		super(client, {

@@ -9,7 +9,7 @@ module.exports = class BotinfoCommand extends Command {
 	constructor(client) {
 		super(client, {
 			name: "botinfo",
-			category: "random",
+			category: "misc",
 			aliases: []
 		})
 	} 

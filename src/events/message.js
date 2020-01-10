@@ -24,8 +24,14 @@ module.exports = class MessageReceive {
 		let user = await this.client.database.Users.findById(message.author.id)
 		if (!user) {
 			this.client.database.Users({
-				_id: message.author.id
+				_id: message.author.id,
+				shipValue: Math.floor(Math.random() * 55)
 			}).save()
+		}
+
+		if (user.shipValue === null) {
+			user.shipValue = Math.floor(Math.random() * 55)
+			user.save()
 		}
       
 

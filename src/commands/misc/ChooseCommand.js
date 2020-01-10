@@ -3,7 +3,7 @@ module.exports = class ChooseCommand extends Command {
 	constructor(client) {
 		super(client, {
 			name: "choose",
-			category: "random",
+			category: "misc",
 			aliases: ["escolher"],
 			UserPermission: null,
 			ClientPermission: null,

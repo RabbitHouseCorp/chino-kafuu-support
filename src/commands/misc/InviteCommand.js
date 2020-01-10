@@ -4,7 +4,7 @@ module.exports = class InviteCommand extends Command {
 	constructor(client) {
 		super(client, {
 			name: "invite",
-			category: "random",
+			category: "misc",
 			aliases: ["convite"],
 			UserPermission: null,
 			ClientPermission: null,

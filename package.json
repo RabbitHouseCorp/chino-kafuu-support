@@ -33,5 +33,14 @@
   },
   "devDependencies": {
     "nodemon": "^1.19.1"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DanielaGC/Chino.git"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/DanielaGC/Chino/issues"
+  },
+  "homepage": "https://github.com/DanielaGC/Chino#readme"
 }

@@ -1,4 +1,8 @@
 {
+    "license": {
+        "be-cute": "Be cute",
+        "licensed-for": "Licensed for"
+    },
     "translate": {
         "args-null": "you didn't argue something for me to translate."
     },
@@ -80,6 +84,7 @@
         "success": "successfully changed your aboutme to `{{aboutme}}`."
     },
     "shuffle": "queue successfully shuffled.",
+    "with-nobody": "Nobody",
     "clap": {
         "args-null": "argue something to say."
      },

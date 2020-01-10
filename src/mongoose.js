@@ -26,9 +26,10 @@ let User = new mongoose.Schema({
 	aboutme: { type: String, default: "\"A Chino é minha amiga!\" Você pode mudar isto usando k.sobremim" },
 	profileColor: { type: String, default: "#6b8dff" },
 	isMarry: { type: Boolean, default: false },
-	marryWith: { type: String, default: "Com ninguém" },
+	marryWith: { type: String, default: "" },
 	rep: { type: Number, default: 0 },
-	repTime: { type: String, default: "000000000000"}
+	repTime: { type: String, default: "000000000000"},
+	shipValue: { type: String, default: null }
 })
 let Guilds = mongoose.model("Guilds", Guild)
 exports.Guilds = Guilds

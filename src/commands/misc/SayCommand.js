@@ -3,7 +3,7 @@ module.exports = class SayCommand extends Command {
 	constructor(client) {
 		super(client, {
 			name: "say",
-			category: "random",
+			category: "misc",
 			aliases: ["falar"],
 			UserPermission: null,
 			ClientPermission: null,

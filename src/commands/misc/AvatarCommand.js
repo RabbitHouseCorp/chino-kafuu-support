@@ -4,7 +4,7 @@ module.exports = class AvatarCommand extends Command {
 	constructor(client) {
 		super(client, {
 			name: "avatar",
-			category: "random",
+			category: "misc",
 			aliases: [],
 			UserPermission: null,
 			ClientPermission: null,

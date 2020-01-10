@@ -18,7 +18,7 @@ module.exports = class HelpCommand extends Command {
 		let fun = this.client.commands.filter(c => c.config.category === "fun")
 		let music = this.client.commands.filter(c => c.config.category === "music")
 		let minecraft = this.client.commands.filter(c => c.config.category === "minecraft")
-		let misc = this.client.commands.filter(c => c.config.category === "random")
+		let misc = this.client.commands.filter(c => c.config.category === "misc")
 		let image = this.client.commands.filter(c => c.config.category === "image")
 		let social = this.client.commands.filter(c => c.config.category === "social")
 		const embed = new Discord.MessageEmbed()

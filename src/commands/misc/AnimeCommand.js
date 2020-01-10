@@ -8,7 +8,7 @@ module.exports = class AnimeCommand extends Command {
 	constructor(client) {
 		super(client, {
 			name: "anime",
-			category: "random",
+			category: "misc",
 			aliases: [],
 			UserPermission: null,
 			ClientPermission: null,

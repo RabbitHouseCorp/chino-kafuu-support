@@ -97,7 +97,7 @@
         "author": "você precisa de `300` yens para poder se divorciar.",
         "no-divorce": "parece que os oráculos do amor não deixou vocês se separarem, fico feliz que tenham se entendido.",
         "divorced": "certo, eu chamei os advogados, e ambos pagaram `300` yens pelo divorcio.",
-        "confirm": "{{member}}, você deseja realmente se divorciar de {{author}}?"
+        "confirm": "você deseja realmente se divorciar de {{member}}? (Essa ação não pode ser revertida)"
     },
     "marry": {
         "you-need": "você precisa de `7500` yens para poder se casar.",

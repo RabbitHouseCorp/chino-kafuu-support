@@ -11,7 +11,7 @@ module.exports = class {
 		dbl.on("posted", () => {
 			console.log("Connected to DBL")
 		})
-		console.log(`${this.client.user.username} has be connected to Discord`)
+		console.log(`${this.client.user.username} has been connected to Discord`)
 		this.client.owner = await this.client.users.fetch("395788326835322882")
 		this.client.lavalinkManager = new lavalinkManager(this.client)
 		let status = [

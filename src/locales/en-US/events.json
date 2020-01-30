@@ -9,5 +9,11 @@
     "message": "calm down, you need to wait `{{time}}` before executing another command.",
     "secounds": "seconds",
     "milliseconds": "some milliseconds"
+  },
+  "channel-not-found": "I was unable to find the desired text channel, for this reason, I was unable to send the information there.",
+  "added-to-guild": {
+    "thanks-to-add": "Thanks for adding me.",
+    "msg": "Hi, I'm {{client}}, thanks for adding me! Well, I'm a bot full of super fun functions to brighten your day, if you want to know what commands I have, use `{{prefix}}help`, are you having any questions? So log into my support server using `{{prefix}}invite`, again, thanks for adding me and have a good time!",
+    "guild-saved": "Server successfully saved to my database!"
   }
 }

@@ -1,4 +1,7 @@
 const { MessageEmbed } = require("discord.js")
+const i18next = require("i18next")
+const translationBackend = require("i18next-node-fs-backend")
+const fs = require("fs")
 module.exports = class GuildCreate {
 	constructor(client) {
 		this.client = client
@@ -12,9 +15,9 @@ module.exports = class GuildCreate {
 			"singapore": "en-US",
 			"southafrica": "en-US",
 			"sydney": "en-US",
-			"us-central": "en-US",
+			"us-central": "es",
 			"us-east": "en-US",
-			"us-south": "en-US",
+			"us-south": "es",
 			"us-west": "en-US",
 		}
 	}
@@ -22,19 +25,78 @@ module.exports = class GuildCreate {
 	async run(guild) {
 
 		let server = await this.client.database.Guilds.findById(guild.id)
+        if (!server) {
+            server = new this.client.database.Guilds({
+                _id: guild.id,
+                lang: this.region[guild.region]
+            })
+            server.lang = this.region[guild.region]
+            server.save()
+            let t
+            const setFixedT = function (translate) {
+                t = translate
+            }
+            const language = (server && server.lang) || "pt-BR"
+            setFixedT(i18next.getFixedT(language))
 
-		server = new this.client.database.Guilds({
-			_id: guild.id,
-			lang: this.regions[guild.region]
-		})
-		server.save()
-      
-		const embed = new MessageEmbed()
-			.setColor(this.client.colors.default)
-			.setFooter("Servidor salvo no meu banco de dados com successo!")
-			.addField("Obrigada por me adicionar", `Olá, eu sou ${this.client.user.username}, obrigada por me adicionar! Bom, eu sou um bot cheio de funções super divertidas para alegrar o seu dia, se você quiser saber quais os comandos eu tenho, use \`${server.prefix}help\`, está com alguma dúvida? Então entre em meu servidor de suporte usando \`${server.prefix}invite\`, mais uma vez, obrigada por me adicionar e tenha um bom divertimento!`)
-      
-		guild.channels.filter(c => c.type === "text").random().send(embed).catch(e => {})
-
+            return new Promise(async (resolve, reject) => {
+                i18next.use(translationBackend).init({
+                    ns: ["commands", "events", "permissions"],
+                    preload: await fs.readdirSync("./src/locales/"),
+                    fallbackLng: "pt-BR",
+                    backend: {
+                        loadPath: "./src/locales/{{lng}}/{{ns}}.json"
+                    },
+                    interpolation: {
+                        escapeValue: false
+                    },
+                    returnEmptyString: false
+                }, async (err, f) => {
+                    if (f) {
+                        if (server) {
+							const embed = new MessageEmbed()
+							.setImage("https://cdn.discordapp.com/attachments/589293933939392533/672268982887383080/91fe833b1dc7d14bc96fd4efd0bc8dc2.gif")
+							.setColor(this.client.colors.default)
+							.setFooter(t("events:added-to-guild.guild-saved"), guild.iconURL())
+							.addField(t("events:added-to-guild.thanks-to-add"), t("events:added-to-guild.msg", {prefix: server.prefix, client: this.client.user.username}))
+		      
+			
+	            			guild.channels.filter(c => c.type === "text").random().send(embed).catch()
+                        }
+                    }
+                })
+            })
+        } else {
+            let t
+            const setFixedT = function (translate) {
+                t = translate
+            }
+            const language = (server && server.lang) || "pt-BR"
+            setFixedT(i18next.getFixedT(language))
+            return new Promise(async (resolve, reject) => {
+                i18next.use(translationBackend).init({
+                    ns: ["commands", "events", "permissions"],
+                    preload: await fs.readdirSync("./src/locales/"),
+                    fallbackLng: "pt-BR",
+                    backend: {
+                        loadPath: "./src/locales/{{lng}}/{{ns}}.json"
+                    },
+                    interpolation: {
+                        escapeValue: false
+                    },
+                    returnEmptyString: false
+                }, async (err, f) => {
+                    if (f) {
+						const embed = new MessageEmbed()
+						.setImage("https://cdn.discordapp.com/attachments/589293933939392533/672268982887383080/91fe833b1dc7d14bc96fd4efd0bc8dc2.gif")
+						.setColor(this.client.colors.default)
+						.setFooter(t("events:added-to-guild.guild-saved"))
+						.addField(t("events:added-to-guild.thanks-to-add"), t("events:added-to-guild.msg", {prefix: server.prefix, client: this.client.user.username}))
+						
+	            		guild.channels.filter(c => c.type === "text").random().send(embed).catch()
+                    }
+                })
+            })
+        }
 	}
 }

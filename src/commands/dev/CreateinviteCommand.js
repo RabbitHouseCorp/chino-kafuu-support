@@ -8,7 +8,6 @@ module.exports = class CreateinviteCommand extends Command {
 			UserPermission: null,
 			ClientPermission: null,
 			OnlyDevs: true
-			
 		})
 	} 
 	async run({message, args, server}, t) {

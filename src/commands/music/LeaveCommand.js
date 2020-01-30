@@ -8,7 +8,6 @@ module.exports = class LeaveCommand extends Command {
 			UserPermission: ["BAN_MEMBERS"],
 			ClientPermission: null,
 			OnlyDevs: false
-			
 		})
 	} 
 	run({message, args, server}, t) {
@@ -20,8 +19,7 @@ module.exports = class LeaveCommand extends Command {
 		message.reply(t("commands:leave", {voiceChannel: message.member.voice.channel.name})).then(async () => {
 			await this.client.lavalinkManager.manager.leave(message.guild.id)
 			this.client.lavalinkManager.manager.delete(message.guild.id)
-			this.client.player.delete(message.guild.id)
-		})
+			this.client.player.delete(message.guild.id)		})
 
         
 	}

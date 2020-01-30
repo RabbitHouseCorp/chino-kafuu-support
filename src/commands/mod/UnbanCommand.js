@@ -9,7 +9,6 @@ module.exports = class UnbanCommand extends Command {
 			UserPermission: ["BAN_MEMBERS"],
 			ClientPermission: ["BAN_MEMBERS"],
 			OnlyDevs: false
-			
 		})
 	} 
 	async run({message, args, server}, t) {
@@ -38,8 +37,7 @@ module.exports = class UnbanCommand extends Command {
 			if (server.punishModule) {
 				message.guild.channels.get(server.punishChannel).send(embed).catch(err => {
 					message.channel.send(t("events:channel-not-found"))
-				})
-			}
-		})
+	})
+			}		})
 	}
 }

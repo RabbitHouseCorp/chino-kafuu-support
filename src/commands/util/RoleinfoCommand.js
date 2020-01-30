@@ -11,7 +11,6 @@ module.exports = class RoleinfoCommand extends Command {
 			UserPermission: null,
 			ClientPermission: null,
 			OnlyDevs: false
-			
 		})
 	} 
 	run({message, args, server}, t) {

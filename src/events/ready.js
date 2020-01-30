@@ -1,5 +1,4 @@
 const lavalinkManager = require("../lavalink/lavalinkManager")
-const DBL = require("dblapi.js")
 module.exports = class {
 	constructor(client) {
 		this.client = client
@@ -7,10 +6,6 @@ module.exports = class {
 
 	async run () {
 
-		const dbl = new DBL(this.client.config.dbltoken, this.client)
-		dbl.on("posted", () => {
-			console.log("Connected to DBL")
-		})
 		console.log(`${this.client.user.username} has been connected to Discord`)
 		this.client.owner = await this.client.users.fetch("395788326835322882")
 		this.client.lavalinkManager = new lavalinkManager(this.client)

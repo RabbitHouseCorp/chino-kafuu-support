@@ -493,5 +493,6 @@
         "invalidValue": "senpai por favor informe um valor correto!",
         "invalidArgument":"argumento inválido: {{ arg }}",
         "success": "{{ ammount }} **{{ from }}** para **{{ to }}** = **{{ total }}**"
-    }
+    },
+    "click-here": "Clique aqui"
 }

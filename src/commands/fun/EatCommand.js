@@ -11,7 +11,6 @@ module.exports = class EatCommand extends Command {
 			UserPermission: null,
 			ClientPermission: null,
 			OnlyDevs: false
-			
 		})
 	}
 	async run({message, args, server}, t) {

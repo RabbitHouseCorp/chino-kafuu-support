@@ -8,7 +8,6 @@ module.exports = class LanguageCommand extends Command {
 			UserPermission: ["MANAGE_GUILD"],
 			ClientPermission: null,
 			OnlyDevs: false
-			
 		})
 	} 
 	run({message, args, server}, t) {
@@ -54,8 +53,7 @@ module.exports = class LanguageCommand extends Command {
                         msg.delete()
                         message.chinoReply("map", "ahora hablaré `es`")*/
 				}
-			})
-		})
+})		})
         
 	}
 }

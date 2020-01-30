@@ -9,7 +9,6 @@ module.exports = class EvalCommand extends Command {
 			UserPermission: null,
 			ClientPermission: null,
 			OnlyDevs: true
-			
 		})
 	}
 	run({message, args, server}, t) {
@@ -19,7 +18,7 @@ module.exports = class EvalCommand extends Command {
 			let ev = eval(code)
 			let str = util.inspect(ev, {
 				depth: 1
-			})
+})
 			str = `${str.replace(new RegExp(`${this.client.token}`, "g"), "undefined")}`
 			if (str.length > 1800) {
 				str = str.substr(0, 1800)

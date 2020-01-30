@@ -8,7 +8,6 @@ module.exports = class VolumeCommand extends Command {
 			UserPermission: null,
 			ClientPermission: null,
 			OnlyDevs: false
-			
 		})
 	} 
 	run({message, args, server}, t) {

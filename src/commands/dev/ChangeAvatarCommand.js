@@ -9,7 +9,6 @@ module.exports = class ChangeAvatarCommand extends Command {
 			UserPermission: null,
 			ClientPermission: null,
 			OnlyDevs: true
-			
 		})
 	} 
 	run({message, args, server}, t) {
@@ -26,7 +25,6 @@ module.exports = class ChangeAvatarCommand extends Command {
 				.setAuthor(t("commands:changeavatar.avatar"), bot.displayAvatarURL())
 				.setImage(`${bot.displayAvatarURL()}?size=2048`)
 
-			message.channel.send(embed)
-		})
+			message.channel.send(embed)		})
 	}
 }

@@ -8,7 +8,6 @@ module.exports = class ClearCommand extends Command {
 			UserPermission: ["MANAGE_MESSAGES"],
 			ClientPermission: ["MANAGE_MESSAGES"],
 			OnlyDevs: false
-			
 		})
 	}
 	run({message, args, server }, t) {
@@ -19,9 +18,7 @@ module.exports = class ClearCommand extends Command {
 			message.chinoReply("trash", t("commands:clear.success", {totalMsg: msg.size}))
 			.then(msg => {
 				setTimeout(() => msg.delete(5000), 5000)
-			})
-		}).catch(() => {
-			message.chinoReply("error", t("commands:clear.error"))
-		})
+})		}).catch(() => {
+			message.chinoReply("error", t("commands:clear.error"))		})
 	}
 }

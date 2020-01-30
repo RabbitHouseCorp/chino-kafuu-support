@@ -8,7 +8,6 @@ module.exports = class FakeMsgCommand extends Command {
 			UserPermission: null,
 			ClientPermission: ["MANAGE_WEBHOOK"],
 			OnlyDevs: false
-			
 		})
 	}
 	run({message, args, server}, t) {
@@ -20,14 +19,13 @@ module.exports = class FakeMsgCommand extends Command {
 			if (message.member.hasPermission("MENTION_EVERYONE")) {
 				webhook.send(botmsg, {
 					disableEveryone: false
-				})
+	})
 				setTimeout(() => webhook.delete(), 5000)
 			} else {
 				webhook.send(botmsg, {
 					disableEveryone: true
-				})
+	})
 				setTimeout(() => webhook.delete(), 5000)
-			}
-		})
+			}		})
 	}
 }

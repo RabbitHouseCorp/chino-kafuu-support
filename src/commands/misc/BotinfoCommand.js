@@ -13,8 +13,9 @@ module.exports = class BotinfoCommand extends Command {
 			aliases: []
 		})
 	} 
-	run({message, args, server}, t) {
-
+	async run({message, args, server}, t) {
+		let guilds = await this.client.shardManager.getAllSizeObject("guilds")
+		let users = await this.client.shardManager.getAllSizeObject("users")
 		let color = this.client.colors.default
 		let client = this.client
 		const duration = moment.duration(client.uptime).format(" dd[d] hh[h] mm[m] ss[s]")
@@ -23,7 +24,7 @@ module.exports = class BotinfoCommand extends Command {
 			const embed = new MessageEmbed()
 				.setColor(color)
 				.setThumbnail("https://images-ext-2.discordapp.net/external/gLz09AFgWmMbGyAk42-jFTNhVgpvG7uWDs9beywKDoA/https/cdn.discordapp.com/attachments/549244834721038348/557057944001314826/dchclth-ff495fe4-6a33-4da7-afb7-1fe2d42d7041.png?width=471&height=471")
-				.setDescription(t("commands:botinfo.description", {clientName: client.user.username, clientcreatedAt: moment.utc(client.user.createdAt).format("LLLL"), guildName: message.guild.name, clientUptime: moment.duration(client.uptime).format("D[d], H[h], m[m], s[s]"), clientGuildSize: Number(client.guilds.size).toLocaleString(), clientUserSize: Number(client.users.size).toLocaleString(), clientJoinedAt: moment.utc(message.guild.me.joinedAt).format("LLLL")}))
+				.setDescription(t("commands:botinfo.description", {clientName: client.user.username, clientcreatedAt: moment.utc(client.user.createdAt).format("LLLL"), guildName: message.guild.name, clientUptime: moment.duration(client.uptime).format("D[d], H[h], m[m], s[s]"), clientGuildSize: Number(guilds).toLocaleString(), clientUserSize: Number(users).toLocaleString(), clientJoinedAt: moment.utc(message.guild.me.joinedAt).format("LLLL")}))
 				.setFooter(t("commands:createdBy", {clientName: client.user.username, owner: client.users.get("395788326835322882").tag}), client.users.get("395788326835322882").displayAvatarURL())
 				.addField(t("commands:botinfo.prefix"), server.prefix, true)
 				.addField(t("commands:botinfo.github"), t("commands:botinfo.github-desc"), true)
@@ -48,7 +49,7 @@ module.exports = class BotinfoCommand extends Command {
 				break
 			default:
 				message.channel.send(embed).then(msg => {
-					msg.react("574337895838777374")
+					msg.react("chino_chibi:574337895838777374")
     
 					const collector = msg.createReactionCollector((r, u) => (r.emoji.name === "chino_chibi" && (u.id !== client.user.id && u.id === message.author.id)))
 					collector.on("collect", r => {

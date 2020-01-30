@@ -4,15 +4,14 @@ module.exports = class PayCommand extends Command {
 		super(client, {
 			name: "pay",
 			category: "economy",
-			aliases: ["pagar", "doar"]
-		})
+			aliases: ["pagar", "doar"]		})
 	}
 	async run({message, args, server}, t) {
 		let user = await this.client.database.Users.findById(message.author.id)
 		if (!user || user === null) {
 			new this.client.database.Users({
 				_id: message.author.id
-			}).save()
+}).save()
 		}
       
 		let member = message.mentions.users.first() || this.client.users.get(args[0])

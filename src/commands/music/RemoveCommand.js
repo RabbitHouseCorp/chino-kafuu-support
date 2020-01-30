@@ -4,8 +4,7 @@ module.exports = class RemoveCommand extends Command {
 		super(client, {
 			name: "remove",
 			category: "music",
-			aliases: ["remover"]
-		})
+			aliases: ["remover"]		})
 	} 
 	run({message, args, server}, t) {
             
@@ -18,7 +17,6 @@ module.exports = class RemoveCommand extends Command {
 		if (number) return message.chinoReply("error", t("commands:remove.max-and-minimum", {max: this.client.player.get(message.guild.id).queue.length}))
 
 		message.chinoReply("success", t("commands:remove.removed")).then(() => {
-			this.client.player.get(message.guild.id).queue.splice(Number(args[0]) - 1, 1)  
-		})
+			this.client.player.get(message.guild.id).queue.splice(Number(args[0]) - 1, 1)  		})
 	}
 }

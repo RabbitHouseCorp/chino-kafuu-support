@@ -4,8 +4,7 @@ module.exports = class MarryCommand extends Command {
 		super(client, {
 			name: "marry",
 			aliases: ["casar"],
-			category: "social"
-		})
+			category: "social"		})
 	}
 
 	async run({message, args, server}, t) {
@@ -42,7 +41,6 @@ module.exports = class MarryCommand extends Command {
 					msg.delete()
 					message.chinoReply("broken_heart", t("commands:marry.rejected", {member: member.toString()}))
 				}
-			})
-		})
+})		})
 	}
 }

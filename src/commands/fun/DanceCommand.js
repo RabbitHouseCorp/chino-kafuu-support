@@ -9,7 +9,6 @@ module.exports = class DanceCommand extends Command {
 			UserPermission: null,
 			ClientPermission: null,
 			OnlyDevs: false
-			
 		})
 	}
 	async run({message, args, server}, t) {

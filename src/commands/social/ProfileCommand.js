@@ -5,8 +5,7 @@ module.exports = class ProfileCommand extends Command {
 		super(client, {
 			name: "profile",
 			aliases: ["perfil"],
-			category: "social"
-		})
+			category: "social"		})
 	}
 
 	async run({message, args, server}, t) {
@@ -15,7 +14,7 @@ module.exports = class ProfileCommand extends Command {
 		if (!user) {
 			new this.client.database.Users({
 				_id: member.id
-			}).save()
+}).save()
 		}
 		if (user.blacklist) {
 			const bannedEmbed = new MessageEmbed()

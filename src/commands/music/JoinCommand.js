@@ -8,7 +8,6 @@ module.exports = class JoinCommand extends Command {
 			UserPermission: null,
 			ClientPermission: ["SPEAK", "CONNECT"],
 			OnlyDevs: false
-			
 		})
 	}
 	run({message, args, server}, t) {

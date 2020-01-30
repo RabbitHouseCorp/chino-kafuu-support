@@ -9,7 +9,6 @@ module.exports = class RizeCommand extends Command {
 			UserPermission: null,
 			ClientPermission: null,
 			OnlyDevs: false
-			
 		})
 	}
 
@@ -22,8 +21,7 @@ module.exports = class RizeCommand extends Command {
 				image.print(font, 260, 110, args.join(" "), 400)
 				image.getBuffer(jimp.MIME_PNG, (err, i) => {
 					message.channel.send({files: [{ attachment: i, name: "rize.png"}]})
-				})
-			})
-		})
+	})
+})		})
 	}
 }

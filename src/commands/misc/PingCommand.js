@@ -8,7 +8,6 @@ module.exports = class PingCommand extends Command {
 			UserPermission: null,
 			ClientPermission: null,
 			OnlyDevs: false
-			
 		})
 	} 
 	run({message, args, server}, t) {
@@ -22,12 +21,12 @@ module.exports = class PingCommand extends Command {
 				let s = []
 				shard.forEach((ping, index) => s.push( embed.addField(`Shard ${index}`, `${Math.round(ping)}ms`, true)))
 				message.channel.send(embed)
-			})
+})
 			break
 		default:
 			message.channel.send(this.client.emotes.ping_pong).then(msg => {
 				msg.edit(`${this.client.emotes.ping_pong}\n${ping}`)
-			})
+})
 		}
 	}
 }

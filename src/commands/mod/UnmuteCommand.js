@@ -9,7 +9,6 @@ module.exports = class Unmute extends Command {
 			UserPermission: ["KICK_MEMBERS"],
 			ClientPermission: ["MANAGE_ROLES"],
 			OnlyDevs: false
-			
 		})
 	} 
 	run({message, args, server}, t) {
@@ -38,7 +37,6 @@ module.exports = class Unmute extends Command {
 			message.channel.send(embed)
 			if (server.punishModule) {
 				message.guild.channels.get(server.punishChannel).send(embed)
-			}
-		}) 
+			}		}) 
 	}
 }

@@ -4,8 +4,7 @@ module.exports = class YensTopCommand extends Command {
 		super(client, {
 			name: "yenstop",
 			aliases: ["topyens", "topyen", "yentop"],
-			category: "economy"
-		})
+			category: "economy"		})
 	}
 
 	async run({message, args, server}, t) {

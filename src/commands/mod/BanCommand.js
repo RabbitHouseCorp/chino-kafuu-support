@@ -9,7 +9,6 @@ module.exports = class BanCommand extends Command {
 			UserPermission: ["BAN_MEMBERS"],
 			ClientPermission: ["BAN_MEMBERS"],
 			OnlyDevs: false
-			
 		})
 	}
 	async run({message, args, server}, t) {
@@ -35,8 +34,7 @@ module.exports = class BanCommand extends Command {
 
 		message.guild.members.ban(inGuild.id, {
 			days: 7,
-			reason: reason
-		}).then((user) => {
+			reason: reason		}).then((user) => {
 			const embed = new MessageEmbed()
 				.setTitle(t("commands:ban.banned", {member: user.tag}))
 				.setColor(this.client.colors.moderation)
@@ -51,8 +49,7 @@ module.exports = class BanCommand extends Command {
 			if (server.punishModule) {
 				message.guild.channels.get(server.punishChannel).send(embed).catch(err => {
 					message.channel.send(t("events:channel-not-found"))
-				})
-			}
-		})
+	})
+			}		})
 	}
 }

@@ -8,7 +8,6 @@ module.exports = class PlayCommand extends Command {
 			UserPermission: null,
 			ClientPermission: null,
 			OnlyDevs: false
-			
 		})
 	} 
 	async run({message, args, server}, t) {
@@ -20,18 +19,18 @@ module.exports = class PlayCommand extends Command {
 		if (this.client.player.has(message.guild.id)) {
 			this.client.player.get(message.guild.id).play(args.join(" ")).then(info => {
 				message.chinoReply("cd", t("commands:play.addedQueue", {songTitle: info.title}))
-			})
+})
 		} else {
 			let player = await this.client.lavalinkManager.join(message.member.voice.channel.id)
 			player.on("playingNow", (song) => {
 
 				message.chinoReply("headphone", t("commands:play.playingNow", {songTitle: song.info.title})) 
-			})
+})
 			player.on("playingEnd", async () => {
 				await this.client.lavalinkManager.manager.leave(message.guild.id)
 				this.client.lavalinkManager.manager.delete(message.guild.id)
 				this.client.player.delete(message.guild.id)
-			})
+})
         
 			player.play(args.join(" "))
 			this.client.player.set(message.guild.id, player)

@@ -13,7 +13,7 @@ const dbl = new DBL(config.dbltoken, client)
 dbl.on("posted", () => {
   	console.log("Connected to DBL")
 })
-
+dbl.on("error", (err) => {})
 client.loadCommands('./src/commands')
 client.loadEvents('./src/events')
 client.login(config.token)

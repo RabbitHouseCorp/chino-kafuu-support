@@ -9,7 +9,6 @@ module.exports = class LaranjoCommand extends Command {
 			UserPermission: null,
 			ClientPermission: null,
 			OnlyDevs: false
-			
 		})
 	}
 
@@ -22,8 +21,7 @@ module.exports = class LaranjoCommand extends Command {
 				image.print(font, 20, 30, args.join(" "), 600)
 				image.getBuffer(jimp.MIME_PNG, (err, i) => {
 					message.channel.send({files: [{ attachment: i, name: "laranjo.png"}]})
-				})
-			})
-		})
+	})
+})		})
 	}
 }

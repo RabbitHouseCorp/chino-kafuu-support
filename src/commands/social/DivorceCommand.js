@@ -4,8 +4,7 @@ module.exports = class DivorceCommand extends Command {
 		super(client, {
 			name: "divorce",
 			aliases: ["divorciar"],
-			category: "social"
-		})
+			category: "social"		})
 	}
 
 	async run({message, args, server}, t) {
@@ -13,7 +12,7 @@ module.exports = class DivorceCommand extends Command {
 		let user2 = await this.client.database.Users.findById(user.marryWith)
 		if (!user2 || !user.isMarry) return message.chinoReply("error", t("commands:divorce.no-marry", {prefix: server.prefix}))
 		let member = this.client.users.get(user2._id)
-		if (user2.yens < Number(300)) return message.chinoReply("error", t("commands:divorce.user", {member: member}))
+		if (user2.yens < Number(300)) return message.chinoReply("error", t("commands:divorce.user", {member: member.toString()}))
 		if (user.yens < Number(300)) return message.chinoReply("error", t("commands:divorce.author"))
         
 
@@ -21,7 +20,7 @@ module.exports = class DivorceCommand extends Command {
 			setTimeout(() => msg.react("✅"), 500)
 			setTimeout(() => msg.react("❎"), 1000)
 
-			const collector = msg.createReactionCollector((reaction, users) => (reaction.emoji.name === "✅", "❎") && (users.id !== this.client.user.id && users.id === member.id))
+			const collector = msg.createReactionCollector((reaction, users) => (reaction.emoji.name === "✅", "❎") && (users.id !== this.client.user.id && users.id === message.author.id))
 			collector.on("collect", r => {
 				switch (r.emoji.name) {
 				case "✅":
@@ -41,7 +40,6 @@ module.exports = class DivorceCommand extends Command {
 					msg.delete()
 					message.chinoReply("eyes_with_hearts", t("commands:divorce.no-divorce"))
 				}
-			})
-		})
+})		})
 	}
 }

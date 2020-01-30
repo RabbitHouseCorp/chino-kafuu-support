@@ -5,8 +5,7 @@ module.exports = class YensCommand extends Command {
 		super(client, {
 			name: "yens",
 			category: "economy",
-			aliases: ["yen"]
-		})
+			aliases: ["yen"]		})
 	}
 	async run({message, args, server}, t) {
 		let member = message.mentions.users.first() || this.client.users.get(args[0]) || message.author
@@ -14,7 +13,7 @@ module.exports = class YensCommand extends Command {
 		if (!user || user === null) {
 			new this.client.database.Users({
 				_id: member.id
-			}).save()
+}).save()
 		}
 		if (message.author.id === member.id) {
 			message.chinoReply("yen", t("commands:yen.totalYens", {yens: Number(user.yens).toLocaleString()}))

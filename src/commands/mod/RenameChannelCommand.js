@@ -6,8 +6,7 @@ module.exports = class RenameChannelCommand extends Command {
 			category: "mod",
 			aliases: ["renomearcanal"],
 			UserPermission: ["MANAGE_CHANNELS"],
-			ClientPermission: ["MANAGE_CHANNELS"]
-		})
+			ClientPermission: ["MANAGE_CHANNELS"]		})
 	}
 
 	async run({message, args, server}, t) {
@@ -17,7 +16,6 @@ module.exports = class RenameChannelCommand extends Command {
 		if (!name) return message.chinoReply("error", t("commands:renamechannel.args-null"))
 
 		channel.setName(name).then(() => {
-			message.chinoReply("success", t("commands:renamechannel.success"))
-		})
+			message.chinoReply("success", t("commands:renamechannel.success"))		})
 	}
 }

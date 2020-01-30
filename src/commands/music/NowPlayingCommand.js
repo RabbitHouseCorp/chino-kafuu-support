@@ -12,7 +12,6 @@ module.exports = class NowPlayingCommand extends Command {
 			UserPermission: null,
 			ClientPermission: null,
 			OnlyDevs: false
-			
 		})
 	}
 
@@ -39,7 +38,6 @@ module.exports = class NowPlayingCommand extends Command {
 				.addField(t("commands:np.volume"), volume)
 				.addField(t("commands:np.url"), player.uri)
 
-			msg.edit(embed)
-		})
+			msg.edit(embed)		})
 	}
 }

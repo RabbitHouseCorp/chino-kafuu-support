@@ -9,7 +9,6 @@ module.exports = class TempMuteCommand extends Command {
 			UserPermission: ["KICK_MEMBERS"],
 			ClientPermission: ["MANAGE_ROLES", "MANAGE_CHANNELS"],
 			OnlyDevs: false
-			
 		})
 	} 
 	async run({message, args, server}, t) {
@@ -28,15 +27,15 @@ module.exports = class TempMuteCommand extends Command {
 				name: "Silenciado",
 				color: "#000000",
 				permissions: []
-			})
+})
 			message.guild.channels.forEach(async (channel, id) => {
 				await channel.overwritePermissions(role, {
 					SEND_MESSAGES: false,
 					ADD_REACTIONS: false,
 					SPEAK: false,
 					CONNECT: false
-				})
-			})
+	})
+})
 		}
 
 		if (message.member.roles.highest.position < message.guild.member(member).roles.highest.position) return message.chinoReply("error", t("commands:punishment.unpunished"))
@@ -55,9 +54,8 @@ module.exports = class TempMuteCommand extends Command {
 			if (server.punishModule) {
 				message.guild.channels.get(server.punishChannel).send(embed).catch(err => {
 					message.channel.send(t("events:channel-not-found"))
-				})
-			}
-		})
+	})
+			}		})
 		setTimeout(function() {
 			message.guild.member(member).remove(role.id)
 		}, parse(time))

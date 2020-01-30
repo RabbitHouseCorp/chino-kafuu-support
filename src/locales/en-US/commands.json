@@ -142,8 +142,8 @@
         "server-suport": "My server",
         "twitter": "My twitter",
         "github": "GitHub",
-        "server-suport-url": "[click here](https://discord.gg/CAm9cSU)",
-        "github-desc": "[click here](https://github.com/DanielaGC/ChinoKafuu)"
+        "server-suport-url": "[Click here](https://discord.gg/CAm9cSU)",
+        "github-desc": "[Click here](https://github.com/DanielaGC/ChinoKafuu)"
     },
     "calc": {
         "args-null": "you must enter a valid value.",
@@ -367,7 +367,7 @@
         "memory": "RAM memory",
         "cpu-status": "CPU Status",
         "system": "System",
-        "cpu": "Processor"
+        "cpu": "CPU"
     },
     "stop": "the song was stopped and the queue was cleared",
     "tempmute": {
@@ -457,5 +457,6 @@
         "invalidValue": "please give me a correct value!",
         "invalidArgument":"invalid argument: {{ arg }}",
         "success": "{{ ammount }} **{{ from }}** to **{{ to }}** = **{{ total }}**"
-    }
+    },
+    "click-here": "Click here"
 }

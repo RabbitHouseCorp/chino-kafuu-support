@@ -7,6 +7,15 @@ module.exports = class ShardManager {
         const data = await this.client.shard.broadcastEval(`this.${collection}.get('${id}')`).then(a => a.filter(b => b))
         return data[0]
     }
+    async getSizeCollection (collection) {
+        const info = await this.client.shard.fetchClientValues(`${collection}.size`)
+        let i = info.reduce((prev, val) => prev + val)
+        return i
+    }
+
+    getAllSizeObject (collection) {
+        return this.getSizeCollection(collection)
+    }
 
     getEmojis (id) {
         return this.getFromCollection('emojis', id)

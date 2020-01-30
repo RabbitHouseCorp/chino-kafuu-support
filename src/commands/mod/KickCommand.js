@@ -9,7 +9,6 @@ module.exports = class KickCommand extends Command {
 			UserPermission: ["KICK_MEMBERS", "MUTE_MEMBERS"],
 			ClientPermission: ["KICK_MEMBERS", "MUTE_MEMBERS", "MANAGE_ROLES"],
 			OnlyDevs: false
-			
 		})
 	} 
 	run({message, args, server}, t) {
@@ -39,8 +38,7 @@ module.exports = class KickCommand extends Command {
 			if (server.punishModule) {
 				message.guild.channels.get(server.punishChannel).send(embed).catch(err => {
 					message.channel.send(t("events:channel-not-found"))
-				})
-			}
-		})
+	})
+			}		})
 	}
 }

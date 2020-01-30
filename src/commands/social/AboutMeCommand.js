@@ -4,8 +4,7 @@ module.exports = class AboutMeCommand extends Command {
 		super(client, {
 			name: "aboutme",
 			aliases: ["sobremim"],
-			category: "social"
-		})
+			category: "social"		})
 	}
 
 	async run({message, args, server}, t) {

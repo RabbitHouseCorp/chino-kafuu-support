@@ -13,7 +13,6 @@ module.exports = class AnimeCommand extends Command {
 			UserPermission: null,
 			ClientPermission: null,
 			OnlyDevs: false
-			
 		})
 	} 
 	run({message, args, server}, t) {
@@ -42,7 +41,7 @@ module.exports = class AnimeCommand extends Command {
 			message.channel.send(embed)
         
 		}).catch(() => {
-			message.chinoReply("error", t("commands:anime.NotFound", {author: message.author, args: search}))
+			message.chinoReply("error", t("commands:anime.NotFound", {args: search}))
 		})
 	}
 }

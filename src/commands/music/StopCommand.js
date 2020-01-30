@@ -8,7 +8,6 @@ module.exports = class StopCommand extends Command {
 			UserPermission: null,
 			ClientPermission: null,
 			OnlyDevs: false
-			
 		})
 	} 
 	async run({message, args, server}, t) {

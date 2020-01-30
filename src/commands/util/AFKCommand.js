@@ -8,7 +8,6 @@ module.exports = class AFKCommand extends Command {
 			UserPermission: null,
 			ClientPermission: null,
 			OnlyDevs: false
-			
 		})
 	}
 

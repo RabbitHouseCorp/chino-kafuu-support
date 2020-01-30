@@ -3,8 +3,7 @@ module.exports = class ShuffleCommand extends Command {
 	constructor (client) {
 		super(client, {
 			name: "shuffle",
-			aliases: ["embaralhar", "aleatorio"]
-		})
+			aliases: ["embaralhar", "aleatorio"]		})
 	}
 
 	run({message, args, server}, t) {

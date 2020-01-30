@@ -6,8 +6,7 @@ module.exports = class ReloadCommand extends Command {
 			name: "reload",
 			aliases: ["recarregar"],
 			category: "developers",
-			OnlyDevs: true
-		})
+			OnlyDevs: true		})
 	}
 
 	run ({ message, args, server }, t) {

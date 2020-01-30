@@ -9,7 +9,6 @@ module.exports = class RemoveRoleCommand extends Command {
 			UserPermission: ["MANAGE_ROLES"],
 			ClientPermission: ["MANAGE_ROLES"],
 			OnlyDevs: false
-			
 		})
 	} 
 	run({message, args, server}, t) {
@@ -20,10 +19,8 @@ module.exports = class RemoveRoleCommand extends Command {
 		if (!role) return message.chinoReply("error", t("commands:addrole.mentionRoleNull"))
 
 		message.guild.member(member).remove(role.id).then(() => {
-			message.chinoReply("success", t("commands:removerole.success"))
-		}).catch(err => {
+			message.chinoReply("success", t("commands:removerole.success"))		}).catch(err => {
 			console.log(err)
-			message.chinoReply("error", t("commands:removerole.error"))
-		})
+			message.chinoReply("error", t("commands:removerole.error"))		})
 	}
 }

@@ -11,7 +11,6 @@ module.exports = class NekoCommand extends Command {
 			UserPermission: null,
 			ClientPermission: null,
 			OnlyDevs: false
-			
 		})
 	}
 

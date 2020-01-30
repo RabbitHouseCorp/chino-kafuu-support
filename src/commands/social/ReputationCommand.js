@@ -6,8 +6,7 @@ module.exports = class ReputationCommand extends Command {
 		super(client, {
 			name: "reputation",
 			aliases: ["rep", "reputação", "reputacao"],
-			category: "social"
-		})
+			category: "social"		})
 	}
 
 	async run({message, args, server}, t) {
@@ -19,7 +18,7 @@ module.exports = class ReputationCommand extends Command {
 		if (!user) {
 			new this.client.database.Users({
 				_id: member.id
-			}).save()
+}).save()
 		}
 		let time = ((parseInt(author.repTime) - Date.now()) > 3600000) ? moment.utc(parseInt(author.repTime - Date.now())).format("hh:mm:ss") : moment.utc(parseInt(author.repTime - Date.now())).format("mm:ss")
 		if (parseInt(author.repTime) < Date.now()) {

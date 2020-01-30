@@ -8,7 +8,6 @@ module.exports = class SetIconCommand extends Command {
 			UserPermission: ["MANAGE_GUILD"],
 			ClientPermission: ["MANAGE_GUILD"],
 			OnlyDevs: false
-			
 		})
 	} 
 	run({message, args, server}, t) {
@@ -16,7 +15,6 @@ module.exports = class SetIconCommand extends Command {
 		if (!icon || icon === undefined) return message.chinoReply("error", t("commands:seticon.args-null"))
 
 		message.guild.setIcon(icon).then(() => {
-			message.chinoReply("success", t("commands:seticon.success"))
-		})
+			message.chinoReply("success", t("commands:seticon.success"))		})
 	}
 }

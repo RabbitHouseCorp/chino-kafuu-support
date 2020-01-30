@@ -8,7 +8,6 @@ module.exports = class AnnounceCommand extends Command {
 			UserPermission: ["MANAGE_GUILD", "MENTION_EVERYONE"],
 			ClientPermission: ["SEND_MESSAGES", "MENTION_EVERYONE"],
 			OnlyDevs: false
-			
 		})
 	} 
 	run({message, args, server}, t) {
@@ -52,7 +51,6 @@ module.exports = class AnnounceCommand extends Command {
 					msg.delete()
 					message.chinoReply("success", t("commands:announce.send"))
 				}
-			})
-		})
+})		})
 	}
 }

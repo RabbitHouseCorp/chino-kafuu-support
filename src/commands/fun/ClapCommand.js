@@ -8,7 +8,6 @@ module.exports = class ClapCommand extends Command {
 			UserPermission: null,
 			ClientPermission: null,
 			OnlyDevs: false
-			
 		})
 	}
 	run({message, args, server}, t) {
@@ -18,11 +17,11 @@ module.exports = class ClapCommand extends Command {
 		if (message.member.hasPermission("MENTION_EVERYONE")) {
 			message.channel.send(clap, {
 				disableEveryone: false
-			})
+})
 		} else {
 			message.channel.send(clap, {
 				disableEveryone: true
-			})
+})
 		}
 	}
 }

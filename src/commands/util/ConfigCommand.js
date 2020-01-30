@@ -7,8 +7,7 @@ module.exports = class ConfigCommand extends Command {
 			name: "config",
 			aliases: ["module", "configurações", "configurar"],
 			category: "util",
-			UserPermission: ["MANAGE_GUILD"]
-		})
+			UserPermission: ["MANAGE_GUILD"]		})
 	}
 
 	run({message, args, server}, t) {

@@ -12,7 +12,6 @@ module.exports = class McQueryCommand extends Command {
 			UserPermission: null,
 			ClientPermission: null,
 			OnlyDevs: false
-			
 		})
 	} 
 	run({message, args, server}, t) {
@@ -34,7 +33,6 @@ module.exports = class McQueryCommand extends Command {
 				message.channel.send(embed)
 			} else {
 				message.chinoReply("error", t("commands:mcquery.offline"))
-			}
-		})
+			}		})
 	}
 }

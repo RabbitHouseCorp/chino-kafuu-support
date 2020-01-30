@@ -8,7 +8,6 @@ module.exports = class SayCommand extends Command {
 			UserPermission: null,
 			ClientPermission: null,
 			OnlyDevs: false
-			
 		})
 	} 
 	run({message, args, server}, t) {
@@ -19,24 +18,24 @@ module.exports = class SayCommand extends Command {
 			if (!message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.createWebhook(message.author.username, {avatar: message.author.displayAvatarURL()}).then(w => {
 				w.send(args.join(" "), {
 					disableEveryone: false
-				})
+	})
 				setTimeout(() => w.delete(), 5000)
-			})
+})
 			message.channel.send(say,{
 				disableEveryone: false
-			})
+})
          
 		} else {
   
 			if (!message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.createWebhook(message.author.username, {avatar: message.author.displayAvatarURL()}).then(w => {
 				w.send(args.join(" "), {
 					disableEveryone: true
-				})
+	})
 				setTimeout(() => w.delete(), 5000)
-			})
+})
 			message.channel.send(say, { 
 				disableEveryone: true
-			})
+})
 		}
 	}
 }

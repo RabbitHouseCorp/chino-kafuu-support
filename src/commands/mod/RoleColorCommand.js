@@ -6,8 +6,7 @@ module.exports = class RoleColorCommand extends Command {
 			name: "rolecolor",
 			category: "mod",
 			UserPermission: ["MANAGE_ROLES"],
-			ClientPermission: ["MANAGE_ROLES"]
-		})
+			ClientPermission: ["MANAGE_ROLES"]		})
 	}
 
 	async run({message, server, args}, t) {

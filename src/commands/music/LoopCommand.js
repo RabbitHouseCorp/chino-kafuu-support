@@ -7,8 +7,7 @@ module.exports = class LoopCommand extends Command {
 			aliases: ["repeat", "repetir"],
 			UserPermission: null,
 			ClientPermission: null,
-			OnlyDevs: false
-		})
+			OnlyDevs: false		})
 	}
 
 	async run({message, args, server}, t) {

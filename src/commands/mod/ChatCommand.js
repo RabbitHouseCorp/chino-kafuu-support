@@ -8,7 +8,6 @@ module.exports = class ChatCommand extends Command {
 			UserPermission: ["MANAGE_CHANNELS"],
 			ClientPermission: ["MANAGE_CHANNELS"],
 			OnlyDevs: false
-			
 		})
 	} 
 	run({message, args, server}, t) {
@@ -18,13 +17,13 @@ module.exports = class ChatCommand extends Command {
 		case "on":
 			message.channel.overwritePermissions(role, {
 				SEND_MESSAGES: null
-			})
+})
 			message.chinoReply("success" , t("commands:chat.enable"))
 			break
 		case "off":
 			message.channel.overwritePermissions(role, {
 				SEND_MESSAGES: false    
-			})
+})
 			message.chinoReply("success", t("commands:chat.disable"))
 			break
 		default:

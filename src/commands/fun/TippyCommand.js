@@ -11,7 +11,6 @@ module.exports = class PatCommand extends Command {
 			UserPermission: null,
 			ClientPermission: ["MANAGE_WEBHOOK"],
 			OnlyDevs: false
-			
 		})
 	}
 	async run({message, args, server}, t) {
@@ -20,7 +19,6 @@ module.exports = class PatCommand extends Command {
 		let piada = tippy[Math.floor(Math.random() * tippy.length)]
 		let webhook = await message.channel.createWebhook("Tippy", {avatar: "https://giffiles.alphacoders.com/184/184302.gif"})
 		webhook.send(piada).then(() => {
-			webhook.delete()
-		})
+			webhook.delete()		})
 	}
 }

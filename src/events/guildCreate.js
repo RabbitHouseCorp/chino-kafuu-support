@@ -90,7 +90,7 @@ module.exports = class GuildCreate {
 						const embed = new MessageEmbed()
 						.setImage("https://cdn.discordapp.com/attachments/589293933939392533/672268982887383080/91fe833b1dc7d14bc96fd4efd0bc8dc2.gif")
 						.setColor(this.client.colors.default)
-						.setFooter(t("events:added-to-guild.guild-saved"))
+						.setFooter(t("events:added-to-guild.guild-saved"), guild.iconURL())
 						.addField(t("events:added-to-guild.thanks-to-add"), t("events:added-to-guild.msg", {prefix: server.prefix, client: this.client.user.username}))
 						
 	            		guild.channels.filter(c => c.type === "text").random().send(embed).catch()

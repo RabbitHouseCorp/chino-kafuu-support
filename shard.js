@@ -1,7 +1,7 @@
 const { ShardingManager } = require("discord.js")
 const shards = new ShardingManager("./index.js", {
 	respawn: true,
-	totalShards: 4
+	totalShards: 2
 })
 
 shards.on("shardCreate", (shard) => {

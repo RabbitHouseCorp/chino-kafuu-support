@@ -83,7 +83,10 @@
         "rep": "Reputação",
         "colors": {
             "args-null": "você precisa informar cor desejada.",
-            "hex": "você precisa por uma cor em `hex`."
+            "hex": "você precisa por uma cor em `hex`.",
+            "success": "certo, eu alterei a cor do seu embed do perfil e tirei `1.000` yens da sua conta.",
+            "this-color": "Essa será a nova cor do seu embed, você deseja alterar para a cor mostrada? Será cobrado `1.000` yens para alterar a mesma.",
+            "cancel": "certo, como você não quis alterar a cor do embed, eu não irei lhe cobrar nada."
         }
     },
     "aboutme": {
@@ -299,11 +302,13 @@
     },
     "ping": "Eu tenho:",
     "pay": {
+        "confirm": "o usuário {{member}} irá receber `{{value}}` yens, deseja continuar com a transação? Ao continuar, eu irei cobrar `{{porcent}}%` de taxa.",
         "value-null": "você precisa informar a quantidade que você deseja doar.",
         "invalid-value": "o valor informado é inválido.",
         "insufficient-value": "você não tem yens o suficiente.",
         "success": "você doou `{{value}}` yens para {{member}} com sucesso.",
-        "this-author": "você não pode doar yens para si mesmo."
+        "this-author": "você não pode doar yens para si mesmo.",
+        "cancel": "certo, como você não quis continuar com a transação, eu cancelei o envio dos `{{value}}` yens."
     },
     "play": {
         "addedQueue": "a música `{{songTitle}}` foi adicionada a fila",

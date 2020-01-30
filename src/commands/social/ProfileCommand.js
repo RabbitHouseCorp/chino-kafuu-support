@@ -29,9 +29,33 @@ module.exports = class ProfileCommand extends Command {
 		if (args[0] === "color") {
 			if (!args[1]) return message.chinoReply("error", t("commands:profile.colors.args-null"))
 			if (!args[1].includes("#")) return message.chinoReply("error", t("commands:profile.colors.hex"))
+			const colorEmbed = new MessageEmbed()
+			.setColor(`${args[1]}`)
+			.setAuthor(message.author.tag,message.author.displayAvatarURL())
+			.setDescription(t("commands:profile.colors.this-color"))
 
-			user.profileColor = args[1]
-			user.save()
+			message.channel.send(colorEmbed).then(msg => {
+				msg.react("success:577973168342302771")
+				setTimeout(() => msg.react("error:577973245391667200"), 1000)
+	
+				const collector = msg.createReactionCollector((reaction, user) => (reaction.emoji.name === "success", "error") && (user.id !== this.client.user.id && user.id === message.author.id))
+				collector.on("collect", r => {
+					switch (r.emoji.name) {
+						case "success":
+							user.profileColor = args[1]
+							user.save()
+							user.yens -= Number(1000)
+							message.chinoReply("success", t("commands:profile.colors.success", {member: member.toString(), value: Number(realValue[0]).toLocaleString()}))
+							msg.delete()
+						break;
+						case "error":
+							message.chinoReply("error", t("commands:profile.colors.cancel"))
+							msg.delete()
+						break;
+					}
+				})
+			})
+			return
 		}
 		let description = [
 			`${this.client.emotes.sharo_excited} **${t("commands:profile.aboutme")} »** *\`${user.aboutme}\`*`,

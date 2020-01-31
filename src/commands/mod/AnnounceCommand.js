@@ -20,7 +20,7 @@ module.exports = class AnnounceCommand extends Command {
 
 		const embed = new MessageEmbed()
 			.setColor(this.client.colors.default)
-			.setAuthor(t("commands:anunciar.by"))
+			.setAuthor(t("commands:announce.by"))
 			.setDescription(announce)
 			.setFooter(message.guild.name)
 
@@ -43,7 +43,7 @@ module.exports = class AnnounceCommand extends Command {
 					message.chinoReply("success", t("commands:announce.send"))
 					break
 				case "🌀":
-					chat.send("@here", embed, {disableEveryone: false})
+					chat.send("@here", {embed: embed, disableEveryone: false})
 					msg.delete()
 					message.chinoReply("success", t("commands:announce.send"))
 					break

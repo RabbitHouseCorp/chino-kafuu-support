@@ -18,13 +18,13 @@ module.exports = class MarryCommand extends Command {
 		if (author.isMarry) return message.chinoReply("error", t("commands:marry.your-is-marred"))
 
 		message.channel.send(t("commands:marry.confirm", {member: member.toString(), author: message.author.toString()})).then(msg => {
-			setTimeout(() => msg.react("✅"), 500)
-			setTimeout(() => msg.react("❎"), 1000)
+			setTimeout(() => msg.react("success:577973168342302771"), 500)
+			setTimeout(() => msg.react("error:577973245391667200"), 1000)
 
-			const collector = msg.createReactionCollector((reaction, users) => (reaction.emoji.name === "✅", "❎") && (users.id !== this.client.user.id && users.id === member.id))
+			const collector = msg.createReactionCollector((reaction, users) => (reaction.emoji.name === "success", "error") && (users.id !== this.client.user.id && users.id === member.id))
 			collector.on("collect", r => {
 				switch (r.emoji.name) {
-				case "✅":
+				case "success":
 					user.isMarry = true
 					user.marryWith = message.author.id
 					user.yens -= Number(7500)
@@ -37,7 +37,7 @@ module.exports = class MarryCommand extends Command {
 					msg.delete()
 					message.chinoReply("tada", t("commands:marry.successfully-marred", {member: member.toString()}))
 					break
-				case "❎":
+				case "error":
 					msg.delete()
 					message.chinoReply("broken_heart", t("commands:marry.rejected", {member: member.toString()}))
 				}

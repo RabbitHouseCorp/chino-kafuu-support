@@ -17,13 +17,13 @@ module.exports = class DivorceCommand extends Command {
         
 
 		message.reply(t("commands:divorce.confirm", {member: member.toString()})).then(msg => {
-			setTimeout(() => msg.react("✅"), 500)
-			setTimeout(() => msg.react("❎"), 1000)
+			setTimeout(() => msg.react("success:577973168342302771"), 500)
+			setTimeout(() => msg.react("error:577973245391667200"), 1000)
 
-			const collector = msg.createReactionCollector((reaction, users) => (reaction.emoji.name === "✅", "❎") && (users.id !== this.client.user.id && users.id === message.author.id))
+			const collector = msg.createReactionCollector((reaction, users) => (reaction.emoji.name === "success", "error") && (users.id !== this.client.user.id && users.id === message.author.id))
 			collector.on("collect", r => {
 				switch (r.emoji.name) {
-				case "✅":
+				case "success":
 					user.isMarry = false
 					user.marryWith = t("commands:with-nobody")
 					user.yens -= Number(300)
@@ -36,7 +36,7 @@ module.exports = class DivorceCommand extends Command {
 					msg.delete()
 					message.chinoReply("broken_heart", t("commands:divorce.divorced"))
 					break
-				case "❎":
+				case "error":
 					msg.delete()
 					message.chinoReply("eyes_with_hearts", t("commands:divorce.no-divorce"))
 				}

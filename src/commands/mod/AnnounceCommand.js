@@ -26,28 +26,28 @@ module.exports = class AnnounceCommand extends Command {
 
 		message.reply(t("commands:announce.confirmed", {chat: chat})).then(msg => {
 			setTimeout(() => {
-				msg.react("✅")
+				msg.react("success:577973168342302771")
 			}, 500)
 			setTimeout(() => {
-				msg.react("🌀")
+				msg.react("warn:672470606578581524")
 			}, 1000)
 			setTimeout(() => {
-				msg.react("❎")
+				msg.react("error:577973245391667200")
 			}, 1500)
-			const collector = msg.createReactionCollector((r, u) => (r.emoji.name === "✅", "🌀", "❎") && (u.id !== this.client.user.id && u.id === message.author.id))
+			const collector = msg.createReactionCollector((r, u) => (r.emoji.name === "success", "warn", "error") && (u.id !== this.client.user.id && u.id === message.author.id))
 			collector.on("collect", r => {
 				switch (r.emoji.name) {
-				case "✅":
+				case "success":
 					chat.send("@everyone", {embed: embed, disableEveryone: false})
 					msg.delete()
 					message.chinoReply("success", t("commands:announce.send"))
 					break
-				case "🌀":
+				case "warn":
 					chat.send("@here", {embed: embed, disableEveryone: false})
 					msg.delete()
 					message.chinoReply("success", t("commands:announce.send"))
 					break
-				case "❎":
+				case "error":
 					chat.send(embed)
 					msg.delete()
 					message.chinoReply("success", t("commands:announce.send"))

@@ -121,7 +121,7 @@
     "announce": {
         "noMention": "you need to indicate which chat you want me to send the announcement.",
         "noMsg": "you have not argued a message to send, please indicate what you want me to send.",
-        "confirmed": "warning, you are about to send an announcement on {{chat}}, please confirm with the emojis below. \nTo mention `@everyone`, click the ✅. \nTo mention`@here`, click the 🌀.\nTo mention anyone, click on ❎",
+        "confirmed": "warning, you are about to send an announcement on {{chat}}, please confirm with the emojis below. \nTo mention `@everyone`, click the <a:success:577973168342302771>. \nTo mention`@here`, click the <:warn:672470606578581524>.\nTo mention anyone, click on <a:error:577973245391667200>",
         "send": "announcement successfully sent."
     },
     "avatar": {

@@ -6,7 +6,7 @@ module.exports = class YensTopCommand extends Command {
 			name: "yenstop",
 			aliases: ["topyens", "topyen", "yentop"],
 			category: "economy",
-			OnlyDevs: true
+			debug: true
 		})
 	}
 

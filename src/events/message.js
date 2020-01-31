@@ -116,6 +116,12 @@ module.exports = class MessageReceive {
 					if (comando.config.OnlyDevs) {
 						if (!this.client.config.owners.includes(message.author.id)) return message.chinoReply("error", t("permissions:ONLY_DEVS")) 
 					}
+
+					if (comand.config.debug) {
+						if (!this.client.config.owners.includes(message.author.id)) {
+							return message.chinoReply("warn", t("events:debug"))
+						}
+					}
 			        if (cooldown.has(message.author.id)) {
 						let time = cooldown.get(message.author.id)
 						return message.chinoReply("error", t("events:cooldown.message", {time: (time - Date.now() > 1000) ? moment.utc(time - Date.now()).format(`ss [${t("events:cooldown.secounds")}]`) : moment.duration(time - Date.now()).format(`[${t("events:cooldown.milliseconds")}]`)}))

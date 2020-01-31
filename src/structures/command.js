@@ -9,7 +9,7 @@ module.exports = class Command {
 			UserPermission: options.UserPermission || null,
 			ClientPermission: options.ClientPermission || null,
 			OnlyDevs: options.OnlyDevs || false,
-			
+			debug: options.debug || false,
 		}
 	}
   

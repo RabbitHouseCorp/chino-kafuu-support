@@ -117,7 +117,7 @@ module.exports = class MessageReceive {
 						if (!this.client.config.owners.includes(message.author.id)) return message.chinoReply("error", t("permissions:ONLY_DEVS")) 
 					}
 
-					if (comandod.config.debug) {
+					if (comando.config.debug) {
 						if (!this.client.config.owners.includes(message.author.id)) {
 							return message.chinoReply("warn", t("events:debug"))
 						}

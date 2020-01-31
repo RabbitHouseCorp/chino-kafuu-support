@@ -27,35 +27,37 @@ module.exports = class TempMuteCommand extends Command {
 				name: "Silenciado",
 				color: "#000000",
 				permissions: []
-})
+			})
 			message.guild.channels.forEach(async (channel, id) => {
-				await channel.overwritePermissions(role, {
-					SEND_MESSAGES: false,
-					ADD_REACTIONS: false,
-					SPEAK: false,
-					CONNECT: false
-	})
-})
-		}
-
+				await channel.overwritePermissions({
+					permissionOverwrites: [
+						{
+							id: role.id,
+							deny: ["SEND_MESSAGES", "ADD_REACTIONS", "SPEAK", "CONNECT"]
+						}
+					]
+				})
+			})
+		}		  
 		if (message.member.roles.highest.position < message.guild.member(member).roles.highest.position) return message.chinoReply("error", t("commands:punishment.unpunished"))
         
 		let embed = new MessageEmbed()
-			.setTitle(t("commands:tempmute.title", {member: member.tag}))
-			.setColor(this.client.colors.moderation)
-			.setThumbnail(member.displayAvatarURL())
-			.addField(t("commands:punishment.embed.memberName"), member.tag, true)
-			.addField(t("commands:punishment.embed.memberID"), member.id, true)
-			.addField(t("commands:punishment.embed.staffName"), message.author.tag, true)
-			.addField(t("commands:punishment.embed.reason"), reason, true)
+		.setTitle(t("commands:tempmute.title", {member: member.tag}))
+		.setColor(this.client.colors.moderation)
+		.setThumbnail(member.displayAvatarURL())
+		.addField(t("commands:punishment.embed.memberName"), member.tag, true)
+		.addField(t("commands:punishment.embed.memberID"), member.id, true)
+		.addField(t("commands:punishment.embed.staffName"), message.author.tag, true)
+		.addField(t("commands:punishment.embed.reason"), reason, true)
 
 		message.guild.member(member).add(role.id).then(() => {
 			message.channel.send(embed)
 			if (server.punishModule) {
 				message.guild.channels.get(server.punishChannel).send(embed).catch(err => {
 					message.channel.send(t("events:channel-not-found"))
-	})
-			}		})
+				})
+			}
+		})
 		setTimeout(function() {
 			message.guild.member(member).remove(role.id)
 		}, parse(time))

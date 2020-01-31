@@ -15,15 +15,27 @@ module.exports = class ChatCommand extends Command {
 		let role = message.guild.roles.find(r => r.name === "@everyone")
 		switch(args[0]) {
 		case "on":
-			message.channel.overwritePermissions(role, {
-				SEND_MESSAGES: null
-})
+			message.channel.overwritePermissions({
+				permissionOverwrites: [
+				  {
+					id: message.guild.id,
+					allow: ["SEND_MESSAGES"]
+				  }
+				]
+			  })
+	
 			message.chinoReply("success" , t("commands:chat.enable"))
 			break
 		case "off":
-			message.channel.overwritePermissions(role, {
-				SEND_MESSAGES: false    
-})
+			message.channel.overwritePermissions({
+				permissionOverwrites: [
+				  {
+					id: message.guild.id,
+					deny: ["SEND_MESSAGES"]
+				  }
+				]
+			  })
+	
 			message.chinoReply("success", t("commands:chat.disable"))
 			break
 		default:

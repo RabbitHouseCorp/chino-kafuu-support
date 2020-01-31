@@ -36,20 +36,21 @@ module.exports = class BanCommand extends Command {
 			days: 7,
 			reason: reason		}).then((user) => {
 			const embed = new MessageEmbed()
-				.setTitle(t("commands:ban.banned", {member: user.tag}))
-				.setColor(this.client.colors.moderation)
-				.setThumbnail(user.displayAvatarURL())
-				.addField(t("commands:punishment.embed.memberName"), user.tag, true)
-				.addField(t("commands:punishment.embed.memberID"), user.id, true)
-				.addField(t("commands:punishment.embed.staffName"), message.author.tag, true)
-				.addField(t("commands:punishment.embed.reason"), reason, true)
+			.setTitle(t("commands:ban.banned", {member: user.tag}))
+			.setColor(this.client.colors.moderation)
+			.setThumbnail(user.displayAvatarURL())
+			.addField(t("commands:punishment.embed.memberName"), user.tag, true)
+			.addField(t("commands:punishment.embed.memberID"), user.id, true)
+			.addField(t("commands:punishment.embed.staffName"), message.author.tag, true)
+			.addField(t("commands:punishment.embed.reason"), reason, true)
 
 			message.channel.send(embed)
 
 			if (server.punishModule) {
 				message.guild.channels.get(server.punishChannel).send(embed).catch(err => {
 					message.channel.send(t("events:channel-not-found"))
-	})
-			}		})
+				})
+			}		
+		})
 	}
 }

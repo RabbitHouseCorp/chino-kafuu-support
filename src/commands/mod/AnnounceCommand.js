@@ -19,10 +19,10 @@ module.exports = class AnnounceCommand extends Command {
 		if (!announce) return message.chinoReply("error", t("commands:announce.noMsg"))
 
 		const embed = new MessageEmbed()
-			.setColor(this.client.colors.default)
-			.setAuthor(t("commands:announce.by"))
-			.setDescription(announce)
-			.setFooter(message.guild.name)
+		.setColor(this.client.colors.default)
+		.setAuthor(message.guild.name, message.guild.iconURL())
+		.setDescription(announce)
+		.setFooter(`${t("commands:announce.by")}: ${message.author.username}`, message.author.displayAvatarURL())
 
 		message.reply(t("commands:announce.confirmed", {chat: chat})).then(msg => {
 			setTimeout(() => {
@@ -52,6 +52,7 @@ module.exports = class AnnounceCommand extends Command {
 					msg.delete()
 					message.chinoReply("success", t("commands:announce.send"))
 				}
-})		})
+			})
+		})
 	}
 }

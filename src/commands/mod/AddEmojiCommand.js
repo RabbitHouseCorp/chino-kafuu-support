@@ -19,15 +19,15 @@ module.exports = class AddEmoji extends Command {
 		if (!message.attachments.first()) {
 			message.guild.emojis.create(url, name).then(emoji => {
 				message.channel.send(`${emoji} **|** ${message.author}, ${t("commands:addemoji.success")}`)
-}).catch(() => {
+			}).catch(() => {
 				message.chinoReply("error", t("commands:addemoji.error"))
-})
+			})
 		} else {
 			message.guild.emojis.create(url, name).then(emoji => {
 				message.channel.send(`${emoji} **|** ${message.author}, ${t("commands:addemoji.success")}`)
-}).catch(() => {
+			}).catch(() => {
 				message.chinoReply("error", t("commands:addemoji.error"))
-})
+			})
 		}
 	}
 }

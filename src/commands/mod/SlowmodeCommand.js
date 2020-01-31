@@ -18,11 +18,11 @@ module.exports = class SlowmodeCommand extends Command {
 		if (0 < time) {
 			message.channel.setRateLimitPerUser(time).then(() => {
 				message.chinoReply("success", t("commands:slowmode.enable"))
-})
+			})
 		} else {
 			message.channel.setRateLimitPerUser(time).then(() => {
 				message.chinoReply("success",t("commands:slowmode.disable"))
-})
+			})
 		}
         
 	}

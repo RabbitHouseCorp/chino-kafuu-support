@@ -38,14 +38,14 @@ module.exports = class AnnounceCommand extends Command {
 			collector.on("collect", r => {
 				switch (r.emoji.name) {
 				case "✅":
-					chat.send("@everyone", embed)
+					chat.send("@everyone", embed, {disableEveryone: false})
 					msg.delete()
-					message.chinoReply("success", t("commands:announce.send"), {disableEveryone: false})
+					message.chinoReply("success", t("commands:announce.send"))
 					break
 				case "🌀":
-					chat.send("@here", embed)
+					chat.send("@here", embed, {disableEveryone: false})
 					msg.delete()
-					message.chinoReply("success", t("commands:announce.send"), {disableEveryone: false})
+					message.chinoReply("success", t("commands:announce.send"))
 					break
 				case "❎":
 					chat.send(embed)

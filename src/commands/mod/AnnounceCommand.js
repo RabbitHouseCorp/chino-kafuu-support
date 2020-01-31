@@ -38,7 +38,7 @@ module.exports = class AnnounceCommand extends Command {
 			collector.on("collect", r => {
 				switch (r.emoji.name) {
 				case "✅":
-					chat.send("@everyone", embed, {disableEveryone: false})
+					chat.send("@everyone", {embed: embed, disableEveryone: false})
 					msg.delete()
 					message.chinoReply("success", t("commands:announce.send"))
 					break

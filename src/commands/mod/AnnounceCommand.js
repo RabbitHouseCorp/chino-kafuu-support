@@ -39,12 +39,12 @@ module.exports = class AnnounceCommand extends Command {
 				case "✅":
 					chat.send("@everyone", embed)
 					msg.delete()
-					message.chinoReply("success", t("commands:announce.send"))
+					message.chinoReply("success", t("commands:announce.send"), {disableEveryone: false})
 					break
 				case "🌀":
 					chat.send("@here", embed)
 					msg.delete()
-					message.chinoReply("success", t("commands:announce.send"))
+					message.chinoReply("success", t("commands:announce.send"), {disableEveryone: false})
 					break
 				case "❎":
 					chat.send(embed)

@@ -75,8 +75,11 @@
         "yens": "Yens",
         "rep": "Reputation",
         "colors": {
-            "args-null": "argue the desired color",
-            "hex": "your color must be a `hex` color."
+            "args-null": "supply the desired colour",
+            "hex": "you have to enter a `hex` colour.",
+            "success": "alright, I've changed your embed profile colour and charged you 1.000 Yens",
+            "this-color": "This will be the new embed's colour. Do you want to change it? I will charge you 1.000 Yens.",
+            "cancel": "alright, as you didn't want to change the colour, I won't charge you."
         }
     },
     "aboutme": {
@@ -122,7 +125,8 @@
         "noMention": "you need to indicate which chat you want me to send the announcement.",
         "noMsg": "you have not argued a message to send, please indicate what you want me to send.",
         "confirmed": "warning, you are about to send an announcement on {{chat}}, please confirm with the emojis below. \nTo mention `@everyone`, click the <a:success:577973168342302771>. \nTo mention`@here`, click the <:warn:672470606578581524>.\nTo mention anyone, click on <a:error:577973245391667200>",
-        "send": "announcement successfully sent."
+        "send": "announcement successfully sent.",
+        "by": "Announcement sent by"
     },
     "avatar": {
         "his-avatar": "{{member}}'s avatar",
@@ -269,7 +273,10 @@
         "invalid-value": "the value you entered is invalid.",
         "insufficient-value": "you don't have enough yens.",
         "success": "you have successfully donated `{{value}}` yens to {{member}}.",
-        "this-author": "you cannot donate yens to yourself."
+        "this-author": "you cannot donate yens to yourself.",
+        "confirm": "user {{member}} is going to receive `{{value}}` Yens. Do you really want to finish the transaction? I will charge you `{{porcent}}%` as a tax.",
+        "cancel": "got it, as you didn't want to complete the transaction, I've cancelled the transaction of `{{value}}` Yens."
+
     },
     "play": {
         "addedQueue": "song `{{songTitle}}` has been added to the queue",

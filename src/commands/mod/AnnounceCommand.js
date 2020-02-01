@@ -24,7 +24,7 @@ module.exports = class AnnounceCommand extends Command {
 		.setDescription(announce)
 		.setFooter(`${t("commands:announce.by")}: ${message.author.username}`, message.author.displayAvatarURL())
 
-		message.reply(t("commands:announce.confirmed", {chat: chat})).then(msg => {
+		message.reply(t("commands:announce.confirmed", {chat: chat.toString()})).then(msg => {
 			setTimeout(() => {
 				msg.react("success:577973168342302771")
 			}, 500)

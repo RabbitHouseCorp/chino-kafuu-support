@@ -470,7 +470,7 @@
     },
     "send-dm": "enviei no seu privado, dê uma olhada lá.",
     "mention-null": "usuário não encontrado, tente menciona-lo da próxima vez.",
-    "closed-dm": "seu privado está fechando, eu não consegui enviar as informações lá.",
+    "closed-dm": "seu privado está fechado, eu não consegui enviar as informações lá.",
     "createdBy": "{{clientName}} foi criada e desenvolvida por {{owner}}",
     "dj-module": {
         "channel-null": "você não se encontra em nenhum canal de voz.",
@@ -489,7 +489,7 @@
     "mc": "informe o nick do jogador.",
     "no-reason": "Não informado.",
     "roleColor": {
-        "invalidRole": "cargo inválido!",
+        "invalidRole": "este cargo é inválido ou não existe!",
         "invalidHex": "insira uma cor hex válida.",
         "success": "cor alterada com sucesso.",
         "higherRole": "esse cargo é maior que o meu, eu não consigo mudar a cor!"

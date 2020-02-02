@@ -159,9 +159,9 @@ module.exports = class MessageReceive {
 								err.stack = `${err.stack}...`
 							}
 							const embed = new MessageEmbed()
-								.setColor(this.client.colors.error)
-								.setTitle(`${this.client.emotes.chino_sad} ${t("events:error")} ${this.client.emotes.chino_chibi}`)
-								.setDescription(`\`\`\`js\n${err.stack}\`\`\``)
+							.setColor(this.client.colors.error)
+							.setTitle(`${this.client.emotes.chino_sad} ${t("events:error")} ${this.client.emotes.chino_chibi}`)
+							.setDescription(`\`\`\`js\n${err.stack}\`\`\``)
                   
 							message.channel.send(embed)
 						})

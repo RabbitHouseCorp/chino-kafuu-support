@@ -34,7 +34,8 @@ module.exports = class BanCommand extends Command {
 
 		message.guild.members.ban(inGuild.id, {
 			days: 7,
-			reason: reason		}).then((user) => {
+			reason: `${t("commands:punishment.embed.staffName")}: ${message.author.tag} - ${t("commands:punishment.embed.reason")}: ${reason}`
+		}).then((user) => {
 			const embed = new MessageEmbed()
 			.setTitle(t("commands:ban.banned", {member: user.tag}))
 			.setColor(this.client.colors.moderation)

@@ -13,7 +13,7 @@ module.exports = class KickCommand extends Command {
 	} 
 	run({message, args, server}, t) {
         
-		const member = message.mentions.users.first() || this.client.users.get(args[0])
+		let member = message.mentions.users.first() || this.client.users.get(args[0])
 		if (!member) return message.chinoReply("error", t("commands:mention-null"))
 		let reason = args.slice(1).join(" ")
 		if (!reason) {
@@ -25,20 +25,23 @@ module.exports = class KickCommand extends Command {
 		if (message.member.roles.highest.position < message.guild.member(member).roles.highest.position) return message.chinoReply("error", t("commands:punishment.unpunished"))
         
 		const embed = new MessageEmbed()
-			.setTitle(t("commands:kick.kicked", {member: member.tag}))
-			.setColor(this.client.colors.moderation)
-			.setThumbnail(member.displayAvatarURL())
-			.addField(t("commands:punishment.embed.memberName"), member.tag, true)
-			.addField(t("commands:punishment.embed.memberID"),member.id, true)
-			.addField(t("commands:punishment.embed.staffName"), message.author.tag, true)
-			.addField(t("commands:punishment.embed.reason"), reason, true)
+		.setTitle(t("commands:kick.kicked", {member: member.tag}))
+		.setColor(this.client.colors.moderation)
+		.setThumbnail(member.displayAvatarURL())
+		.addField(t("commands:punishment.embed.memberName"), member.tag, true)
+		.addField(t("commands:punishment.embed.memberID"),member.id, true)
+		.addField(t("commands:punishment.embed.staffName"), message.author.tag, true)
+		.addField(t("commands:punishment.embed.reason"), reason, true)
 
-		message.guild.members.kick(member.id, {reason: reason}).then(() => {
+		message.guild.members.kick(member.id, {
+			reason: `${t("commands:punishment.embed.staffName")}: ${message.author.tag} - ${t("commands:punishment.embed.reason")}: ${reason}`
+		}).then(() => {
 			message.channel.send(embed)
 			if (server.punishModule) {
 				message.guild.channels.get(server.punishChannel).send(embed).catch(err => {
 					message.channel.send(t("events:channel-not-found"))
-	})
-			}		})
+				})
+			}
+		})
 	}
 }

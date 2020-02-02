@@ -9,18 +9,17 @@ module.exports = class LeaveCommand extends Command {
 			ClientPermission: null,
 			OnlyDevs: false
 		})
-	} 
-	run({message, args, server}, t) {
+	}
+	run({ message, args, server }, t) {
 		let perm = message.member.roles.find(r => r.name.toLowerCase() === "dj")
-		if (!perm && !message.member.hasPermission("BAN_MEMBERS") && !message.member.hasPermission("MANAGE_GUILD")) return message.channel.send(t("permissions:userPermission.dj", {author: message.author, emoji: this.client.emotes.error}))
+		if (!perm && !message.member.hasPermission("BAN_MEMBERS") && !message.member.hasPermission("MANAGE_GUILD")) return message.channel.send(t("permissions:userPermission.dj", { author: message.author, emoji: this.client.emotes.error }))
 		if (!message.member.voice.channel) return message.chinoReply("error", t("commands:dj-module.channel-null"))
 		if (message.guild.member(this.client.user).voice.channel && message.member.voice.channel != message.guild.member(this.client.user).voice.channel) return message.channel.send(t("commands:dj-module.another-channel"))
-    
-		message.reply(t("commands:leave", {voiceChannel: message.member.voice.channel.name})).then(async () => {
+
+		message.reply(t("commands:leave", { voiceChannel: message.member.voice.channel.name })).then(async () => {
 			await this.client.lavalinkManager.manager.leave(message.guild.id)
 			this.client.lavalinkManager.manager.delete(message.guild.id)
-			this.client.player.delete(message.guild.id)		})
-
-        
+			this.client.player.delete(message.guild.id)
+		})
 	}
 }

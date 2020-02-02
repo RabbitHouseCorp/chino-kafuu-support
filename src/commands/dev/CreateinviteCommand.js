@@ -9,9 +9,9 @@ module.exports = class CreateinviteCommand extends Command {
 			ClientPermission: null,
 			OnlyDevs: true
 		})
-	} 
-	async run({message, args, server}, t) {
-            
+	}
+	async run({ message, args, server }, t) {
+
 		const guild = args.join(" ")
 		if (!guild) return message.channel.send("error", "informe o ID ou nome do servidor que você deseja pegar o convite.")
 		let guilds = this.client.guilds.get(args[0]) || this.client.guilds.find(g => g.name === guild)

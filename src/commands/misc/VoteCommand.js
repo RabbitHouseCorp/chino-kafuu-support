@@ -10,16 +10,16 @@ module.exports = class VoteCommand extends Command {
 			ClientPermission: null,
 			OnlyDevs: false
 		})
-	} 
-	run({message, args, server}, t) {
-            
+	}
+	run({ message, args, server }, t) {
+
 		let embed = new MessageEmbed()
 			.setColor(this.client.colors.default)
-			.setDescription(t("commands:vote.voteMsg", {author: message.author.username, prefix: server.prefix}))
+			.setDescription(t("commands:vote.voteMsg", { author: message.author.username, prefix: server.prefix }))
 			.setFooter(this.client.user.username, this.client.user.avatarURL)
 			.setTimestamp(new Date())
 
 		message.author.send(embed)
-		message.chinoReply("peek", t("commands:vote.send-dm", { author: message.author}))
+		message.chinoReply("peek", t("commands:vote.send-dm", { author: message.author }))
 	}
 }

@@ -11,7 +11,7 @@ module.exports = class ShipCommand extends Command {
         })
     }
 
-    async run({message, args, server}, t) {
+    async run({ message, args, server }, t) {
         if (!args[0]) return message.chinoReply("error", t("commands:mention-null"))
         if (!args[1]) return message.chinoReply("error", "usuário secundário não encontrado, tente menciona-lo da próxima vez.")
         let user1 = await this.client.shardManager.getUsers(args[0].replace(/[<@!>]/g, ""))
@@ -19,13 +19,13 @@ module.exports = class ShipCommand extends Command {
         let value1 = await this.client.database.Users.findById(user1.id)
         let value2 = await this.client.database.Users.findById(user2.id)
         if (value1.shipValue === "null") {
-			value1.shipValue = Math.floor(Math.random() * 55)
-			value1.save()
+            value1.shipValue = Math.floor(Math.random() * 55)
+            value1.save()
         }
         if (value2.shipValue === "null") {
-			value2.shipValue = Math.floor(Math.random() * 55)
-			value2.save()
-		}
+            value2.shipValue = Math.floor(Math.random() * 55)
+            value2.save()
+        }
         const canvas = Canvas.createCanvas(1536, 612);
         const ctx = canvas.getContext("2d");
         let image = await Canvas.loadImage(`${user1.displayAvatarURL}?size=2048`.replace("webp", "png"))
@@ -41,10 +41,10 @@ module.exports = class ShipCommand extends Command {
         ctx.textAlign = "center";
         ctx.fillStyle = "#ff2b60";
         ctx.strokeStyle = "#ff2b60";
-    
+
         ctx.font = "small-caps bold 90px sans-serif";
         ctx.strokeText(value.toString() + "%", canvas.width / 2, 512);
-    
+
         ctx.fillText(value.toString() + "%", canvas.width / 2, 512);
         const width = (value / 100) * canvas.width;
         ctx.fillStyle = "rgba(255,58,101,0.23)";
@@ -58,7 +58,7 @@ module.exports = class ShipCommand extends Command {
             true
         );
         ctx.fillStyle = "rgba(201,21,40,0.87)";
-    
+
         ctx.roundRect(
             10,
             canvas.height - 80,
@@ -71,14 +71,14 @@ module.exports = class ShipCommand extends Command {
         let username1 = user1.username
         let username2 = user2.username
         let mix = `${username1.substring(0, username1.length / 2) + username2.substring(username2.length / 2, username2.length)}`.replace(" ", "")
-        
+
         let buf = canvas.toBuffer();
         let attachment = new MessageAttachment(buf, "ship.png")
         const embed = new MessageEmbed()
-        .setDescription(`\`${username1} + ${username2} = ${mix}\``)
-        .attachFiles(attachment)
-        .setImage("attachment://ship.png")
-        .setColor(this.client.colors.default)
+            .setDescription(`\`${username1} + ${username2} = ${mix}\``)
+            .attachFiles(attachment)
+            .setImage("attachment://ship.png")
+            .setColor(this.client.colors.default)
 
         message.channel.send(embed)
     }

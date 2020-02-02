@@ -10,16 +10,16 @@ module.exports = class ReplyCommand extends Command {
         })
     }
 
-    run({message, args, server}, t) {
+    run({ message, args, server }, t) {
         if (!args[0]) return message.chinoReply("error", t("commands:reply.args-null"))
         if (!args[1]) return message.chinoReply("error", t("commands:reply.quote-null"))
-        
+
         message.channel.messages.fetch(args[0]).then(msg => {
             const embed = new MessageEmbed()
-            .setAuthor(`${msg.author.tag} ${t("commands:reply.said")}...`, msg.author.displayAvatarURL())
-            .setDescription(msg.content)
-            .setColor("#000000")
-            .setFooter(`${t("commands:reply.sent-in")} ${msg.channel.name}`, message.guild.iconURL())
+                .setAuthor(`${msg.author.tag} ${t("commands:reply.said")}...`, msg.author.displayAvatarURL())
+                .setDescription(msg.content)
+                .setColor("#000000")
+                .setFooter(`${t("commands:reply.sent-in")} ${msg.channel.name}`, message.guild.iconURL())
 
             message.delete()
             message.channel.createWebhook(message.author.username, {

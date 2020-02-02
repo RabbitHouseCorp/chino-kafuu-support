@@ -10,9 +10,9 @@ module.exports = class McAvatarCommand extends Command {
 			ClientPermission: null,
 			OnlyDevs: false
 		})
-	} 
-	run({message, args, server}, t) {
-            
+	}
+	run({ message, args, server }, t) {
+
 		if (!args[0]) return message.chinoReply("error", t("commands:mc"))
 		const body = `https://mc-heads.net/avatar/${args[0]}/256.png`
 		const embed = new MessageEmbed()

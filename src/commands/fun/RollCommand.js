@@ -3,11 +3,11 @@ const Command = require("../../structures/command.js")
 module.exports = class RollCommand extends Command {
     constructor(client) {
         super(client, {
-        name: "roll",
-        category: "fun",
-        aliases: ["rolldice', 'dice"],
-        UserPermission: null,
-        ClientPermission: null
+            name: "roll",
+            category: "fun",
+            aliases: ["rolldice', 'dice"],
+            UserPermission: null,
+            ClientPermission: null
         })
     }
     run({ message, args }, t) {

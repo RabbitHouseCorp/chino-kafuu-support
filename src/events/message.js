@@ -33,7 +33,7 @@ module.exports = class MessageReceive {
 			user.shipValue = Math.floor(Math.random() * 55)
 			user.save()
 		}
-      
+
 
 		let t
 		const setFixedT = function (translate) {
@@ -58,7 +58,7 @@ module.exports = class MessageReceive {
 			}, async (err, f) => {
 				if (f) {
 					if (message.mentions.users.size > 0) {
-						message.mentions.users.forEach(async (member) =>  {
+						message.mentions.users.forEach(async (member) => {
 							if (!member) return
 							let user = await this.client.database.Users.findById(member.id)
 							if (user) {
@@ -68,14 +68,14 @@ module.exports = class MessageReceive {
 										return
 									}
 
-									message.reply(`\`${member.tag}\` ${t("commands:afk.with-reason", {reason: user.afkReason})}`)
+									message.reply(`\`${member.tag}\` ${t("commands:afk.with-reason", { reason: user.afkReason })}`)
 								}
 							}
 						})
 					}
-                    
+
 					let member = await this.client.database.Users.findById(message.author.id)
-                    
+
 					if (member) {
 						if (member) {
 							member.afk = false
@@ -85,14 +85,14 @@ module.exports = class MessageReceive {
 					}
 
 					if (message.content === message.guild.me.toString()) {
-						message.channel.send(`${t("events:mention.start")} ${message.author}, ${t("events:mention.end", {prefix: server.prefix})}`)
+						message.channel.send(`${t("events:mention.start")} ${message.author}, ${t("events:mention.end", { prefix: server.prefix })}`)
 					}
-                    
+
 					if (!message.content.startsWith(server.prefix)) return
 					const args = message.content.slice(server.prefix.length).trim().split(/ +/g)
 					const command = args.shift().toLowerCase()
 					const comando = this.client.commands.get(command) || this.client.commands.get(this.client.aliases.get(command))
-                    
+
 					if (user.blacklist) {
 						const embed = new MessageEmbed()
 							.setColor(this.client.colors.moderation)
@@ -114,7 +114,7 @@ module.exports = class MessageReceive {
 					}
 
 					if (comando.config.OnlyDevs) {
-						if (!this.client.config.owners.includes(message.author.id)) return message.chinoReply("error", t("permissions:ONLY_DEVS")) 
+						if (!this.client.config.owners.includes(message.author.id)) return message.chinoReply("error", t("permissions:ONLY_DEVS"))
 					}
 
 					if (comando.config.debug) {
@@ -122,13 +122,13 @@ module.exports = class MessageReceive {
 							return message.chinoReply("warn", t("events:debug"))
 						}
 					}
-			        if (cooldown.has(message.author.id)) {
+					if (cooldown.has(message.author.id)) {
 						let time = cooldown.get(message.author.id)
-						return message.chinoReply("error", t("events:cooldown.message", {time: (time - Date.now() > 1000) ? moment.utc(time - Date.now()).format(`ss [${t("events:cooldown.secounds")}]`) : moment.duration(time - Date.now()).format(`[${t("events:cooldown.milliseconds")}]`)}))
-                        
+						return message.chinoReply("error", t("events:cooldown.message", { time: (time - Date.now() > 1000) ? moment.utc(time - Date.now()).format(`ss [${t("events:cooldown.secounds")}]`) : moment.duration(time - Date.now()).format(`[${t("events:cooldown.milliseconds")}]`) }))
+
 					}
 					cooldown.set(message.author.id, Date.now() + 5000)
-                      
+
 					setTimeout(() => {
 						cooldown.delete(message.author.id)
 					}, 5000)
@@ -138,20 +138,20 @@ module.exports = class MessageReceive {
 					if (userPermission !== null) {
 						if (!message.member.hasPermission(userPermission)) {
 							let perm = userPermission.map(value => t(`permissions:${value}`)).join(", ")
-							return message.chinoReply("error", `${t("permissions:USER_MISSING_PERMISSION", {perm: perm})}`)
+							return message.chinoReply("error", `${t("permissions:USER_MISSING_PERMISSION", { perm: perm })}`)
 						}
 					}
 					if (clientPermission !== null) {
 						if (!message.guild.me.hasPermission(clientPermission)) {
 							let perm = clientPermission.map(value => t(`permissions:${value}`)).join(", ")
-							return message.chinoReply("error", `${t("permissions:CLIENT_MISSING_PERMISSION", {perm: perm})}`)
+							return message.chinoReply("error", `${t("permissions:CLIENT_MISSING_PERMISSION", { perm: perm })}`)
 						}
 					}
 					try {
 						comando.setT(t)
 						new Promise((res, rej) => {
 							message.channel.startTyping()
-							res(comando.run({message, args, server}, t))
+							res(comando.run({ message, args, server }, t))
 						}).then(() => message.channel.stopTyping()).catch(err => {
 							message.channel.stopTyping()
 							if (err.stack.length > 1800) {
@@ -159,10 +159,10 @@ module.exports = class MessageReceive {
 								err.stack = `${err.stack}...`
 							}
 							const embed = new MessageEmbed()
-							.setColor(this.client.colors.error)
-							.setTitle(`${this.client.emotes.chino_sad} ${t("events:error")} ${this.client.emotes.chino_chibi}`)
-							.setDescription(`\`\`\`js\n${err.stack}\`\`\``)
-                  
+								.setColor(this.client.colors.error)
+								.setTitle(`${this.client.emotes.chino_sad} ${t("events:error")} ${this.client.emotes.chino_chibi}`)
+								.setDescription(`\`\`\`js\n${err.stack}\`\`\``)
+
 							message.channel.send(embed)
 						})
 					} catch (err) {
@@ -175,7 +175,7 @@ module.exports = class MessageReceive {
 							.setColor(this.client.colors.error)
 							.setTitle(`${this.client.emotes.chino_sad} ${t("events:error")} ${this.client.emotes.chino_chibi}`)
 							.setDescription(`\`\`\`js\n${err.stack}\`\`\``)
-                  
+
 						message.channel.send(embed)
 						console.error(err.stack)
 					}

@@ -10,15 +10,17 @@ module.exports = class InviteCommand extends Command {
 			ClientPermission: null,
 			OnlyDevs: false
 		})
-	} 
-	run({message, args, server}, t) {
-        
+	}
+	run({ message, args, server }, t) {
+
 		const embed = new MessageEmbed()
 			.setColor(this.client.colors.default)
-			.addField(t("commands:invite.MyInvite"), t("commands:invite.invite", {clientID: this.client.user.id}))
-    
+			.addField(t("commands:invite.MyInvite"), t("commands:invite.invite", { clientID: this.client.user.id }))
+
 		message.author.send(embed).then(() => {
-			message.reply(t("commands:send-dm"))		}).catch(() => {
-			message.chinoReply("error", t("commands:closed-dm"))		}) 
+			message.reply(t("commands:send-dm"))
+		}).catch(() => {
+			message.chinoReply("error", t("commands:closed-dm"))
+		})
 	}
 }

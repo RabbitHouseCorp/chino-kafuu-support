@@ -36,8 +36,8 @@ class ExchangeApi {
      */
     _isCacheValid(cachedValue) {
         return cachedValue
-        && cachedValue.timestamp
-        && new Date().getTime() - cachedValue.timestamp < this.MAX_AGE
+            && cachedValue.timestamp
+            && new Date().getTime() - cachedValue.timestamp < this.MAX_AGE
     }
 
     /**
@@ -63,24 +63,24 @@ class ExchangeApi {
         let data
 
         if (!this._isValidRate(from)) {
-        throw new InvalidArgumentError(from)
+            throw new InvalidArgumentError(from)
         }
         if (!this._isValidRate(to)) {
-        throw new InvalidArgumentError(to)
+            throw new InvalidArgumentError(to)
         }
 
         // anti troll
         if (from === to) {
-        data = { rates: { [`${to}`]: 1 } }
+            data = { rates: { [`${to}`]: 1 } }
         }
 
         if (this._isCacheValid(cached)) {
-        data = { ...cached, isCached: true }
+            data = { ...cached, isCached: true }
         } else {
-        const res = await fetch(`${this._url}/latest?base=${from}&symbols=${to}`)
-        data = await res.json()
-        data.timestamp = new Date().getTime()
-        this._cache[key] = data
+            const res = await fetch(`${this._url}/latest?base=${from}&symbols=${to}`)
+            data = await res.json()
+            data.timestamp = new Date().getTime()
+            this._cache[key] = data
         }
 
         return data

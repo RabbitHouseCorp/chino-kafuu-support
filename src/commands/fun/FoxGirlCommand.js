@@ -3,8 +3,8 @@ const NekosLife = require("nekos.life")
 const neko = new NekosLife()
 const { MessageEmbed } = require("discord.js")
 module.exports = class FoxGirlCommand extends Command {
-	constructor (client) {
-		super (client, {
+	constructor(client) {
+		super(client, {
 			name: "foxgirl",
 			category: "fun",
 			aliases: [],
@@ -13,7 +13,7 @@ module.exports = class FoxGirlCommand extends Command {
 			OnlyDevs: false
 		})
 	}
-	async run({message, args, server}, t) {
+	async run({ message, args, server }, t) {
 		let img = await neko.sfw.foxGirl()
 		const embed = new MessageEmbed()
 			.setColor(this.client.colors.action)

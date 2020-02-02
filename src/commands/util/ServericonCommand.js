@@ -11,7 +11,7 @@ module.exports = class ServericonCommand extends Command {
 			OnlyDevs: false
 		})
 	}
-	run({message, args, server}, t) {
+	run({ message, args, server }, t) {
 
 		let guild = this.client.guilds.get(args[0])
 		if (!guild) {

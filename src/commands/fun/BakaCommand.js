@@ -18,9 +18,9 @@ module.exports = class BakaCommand extends Command {
 		if (!member) return message.chinoReply("error", t("commands:mention-null"))
 		let img = await neko.sfw.baka()
 		const embed = new MessageEmbed()
-			.setColor(this.client.colors.action)
-			.setDescription(t("commands:baka.hasBaka", {member: member.toString(), author: message.author.toString()}))
-			.setImage(img.url)
+		.setColor(this.client.colors.action)
+		.setDescription(t("commands:baka.hasBaka", {member: member.toString(), author: message.author.toString()}))
+		.setImage(img.url)
 
 		message.channel.send(embed)
 	}

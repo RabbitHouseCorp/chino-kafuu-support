@@ -1,15 +1,16 @@
 const Command = require("../../structures/command")
 
 module.exports = class ReloadCommand extends Command {
-	constructor (client) {
+	constructor(client) {
 		super(client, {
 			name: "reload",
 			aliases: ["recarregar"],
 			category: "developers",
-			OnlyDevs: true		})
+			OnlyDevs: true
+		})
 	}
 
-	run ({ message, args, server }, t) {
+	run({ message, args, server }, t) {
 		const option = this.getOption(args[0], ["command", "comando"], ["evento", "event"])
 		if (!option) return message.chinoReply("error", "me dê uma opção válida. Opções disponíveis: `evento`, `comando`")
 		if (!args[1]) return message.chinoReply("error", "me dê um comando/evento para recarregar.")

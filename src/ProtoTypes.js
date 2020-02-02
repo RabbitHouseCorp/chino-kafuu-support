@@ -8,7 +8,7 @@ module.exports = class ProtoTypes {
 			emoji = emotes[emoji]
 			return this.channel.send(`${emoji} **|** ${this.author}, ${message}`, ...args)
 		}
-      
+
 		CanvasRenderingContext2D.prototype.roundRect = function roundRect(x, y, width, height, radius, fill, stroke) {
 			if (typeof stroke === "undefined") {
 				stroke = true
@@ -17,9 +17,9 @@ module.exports = class ProtoTypes {
 				radius = 5
 			}
 			if (typeof radius === "number") {
-				radius = {tl: radius, tr: radius, br: radius, bl: radius}
+				radius = { tl: radius, tr: radius, br: radius, bl: radius }
 			} else {
-				var defaultRadius = {tl: 0, tr: 0, br: 0, bl: 0}
+				var defaultRadius = { tl: 0, tr: 0, br: 0, bl: 0 }
 				for (var side in defaultRadius) {
 					radius[side] = radius[side] || defaultRadius[side]
 				}
@@ -42,7 +42,7 @@ module.exports = class ProtoTypes {
 				this.stroke()
 			}
 
-		}    
-      
+		}
+
 	}
 }

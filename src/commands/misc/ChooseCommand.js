@@ -9,13 +9,13 @@ module.exports = class ChooseCommand extends Command {
 			ClientPermission: null,
 			OnlyDevs: false
 		})
-	} 
-	run({message, args, server}, t) {
-            
+	}
+	run({ message, args, server }, t) {
+
 		if (!args[0]) return message.chinoReply("error", t("commands:choose.args-null"))
 		let choose = args.join(" ").split(", ")
 		let c = choose[Math.floor(Math.random() * choose.length)]
 
-		message.reply(t("commands:choose.choose", {choose: c}))
+		message.reply(t("commands:choose.choose", { choose: c }))
 	}
 }

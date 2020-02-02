@@ -2,8 +2,8 @@ const Command = require("../../structures/command")
 const Canvas = require("canvas")
 const { MessageAttachment } = require("discord.js")
 module.exports = class LicencaCommand extends Command {
-	constructor (client) {
-		super (client, {
+	constructor(client) {
+		super(client, {
 			name: "license",
 			category: "image",
 			aliases: ["licença", "licenca"],
@@ -12,17 +12,17 @@ module.exports = class LicencaCommand extends Command {
 			OnlyDevs: false
 		})
 	}
-	async run({message, args, server}, t) {
+	async run({ message, args, server }, t) {
 
 		let user = message.mentions.users.first() || this.client.users.get(args[0]) || message.author
 		let canvas = await Canvas.createCanvas(1150, 893)
 		let ctx = canvas.getContext("2d")
-		let UserImg = await Canvas.loadImage(user.displayAvatarURL({format: "png"}))
+		let UserImg = await Canvas.loadImage(user.displayAvatarURL({ format: "png" }))
 		let Card = await Canvas.loadImage("https://media.discordapp.net/attachments/584149756469575701/597483177937731584/unknown.png?width=360&height=169")
 		ctx.rotate(Math.PI * 2 / -30)
 		ctx.textAlign = "center"
-        
-		ctx.fillStyle = message.guild.member(user)? message.guild.member(user).displayHexColor : "#450396"
+
+		ctx.fillStyle = message.guild.member(user) ? message.guild.member(user).displayHexColor : "#450396"
 		ctx.roundRect(-10, 250, 860, 550, 50, true, false)
 		ctx.drawImage(Card, -10, 300, 800, 393)
 		ctx.drawImage(UserImg, 428, 300, 393, 393)

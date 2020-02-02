@@ -9,9 +9,9 @@ module.exports = class PauseCommand extends Command {
 			ClientPermission: null,
 			OnlyDevs: false
 		})
-	} 
-	run({message, args, server}, t) {
-       
+	}
+	run({ message, args, server }, t) {
+
 		if (!this.client.player.has(message.guild.id)) return message.channel.send(t("commands:dj-module.no-playing"))
 		if (this.client.player.get(message.guild.id).player.paused === true) return message.chinoReply("error", t("commands:pause.isPaused"))
 		if (!this.client.player.get(message.guild.id).player.playing) return message.chinoReply("error", t("commands:dj-module.queue-null"))

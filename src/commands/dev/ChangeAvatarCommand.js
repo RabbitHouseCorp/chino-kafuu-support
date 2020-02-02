@@ -10,28 +10,28 @@ module.exports = class ChangeAvatarCommand extends Command {
 			ClientPermission: null,
 			OnlyDevs: true
 		})
-	} 
-	run({message, args, server}, t) {
-        
+	}
+	run({ message, args, server }, t) {
+
 		let avatar = args[0]
 		if (message.attachments.first()) {
 			avatar = message.attachments.first().url
 			this.client.user.setAvatar(avatar).then(bot => {
 				const embed = new MessageEmbed()
-				.setColor(this.client.colors.default)
-				.setAuthor(t("commands:changeavatar.avatar"), bot.displayAvatarURL())
-				.setImage(`${bot.displayAvatarURL({size: 2048})}`)
-	
+					.setColor(this.client.colors.default)
+					.setAuthor(t("commands:changeavatar.avatar"), bot.displayAvatarURL())
+					.setImage(`${bot.displayAvatarURL({ size: 2048 })}`)
+
 				message.channel.send(embed)
 			})
 		} else {
 			if (!avatar) return message.chinoReply("error", t("commands:changeavatar.args-null"))
 			this.client.user.setAvatar(avatar).then(bot => {
 				const embed = new MessageEmbed()
-				.setColor(this.client.colors.default)
-				.setAuthor(t("commands:changeavatar.avatar"), bot.displayAvatarURL())
-				.setImage(`${bot.displayAvatarURL({size: 2048})}`)
-	
+					.setColor(this.client.colors.default)
+					.setAuthor(t("commands:changeavatar.avatar"), bot.displayAvatarURL())
+					.setImage(`${bot.displayAvatarURL({ size: 2048 })}`)
+
 				message.channel.send(embed)
 			})
 		}

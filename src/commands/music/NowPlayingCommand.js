@@ -1,27 +1,25 @@
 const Command = require("../../structures/command")
 const { MessageEmbed } = require("discord.js")
 const moment = require("moment")
-let youtube = require("youtube-info")
 require("moment-duration-format")
 module.exports = class NowPlayingCommand extends Command {
 	constructor(client) {
 		super(client, {
 			name: "nowplaying",
 			category: "music",
-			aliases:["playingnow", "np"],
+			aliases: ["playingnow", "np"],
 			UserPermission: null,
 			ClientPermission: null,
 			OnlyDevs: false
 		})
 	}
 
-	async run({message, args, server}, t) {
+	async run({ message, args, server }, t) {
 
 		if (!this.client.player.has(message.guild.id)) return message.chinoReply("error", t("commands:dj-module.queue-null"))
 		if (!this.client.player.get(message.guild.id).nowPlaying) return message.chinoReply("error", t("commands:dj-module.queue-null"))
 		if (!message.member.voice.channel) return message.chinoReply("error", t("commands:dj-module.channel-null"))
 		if (message.guild.me.voice.channel && message.member.voice.channel !== message.guild.me.voice.channel) return message.chinoReply("error", t("commands:dj-module.another-channel"))
-		let yt = await youtube(this.client.player.get(message.guild.id).nowPlaying.identifier)
 
 		message.channel.send(t("commands:np.waiting")).then(msg => {
 			let start = moment.duration(this.client.player.get(message.guild.id).player.state.position).format("dd:hh:mm:ss")
@@ -31,13 +29,13 @@ module.exports = class NowPlayingCommand extends Command {
 			const embed = new MessageEmbed()
 				.setColor(this.client.colors.default)
 				.setURL(player.uri)
-				.setThumbnail(yt.thumbnailUrl)
 				.setTitle(t("commands:np.nowplaying"))
 				.addField(t("commands:np.name"), player.title)
 				.addField(t("commands:np.time"), `${start}/${end}`)
 				.addField(t("commands:np.volume"), volume)
 				.addField(t("commands:np.url"), player.uri)
 
-			msg.edit(embed)		})
+			msg.edit(embed)
+		})
 	}
 }

@@ -13,12 +13,12 @@ module.exports = class McQueryCommand extends Command {
 			ClientPermission: null,
 			OnlyDevs: false
 		})
-	} 
-	run({message, args, server}, t) {
-        
+	}
+	run({ message, args, server }, t) {
+
 		const url = `http://mcapi.us/server/status?ip=${args[0]}`
 		request(url, function (err, response, body) {
-			if (err) return message.chinoReply("error", t("commands:mcquery.error", {err: err}))
+			if (err) return message.chinoReply("error", t("commands:mcquery.error", { err: err }))
 			body = JSON.parse(body)
 			if (body.online) {
 				const embed = new MessageEmbed()
@@ -33,6 +33,7 @@ module.exports = class McQueryCommand extends Command {
 				message.channel.send(embed)
 			} else {
 				message.chinoReply("error", t("commands:mcquery.offline"))
-			}		})
+			}
+		})
 	}
 }

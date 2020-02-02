@@ -10,13 +10,13 @@ module.exports = class DJCommand extends Command {
 			ClientPermission: null,
 			OnlyDevs: false
 		})
-	} 
-	run({message, args, server}, t) {
-        
+	}
+	run({ message, args, server }, t) {
+
 		const embed = new MessageEmbed()
 			.setColor(this.client.colors.default)
 			.setDescription(t("commands:dj"))
 			.setThumbnail(this.client.user.displayAvatarURL())
-		message.channel.send(embed)    
+		message.channel.send(embed)
 	}
 }

@@ -1,8 +1,8 @@
 const Command = require("../../structures/command")
 const { MessageEmbed } = require("discord.js")
 module.exports = class DanceCommand extends Command {
-	constructor (client) {
-		super (client, {
+	constructor(client) {
+		super(client, {
 			name: "dance",
 			category: "fun",
 			aliases: [],
@@ -11,7 +11,7 @@ module.exports = class DanceCommand extends Command {
 			OnlyDevs: false
 		})
 	}
-	async run({message, args, server}, t) {
+	async run({ message, args, server }, t) {
 		let member = message.mentions.users.first() || this.client.users.get(args[0])
 		if (!member) return message.chinoReply("error", t("commands:mention-null"))
 		let api = this.client.apis.dance
@@ -19,7 +19,7 @@ module.exports = class DanceCommand extends Command {
 		const embed = new MessageEmbed()
 			.setColor(this.client.colors.action)
 			.setImage(img)
-			.setDescription(t("commands:dance", {author: message.author.toString(), member: member.toString()}))
+			.setDescription(t("commands:dance", { author: message.author.toString(), member: member.toString() }))
 
 		message.channel.send(embed)
 	}

@@ -10,9 +10,9 @@ module.exports = class ReportCommand extends Command {
 			ClientPermission: null,
 			OnlyDevs: false
 		})
-	} 
-	run({message, args, server}, t) {
-        
+	}
+	run({ message, args, server }, t) {
+
 
 		if (server.reportModule === false) return message.chinoReply("error", t("commands:report.disable"))
 		const member = message.mentions.users.first() || this.client.users.get(args[0])
@@ -42,6 +42,6 @@ module.exports = class ReportCommand extends Command {
 
 		channel.send(embed)
 		message.chinoReply("success", t("commands:report.success"))
-        
+
 	}
 }

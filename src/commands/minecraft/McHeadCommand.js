@@ -9,9 +9,9 @@ module.exports = class McHeadCommand extends Command {
 			ClientPermission: null,
 			OnlyDevs: false
 		})
-	} 
-	run({message, args, server}, t) {
-        
+	}
+	run({ message, args, server }, t) {
+
 		if (!args[0]) return message.chinoReply("error", t("commands:mc"))
 		const body = `https://mc-heads.net/head/${args[0]}`
 		const embed = new MessageEmbed()

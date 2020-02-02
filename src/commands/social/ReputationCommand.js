@@ -2,14 +2,15 @@ const Command = require("../../structures/command")
 const moment = require("moment")
 require("moment-duration-format")
 module.exports = class ReputationCommand extends Command {
-	constructor (client) {
+	constructor(client) {
 		super(client, {
 			name: "reputation",
 			aliases: ["rep", "reputação", "reputacao"],
-			category: "social"		})
+			category: "social"
+		})
 	}
 
-	async run({message, args, server}, t) {
+	async run({ message, args, server }, t) {
 		let member = message.mentions.users.first() || this.client.users.get(args[0])
 		if (!member) return message.chinoReply("error", t("commands:mention-null"))
 		if (member.id === message.author.id) return message.chinoReply("error", t("commands:rep.no-is-yourself"))
@@ -18,7 +19,7 @@ module.exports = class ReputationCommand extends Command {
 		if (!user) {
 			new this.client.database.Users({
 				_id: member.id
-}).save()
+			}).save()
 		}
 		let time = ((parseInt(author.repTime) - Date.now()) > 3600000) ? moment.utc(parseInt(author.repTime - Date.now())).format("hh:mm:ss") : moment.utc(parseInt(author.repTime - Date.now())).format("mm:ss")
 		if (parseInt(author.repTime) < Date.now()) {
@@ -28,9 +29,9 @@ module.exports = class ReputationCommand extends Command {
 			author.save()
 			user.save()
 
-			message.reply(t("commands:rep.success", {member: member.toString(), rep: user.rep}))
+			message.reply(t("commands:rep.success", { member: member.toString(), rep: user.rep }))
 		} else {
-			message.reply(t("commands:rep.timeout", {time: time}))
+			message.reply(t("commands:rep.timeout", { time: time }))
 		}
 	}
 }

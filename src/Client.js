@@ -16,7 +16,7 @@ module.exports = class Chino extends Client {
 		this.player = new Map()
 		this.config = require("../config.json")
 	}
-	reloadCommand (commandName) {
+	reloadCommand(commandName) {
 		const command = this.commands.get(commandName) || this.commands.get(this.aliases.get(commandName))
 		if (!command) return false
 		const dir = command.dir
@@ -32,7 +32,7 @@ module.exports = class Chino extends Client {
 			return e
 		}
 	}
-	reloadEvent (eventName) {
+	reloadEvent(eventName) {
 		const event = this.events.events.includes(eventName)
 		if (!event) return false
 
@@ -49,7 +49,7 @@ module.exports = class Chino extends Client {
 			return e
 		}
 	}
-	login (token) {
+	login(token) {
 		return super.login(token)
 	}
 
@@ -59,7 +59,7 @@ module.exports = class Chino extends Client {
 			files.forEach(category => {
 				readdir(`${__dirname}/commands/${category}`, (err, cmd) => {
 					cmd.forEach(cmd => {
-						const command = new(require(`${__dirname}/commands/${category}/${cmd}`))(this)
+						const command = new (require(`${__dirname}/commands/${category}/${cmd}`))(this)
 						command.dir = `${__dirname}/commands/${category}/${cmd}`
 						this.commands.set(command.config.name, command)
 						command.config.aliases.forEach(a => this.aliases.set(a, command.config.name))
@@ -73,9 +73,9 @@ module.exports = class Chino extends Client {
 	loadEvents(path) {
 		readdir(path, (err, files) => {
 			if (err) console.error(err)
-            
+
 			files.forEach(em => {
-				const event = new(require(`../${path}/${em}`))(this)
+				const event = new (require(`../${path}/${em}`))(this)
 				this.events.add(em.split(".")[0], event)
 			})
 		})

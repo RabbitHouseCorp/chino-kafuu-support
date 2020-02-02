@@ -10,17 +10,17 @@ module.exports = class CalculateCommand extends Command {
 			ClientPermission: null,
 			OnlyDevs: false
 		})
-	} 
-	run({message, args, server}, t) {
-        
+	}
+	run({ message, args, server }, t) {
+
 		let question = args.join(" ")
 		if (!question) return message.chinoReply("error", t("commands:calc.args-null"))
-		function calc (expression) {
+		function calc(expression) {
 			'use strict';
 			return math.evaluate(expression)
 		}
 		let resposta = calc(question)
-    
-	    message.chinoReply("diamond", t("commands:calc.result", {author: message.author, resposta: resposta}))
+
+		message.chinoReply("diamond", t("commands:calc.result", { author: message.author, resposta: resposta }))
 	}
 }

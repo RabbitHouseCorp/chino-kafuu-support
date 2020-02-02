@@ -1,20 +1,21 @@
 const { MessageEmbed } = require("discord.js")
 const Command = require("../../structures/command")
 module.exports = class ProfileCommand extends Command {
-	constructor (client) {
+	constructor(client) {
 		super(client, {
 			name: "profile",
 			aliases: ["perfil"],
-			category: "social"		})
+			category: "social"
+		})
 	}
 
-	async run({message, args, server}, t) {
+	async run({ message, args, server }, t) {
 		let member = message.mentions.users.first() || this.client.users.get(args[0]) || message.author
 		let user = await this.client.database.Users.findById(member.id)
 		if (!user) {
 			new this.client.database.Users({
 				_id: member.id
-}).save()
+			}).save()
 		}
 		if (user.blacklist) {
 			const bannedEmbed = new MessageEmbed()
@@ -30,14 +31,14 @@ module.exports = class ProfileCommand extends Command {
 			if (!args[1]) return message.chinoReply("error", t("commands:profile.colors.args-null"))
 			if (!args[1].includes("#")) return message.chinoReply("error", t("commands:profile.colors.hex"))
 			const colorEmbed = new MessageEmbed()
-			.setColor(`${args[1]}`)
-			.setAuthor(message.author.tag,message.author.displayAvatarURL())
-			.setDescription(t("commands:profile.colors.this-color"))
+				.setColor(`${args[1]}`)
+				.setAuthor(message.author.tag, message.author.displayAvatarURL())
+				.setDescription(t("commands:profile.colors.this-color"))
 
 			message.channel.send(colorEmbed).then(msg => {
 				msg.react("success:577973168342302771")
 				setTimeout(() => msg.react("error:577973245391667200"), 1000)
-	
+
 				const collector = msg.createReactionCollector((reaction, user) => (reaction.emoji.name === "success", "error") && (user.id !== this.client.user.id && user.id === message.author.id))
 				collector.on("collect", r => {
 					switch (r.emoji.name) {
@@ -45,13 +46,13 @@ module.exports = class ProfileCommand extends Command {
 							user.profileColor = args[1]
 							user.save()
 							user.yens -= Number(1000)
-							message.chinoReply("success", t("commands:profile.colors.success", {member: member.toString(), value: Number(realValue[0]).toLocaleString()}))
+							message.chinoReply("success", t("commands:profile.colors.success", { member: member.toString(), value: Number(realValue[0]).toLocaleString() }))
 							msg.delete()
-						break;
+							break;
 						case "error":
 							message.chinoReply("error", t("commands:profile.colors.cancel"))
 							msg.delete()
-						break;
+							break;
 					}
 				})
 			})
@@ -67,7 +68,7 @@ module.exports = class ProfileCommand extends Command {
 		]
 		const embed = new MessageEmbed()
 			.setColor(user.profileColor)
-			.setAuthor(t("commands:profile.title", {member: member.tag}), member.displayAvatarURL())
+			.setAuthor(t("commands:profile.title", { member: member.tag }), member.displayAvatarURL())
 			.setThumbnail(member.displayAvatarURL())
 			.setDescription(description.join("\n\n"))
 

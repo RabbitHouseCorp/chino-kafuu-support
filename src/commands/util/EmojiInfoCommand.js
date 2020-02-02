@@ -11,18 +11,18 @@ module.exports = class EmojiinfoCommand extends Command {
 			ClientPermission: null,
 			OnlyDevs: false
 		})
-	} 
-	run({message, args, server}, t) {
-        
+	}
+	run({ message, args, server }, t) {
+
 		moment.locale(server.lang)
-    
+
 		if (!args[0]) return message.chinoReply("error", t("commands:emoji.args-null"))
 		let a = Util.parseEmoji(args[0]) || message.guild.emojis.find(emoji => emoji.name === args.join(" "))
 		let emoji = message.guild.emojis.get(a.id)
 		let animated = emoji.animated
 		if (emoji.animated === true) animated = t("commands:emojiinfo.animated")
 		if (emoji.animated === false) animated = t("commands:emojiinfo.noanimated")
-        
+
 		let embed = new MessageEmbed()
 			.setColor(this.client.colors.default)
 			.setThumbnail(emoji.url)
@@ -32,8 +32,8 @@ module.exports = class EmojiinfoCommand extends Command {
 			.addField(t("commands:emojiinfo.hisAnimated"), animated, true)
 			.addField(t("commands:emojiinfo.mention"), `\`${emoji}\``, true)
 			.addField("Download", emoji.url, true)
-    
+
 		message.channel.send(embed)
-        
+
 	}
 }

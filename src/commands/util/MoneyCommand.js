@@ -5,13 +5,13 @@ const InvalidArgumentError = require("../../api/invalidArgumentError")
 module.exports = class MoneyCommand extends Command {
     constructor(client) {
         super(client, {
-        name: "money",
-        category: "util",
-        aliases: ["bufunfa", "currency", "convercao"],
-        UserPermission: [],
-        ClientPermission: null,
-        OnlyDevs: false,
-        hidden: false,
+            name: "money",
+            category: "util",
+            aliases: ["bufunfa", "currency", "convercao"],
+            UserPermission: [],
+            ClientPermission: null,
+            OnlyDevs: false,
+            hidden: false,
         })
     }
 

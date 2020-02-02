@@ -28,10 +28,10 @@ let User = new mongoose.Schema({
 	isMarry: { type: Boolean, default: false },
 	marryWith: { type: String, default: "" },
 	rep: { type: Number, default: 0 },
-	repTime: { type: String, default: "000000000000"},
+	repTime: { type: String, default: "000000000000" },
 	shipValue: { type: String, default: null }
 })
 let Guilds = mongoose.model("Guilds", Guild)
-exports.Guilds = Guilds
+module.exports.Guilds = Guilds
 let Users = mongoose.model("Users", User)
-exports.Users = Users
+module.exports.Users = Users

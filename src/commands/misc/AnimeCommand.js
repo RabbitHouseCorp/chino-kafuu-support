@@ -14,12 +14,12 @@ module.exports = class AnimeCommand extends Command {
 			ClientPermission: null,
 			OnlyDevs: false
 		})
-	} 
-	run({message, args, server}, t) {
-        
+	}
+	run({ message, args, server }, t) {
+
 		const search = args.join(" ")
-		if (!search) return message.channel.send(t("commands:anime.args-null", {author: message.author, emoji: this.client.emotes.error}))
-  
+		if (!search) return message.channel.send(t("commands:anime.args-null", { author: message.author, emoji: this.client.emotes.error }))
+
 		malScraper.getInfoFromName(search).then((data) => {
 			const embed = new MessageEmbed()
 				.setThumbnail(data.picture)
@@ -37,11 +37,11 @@ module.exports = class AnimeCommand extends Command {
 				.addField(t("commands:anime.rank"), data.ranked, true)
 				.addField(t("commands:anime.popularity"), data.popularity, true)
 				.addField(t("commands:anime.genres"), `${data.genres.join(", ")}`, true)
-    
+
 			message.channel.send(embed)
-        
+
 		}).catch(() => {
-			message.chinoReply("error", t("commands:anime.NotFound", {args: search}))
+			message.chinoReply("error", t("commands:anime.NotFound", { args: search }))
 		})
 	}
 }

@@ -2,15 +2,16 @@ const Command = require("../../structures/command")
 const { MessageEmbed } = require("discord.js")
 
 module.exports = class ConfigCommand extends Command {
-	constructor (client) {
+	constructor(client) {
 		super(client, {
 			name: "config",
 			aliases: ["module", "configurações", "configurar"],
 			category: "util",
-			UserPermission: ["MANAGE_GUILD"]		})
+			UserPermission: ["MANAGE_GUILD"]
+		})
 	}
 
-	run({message, args, server}, t) {
+	run({ message, args, server }, t) {
 
 		let listReport = [
 			`${server.prefix}config report set <channel>`,
@@ -27,7 +28,7 @@ module.exports = class ConfigCommand extends Command {
 			`**${t("commands:config.config-modules.report.channel")}:** ${server.channelReport ? message.guild.channels.get(server.channelReport) : t("commands:config.no-channel")}`,
 			`**${t("commands:config.config-modules.report.module")}**: ${server.reportModule ? t("commands:config.config-modules.enable") : t("commands:config.config-modules.disable")}`
 		]
-        
+
 		const embed = new MessageEmbed()
 			.setColor(this.client.colors.default)
 			.setTitle(t("commands:config.title"))

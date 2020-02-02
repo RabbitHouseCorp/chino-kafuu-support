@@ -10,8 +10,8 @@ module.exports = class HelpCommand extends Command {
 			clientPermission: null,
 			OnlyDevs: false
 		})
-	} 
-	run({message, args, server}, t) {
+	}
+	run({ message, args, server }, t) {
 		let util = this.client.commands.filter(c => c.config.category === "util")
 		let mod = this.client.commands.filter(c => c.config.category === "mod")
 		let fun = this.client.commands.filter(c => c.config.category === "fun")
@@ -35,7 +35,9 @@ module.exports = class HelpCommand extends Command {
 		embed.addField(t("commands:help.addUrl"), t("commands:help.inUrl"))
 
 		message.author.send(embed).then(() => {
-			message.reply(t("commands:send-dm"))		}).catch(() => {
-			message.chinoReply("error", t("commands:closed-dm"))		})
+			message.reply(t("commands:send-dm"))
+		}).catch(() => {
+			message.chinoReply("error", t("commands:closed-dm"))
+		})
 	}
 }

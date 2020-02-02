@@ -9,9 +9,9 @@ module.exports = class StopCommand extends Command {
 			ClientPermission: null,
 			OnlyDevs: false
 		})
-	} 
-	async run({message, args, server}, t) {
-        
+	}
+	async run({ message, args, server }, t) {
+
 		if (!this.client.player.has(message.guild.id)) return message.chinoReply("error", t("commands:dj-module.queue-null"))
 		if (!message.member.voice.channel) return message.chinoReply("error", t("commands:dj-module.channel-null"))
 		if (message.guild.me.voice.channel && message.member.voice.channel !== message.guild.me.voice.channel) return message.chinoReply("error", t("commands:dj-module.another-channel"))

@@ -10,10 +10,11 @@
     "secounds": "seconds",
     "milliseconds": "some milliseconds"
   },
-  "channel-not-found": "I was unable to find the desired text channel, for this reason, I was unable to send the information there.",
+  "channel-not-found": "I did not find the channel so I can not send the information.",
   "added-to-guild": {
     "thanks-to-add": "Thanks for adding me.",
-    "msg": "Hi, I'm {{client}}, thanks for adding me! Well, I'm a bot full of super fun functions to brighten your day, if you want to know what commands I have, use `{{prefix}}help`, are you having any questions? So log into my support server using `{{prefix}}invite`, again, thanks for adding me and have a good time!",
-    "guild-saved": "Server successfully saved to my database!"
-  }
+    "msg": "Hi, I am {{client}}. Thanks for adding me! Well, I am a bot with a lot of funny functions to make your day more funny. If you are wondering what are my commands, just use `{{prefix}}help`. Have some questions? Join my support server using `{{prefix}}invite`. Again, thanks for adding me and have fun!",
+    "guild-saved": "Successfully saved the server in the database!"
+  },
+  "debug": "hold up! This command has some problems and it is disabled for a while."
 }

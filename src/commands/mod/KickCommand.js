@@ -20,7 +20,7 @@ module.exports = class KickCommand extends Command {
 			reason = t("commands:no-reason")
 		}
 
-		if (member.id == message.author.id) return message.chinoReply("error", t("commands:kick.authorKick"))
+		if (member.id === message.author.id) return message.chinoReply("error", t("commands:kick.authorKick"))
 		if (!message.guild.members.get(member.id).kickable) return message.chinoReply("error", t("commands:kick.kickable"))
 		if (message.member.roles.highest.position < message.guild.member(member).roles.highest.position) return message.chinoReply("error", t("commands:punishment.unpunished"))
         
@@ -33,7 +33,7 @@ module.exports = class KickCommand extends Command {
 		.addField(t("commands:punishment.embed.staffName"), message.author.tag, true)
 		.addField(t("commands:punishment.embed.reason"), reason, true)
 
-		message.guild.members.kick(member.id, {
+		message.guild.members.get(member.id).kick({
 			reason: `${t("commands:punishment.embed.staffName")}: ${message.author.tag} - ${t("commands:punishment.embed.reason")}: ${reason}`
 		}).then(() => {
 			message.channel.send(embed)

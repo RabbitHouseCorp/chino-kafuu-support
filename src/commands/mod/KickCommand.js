@@ -33,9 +33,9 @@ module.exports = class KickCommand extends Command {
 		.addField(t("commands:punishment.embed.staffName"), message.author.tag, true)
 		.addField(t("commands:punishment.embed.reason"), reason, true)
 
-		message.guild.members.get(member.id).kick({
-			reason: `${t("commands:punishment.embed.staffName")}: ${message.author.tag} - ${t("commands:punishment.embed.reason")}: ${reason}`
-		}).then(() => {
+		message.guild.members.get(member.id).kick(
+			`${t("commands:punishment.embed.staffName")}: ${message.author.tag} - ${t("commands:punishment.embed.reason")}: ${reason}`
+		).then(() => {
 			message.channel.send(embed)
 			if (server.punishModule) {
 				message.guild.channels.get(server.punishChannel).send(embed).catch(err => {

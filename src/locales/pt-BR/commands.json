@@ -195,7 +195,8 @@
     },
     "changenickname": {
         "args-null": "eu preciso que você coloque o novo apelido que você deseja definir no usuário.",
-        "success": "o apelido de `{{member}}` foi alterado para {{nickname}} com sucesso."
+        "success": "o apelido de `{{member}}` foi alterado para {{nickname}} com sucesso.",
+        "highest-role": "eu não consigo alterar o apelido deste usuário, pois o cargo dele é igual ou maior ao meu"
     },
     "channelinfo": {
         "mention": "Menção",

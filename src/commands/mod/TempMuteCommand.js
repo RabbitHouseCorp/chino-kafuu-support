@@ -10,9 +10,9 @@ module.exports = class TempMuteCommand extends Command {
 			ClientPermission: ["MANAGE_ROLES", "MANAGE_CHANNELS"],
 			OnlyDevs: false
 		})
-	} 
-	async run({message, args, server}, t) {
-        
+	}
+	async run({ message, args, server }, t) {
+
 		const member = message.mentions.users.first() || this.client.users.get(args[0])
 		if (!member) return message.chinoReply("error", t("commands:mention-null"))
 		let time = args[1]
@@ -23,10 +23,12 @@ module.exports = class TempMuteCommand extends Command {
 		}
 		let role = message.guild.roles.find(r => r.name === "Silenciado")
 		if (!role) {
-			role = await message.guild.createRole({
-				name: "Silenciado",
-				color: "#000000",
-				permissions: []
+			role = await message.guild.roles.create({
+				data: {
+					name: "Silenciado",
+					color: "#000000",
+					permissions: []
+				}
 			})
 			message.guild.channels.forEach(async (channel, id) => {
 				await channel.overwritePermissions({
@@ -38,17 +40,17 @@ module.exports = class TempMuteCommand extends Command {
 					]
 				})
 			})
-		}		  
-		if (message.member.roles.highest.position < message.guild.member(member).roles.highest.position) return message.chinoReply("error", t("commands:punishment.unpunished"))
-        
+		}
+		if (message.member.roles.highest.position <= message.guild.member(member).roles.highest.position) return message.chinoReply("error", t("commands:punishment.unpunished"))
+
 		let embed = new MessageEmbed()
-		.setTitle(t("commands:tempmute.title", {member: member.tag}))
-		.setColor(this.client.colors.moderation)
-		.setThumbnail(member.displayAvatarURL())
-		.addField(t("commands:punishment.embed.memberName"), member.tag, true)
-		.addField(t("commands:punishment.embed.memberID"), member.id, true)
-		.addField(t("commands:punishment.embed.staffName"), message.author.tag, true)
-		.addField(t("commands:punishment.embed.reason"), reason, true)
+			.setTitle(t("commands:tempmute.title", { member: member.tag }))
+			.setColor(this.client.colors.moderation)
+			.setThumbnail(member.displayAvatarURL())
+			.addField(t("commands:punishment.embed.memberName"), member.tag, true)
+			.addField(t("commands:punishment.embed.memberID"), member.id, true)
+			.addField(t("commands:punishment.embed.staffName"), message.author.tag, true)
+			.addField(t("commands:punishment.embed.reason"), reason, true)
 
 		message.guild.member(member).add(role.id).then(() => {
 			message.channel.send(embed)
@@ -58,7 +60,7 @@ module.exports = class TempMuteCommand extends Command {
 				})
 			}
 		})
-		setTimeout(function() {
+		setTimeout(function () {
 			message.guild.member(member).remove(role.id)
 		}, parse(time))
 	}

@@ -162,7 +162,8 @@
     },
     "changenickname": {
         "args-null": "I need you to supply the new nickname you want me to set in the user.",
-        "success": "nickname `{{member}}` has been successfully changed to {{nickname}}."
+        "success": "nickname `{{member}}` has been successfully changed to {{nickname}}.",
+        "highest-role": "I can't change this user's nickname because their role is higher than mine"
     },
     "channelinfo": {
         "mention": "Mention",

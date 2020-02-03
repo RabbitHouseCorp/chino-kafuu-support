@@ -14,11 +14,17 @@ module.exports = class SpotifyCommand extends Command {
 	}
 	async run({ message, args, server }, t) {
 
-		let member = await this.client.users.fetch(args[0].replace(/[<@!>]/g, "")) || message.author
+		let member
+		if (args[0]) {
+			member = await this.client.users.fetch(args[0].replace(/[<@!>]/g, ""))
+		} else {
+			member = message.author
+		}
+
 		if (!member.presence.activity) return message.chinoReply("error", t("commands:spotify.userNoListen", { member: member.username }))
 		if (member.presence.activity.name !== "Spotify" && member.presence.activity.type !== "LISTENING") return message.chinoReply("error", t("commands:spotify.userNoListen", { author: message.author, member: member.username }))
 
-		let spotifyImg = member.presence.activity.assets.largeImageURL({})
+		let spotifyImg = member.presence.activity.assets.largeImageURL()
 		let spotifyUrl = `https://open.spotify.com/track/${member.presence.activity.syncID}`
 		let spotifyName = member.presence.activity.details
 		let spotifyAlbum = member.presence.activity.assets.largeText

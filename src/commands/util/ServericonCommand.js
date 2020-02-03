@@ -17,7 +17,8 @@ module.exports = class ServericonCommand extends Command {
 		if (!guild) {
 			guild = message.guild
 		}
-		const img = `${guild.iconURL()}?size=2048`
+		if (!guild.icon) return message.chinoReply("error", t("commands:servericon.no-icon"))
+		const img = guild.iconURL({ size: 2048 })
 		const embed = new MessageEmbed()
 			.setImage(img)
 			.setColor(this.client.colors.default)

@@ -1,4 +1,7 @@
 {
+    "servericon": {
+        "no-icon": "this server doesn't have an icon."
+    },
     "license": {
         "be-cute": "Be cute",
         "licensed-for": "Licensed for"
@@ -90,7 +93,7 @@
     "with-nobody": "Nobody",
     "clap": {
         "args-null": "argue something to say."
-     },
+    },
     "addemoji": {
         "success": "successfully added emoji!",
         "error": "I couldn't add this emoji, maybe it's bigger than the size allowed by Discord, I'm sorry for that."
@@ -225,7 +228,7 @@
         "addUrl": "Additional Links",
         "inUrl": "[My invite](https://discordapp.com/oauth2/authorize?client_id=481282441294905344&scope=bot&permissions=2117578239)|[Vote for me](https://top.gg/bot/481282441294905344)|[My server](https://discord.gg/CAm9cSU)"
     },
-    "hug":"{{author}} gave a very nice hug in {{member}}",
+    "hug": "{{author}} gave a very nice hug in {{member}}",
     "invite": {
         "MyInvite": "Invite",
         "invite": "Do you want to invite me do other Discord servers? Click [here](https://discordapp.com/oauth2/authorize?client_id={{clientID}}&scope=bot&permissions=2117578239) to add me on another server\n\nAlso, log into my support server if you need help with me by clicking [here](https://discord.gg/CAm9cSU)\n\n Don't forget to vote for me by clicking [here](https://top.gg/bot/481282441294905344)"
@@ -276,7 +279,6 @@
         "this-author": "you cannot donate yens to yourself.",
         "confirm": "user {{member}} is going to receive `{{value}}` Yens. Do you really want to finish the transaction? I will charge you `{{porcent}}%` as a tax.",
         "cancel": "got it, as you didn't want to complete the transaction, I've cancelled the transaction of `{{value}}` Yens."
-
     },
     "play": {
         "addedQueue": "song `{{songTitle}}` has been added to the queue",
@@ -443,14 +445,14 @@
         "another-channel": "You need to be on the same voice channel as me.",
         "queue-null": "the queue is empty."
     },
-  "yen": {
-    "totalYens": "you have `{{yens}}` yens",
-    "user-total": "{{member}} has `{{yens}}` yens"
-  },
-  "daily": {
-    "daily-success": "has been deposited `{{total}}` yens to your account.",
-    "has-been-picked": "if you have already withdrawn your daily yen, please wait `{{tempo}}` before you can get it again."
-  },
+    "yen": {
+        "totalYens": "you have `{{yens}}` yens",
+        "user-total": "{{member}} has `{{yens}}` yens"
+    },
+    "daily": {
+        "daily-success": "has been deposited `{{total}}` yens to your account.",
+        "has-been-picked": "if you have already withdrawn your daily yen, please wait `{{tempo}}` before you can get it again."
+    },
     "mc": "input the nickname of the player.",
     "no-reason": "Uninformed.",
     "roleColor": {
@@ -462,7 +464,7 @@
     "money": {
         "invalidOptions": "invalid command!\n**Correct usage:**\t{{ prefix }}{{ name }} {from} {to} [ammount]\n**Example:**\t\t  {{ prefix }}{{ name }} BRL USD 1",
         "invalidValue": "please give me a correct value!",
-        "invalidArgument":"invalid argument: {{ arg }}",
+        "invalidArgument": "invalid argument: {{ arg }}",
         "success": "{{ ammount }} **{{ from }}** to **{{ to }}** = **{{ total }}**"
     },
     "click-here": "Click here"

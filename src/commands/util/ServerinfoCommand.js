@@ -23,9 +23,9 @@ module.exports = class ServerinfoCommand extends Command {
 		let roles = `${message.guild.roles.map(r => `\`${r.name}\``).join(", ")}`.replace("`@everyone`,", "")
 
 		const embed = new MessageEmbed()
-		embed.setAuthor(t("commands:serverinfo.name", { name: message.guild.name }), message.guild.iconURL())
+		message.guild.icon ? embed.setAuthor(t("commands:serverinfo.name", { name: message.guild.name }), message.guild.iconURL()) : null
 		embed.setColor(this.client.colors.default)
-		message.guild.icon ? embed.setThumbnail(`${message.guild.iconURL()}`.replace("jpg", "png")) : null
+		message.guild.icon ? embed.setThumbnail(`${message.guild.iconURL()}`) : null
 		embed.addField(t("commands:serverinfo.guildName"), message.guild.name, true)
 		embed.addField(t("commands:serverinfo.guildID"), message.guild.id, true)
 		embed.addField(t("commands:serverinfo.guildOwnerTag"), message.guild.owner.user.tag, true)

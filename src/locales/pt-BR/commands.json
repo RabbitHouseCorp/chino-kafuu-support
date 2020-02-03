@@ -1,4 +1,7 @@
 {
+    "servericon": {
+        "no-icon": "este servidor não possui um ícone."
+    },
     "license": {
         "be-cute": "Ser fofo(a)",
         "licensed-for": "Licenciado para"

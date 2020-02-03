@@ -12,20 +12,19 @@ module.exports = class SpotifyCommand extends Command {
 
 		})
 	}
-	run({ message, args, server }, t) {
+	async run({ message, args, server }, t) {
 
-		let member = message.mentions.users.first() || this.client.users.get(args[0]) || message.author
-		if (!member.presence.game) return message.chinoReply("error", t("commands:spotify.userNoListen", { author: message.author, member: member.username }))
-		if (member.presence.game.name !== "Spotify" && member.presence.game.type !== 2) return message.chinoReply("error", t("commands:spotify.userNoListen", { author: message.author, member: member.username }))
+		let member = await this.client.users.fetch(args[0].replace(/[<@!>]/g, "")) || message.author
+		if (!member.presence.activity) return message.chinoReply("error", t("commands:spotify.userNoListen", { member: member.username }))
+		if (member.presence.activity.name !== "Spotify" && member.presence.activity.type !== "LISTENING") return message.chinoReply("error", t("commands:spotify.userNoListen", { author: message.author, member: member.username }))
 
-		let spotifyImg = member.presence.game.assets.largeImageURL
-		let spotifyUrl = `https://open.spotify.com/track/${member.presence.game.syncID}`
-		let spotifyName = member.presence.game.details
-		let spotifyAlbum = member.presence.game.assets.largeText
-		let spotifyAuthor = member.presence.game.state
+		let spotifyImg = member.presence.activity.assets.largeImageURL({})
+		let spotifyUrl = `https://open.spotify.com/track/${member.presence.activity.syncID}`
+		let spotifyName = member.presence.activity.details
+		let spotifyAlbum = member.presence.activity.assets.largeText
+		let spotifyAuthor = member.presence.activity.state
 
 		let embed = new MessageEmbed()
-
 			.setAuthor(t("commands:spotify.userListening", { member: member.tag }), "https://cdn.discordapp.com/emojis/554334875411415107.png?v=1")
 			.setColor(this.client.colors.mine)
 			.setThumbnail(spotifyImg)

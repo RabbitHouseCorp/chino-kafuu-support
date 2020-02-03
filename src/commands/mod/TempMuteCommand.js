@@ -1,4 +1,5 @@
 const Command = require("../../structures/command")
+const { MessageEmbed } = require("discord.js")
 const parse = require("parse-duration")
 module.exports = class TempMuteCommand extends Command {
 	constructor(client) {

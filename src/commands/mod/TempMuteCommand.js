@@ -53,7 +53,7 @@ module.exports = class TempMuteCommand extends Command {
 			.addField(t("commands:punishment.embed.staffName"), message.author.tag, true)
 			.addField(t("commands:punishment.embed.reason"), reason, true)
 
-		message.guild.member(member).add(role.id).then(() => {
+		message.guild.member(member).roles.add(role.id).then(() => {
 			message.channel.send(embed)
 			if (server.punishModule) {
 				message.guild.channels.get(server.punishChannel).send(embed).catch(err => {
@@ -62,7 +62,7 @@ module.exports = class TempMuteCommand extends Command {
 			}
 		})
 		setTimeout(function () {
-			message.guild.member(member).remove(role.id)
+			message.guild.member(member).roles.remove(role.id)
 		}, parse(time))
 	}
 }

@@ -11,7 +11,7 @@ module.exports = class SetBannerCommand extends Command {
         })
     }
 
-    run({ message, args, server }) {
+    run({ message, args, server }, t) {
 
         if (message.guild.premiumTier <= 1 || !message.guild.partnered || !message.guild.verified) return message.chinoReply("error", t("commands:no-premium"))
         let banner

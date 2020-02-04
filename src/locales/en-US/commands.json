@@ -1,4 +1,13 @@
 {
+    "no-premium": "this server is not premium, partner or verified.",
+    "setbanner": {
+        "success": "successfully changed the banner",
+        "args-null": "you must enter the image link you wish set as the banner"
+    },
+    "serverbanner": {
+        "no-banner": "hmm... seems like this server does not have a banner",
+        "download": "Download the banner by clicking [here]({{download}})"
+    },
     "servericon": {
         "no-icon": "this server doesn't have an icon."
     },

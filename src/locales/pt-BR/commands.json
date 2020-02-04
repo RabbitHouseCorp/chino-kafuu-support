@@ -1,4 +1,13 @@
 {
+    "no-premium": "este servidor não é premium, parceiro ou verificado.",
+    "setbanner": {
+        "success": "banner alterado com sucesso.",
+        "args-null": "você precisa enviar ou inserir o link da imagem que deseja definir como banner"
+    },
+    "serverbanner": {
+        "no-banner": "este servidor não tem nenhum banner, pelo que eu vi.",
+        "download": "Baixe o banner clicando [aqui]({{download}})"
+    },
     "servericon": {
         "no-icon": "este servidor não possui um ícone."
     },

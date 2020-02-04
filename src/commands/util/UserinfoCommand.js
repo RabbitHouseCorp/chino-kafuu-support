@@ -24,7 +24,7 @@ module.exports = class UserinfoCommand extends Command {
 		}
 		let status = `${member.presence.status}`.replace("dnd", t("commands:userinfo.statusDnd", { emoji: this.client.emotes.dnd })).replace("idle", t("commands:userinfo.statusIdle", { emoji: this.client.emotes.idle })).replace("offline", t("commands:userinfo.statusOffline", { emoji: this.client.emotes.offline })).replace("online", t("commands:userinfo.statusOnline", { emoji: this.client.emotes.online }))
 		let guild = this.client.guilds.filter(g => g.members.get(member.id))
-		let role = message.guild.member(member) ? message.guild.member(member).roles.map(r => r.name).join(", ") : "O usuário não está no servidor"
+		let role = message.guild.member(member) ? message.guild.member(member).roles.map(r => r.name).join(", ") : t("commands:userinfo.no-guild")
 		let roleSize = message.guild.member(member) ? message.guild.member(member).roles.size - 1 : "0"
 		let color = message.guild.member(member) ? message.guild.member(member).displayHexColor : "#000000"
 		const embed = new MessageEmbed()
@@ -33,9 +33,9 @@ module.exports = class UserinfoCommand extends Command {
 			.setDescription(t("commands:userinfo.title", { isBot: member.bot ? "<:botTag:579456048142876672>" : "<:Wumpus:579455982053097485>", member: member.tag }), member.displayAvatarURL())
 			.addField(t("commands:userinfo.name"), member.tag, true)
 			.addField(t("commands:userinfo.id"), member.id, true)
-			.addField(t("commands:userinfo.high"), message.guild.member(member) ? message.guild.member(member).roles.highest : "O usuário não está no servidor", true)
+			.addField(t("commands:userinfo.high"), message.guild.member(member) ? message.guild.member(member).roles.highest : t("commands:userinfo.no-guild"), true)
 			.addField(t("commands:userinfo.status"), status, true)
-			.addField(t("commands:userinfo.joinedAt"), message.guild.member(member) ? moment.utc(message.guild.member(member).joinedAt).format("LLLL") : "O usuário não está no servidor", true)
+			.addField(t("commands:userinfo.joinedAt"), message.guild.member(member) ? moment.utc(message.guild.member(member).joinedAt).format("LLLL") : t("commands:userinfo.no-guild"), true)
 			.addField(t("commands:userinfo.created-at"), moment.utc(member.createdAt).format("LLLL"), true)
 
 		const page2 = new MessageEmbed()

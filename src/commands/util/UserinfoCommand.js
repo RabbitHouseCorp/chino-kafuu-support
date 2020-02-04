@@ -16,7 +16,12 @@ module.exports = class UserinfoCommand extends Command {
 
 		moment.locale(server.lang)
 
-		let member = args[0] ? await this.client.shardManager.getUsers(args[0].replace(/[<@!>]/g, "")) : message.author
+		let member
+		if (args[0]) {
+			member = await this.client.shardManager.getUsers(args[0].replace(/[<@!>]/g, ""))
+		} else {
+			member = message.author
+		}
 		let status = `${member.presence.status}`.replace("dnd", t("commands:userinfo.statusDnd", { emoji: this.client.emotes.dnd })).replace("idle", t("commands:userinfo.statusIdle", { emoji: this.client.emotes.idle })).replace("offline", t("commands:userinfo.statusOffline", { emoji: this.client.emotes.offline })).replace("online", t("commands:userinfo.statusOnline", { emoji: this.client.emotes.online }))
 		let guild = this.client.guilds.filter(g => g.members.get(member.id))
 		let role = message.guild.member(member) ? message.guild.member(member).roles.map(r => r.name).join(", ") : "O usuário não está no servidor"

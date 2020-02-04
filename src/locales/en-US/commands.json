@@ -264,7 +264,7 @@
     "mcquery": {
         "serverIP": "Server IP",
         "version": "Version",
-        "uptime": "Time online",
+        "uptime": "Uptime",
         "offline": "The server is offline or does not exist."
     },
     "np": {
@@ -382,9 +382,9 @@
         "title": "My status",
         "version": "My version",
         "discord": "discord.js",
-        "uptime": "Time online",
+        "uptime": "Uptime",
         "memory": "RAM memory",
-        "cpu-status": "CPU Status",
+        "cpu-status": "CPU Usage",
         "system": "System",
         "cpu": "CPU"
     },

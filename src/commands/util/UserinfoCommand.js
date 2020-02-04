@@ -18,7 +18,7 @@ module.exports = class UserinfoCommand extends Command {
 
 		let member
 		if (args[0]) {
-			member = await this.client.shardManager.getUsers(args[0].replace(/[<@!>]/g, ""))
+			member = await this.client.users.fetch(args[0].replace(/[<@!>]/g, ""))
 		} else {
 			member = message.author
 		}
@@ -36,7 +36,6 @@ module.exports = class UserinfoCommand extends Command {
 			.addField(t("commands:userinfo.high"), message.guild.member(member) ? message.guild.member(member).roles.highest : "O usuário não está no servidor", true)
 			.addField(t("commands:userinfo.status"), status, true)
 			.addField(t("commands:userinfo.joinedAt"), message.guild.member(member) ? moment.utc(message.guild.member(member).joinedAt).format("LLLL") : "O usuário não está no servidor", true)
-			.addField(t("commands:userinfo.serverComp", { server: guild.size }), (guild.map(g => `\`${g.name}\``).join(", ").length > 1020) ? `${guild.map(g => `\`${g.name}\``).join(", ").substr(0, 1020)}...\`` : guild.map(g => `\`${g.name}\``).join(", "))
 			.addField(t("commands:userinfo.created-at"), moment.utc(member.createdAt).format("LLLL"), true)
 
 		const page2 = new MessageEmbed()

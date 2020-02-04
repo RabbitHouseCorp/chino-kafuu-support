@@ -83,8 +83,8 @@ module.exports = class MessageReceive {
 							member.save()
 						}
 					}
-
-					if (message.content === message.guild.me.toString()) {
+					let mention = message.guild.me.nickname ? `<@!${this.client.user.id}>}` : `<@${this.client.user.id}>}`
+					if (message.content === mention) {
 						message.channel.send(`${t("events:mention.start")} ${message.author}, ${t("events:mention.end", { prefix: server.prefix })}`)
 					}
 

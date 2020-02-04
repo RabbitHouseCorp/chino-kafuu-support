@@ -450,7 +450,8 @@
         "isNoNickname": "Não possui apelido.",
         "roles": "Cargos ({{roles}})",
         "permissions": "Permissões",
-        "created-at": "Conta criada"
+        "created-at": "Conta criada",
+        "no-guild": "O usuário não está no servidor"
     },
     "volume": {
         "volume": "volume alterado para `{{volume}}/150` com sucesso.",

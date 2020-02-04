@@ -416,7 +416,8 @@
         "isNoNickname": "Has no nickname.",
         "roles": "Roles ({{roles}})",
         "permissions": "Permissions",
-        "created-at": "Account Created"
+        "created-at": "Account Created",
+        "no-guild": "The user is not on the server"
     },
     "volume": {
         "volume": "successfully changed volume to `{{volume}}/150`.",

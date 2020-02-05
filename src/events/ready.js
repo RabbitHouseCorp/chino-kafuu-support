@@ -22,7 +22,7 @@ module.exports = class {
 			{ name: `Join in my support server using ${this.client.config.prefix}help or ${this.client.config.prefix}invite`, type: "PLAYING" },
 			{ name: "Gochuumon Wa Usagi Desu Ka?", type: "WATCHING" },
 			{ name: `If you find a bug, use ${this.client.config.prefix}help and warn my developer team.`, type: "PLAYING" },
-			{ name: "Rabbits are cute, and noboy discord this! 🐰", type: "LISTENING" },
+			{ name: "Rabbits are cute, and nobody discord this! 🐰", type: "LISTENING" },
 			{ name: `Much love for ${Number(users).toLocaleString()} users`, type: "PLAYING", url: "https://twitch.tv/danielagc" },
 			{ name: "Coffee is my favorite drink.", type: "PLAYING" },
 			{ name: `A total of ${Number(guilds).toLocaleString()} guilds`, type: "WATCHING" }

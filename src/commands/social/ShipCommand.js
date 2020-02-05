@@ -14,10 +14,12 @@ module.exports = class ShipCommand extends Command {
     async run({ message, args, server }, t) {
         if (!args[0]) return message.chinoReply("error", t("commands:mention-null"))
         if (!args[1]) return message.chinoReply("error", "usuário secundário não encontrado, tente menciona-lo da próxima vez.")
-        let user1 = await this.client.shardManager.getUsers(args[0].replace(/[<@!>]/g, "")) || message.guild.members.find(member => member.user.username.includes(args[0]))
-        let user2 = await this.client.shardManager.getUsers(args[1].replace(/[<@!>]/g, "")) || message.guild.members.find(member => member.user.username.includes(args[0]))
+        let user1 = await this.client.shardManager.getUsers(args[0].replace(/[<@!>]/g, ""))
+        let user2 = await this.client.shardManager.getUsers(args[1].replace(/[<@!>]/g, ""))
         let value1 = await this.client.database.Users.findById(user1.id)
         let value2 = await this.client.database.Users.findById(user2.id)
+        if (!value1) return message.chinoReply("error", t("commands:mention-null"))
+        if (!value2) return message.chinoReply("error", t("commands:mention-null"))
         if (value1.shipValue === "null") {
             value1.shipValue = Math.floor(Math.random() * 55)
             value1.save()

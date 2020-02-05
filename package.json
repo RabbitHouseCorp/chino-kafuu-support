@@ -1,7 +1,7 @@
 {
   "name": "chino-kafuu",
   "description": "Um simples bot pro discord",
-  "version": "2020.02.02-beta",
+  "version": "2020.02.05-beta",
   "author": "DanielaGC_",
   "main": "shard.js",
   "scripts": {
@@ -38,7 +38,7 @@
     "type": "git",
     "url": "git+https://github.com/DanielaGC/Chino.git"
   },
-  "license": "MIT",
+  "license": "GNU Affero General Public License v3.0",
   "bugs": {
     "url": "https://github.com/DanielaGC/Chino/issues"
   },

@@ -18,7 +18,7 @@ module.exports = class AnimeCommand extends Command {
 	run({ message, args, server }, t) {
 
 		const search = args.join(" ")
-		if (!search) return message.channel.send(t("commands:anime.args-null", { author: message.author, emoji: this.client.emotes.error }))
+		if (!search) return message.channel.send(t("commands:anime.args-null", { emoji: this.client.emotes.error }))
 
 		malScraper.getInfoFromName(search).then((data) => {
 			const embed = new MessageEmbed()

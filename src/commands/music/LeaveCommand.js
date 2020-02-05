@@ -12,7 +12,7 @@ module.exports = class LeaveCommand extends Command {
 	}
 	run({ message, args, server }, t) {
 		let perm = message.member.roles.find(r => r.name.toLowerCase() === "dj")
-		if (!perm && !message.member.hasPermission("BAN_MEMBERS") && !message.member.hasPermission("MANAGE_GUILD")) return message.channel.send(t("permissions:userPermission.dj", { author: message.author, emoji: this.client.emotes.error }))
+		if (!perm && !message.member.hasPermission("BAN_MEMBERS") && !message.member.hasPermission("MANAGE_GUILD")) return message.channel.send(t("permissions:userPermission.dj", { emoji: this.client.emotes.error }))
 		if (!message.member.voice.channel) return message.chinoReply("error", t("commands:dj-module.channel-null"))
 		if (message.guild.member(this.client.user).voice.channel && message.member.voice.channel != message.guild.member(this.client.user).voice.channel) return message.channel.send(t("commands:dj-module.another-channel"))
 

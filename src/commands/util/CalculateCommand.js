@@ -21,6 +21,6 @@ module.exports = class CalculateCommand extends Command {
 		}
 		let resposta = calc(question)
 
-		message.chinoReply("diamond", t("commands:calc.result", { author: message.author, resposta: resposta }))
+		message.chinoReply("diamond", t("commands:calc.result", { resposta: resposta }))
 	}
 }

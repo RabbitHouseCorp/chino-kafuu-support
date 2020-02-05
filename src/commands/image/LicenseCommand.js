@@ -19,6 +19,18 @@ module.exports = class LicencaCommand extends Command {
 		let ctx = canvas.getContext("2d")
 		let UserImg = await Canvas.loadImage(user.displayAvatarURL({ format: "png" }))
 		let Card = await Canvas.loadImage("https://media.discordapp.net/attachments/584149756469575701/597483177937731584/unknown.png?width=360&height=169")
+		let isLightColor = "#fff"
+		function isLight(color) {
+			const hex = color.replace('#', '')
+			const c_r = parseInt(hex.substr(0, 2), 16)
+			const c_g = parseInt(hex.substr(2, 2), 16)
+			const c_b = parseInt(hex.substr(4, 2), 16)
+			const brightness = ((c_r * 299) + (c_g * 587) + (c_b * 114)) / 1000; return brightness > 155;
+		}
+		
+		if (isLight(message.guild.member(user).displayHexColor)) {
+			isLightColor = "#000000"
+		}
 		ctx.rotate(Math.PI * 2 / -30)
 		ctx.textAlign = "center"
 
@@ -30,7 +42,7 @@ module.exports = class LicencaCommand extends Command {
 		ctx.font = "small-caps bold 50px sans-serif;"
 		ctx.fillStyle = "#000000"
 		ctx.fillText(user.username, 190, 365, 400)
-		ctx.fillStyle = "#fff"
+		ctx.fillStyle = isLightColor
 		ctx.fillText(`${t("commands:license.licensed-for")}: ${((user.id === message.author.id) ? args.join(" ") || t("commands:license.be-cute") : (args.slice(1).join(" ") || t("commands:license.be-cute")))}`, 430, 760, 820)
 		message.channel.send(new MessageAttachment(canvas.toBuffer(), "licenca.png"))
 	}

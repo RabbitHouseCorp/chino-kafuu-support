@@ -22,7 +22,7 @@ module.exports = class SpotifyCommand extends Command {
 		}
 
 		if (!member.presence.activity) return message.chinoReply("error", t("commands:spotify.userNoListen", { member: member.username }))
-		if (member.presence.activity.name !== "Spotify" && member.presence.activity.type !== "LISTENING") return message.chinoReply("error", t("commands:spotify.userNoListen", { author: message.author, member: member.username }))
+		if (member.presence.activity.name !== "Spotify" && member.presence.activity.type !== "LISTENING") return message.chinoReply("error", t("commands:spotify.userNoListen", { member: member.username }))
 
 		let spotifyImg = member.presence.activity.assets.largeImageURL()
 		let spotifyUrl = `https://open.spotify.com/track/${member.presence.activity.syncID}`

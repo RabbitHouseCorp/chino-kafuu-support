@@ -6,7 +6,7 @@ module.exports = class SayCommand extends Command {
 			category: "misc",
 			aliases: ["falar"],
 			UserPermission: null,
-			ClientPermission: null,
+			ClientPermission: ["MANAGE_WEBHOOK"],
 			OnlyDevs: false
 		})
 	}

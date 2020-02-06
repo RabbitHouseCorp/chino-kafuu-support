@@ -5,7 +5,7 @@ const fs = require("fs")
 module.exports = class GuildCreate {
     constructor(client) {
         this.client = client
-        this.regions = {
+        this.region = {
             "brazil": "pt-BR",
             "eu-central": "en-US",
             "eu-west": "en-US",
@@ -23,7 +23,7 @@ module.exports = class GuildCreate {
     }
 
     async run(guild) {
-
+        
         let server = await this.client.database.Guilds.findById(guild.id)
         if (!server) {
             server = new this.client.database.Guilds({
@@ -54,14 +54,23 @@ module.exports = class GuildCreate {
                 }, async (err, f) => {
                     if (f) {
                         if (server) {
+                            let auditLogs = await guild.fetchAuditLogs()
+                            let auditLogsFilter = auditLogs.entries.filter(audit => audit.action === "BOT_ADD").array()[0]
+
                             const embed = new MessageEmbed()
                                 .setImage("https://cdn.discordapp.com/attachments/589293933939392533/672268982887383080/91fe833b1dc7d14bc96fd4efd0bc8dc2.gif")
                                 .setColor(this.client.colors.default)
                                 .setFooter(t("events:added-to-guild.guild-saved"), guild.iconURL())
-                                .addField(t("events:added-to-guild.thanks-to-add"), t("events:added-to-guild.msg", { prefix: server.prefix, client: this.client.user.username }))
+                                .addField(t("events:added-to-guild.thanks-to-add"), t("events:added-to-guild.msg", {
+                                    prefix: server.prefix, client: this.client.user.username,
+                                    author: auditLogsFilter.executor.tag,
+                                    guild: guild.name
+                                }))
 
 
-                            guild.channels.filter(c => c.type === "text").random().send(embed).catch()
+                            auditLogsFilter.executor.send(embed).catch(() => {
+                                guild.channels.filter(c => c.type === "text").random().send(embed).catch()
+                            })
                         }
                     }
                 })

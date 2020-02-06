@@ -20,15 +20,15 @@ module.exports = class SpotifyCommand extends Command {
 		} else {
 			member = message.author
 		}
-
-		if (!member.presence.activity) return message.chinoReply("error", t("commands:spotify.userNoListen", { member: member.username }))
-		if (member.presence.activity.name !== "Spotify" && member.presence.activity.type !== "LISTENING") return message.chinoReply("error", t("commands:spotify.userNoListen", { member: member.username }))
-
-		let spotifyImg = member.presence.activity.assets.largeImageURL()
-		let spotifyUrl = `https://open.spotify.com/track/${member.presence.activity.syncID}`
-		let spotifyName = member.presence.activity.details
-		let spotifyAlbum = member.presence.activity.assets.largeText
-		let spotifyAuthor = member.presence.activity.state
+		let spotify = member.presence.activities
+		if (!spotify) return message.chinoReply("error", t("commands:spotify.userNoListen", { member: member.username }))
+		let spy = member.presence.activities.find(spotify => spotify.name === "Spotify") || spotify.find(spotify => spotify.type === "LISTENING")
+		if (!spy) return message.chinoReply("error", t("commands:spotify.userNoListen", { member: member.username }))
+		let spotifyImg = spy.assets.largeImageURL()
+		let spotifyUrl = `https://open.spotify.com/track/${spy.syncID}`
+		let spotifyName = spy.details
+		let spotifyAlbum = spy.assets.largeText
+		let spotifyAuthor = spy.state
 
 		let embed = new MessageEmbed()
 			.setAuthor(t("commands:spotify.userListening", { member: member.tag }), "https://cdn.discordapp.com/emojis/554334875411415107.png?v=1")

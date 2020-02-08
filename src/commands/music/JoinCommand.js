@@ -13,7 +13,7 @@ module.exports = class JoinCommand extends Command {
 	run({ message, args, server }, t) {
 
 		if (!message.member.voice.channel) return message.chinoReply("error", t("commands:dj-module.channel-null"))
-		if (message.guild.member(this.client.user).voice.channel && message.member.voice.channel != message.guild.member(this.client.user).voice.channel) return message.chinoReply("error", t("commands:dj-module.another-channel"))
+		if (message.guild.me.voice.channel && message.member.voice.channel != message.guild.me.voice.channel) return message.chinoReply("error", t("commands:dj-module.another-channel"))
 
 		message.reply(t("commands:join", { voiceChannel: message.member.voice.channel.name })).then(async () => await this.client.lavalinkManager.join(message.member.voice.channel.id))
 	}

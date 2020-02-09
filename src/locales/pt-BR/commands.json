@@ -1,4 +1,11 @@
 {
+    "ppt": {
+        "args-null": "você não escolheu nenhuma das opções.",
+        "option-not-found": "você só pode escolher entre `pedra`, `papel` ou `tesoura`.",
+        "you-win": "você escolheu `{{me}}` e eu escolhi `{{clientChoice}}`, parabéns, parece que você ganhou, estou depositando `{{value}}` yens na sua conta.",
+        "tie": "parece que empatamos! Ninguém ganhou ou perdeu.",
+        "you-lose": "você escolheu `{{me}}` e eu escolhi `{{clientChoice}}`, parece que eu ganhei, yay, estou tirando `{{value}}` yens da sua conta, ok?"
+    },
     "no-premium": "este servidor não é premium, parceiro ou verificado.",
     "setbanner": {
         "success": "banner alterado com sucesso.",

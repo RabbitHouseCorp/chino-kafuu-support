@@ -10,9 +10,9 @@ module.exports = class Unmute extends Command {
 			ClientPermission: ["MANAGE_ROLES"],
 			OnlyDevs: false
 		})
-	} 
-	run({message, args, server}, t) {
-        
+	}
+	run({ message, args, server }, t) {
+
 		const member = message.mentions.users.first() || this.client.users.get(args[0])
 		if (!member) return message.chinoReply("error", t("commands:mention-null"))
 		let role = message.guild.roles.find(r => r.name === "Silenciado")
@@ -21,22 +21,23 @@ module.exports = class Unmute extends Command {
 		if (!reason) {
 			reason = t("commands:no-reason")
 		}
-    
+
 		if (message.member.roles.highest.position < message.guild.member(member).roles.highest.position) return message.chinoReply("error", t("commands:punishment.unpunished"))
 
 		let embed = new MessageEmbed()
-			.setTitle(t("commands:unmute.title", {member: member.tag}))
+			.setTitle(t("commands:unmute.title", { member: member.tag }))
 			.setColor(this.client.colors.moderation)
-			.setThumbnail(member.displayAvatarURL())
+			.setThumbnail(member.avatar.startsWith("a_") ? member.displayAvatarURL({ format: "gif" }) : member.displayAvatarURL({ format: "webp" }))
 			.addField(t("commands:punishment.embed.memberName"), member.tag, true)
 			.addField(t("commands:punishment.embed.memberID"), member.id, true)
 			.addField(t("commands:punishment.embed.staffName"), message.author.tag, true)
 			.addField(t("commands:punishment.embed.reason"), reason, true)
-  
+
 		message.guild.member(member).remove(role.id).then(() => {
 			message.channel.send(embed)
 			if (server.punishModule) {
 				message.guild.channels.get(server.punishChannel).send(embed)
-			}		}) 
+			}
+		})
 	}
 }

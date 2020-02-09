@@ -10,9 +10,9 @@ module.exports = class UnbanCommand extends Command {
 			ClientPermission: ["BAN_MEMBERS"],
 			OnlyDevs: false
 		})
-	} 
-	async run({message, args, server}, t) {
-        
+	}
+	async run({ message, args, server }, t) {
+
 		if (!args[0]) return message.chinoReply("error", t("commands:mention-null"))
 		let member = await message.guild.fetchBans()
 		let ban
@@ -25,9 +25,9 @@ module.exports = class UnbanCommand extends Command {
 
 		message.guild.members.unban(ban.user.id).then((user) => {
 			const embed = new MessageEmbed()
-				.setTitle(t("commands:unban.title", {member: user.tag}))
+				.setTitle(t("commands:unban.title", { member: user.tag }))
 				.setColor(this.client.colors.moderation)
-				.setThumbnail(user.displayAvatarURL())
+				.setThumbnail(user.avatar.startsWith("a_") ? user.displayAvatarURL({ format: "gif" }) : user.displayAvatarURL({ format: "webp" }))
 				.addField(t("commands:punishment.embed.memberName"), user.tag, true)
 				.addField(t("commands:punishment.embed.memberID"), user.id, true)
 				.addField(t("commands:punishment.embed.staffName"), message.author.tag, true)

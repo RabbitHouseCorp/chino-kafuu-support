@@ -30,7 +30,7 @@ module.exports = class ReportCommand extends Command {
 
 		const embed = new MessageEmbed()
 			.setColor(this.client.colors.moderation)
-			.setThumbnail(member.displayAvatarURL())
+			.setThumbnail(member.avatar)
 			.addField(t("commands:report.memberName"), member.tag, true)
 			.addField(t("commands:report.memberID"), member.id, true)
 			.addBlankField(true)

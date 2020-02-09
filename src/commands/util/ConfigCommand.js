@@ -32,7 +32,7 @@ module.exports = class ConfigCommand extends Command {
 		const embed = new MessageEmbed()
 			.setColor(this.client.colors.default)
 			.setTitle(t("commands:config.title"))
-			.setThumbnail(message.guild.iconURL())
+			.setThumbnail(message.guild.icon.startsWith("a_") ? message.guild.iconURL({ format: "gif" }) : message.guild.iconURL({ format: "webp" }))
 			.addField(t("commands:config.how-use"), `${server.prefix}config <options> <set/disable>`)
 			.addField(t("commands:config.report.title"), listReport.join("\n"))
 			.addField(t("commands:config.punishment.title"), listPunish.join("\n"))

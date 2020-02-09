@@ -10,21 +10,21 @@ module.exports = class AnnounceCommand extends Command {
 			ClientPermission: ["SEND_MESSAGES", "MENTION_EVERYONE"],
 			OnlyDevs: false
 		})
-	} 
-	run({message, args, server}, t) {
-            
+	}
+	run({ message, args, server }, t) {
+
 		let chat = message.mentions.channels.first() || message.guild.channels.get(args[0])
 		if (!chat) return message.chinoReply("error", t("commands:announce.noMention"))
 		let announce = args.slice(1).join(" ")
 		if (!announce) return message.chinoReply("error", t("commands:announce.noMsg"))
-
+		let format = message.author.avatar.startsWith("a_") ? "gif" : "webp" || message.author.icon.startsWith("a_") ? "gif" : "webp"
 		const embed = new MessageEmbed()
-		.setColor(this.client.colors.default)
-		.setAuthor(message.guild.name, message.guild.iconURL())
-		.setDescription(announce)
-		.setFooter(`${t("commands:announce.by")}: ${message.author.username}`, message.author.displayAvatarURL())
+			.setColor(this.client.colors.default)
+			.setAuthor(message.guild.name, message.guild.iconURL({ format }))
+			.setDescription(announce)
+			.setFooter(`${t("commands:announce.by")}: ${message.author.username}`, message.author.displayAvatarURL({ format }))
 
-		message.reply(t("commands:announce.confirmed", {chat: chat.toString()})).then(msg => {
+		message.reply(t("commands:announce.confirmed", { chat: chat.toString() })).then(msg => {
 			setTimeout(() => {
 				msg.react("success:577973168342302771")
 			}, 500)
@@ -37,20 +37,20 @@ module.exports = class AnnounceCommand extends Command {
 			const collector = msg.createReactionCollector((r, u) => (r.emoji.name === "success", "warn", "error") && (u.id !== this.client.user.id && u.id === message.author.id))
 			collector.on("collect", r => {
 				switch (r.emoji.name) {
-				case "success":
-					chat.send("@everyone", {embed: embed, disableEveryone: false})
-					msg.delete()
-					message.chinoReply("success", t("commands:announce.send"))
-					break
-				case "warn":
-					chat.send("@here", {embed: embed, disableEveryone: false})
-					msg.delete()
-					message.chinoReply("success", t("commands:announce.send"))
-					break
-				case "error":
-					chat.send(embed)
-					msg.delete()
-					message.chinoReply("success", t("commands:announce.send"))
+					case "success":
+						chat.send("@everyone", { embed: embed, disableEveryone: false })
+						msg.delete()
+						message.chinoReply("success", t("commands:announce.send"))
+						break
+					case "warn":
+						chat.send("@here", { embed: embed, disableEveryone: false })
+						msg.delete()
+						message.chinoReply("success", t("commands:announce.send"))
+						break
+					case "error":
+						chat.send(embed)
+						msg.delete()
+						message.chinoReply("success", t("commands:announce.send"))
 				}
 			})
 		})

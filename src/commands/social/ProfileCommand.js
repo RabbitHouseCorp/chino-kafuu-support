@@ -17,11 +17,12 @@ module.exports = class ProfileCommand extends Command {
 				_id: member.id
 			}).save()
 		}
+		let format = member.avatar.startsWith("a_") ? "gif" : "webp" || message.author.avatar.startsWith("a_") ? "gif" : "webp" 
 		if (user.blacklist) {
 			const bannedEmbed = new MessageEmbed()
 				.setColor(this.client.colors.default)
-				.setAuthor(`${member.tag} está banido.`, member.displayAvatarURL())
-				.setThumbnail(member.displayAvatarURL())
+				.setAuthor(`${member.tag} está banido.`, member.displayAvatarURL({ format }))
+				.setThumbnail(member.avatar)
 				.addField("Motivo", user.blacklistReason)
 
 			message.channel.send(bannedEmbed)
@@ -32,7 +33,7 @@ module.exports = class ProfileCommand extends Command {
 			if (!args[1].includes("#")) return message.chinoReply("error", t("commands:profile.colors.hex"))
 			const colorEmbed = new MessageEmbed()
 				.setColor(`${args[1]}`)
-				.setAuthor(message.author.tag, message.author.displayAvatarURL())
+				.setAuthor(message.author.tag, message.author.displayAvatarURL({ format }))
 				.setDescription(t("commands:profile.colors.this-color"))
 
 			message.channel.send(colorEmbed).then(msg => {
@@ -68,8 +69,8 @@ module.exports = class ProfileCommand extends Command {
 		]
 		const embed = new MessageEmbed()
 			.setColor(user.profileColor)
-			.setAuthor(t("commands:profile.title", { member: member.tag }), member.displayAvatarURL())
-			.setThumbnail(member.displayAvatarURL())
+			.setAuthor(t("commands:profile.title", { member: member.tag }), member.displayAvatarURL({ format }))
+			.setThumbnail(member.displayAvatarURL({ format }))
 			.setDescription(description.join("\n\n"))
 
 		message.channel.send(embed)

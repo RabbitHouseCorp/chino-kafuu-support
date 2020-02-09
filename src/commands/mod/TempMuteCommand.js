@@ -47,7 +47,7 @@ module.exports = class TempMuteCommand extends Command {
 		let embed = new MessageEmbed()
 			.setTitle(t("commands:tempmute.title", { member: member.tag }))
 			.setColor(this.client.colors.moderation)
-			.setThumbnail(member.displayAvatarURL())
+			.setThumbnail(member.avatar.startsWith("a_") ? member.displayAvatarURL({ format: "gif" }) : member.displayAvatarURL({ format: "webp" }))
 			.addField(t("commands:punishment.embed.memberName"), member.tag, true)
 			.addField(t("commands:punishment.embed.memberID"), member.id, true)
 			.addField(t("commands:punishment.embed.staffName"), message.author.tag, true)

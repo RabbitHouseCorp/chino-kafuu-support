@@ -92,14 +92,14 @@ module.exports = class MessageReceive {
 					const args = message.content.slice(server.prefix.length).trim().split(/ +/g)
 					const command = args.shift().toLowerCase()
 					const comando = this.client.commands.get(command) || this.client.commands.get(this.client.aliases.get(command))
-
+					let owner = await this.client.users.fetch("395788326835322882")
 					if (user.blacklist) {
 						const embed = new MessageEmbed()
 							.setColor(this.client.colors.moderation)
-							.setAuthor("Você foi banido", message.author.displayAvatarURL())
+							.setAuthor("Você foi banido", message.author.avatar.startsWith("a_") ? message.author.displayAvatarURL({ format: "gif"}) : message.author.displayAvatarURL({ format: "webp" }))
 							.setDescription(`Olá ${message.author}, parece que você fez besteira que acabou quebrando os meus termos de uso, devido à isto, você foi banido de me usar.`)
 							.addField("Motivo", user.blacklistReason)
-							.addField("Banido injustamente?", `Se você acha que foi banido injustamente, então entre em contato com a ${this.client.users.get("395788326835322882").tag} ou entre no meu servidor de suporte.`)
+							.addField("Banido injustamente?", `Se você acha que foi banido injustamente, então entre em contato com a ${owner.tag} ou entre no meu servidor de suporte.`)
 
 						message.author.send(embed).catch(err => {
 							message.channel.send(embed)

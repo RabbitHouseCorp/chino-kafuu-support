@@ -13,7 +13,8 @@ module.exports = class AddYensCommand extends Command {
         let member = await this.client.shardManager.getUsers(args[0].replace(/[<@!>]/g, ""))
         if (!member) return message.chinoReply("error", `eu não encontrei um usuário com o ID \`${args[0]}\`.`)
         let user = await this.client.database.Users.findById(args[0].replace(/[<@!>]/g, ""))
-        
+        if (!args[1]) return message.chinoReply("error", "você não colocou a quantia que quer adicionar.")
+
         user.yens += args[1]
         user.save()
         

@@ -4,7 +4,7 @@ module.exports = class RemoveYensCommand extends Command {
         super(client, {
             name: "removeyens",
             aliases: [],
-            category: "dev"
+            category: "dev",
             OnlyDevs: true
         })
     }

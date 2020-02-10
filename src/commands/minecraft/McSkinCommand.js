@@ -14,7 +14,7 @@ module.exports = class McSkinCommand extends Command {
 	run({ message, args, server }, t) {
 
 		if (!args[0]) return message.chinoReply("error", t("commands:mc"))
-		const body = `https://mc-heads.net/skin/${args[0]}`
+		const body = `https://minotar.net/skin/${args[0]}`
 		const embed = new MessageEmbed()
 			.setTimestamp()
 			.setColor(this.client.colors.mine)

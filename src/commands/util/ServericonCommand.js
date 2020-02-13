@@ -13,7 +13,7 @@ module.exports = class ServericonCommand extends Command {
 	}
 	run({ message, args, server }, t) {
 
-		let guild = this.client.guilds.get(args[0])
+		let guild = this.client.guilds.cache.get(args[0])
 		if (!guild) {
 			guild = message.guild
 		}

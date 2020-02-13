@@ -12,7 +12,7 @@ module.exports = class DivorceCommand extends Command {
 		let user = await this.client.database.Users.findById(message.author.id)
 		let user2 = await this.client.database.Users.findById(user.marryWith)
 		if (!user2 || !user.isMarry) return message.chinoReply("error", t("commands:divorce.no-marry", { prefix: server.prefix }))
-		let member = this.client.users.get(user2._id)
+		let member = this.client.users.cache.get(user2._id)
 		if (user2.yens < Number(300)) return message.chinoReply("error", t("commands:divorce.user", { member: member.toString() }))
 		if (user.yens < Number(300)) return message.chinoReply("error", t("commands:divorce.author"))
 

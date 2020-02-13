@@ -14,7 +14,7 @@ module.exports = class EatCommand extends Command {
 		})
 	}
 	async run({ message, args, server }, t) {
-		let member = message.mentions.users.first() || this.client.users.get(args[0])
+		let member = message.mentions.users.first() || this.client.users.cache.get(args[0])
 		if (!member) return message.chinoReply("error", t("commands:mentioNull"))
 		let img = await neko.sfw.feed()
 		const embed = new MessageEmbed()

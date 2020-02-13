@@ -14,7 +14,7 @@ module.exports = class TempMuteCommand extends Command {
 	}
 	async run({ message, args, server }, t) {
 
-		const member = message.mentions.users.first() || this.client.users.get(args[0])
+		const member = message.mentions.users.first() || this.client.users.cache.get(args[0])
 		if (!member) return message.chinoReply("error", t("commands:mention-null"))
 		let time = args[1]
 		if (!time) return message.chinoReply("error", t("commands:tempmute.time"))

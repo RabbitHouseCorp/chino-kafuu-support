@@ -4,17 +4,18 @@ module.exports = class PayCommand extends Command {
 		super(client, {
 			name: "pay",
 			category: "economy",
-			aliases: ["pagar", "doar"]		})
+			aliases: ["pagar", "doar"]
+		})
 	}
-	async run({message, args, server}, t) {
+	async run({ message, args, server }, t) {
 		let user = await this.client.database.Users.findById(message.author.id)
 		if (!user || user === null) {
 			new this.client.database.Users({
 				_id: message.author.id
 			}).save()
 		}
-      
-		let member = message.mentions.users.first() || this.client.users.get(args[0])
+
+		let member = message.mentions.users.first() || this.client.users.cache.get(args[0])
 		if (!member) return message.chinoReply("error", t("commands:mention-null"))
 		if (member.id === message.author.id) return message.chinoReply("error", t("commands:pay.this-author"))
 		let value = args[1]
@@ -31,7 +32,7 @@ module.exports = class PayCommand extends Command {
 		}
 		let realValue = valuePorcent(value, 2)
 
-		message.chinoReply("warn", t("commands:pay.confirm", {value: Number(realValue[0]).toLocaleString(), member: member.toString(), porcent: realValue[1]})).then(msg => {
+		message.chinoReply("warn", t("commands:pay.confirm", { value: Number(realValue[0]).toLocaleString(), member: member.toString(), porcent: realValue[1] })).then(msg => {
 			msg.react("success:577973168342302771")
 			setTimeout(() => msg.react("error:577973245391667200"), 1000)
 
@@ -44,13 +45,13 @@ module.exports = class PayCommand extends Command {
 						membro.save()
 						donator.save()
 
-						message.chinoReply("money_with_wings", t("commands:pay.success", {member: member.toString(), value: Number(realValue[0]).toLocaleString()}))
+						message.chinoReply("money_with_wings", t("commands:pay.success", { member: member.toString(), value: Number(realValue[0]).toLocaleString() }))
 						msg.delete()
-					break;
+						break;
 					case "error":
-						message.chinoReply("error", t("commands:pay.cancel", {value: Number(realValue[0]).toLocaleString()}))
+						message.chinoReply("error", t("commands:pay.cancel", { value: Number(realValue[0]).toLocaleString() }))
 						msg.delete()
-					break;
+						break;
 				}
 			})
 		})

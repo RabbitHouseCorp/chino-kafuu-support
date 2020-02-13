@@ -9,10 +9,10 @@ module.exports = class AddRoleCommand extends Command {
 			ClientPermission: ["MANAGE_ROLES"],
 			OnlyDevs: false
 		})
-	} 
-	run({message, args, server}, t) {
-        
-		let member = message.mentions.users.first() || this.client.users.get(args[0])
+	}
+	run({ message, args, server }, t) {
+
+		let member = message.mentions.users.first() || this.client.users.cache.get(args[0])
 		if (!member) return message.chinoReply("error", t("commands:mention-null"))
 		let role = message.mentions.roles.array()[1] || message.guild.roles.get(args[1]) || message.guild.roles.find(r => r.name === args.slice(1).join(" "))
 		if (!role) return message.chinoReply("error", t("commands:addrole.mentionRoleNull"))

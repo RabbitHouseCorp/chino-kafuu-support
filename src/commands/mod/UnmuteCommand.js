@@ -13,7 +13,7 @@ module.exports = class Unmute extends Command {
 	}
 	run({ message, args, server }, t) {
 
-		const member = message.mentions.users.first() || this.client.users.get(args[0])
+		const member = message.mentions.users.first() || this.client.users.cache.get(args[0])
 		if (!member) return message.chinoReply("error", t("commands:mention-null"))
 		let role = message.guild.roles.find(r => r.name === "Silenciado")
 		if (!message.guild.member(member).roles.find(r => r.name === "Silenciado")) return message.channel.send("error", t("commands:unmute.noMuted"))

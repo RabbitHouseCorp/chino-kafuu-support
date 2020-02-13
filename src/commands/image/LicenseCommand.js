@@ -14,7 +14,7 @@ module.exports = class LicencaCommand extends Command {
 	}
 	async run({ message, args, server }, t) {
 
-		let user = message.mentions.users.first() || this.client.users.get(args[0]) || message.author
+		let user = message.mentions.users.first() || this.client.users.cache.get(args[0]) || message.author
 		let canvas = await Canvas.createCanvas(1150, 893)
 		let ctx = canvas.getContext("2d")
 		let UserImg = await Canvas.loadImage(user.displayAvatarURL({ format: "png" }))
@@ -27,7 +27,7 @@ module.exports = class LicencaCommand extends Command {
 			const c_b = parseInt(hex.substr(4, 2), 16)
 			const brightness = ((c_r * 299) + (c_g * 587) + (c_b * 114)) / 1000; return brightness > 155;
 		}
-		
+
 		if (isLight(message.guild.member(user).displayHexColor)) {
 			isLightColor = "#000000"
 		}

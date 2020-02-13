@@ -11,7 +11,7 @@ module.exports = class ReputationCommand extends Command {
 	}
 
 	async run({ message, args, server }, t) {
-		let member = message.mentions.users.first() || this.client.users.get(args[0])
+		let member = message.mentions.users.first() || this.client.users.cache.get(args[0])
 		if (!member) return message.chinoReply("error", t("commands:mention-null"))
 		if (member.id === message.author.id) return message.chinoReply("error", t("commands:rep.no-is-yourself"))
 		let author = await this.client.database.Users.findById(message.author.id)

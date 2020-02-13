@@ -15,7 +15,7 @@ module.exports = class ReportCommand extends Command {
 
 
 		if (server.reportModule === false) return message.chinoReply("error", t("commands:report.disable"))
-		const member = message.mentions.users.first() || this.client.users.get(args[0])
+		const member = message.mentions.users.first() || this.client.users.cache.get(args[0])
 		if (!member) return message.chinoReply("error", t("commands:mention-null"))
 		const reason = args.slice(1).join(" ")
 		if (!reason) return message.chinoReply("error", t("commands:report.reasonNull"))

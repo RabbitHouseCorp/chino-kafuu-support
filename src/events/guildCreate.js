@@ -56,12 +56,12 @@ module.exports = class GuildCreate {
                         if (server) {
                             let auditLogs = await guild.fetchAuditLogs()
                             let auditLogsFilter = auditLogs.entries.filter(audit => audit.action === "BOT_ADD").array()[0]
-
+                            let guildIcon = guild.icon.startsWith("a_") ? guild.iconURL({ format: "gif" }) : guild.iconURL({ format: "webp" })
                             const embed = new MessageEmbed()
-                                .setImage("https://cdn.discordapp.com/attachments/589293933939392533/672268982887383080/91fe833b1dc7d14bc96fd4efd0bc8dc2.gif")
-                                .setColor(this.client.colors.default)
-                                .setFooter(t("events:added-to-guild.guild-saved"), guild.icon.startsWith("a_") ? guild.iconURL({ format: "gif" }) : guild.iconURL({ format: "webp" }))
-                                .addField(t("events:added-to-guild.thanks-to-add"), t("events:added-to-guild.msg", {
+                                embed.setImage("https://cdn.discordapp.com/attachments/589293933939392533/672268982887383080/91fe833b1dc7d14bc96fd4efd0bc8dc2.gif")
+                                embed.setColor(this.client.colors.default)
+                                guild.icon ? embed.setFooter(t("events:added-to-guild.guild-saved"), guildIcon) : embed.setFooter(t("events:added-to-guild.guild-saved"))
+                                embed.addField(t("events:added-to-guild.thanks-to-add"), t("events:added-to-guild.msg", {
                                     prefix: server.prefix, client: this.client.user.username,
                                     author: auditLogsFilter.executor.tag,
                                     guild: guild.name

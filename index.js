@@ -11,10 +11,7 @@ const client = new Client({
 })
 if (client.shard) client.shardManager = new ShardManager(client)
 const dbl = new DBL(config.dbltoken, client)
-dbl.on("posted", () => {
-	console.log("Connected to DBL")
-})
-dbl.on("error", (err) => { })
+dbl.on("error")
 client.loadCommands('./src/commands')
 client.loadEvents('./src/events')
 client.login(config.token)

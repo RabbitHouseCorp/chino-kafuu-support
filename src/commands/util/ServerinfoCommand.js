@@ -15,11 +15,11 @@ module.exports = class ServerinfoCommand extends Command {
 	run({ message, args, server }, t) {
 		moment.locale(server.lang)
 
-		let voice = message.guild.channels.filter(c => c.type === "voice").size
-		let text = message.guild.channels.filter(c => c.type === "text").size
-		let category = message.guild.channels.filter(c => c.type === "category").size
-		let user = message.guild.members.filter(member => !member.user.bot).size
-		let bot = message.guild.members.filter(member => member.user.bot).size
+		let voice = message.guild.channels.cache.filter(c => c.type === "voice").size
+		let text = message.guild.channels.cache.filter(c => c.type === "text").size
+		let category = message.guild.channels.cache.filter(c => c.type === "category").size
+		let user = message.guild.members.cache.filter(member => !member.user.bot).size
+		let bot = message.guild.members.cache.filter(member => member.user.bot).size
 		let roles = `${message.guild.roles.map(r => `\`${r.name}\``).join(", ")}`.replace("`@everyone`,", "")
 		let format = message.guild.icon.startsWith("a_") ? "gif" : "webp"
 		const embed = new MessageEmbed()

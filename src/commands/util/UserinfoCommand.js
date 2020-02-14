@@ -1,5 +1,6 @@
 const Command = require("../../structures/command")
 const { MessageEmbed } = require("discord.js")
+const moment = require("moment")
 module.exports = class UserinfoCommand extends Command {
 	constructor(client) {
 		super(client, {
@@ -12,8 +13,7 @@ module.exports = class UserinfoCommand extends Command {
 		})
 	}
 	async run({ message, args, server }, t) {
-		const moment = require("moment")
-
+		
 		moment.locale(server.lang)
 
 		let member
@@ -24,8 +24,8 @@ module.exports = class UserinfoCommand extends Command {
 		}
 		let status = `${member.presence.status}`.replace("dnd", t("commands:userinfo.statusDnd", { emoji: this.client.emotes.dnd })).replace("idle", t("commands:userinfo.statusIdle", { emoji: this.client.emotes.idle })).replace("offline", t("commands:userinfo.statusOffline", { emoji: this.client.emotes.offline })).replace("online", t("commands:userinfo.statusOnline", { emoji: this.client.emotes.online }))
 		let format = member.avatar.startsWith("a_") ? "gif" : "webp"
-		let role = message.guild.member(member) ? message.guild.member(member).roles.map(r => r.name).join(", ") : t("commands:userinfo.no-guild")
-		let roleSize = message.guild.member(member) ? message.guild.member(member).roles.size - 1 : "0"
+		let role = message.guild.member(member) ? message.guild.member(member)._roles.map(r => message.guild.roles.cache.get(r).name).join(", ") : t("commands:userinfo.no-guild")
+		let roleSize = message.guild.member(member) ? message.guild.member(member)._roles.size - 1 : "0"
 		let color = message.guild.member(member) ? message.guild.member(member).displayHexColor : "#000000"
 		const embed = new MessageEmbed()
 			.setColor(color)

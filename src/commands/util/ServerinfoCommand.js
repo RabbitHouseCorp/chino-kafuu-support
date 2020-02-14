@@ -20,7 +20,7 @@ module.exports = class ServerinfoCommand extends Command {
 		let category = message.guild.channels.cache.filter(c => c.type === "category").size
 		let user = message.guild.members.cache.filter(member => !member.user.bot).size
 		let bot = message.guild.members.cache.filter(member => member.user.bot).size
-		let roles = `${message.guild.roles.map(r => `\`${r.name}\``).join(", ")}`.replace("`@everyone`,", "")
+		let roles = `${message.guild.roles.cache.map(r => `\`${r.name}\``).join(", ")}`.replace("`@everyone`,", "")
 		let format = message.guild.icon.startsWith("a_") ? "gif" : "webp"
 		const embed = new MessageEmbed()
 		message.guild.icon ? embed.setAuthor(t("commands:serverinfo.name", { name: message.guild.name }), message.guild.iconURL({ format })) : null
@@ -40,7 +40,7 @@ module.exports = class ServerinfoCommand extends Command {
 		message.guild.icon ? page2.setThumbnail(`${message.guild.iconURL({ format })}`) : null
 		page2.addField(t("commands:serverinfo.guildChannel", { totalChannel: message.guild.channels.size }), t("commands:serverinfo.channels", { voice: voice, text: text, category: category }), true)
 		page2.addField(t("commands:serverinfo.guildMembers", { totalMember: message.guild.memberCount }), t("commands:serverinfo.members", { user: user, bot: bot }), true)
-		page2.addField(t("commands:serverinfo.roles", { totalRole: message.guild.roles.size - 1 }), `${roles.slice(0, 1020)}...`)
+		page2.addField(t("commands:serverinfo.roles", { totalRole: message.guild.roles.cache.size - 1 }), `${roles.slice(0, 1020)}...`)
 
 		message.channel.send(embed).then(msg => {
 			setTimeout(function () {

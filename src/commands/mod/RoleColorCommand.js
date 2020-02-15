@@ -6,11 +6,12 @@ module.exports = class RoleColorCommand extends Command {
 			name: "rolecolor",
 			category: "mod",
 			UserPermission: ["MANAGE_ROLES"],
-			ClientPermission: ["MANAGE_ROLES"]		})
+			ClientPermission: ["MANAGE_ROLES"]
+		})
 	}
 
-	async run({message, server, args}, t) {
-		let role = message.mentions.roles.first() || message.guild.roles.get(args[0])
+	async run({ message, server, args }, t) {
+		let role = message.mentions.roles.first() || message.guild.roles.cache.get(args[0])
 		if (!role) return message.chinoReply("error", t("commands:roleColor.invalidRole"))
 		if (role.rawPosition > message.guild.me.roles.highest.rawPosition) return message.chinoReply("error", t("commands:roleColor.higherRole"))
 		if (!args[1].startsWith("#")) return message.chinoReply("error", t("commands:roleColor.invalidHex"))

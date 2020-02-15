@@ -36,7 +36,7 @@ module.exports = class Unmute extends Command {
 		message.guild.member(member).remove(role.id).then(() => {
 			message.channel.send(embed)
 			if (server.punishModule) {
-				message.guild.channels.get(server.punishChannel).send(embed)
+				message.guild.channels.cache.get(server.punishChannel).send(embed)
 			}
 		})
 	}

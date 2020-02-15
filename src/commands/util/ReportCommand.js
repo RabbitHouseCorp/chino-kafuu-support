@@ -19,7 +19,7 @@ module.exports = class ReportCommand extends Command {
 		if (!member) return message.chinoReply("error", t("commands:mention-null"))
 		const reason = args.slice(1).join(" ")
 		if (!reason) return message.chinoReply("error", t("commands:report.reasonNull"))
-		const channel = message.guild.channels.get(server.channelReport)
+		const channel = message.guild.channels.cache.get(server.channelReport)
 		if (!channel) {
 			server.channelReport = ""
 			server.reportModule = false

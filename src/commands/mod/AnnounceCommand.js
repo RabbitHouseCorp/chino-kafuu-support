@@ -13,7 +13,7 @@ module.exports = class AnnounceCommand extends Command {
 	}
 	run({ message, args, server }, t) {
 
-		let chat = message.mentions.channels.first() || message.guild.channels.get(args[0])
+		let chat = message.mentions.channels.first() || message.guild.channels.cache.get(args[0])
 		if (!chat) return message.chinoReply("error", t("commands:announce.noMention"))
 		let announce = args.slice(1).join(" ")
 		if (!announce) return message.chinoReply("error", t("commands:announce.noMsg"))

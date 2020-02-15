@@ -23,9 +23,9 @@ module.exports = class ConfigCommand extends Command {
 			`${server.prefix}config punishment disable`
 		]
 		let modules = [
-			`**${t("commands:config.config-modules.punishment.channel")}:** ${server.punishChannel ? message.guild.channels.get(server.punishChannel) : t("commands:config.no-channel")}`,
+			`**${t("commands:config.config-modules.punishment.channel")}:** ${server.punishChannel ? message.guild.channels.cache.get(server.punishChannel) : t("commands:config.no-channel")}`,
 			`**${t("commands:config.config-modules.punishment.module")}**: ${server.punishModule ? t("commands:config.config-modules.enable") : t("commands:config.config-modules.disable")}`,
-			`**${t("commands:config.config-modules.report.channel")}:** ${server.channelReport ? message.guild.channels.get(server.channelReport) : t("commands:config.no-channel")}`,
+			`**${t("commands:config.config-modules.report.channel")}:** ${server.channelReport ? message.guild.channels.cache.get(server.channelReport) : t("commands:config.no-channel")}`,
 			`**${t("commands:config.config-modules.report.module")}**: ${server.reportModule ? t("commands:config.config-modules.enable") : t("commands:config.config-modules.disable")}`
 		]
 
@@ -50,7 +50,7 @@ module.exports = class ConfigCommand extends Command {
 				return message.chinoReply("success", t("commands:config.report.disable"))
 			}
 
-			let channel = message.guild.channels.get(args[2].replace(/[<#>]/g, ""))
+			let channel = message.guild.channels.cache.get(args[2].replace(/[<#>]/g, ""))
 
 			if (["definir", "set", "add"].includes(args[1].toLowerCase())) {
 				if (!channel) return message.chinoReply("error", t("commands:config.channel-null"))
@@ -74,7 +74,7 @@ module.exports = class ConfigCommand extends Command {
 				return message.chinoReply("success", t("commands:config.punishment.disable"))
 			}
 
-			let channel = message.guild.channels.get(args[2].replace(/[<#>]/g, ""))
+			let channel = message.guild.channels.cache.get(args[2].replace(/[<#>]/g, ""))
 
 			if (["definir", "set", "add"].includes(args[1].toLowerCase())) {
 				if (!channel) return message.chinoReply("error", t("commands:config.channel-null"))

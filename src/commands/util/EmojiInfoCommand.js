@@ -18,7 +18,7 @@ module.exports = class EmojiinfoCommand extends Command {
 
 		if (!args[0]) return message.chinoReply("error", t("commands:emoji.args-null"))
 		let a = Util.parseEmoji(args[0]) || message.guild.emojis.find(emoji => emoji.name === args.join(" "))
-		let emoji = message.guild.emojis.get(a.id)
+		let emoji = message.guild.emojis.cache.get(a.id)
 		let animated = emoji.animated
 		if (emoji.animated === true) animated = t("commands:emojiinfo.animated")
 		if (emoji.animated === false) animated = t("commands:emojiinfo.noanimated")

@@ -49,7 +49,7 @@ module.exports = class ConfigCommand extends Command {
 			.addField(t("commands:config.modules"), modules.join("\n"))
 
 		if (!args[0]) return message.channel.send(embed)
-		if (!["report", "reportar", "punishment", "punições"].includes(args[0].toLowerCase())) return message.chinoReply("error", t("commands:config.module-not-found"))
+		if (!["report", "reportar", "punishment", "punições", "animu"].includes(args[0].toLowerCase())) return message.chinoReply("error", t("commands:config.module-not-found"))
 		if (["report", "reportar"].includes(args[0].toLowerCase())) {
 			if (!["desativar", "false", "disable", "definir", "set", "add"].includes(args[1].toLowerCase())) return message.chinoReply("error", t("commands:config.options-not-found"))
 			if (["desativar", "false", "disable"].includes(args[1].toLowerCase())) {

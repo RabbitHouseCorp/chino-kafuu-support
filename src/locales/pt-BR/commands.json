@@ -87,7 +87,7 @@
             "disable": "Desativado"
         },
         "no-channel": "Não definido.",
-        "module-not-found": "este módulo não foi encontrado, módulos existentes: `punishment`, `report`.",
+        "module-not-found": "este módulo não foi encontrado, módulos existentes: `punishment`, `report`, `animu`.",
         "options-not-found": "esta opção não foi encontrada, opções disponíveis: `set`, `disable`"
     },
     "report": {

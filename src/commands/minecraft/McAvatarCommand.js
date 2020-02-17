@@ -7,7 +7,7 @@ module.exports = class McAvatarCommand extends Command {
 			category: "minecraft",
 			aliases: [],
 			UserPermission: null,
-			ClientPermission: null,
+			ClientPermission: ["EMBED_LINKS"],
 			OnlyDevs: false
 		})
 	}

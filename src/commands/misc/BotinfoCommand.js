@@ -10,7 +10,8 @@ module.exports = class BotinfoCommand extends Command {
 		super(client, {
 			name: "botinfo",
 			category: "misc",
-			aliases: []
+			aliases: [],
+			ClientPermission: ["EMBED_LINKS", "ADD_REACTIONS"]
 		})
 	}
 	async run({ message, args, server }, t) {

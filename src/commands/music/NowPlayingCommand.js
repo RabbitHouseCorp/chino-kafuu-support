@@ -9,7 +9,7 @@ module.exports = class NowPlayingCommand extends Command {
 			category: "music",
 			aliases: ["playingnow", "np"],
 			UserPermission: null,
-			ClientPermission: null,
+			ClientPermission: ["EMBED_LINKS"],
 			OnlyDevs: false
 		})
 	}

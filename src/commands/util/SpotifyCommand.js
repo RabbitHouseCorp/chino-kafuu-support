@@ -7,7 +7,7 @@ module.exports = class SpotifyCommand extends Command {
 			category: "util",
 			aliases: [],
 			UserPermission: null,
-			ClientPermission: null,
+			ClientPermission: ["EMBED_LINKS"],
 			OnlyDevs: false
 
 		})

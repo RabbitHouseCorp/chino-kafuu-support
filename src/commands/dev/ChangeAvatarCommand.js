@@ -7,7 +7,7 @@ module.exports = class ChangeAvatarCommand extends Command {
 			category: "developers",
 			aliases: ["alteraravatar", "setavatar"],
 			UserPermission: null,
-			ClientPermission: null,
+			ClientPermission: ["EMBED_LINKS"],
 			OnlyDevs: true
 		})
 	}

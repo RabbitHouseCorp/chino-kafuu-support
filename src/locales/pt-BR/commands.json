@@ -64,6 +64,11 @@
             "disable": "módulo de moderação desativado com sucesso.",
             "title": "Módulo de moderação"
         },
+        "animu": {
+            "enable": "Rádio Animu ativada com sucesso.",
+            "disable": "Rádio Animu desativada com sucesso.",
+            "title": "Módulo da Rádio Animu"
+        },
         "modules": "Módulos",
         "config-modules": {
             "punishment": {
@@ -73,6 +78,10 @@
             "report": {
                 "channel": "Canal de denúncia",
                 "module": "Módulo de denúncia"
+            },
+            "animu": {
+                "channel": "Canal da rádio",
+                "module": "Módulo da Rádio Animu"
             },
             "enable": "Ativado",
             "disable": "Desativado"

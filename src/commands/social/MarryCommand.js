@@ -4,7 +4,8 @@ module.exports = class MarryCommand extends Command {
 		super(client, {
 			name: "marry",
 			aliases: ["casar"],
-			category: "social"
+			category: "social",
+			ClientPermission: ["EMBED_LINKS", "ADD_REACTIONS"]
 		})
 	}
 

@@ -7,7 +7,7 @@ module.exports = class AnnounceCommand extends Command {
 			category: "mod",
 			aliases: ["anunciar"],
 			UserPermission: ["MANAGE_GUILD", "MENTION_EVERYONE"],
-			ClientPermission: ["SEND_MESSAGES", "MENTION_EVERYONE"],
+			ClientPermission: ["MENTION_EVERYONE", "EMBED_LINKS", "ADD_REACTIONS"],
 			OnlyDevs: false
 		})
 	}

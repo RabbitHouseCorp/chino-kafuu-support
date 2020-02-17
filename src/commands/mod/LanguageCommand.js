@@ -6,7 +6,7 @@ module.exports = class LanguageCommand extends Command {
 			category: "mod",
 			aliases: ["linguagem", "lang"],
 			UserPermission: ["MANAGE_GUILD"],
-			ClientPermission: null,
+			ClientPermission: ["EMBED_LINKS", "ADD_REACTIONS"],
 			OnlyDevs: false
 		})
 	} 

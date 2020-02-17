@@ -7,7 +7,7 @@ module.exports = class AvatarCommand extends Command {
 			category: "misc",
 			aliases: [],
 			UserPermission: null,
-			ClientPermission: null,
+			ClientPermission: ["EMBED_LINKS"],
 			OnlyDevs: false
 		})
 	}

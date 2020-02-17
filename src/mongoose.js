@@ -13,7 +13,9 @@ let Guild = new mongoose.Schema({
 	commandNull: { type: Boolean, default: false },
 	punishChannel: { type: String, default: "" },
 	punishModule: { type: Boolean, default: false },
-	partner: { type: Boolean, default: false }
+	partner: { type: Boolean, default: false },
+	animu: { type: Boolean, default: false },
+	animuChannel: { type: String, default: "" }
 })
 let User = new mongoose.Schema({
 	_id: { type: String },

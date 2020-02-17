@@ -9,7 +9,7 @@ module.exports = class FoxGirlCommand extends Command {
 			category: "fun",
 			aliases: [],
 			UserPermission: null,
-			ClientPermission: null,
+			ClientPermission: ["EMBED_LINKS"],
 			OnlyDevs: false
 		})
 	}

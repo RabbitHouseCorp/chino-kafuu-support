@@ -4,7 +4,8 @@ module.exports = class PayCommand extends Command {
 		super(client, {
 			name: "pay",
 			category: "economy",
-			aliases: ["pagar", "doar"]
+			aliases: ["pagar", "doar"],
+			ClientPermission: ["ADD_REACTIONS"]
 		})
 	}
 	async run({ message, args, server }, t) {

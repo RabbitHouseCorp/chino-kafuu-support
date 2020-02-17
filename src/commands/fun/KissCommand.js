@@ -9,7 +9,7 @@ module.exports = class KissCommand extends Command {
 			category: "fun",
 			aliases: ["beijar"],
 			UserPermission: null,
-			ClientPermission: null,
+			ClientPermission: ["EMBED_LINKS"],
 			OnlyDevs: false
 		})
 	}

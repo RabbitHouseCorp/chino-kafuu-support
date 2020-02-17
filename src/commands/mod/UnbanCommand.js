@@ -7,7 +7,7 @@ module.exports = class UnbanCommand extends Command {
 			category: "mod",
 			aliases: ["desbanir"],
 			UserPermission: ["BAN_MEMBERS"],
-			ClientPermission: ["BAN_MEMBERS"],
+			ClientPermission: ["BAN_MEMBERS", "EMBED_LINKS"],
 			OnlyDevs: false
 		})
 	}

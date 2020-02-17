@@ -6,7 +6,8 @@ module.exports = class ServerBannerCommand extends Command {
         super(client, {
             name: "serverbanner",
             aliases: ["guildbanner"],
-            category: "util"
+            category: "util",
+		ClientPermission: ["EMBED_LINKS"]
         })
     }
 

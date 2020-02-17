@@ -7,7 +7,7 @@ module.exports = class KickCommand extends Command {
 			category: "mod",
 			aliases: ["expulsar"],
 			UserPermission: ["KICK_MEMBERS", "MUTE_MEMBERS"],
-			ClientPermission: ["KICK_MEMBERS", "MUTE_MEMBERS", "MANAGE_ROLES"],
+			ClientPermission: ["KICK_MEMBERS", "MUTE_MEMBERS", "MANAGE_ROLES", "EMBED_LINKS"],
 			OnlyDevs: false
 		})
 	}

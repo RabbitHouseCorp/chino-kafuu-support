@@ -6,7 +6,7 @@ module.exports = class CongaParrotCommand extends Command {
 			category: "fun",
 			aliases: [],
 			UserPermission: null,
-			ClientPermission: null,
+			ClientPermission: ["USE_EXTERNAL_EMOJIS"],
 			OnlyDevs: false
 		})
 	}

@@ -7,7 +7,7 @@ module.exports = class BanCommand extends Command {
 			category: "mod",
 			aliases: ["banir"],
 			UserPermission: ["BAN_MEMBERS"],
-			ClientPermission: ["BAN_MEMBERS"],
+			ClientPermission: ["BAN_MEMBERS", "EMBED_LINKS"],
 			OnlyDevs: false
 		})
 	}

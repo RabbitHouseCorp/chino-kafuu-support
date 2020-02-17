@@ -7,7 +7,7 @@ module.exports = class ReportCommand extends Command {
 			category: "util",
 			aliases: ["reportar"],
 			UserPermission: null,
-			ClientPermission: null,
+			ClientPermission: ["EMBED_LINKS"],
 			OnlyDevs: false
 		})
 	}

@@ -10,7 +10,7 @@ module.exports = class McQueryCommand extends Command {
 			category: "minecraft",
 			aliases: [],
 			UserPermission: null,
-			ClientPermission: null,
+			ClientPermission: ["EMBED_LINKS"],
 			OnlyDevs: false
 		})
 	}

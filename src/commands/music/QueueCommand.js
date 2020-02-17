@@ -9,7 +9,7 @@ module.exports = class QueueCommand extends Command {
 			category: "music",
 			aliases: ["playlist"],
 			UserPermission: null,
-			ClientPermission: null,
+			ClientPermission: ["EMBED_LINKS"],
 			OnlyDevs: false
 		})
 	}

@@ -7,7 +7,7 @@ module.exports = class Unmute extends Command {
 			category: "mod",
 			aliases: ["desmutar"],
 			UserPermission: ["KICK_MEMBERS"],
-			ClientPermission: ["MANAGE_ROLES"],
+			ClientPermission: ["MANAGE_ROLES", "EMBED_LINKS"],
 			OnlyDevs: false
 		})
 	}

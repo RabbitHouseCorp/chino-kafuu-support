@@ -6,7 +6,7 @@ module.exports = class ReplyCommand extends Command {
             name: "reply",
             aliases: ["r", "responder", "quote"],
             category: "Util",
-            ClientPermission: ["MANAGE_MESSAGES", "MANAGE_WEBHOOK"]
+            ClientPermission: ["MANAGE_MESSAGES", "MANAGE_WEBHOOK", "EMBED_LINKS"]
         })
     }
 

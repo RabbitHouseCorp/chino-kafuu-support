@@ -7,7 +7,7 @@ module.exports = class EvalCommand extends Command {
 			category: "developers",
 			aliases: ["e"],
 			UserPermission: null,
-			ClientPermission: null,
+			ClientPermission: ["EMBED_LINKS"],
 			OnlyDevs: true
 		})
 	}

@@ -57,6 +57,10 @@ module.exports = class MessageReceive {
 				returnEmptyString: false
 			}, async (err, f) => {
 				if (f) {
+					if (message.content === message.guild.me.toString()) {
+						message.channel.send(`${t("events:mention.start")} ${message.author}, ${t("events:mention.end", { prefix: server.prefix })}`)
+					}
+
 					if (message.mentions.users.size > 0) {
 						message.mentions.users.forEach(async (member) => {
 							if (!member) return
@@ -83,10 +87,6 @@ module.exports = class MessageReceive {
 							member.save()
 						}
 					}
-					let mention = message.guild.me.nickname ? `<@!${this.client.user.id}>}` : `<@${this.client.user.id}>}`
-					if (message.content === mention) {
-						message.channel.send(`${t("events:mention.start")} ${message.author}, ${t("events:mention.end", { prefix: server.prefix })}`)
-					}
 
 					if (!message.content.startsWith(server.prefix)) return
 					const args = message.content.slice(server.prefix.length).trim().split(/ +/g)
@@ -96,7 +96,7 @@ module.exports = class MessageReceive {
 					if (user.blacklist) {
 						const embed = new MessageEmbed()
 							.setColor(this.client.colors.moderation)
-							.setAuthor("Você foi banido", message.author.avatar.startsWith("a_") ? message.author.displayAvatarURL({ format: "gif"}) : message.author.displayAvatarURL({ format: "webp" }))
+							.setAuthor("Você foi banido", message.author.avatar.startsWith("a_") ? message.author.displayAvatarURL({ format: "gif" }) : message.author.displayAvatarURL({ format: "webp" }))
 							.setDescription(`Olá ${message.author}, parece que você fez besteira que acabou quebrando os meus termos de uso, devido à isto, você foi banido de me usar.`)
 							.addField("Motivo", user.blacklistReason)
 							.addField("Banido injustamente?", `Se você acha que foi banido injustamente, então entre em contato com a ${owner.tag} ou entre no meu servidor de suporte.`)
@@ -142,7 +142,7 @@ module.exports = class MessageReceive {
 						}
 					}
 					if (clientPermission !== null) {
-						if (!message.guild.me.hasPermission(clientPermission)) {
+						if (!message.guild.me.hasPermission(clientPermission) || !message.channel.permissionsFor(this.client.user.id).has(clientPermission)) {
 							let perm = clientPermission.map(value => t(`permissions:${value}`)).join(", ")
 							return message.chinoReply("error", `${t("permissions:CLIENT_MISSING_PERMISSION", { perm: perm })}`)
 						}

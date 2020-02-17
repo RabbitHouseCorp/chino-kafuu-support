@@ -9,7 +9,7 @@ module.exports = class RoleinfoCommand extends Command {
 			category: "util",
 			aliases: ["cargoinfo", "rinfo"],
 			UserPermission: null,
-			ClientPermission: null,
+			ClientPermission: ["EMBED_LINKS"],
 			OnlyDevs: false
 		})
 	}

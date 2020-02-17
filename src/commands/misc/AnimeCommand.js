@@ -1,6 +1,3 @@
-
-
-
 const Command = require("../../structures/command")
 const malScraper = require("mal-scraper")
 
@@ -11,8 +8,8 @@ module.exports = class AnimeCommand extends Command {
 			category: "misc",
 			aliases: [],
 			UserPermission: null,
-			ClientPermission: null,
-			OnlyDevs: false
+			ClientPermission: ["EMBED_LINKS"],
+			debug: true
 		})
 	}
 	run({ message, args, server }, t) {

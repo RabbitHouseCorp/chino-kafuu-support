@@ -8,7 +8,7 @@ module.exports = class ServerinfoCommand extends Command {
 			category: "util",
 			aliases: [],
 			UserPermission: null,
-			ClientPermission: null,
+			ClientPermission: ["EMBED_LINKS", "ADD_REACTIONS"],
 			OnlyDevs: false
 		})
 	}

@@ -6,7 +6,7 @@ module.exports = class ClapCommand extends Command {
 			category: "fun",
 			aliases: ["palmas"],
 			UserPermission: null,
-			ClientPermission: null,
+			ClientPermission: ["USE_EXTERNAL_EMOJIS"],
 			OnlyDevs: false
 		})
 	}

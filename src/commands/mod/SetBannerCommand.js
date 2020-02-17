@@ -7,7 +7,7 @@ module.exports = class SetBannerCommand extends Command {
             name: "setbanner",
             aliases: ["setguildbanner", "setarbanner"],
             category: "mod",
-            UserPermission: ["MANAGE_GUILD"]
+            UserPermission: ["MANAGE_GUILD", "EMBED_LINKS"]
         })
     }
 

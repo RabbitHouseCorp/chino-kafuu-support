@@ -8,7 +8,7 @@ module.exports = class ChannelInfoCommand extends Command {
 			category: "util",
 			aliases: ["chatinfo"],
 			UserPermission: null,
-			ClientPermission: null,
+			ClientPermission: ["EMBED_LINKS"],
 			OnlyDevs: false
 		})
 	}

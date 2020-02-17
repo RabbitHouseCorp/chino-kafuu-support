@@ -9,7 +9,7 @@ module.exports = class PatCommand extends Command {
 			category: "fun",
 			aliases: ["cocegas"],
 			UserPermission: null,
-			ClientPermission: null,
+			ClientPermission: ["EMBED_LINKS"],
 			OnlyDevs: false
 		})
 	}

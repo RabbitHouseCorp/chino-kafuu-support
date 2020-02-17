@@ -8,7 +8,7 @@ module.exports = class EmojiinfoCommand extends Command {
 			category: "util",
 			aliases: ["emoji-info"],
 			UserPermission: null,
-			ClientPermission: null,
+			ClientPermission: ["EMBED_LINKS"],
 			OnlyDevs: false
 		})
 	}

@@ -5,7 +5,8 @@ module.exports = class ProfileCommand extends Command {
 		super(client, {
 			name: "profile",
 			aliases: ["perfil"],
-			category: "social"
+			category: "social",
+			ClientPermission: ["EMBED_LINKS", "ADD_REACTIONS"]
 		})
 	}
 

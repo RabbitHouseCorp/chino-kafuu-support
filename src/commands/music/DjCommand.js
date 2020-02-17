@@ -7,7 +7,7 @@ module.exports = class DJCommand extends Command {
 			category: "music",
 			aliases: [],
 			UserPermission: null,
-			ClientPermission: null,
+			ClientPermission: ["EMBED_LINKS"],
 			OnlyDevs: false
 		})
 	}

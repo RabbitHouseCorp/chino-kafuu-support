@@ -7,7 +7,7 @@ module.exports = class McBodyCommand extends Command {
 			category: "minecraft",
 			aliases: [],
 			UserPermission: null,
-			ClientPermission: null,
+			ClientPermission: ["EMBED_LINKS"],
 			OnlyDevs: false
 		})
 	}

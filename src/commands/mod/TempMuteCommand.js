@@ -8,7 +8,7 @@ module.exports = class TempMuteCommand extends Command {
 			category: "mod",
 			aliases: [],
 			UserPermission: ["KICK_MEMBERS"],
-			ClientPermission: ["MANAGE_ROLES", "MANAGE_CHANNELS"],
+			ClientPermission: ["MANAGE_ROLES", "MANAGE_CHANNELS", "EMBED_LINKS"],
 			OnlyDevs: false
 		})
 	}

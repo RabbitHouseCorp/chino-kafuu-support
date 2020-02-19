@@ -16,5 +16,5 @@
     "msg": "Hi {{author}}, I am {{client}}. Thanks for adding me in {{guild}}! Well, I am a bot with a lot of funny functions to make your day more funny. If you are wondering what are my commands, just use `{{prefix}}help`. Have some questions? Join my support server using `{{prefix}}invite`. Again, thanks for adding me and have fun!",
     "guild-saved": "Successfully saved the server in the database!"
   },
-  "debug": "hold up! This command has some problems and it is disabled for a while."
+  "debug": "hold up! This command has some problems and it is disabled for a while.\n**Reason:** {{reason}}"
 }

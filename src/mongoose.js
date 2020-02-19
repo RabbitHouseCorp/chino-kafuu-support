@@ -4,19 +4,20 @@ mongoose.connect(config.mongoose, { useNewUrlParser: true, useUnifiedTopology: t
 	if (err) return console.log(`(x) Error to connecting to database \n${err}`)
 	console.log("Successfully connected to database!")
 })
+
 let Guild = new mongoose.Schema({
 	_id: { type: String },
 	prefix: { type: String, default: config.prefix },
 	channelReport: { type: String, default: "" },
 	reportModule: { type: Boolean, default: false },
 	lang: { type: String, default: "en-US" },
-	commandNull: { type: Boolean, default: false },
 	punishChannel: { type: String, default: "" },
 	punishModule: { type: Boolean, default: false },
 	partner: { type: Boolean, default: false },
 	animu: { type: Boolean, default: false },
 	animuChannel: { type: String, default: "" }
 })
+
 let User = new mongoose.Schema({
 	_id: { type: String },
 	yens: { type: Number, default: 0 },
@@ -33,7 +34,16 @@ let User = new mongoose.Schema({
 	repTime: { type: String, default: "000000000000" },
 	shipValue: { type: String, default: null }
 })
+
+let Bot = new mongoose.Schema({
+	_id: { type: String },
+	maintenance: { type: Boolean, default: false },
+	maintenanceReason: { type: String, default: "" }
+})
+
 let Guilds = mongoose.model("Guilds", Guild)
 module.exports.Guilds = Guilds
 let Users = mongoose.model("Users", User)
 module.exports.Users = Users
+let Bots = mongoose.model("Bots", Bot)
+module.exports.Bots = Bots

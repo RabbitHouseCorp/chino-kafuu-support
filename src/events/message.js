@@ -14,7 +14,6 @@ module.exports = class MessageReceive {
 
 		if (message.channel.type === "dm") return
 		if (message.author.bot) return
-
 		let server = await this.client.database.Guilds.findById(message.guild.id)
 		if (!server) {
 			this.client.database.Guilds({
@@ -28,12 +27,6 @@ module.exports = class MessageReceive {
 				shipValue: Math.floor(Math.random() * 55)
 			}).save()
 		}
-
-		if (user.shipValue === null) {
-			user.shipValue = Math.floor(Math.random() * 55)
-			user.save()
-		}
-
 
 		let t
 		const setFixedT = function (translate) {
@@ -57,14 +50,13 @@ module.exports = class MessageReceive {
 				returnEmptyString: false
 			}, async (err, f) => {
 				if (f) {
-					if(message.content.replace(/!/g, "") === message.guild.me.toString().replace(/!/g, "")) {
+					if (message.content.replace(/!/g, "") === message.guild.me.toString().replace(/!/g, "")) {
 						message.channel.send(`${t("events:mention.start")} ${message.author}, ${t("events:mention.end", { prefix: server.prefix })}`)
 					}
 
-					if (message.mentions.users.size > 0) {
+					if (message.mentions.users.size >= 0) {
 						message.mentions.users.forEach(async (member) => {
 							if (!member) return
-							let user = await this.client.database.Users.findById(member.id)
 							if (user) {
 								if (user.afk) {
 									if (!user.afkReason) {
@@ -78,13 +70,11 @@ module.exports = class MessageReceive {
 						})
 					}
 
-					let member = await this.client.database.Users.findById(message.author.id)
-
-					if (member) {
-						if (member) {
-							member.afk = false
-							member.afkReason = null
-							member.save()
+					if (user) {
+						if (user) {
+							user.afk = false
+							user.afkReason = null
+							user.save()
 						}
 					}
 
@@ -101,25 +91,19 @@ module.exports = class MessageReceive {
 							.addField("Motivo", user.blacklistReason)
 							.addField("Banido injustamente?", `Se você acha que foi banido injustamente, então entre em contato com a ${owner.tag} ou entre no meu servidor de suporte.`)
 
-						message.author.send(embed).catch(err => {
+						message.author.send(embed).catch(() => {
 							message.channel.send(embed)
 						})
 						return
 					}
 
-					if (server.commandNull === true) {
-						if (!comando) return message.chinoReply("error", t("events:command-null"))
-					} else {
-						if (!comando) return
-					}
-
 					if (comando.config.OnlyDevs) {
 						if (!this.client.config.owners.includes(message.author.id)) return message.chinoReply("error", t("permissions:ONLY_DEVS"))
 					}
-
-					if (comando.config.debug) {
+					let c = await this.client.database.Bots.findById(comando.config.name)
+					if (c.maintenance) {
 						if (!this.client.config.owners.includes(message.author.id)) {
-							return message.chinoReply("warn", t("events:debug"))
+							return message.chinoReply("warn", t("events:debug", { reason: c.maintenanceReason }))
 						}
 					}
 					if (cooldown.has(message.author.id)) {

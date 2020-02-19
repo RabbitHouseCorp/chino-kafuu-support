@@ -57,7 +57,7 @@ module.exports = class MessageReceive {
 				returnEmptyString: false
 			}, async (err, f) => {
 				if (f) {
-					if (message.content === message.guild.me.toString()) {
+					if(message.content.replace(/!/g, "") === message.guild.me.toString().replace(/!/g, "")) {
 						message.channel.send(`${t("events:mention.start")} ${message.author}, ${t("events:mention.end", { prefix: server.prefix })}`)
 					}
 

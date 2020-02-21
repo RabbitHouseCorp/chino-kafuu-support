@@ -22,8 +22,8 @@ module.exports = class NowPlayingCommand extends Command {
 		if (message.guild.me.voice.channel && message.member.voice.channel !== message.guild.me.voice.channel) return message.chinoReply("error", t("commands:dj-module.another-channel"))
 
 		message.channel.send(t("commands:np.waiting")).then(msg => {
-			let start = moment.duration(this.client.player.get(message.guild.id).player.state.position).format("dd:hh:mm:ss")
-			let end = moment.duration(this.client.player.get(message.guild.id).nowPlaying.length).format("dd:hh:mm:ss")
+			let start = this.client.player.get(message.guild.id).player.state.position >= 3600000 ? moment.duration(this.client.player.get(message.guild.id).player.state.position).format("hh:mm:ss", { stopTrim: "h" }) : moment.duration(this.client.player.get(message.guild.id).player.state.position).format("mm:ss", { stopTrim: "m" })
+			let end = moment.duration(this.client.player.get(message.guild.id).nowPlaying.length).format("hh:mm:ss")
 			let volume = `${this.client.player.get(message.guild.id).player.state.volume}/150`
 			let player = this.client.player.get(message.guild.id).nowPlaying
 			const embed = new MessageEmbed()

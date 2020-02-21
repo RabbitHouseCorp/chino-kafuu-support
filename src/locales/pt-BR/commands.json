@@ -4,11 +4,12 @@
         "option-not-found": "você só pode escolher entre `pedra`, `papel` ou `tesoura`.",
         "you-win": "você escolheu `{{me}}` e eu escolhi `{{clientChoice}}`, parabéns, parece que você ganhou, estou depositando `{{value}}` yens na sua conta.",
         "tie": "parece que empatamos! Ninguém ganhou ou perdeu.",
-        "you-lose": "você escolheu `{{me}}` e eu escolhi `{{clientChoice}}`, parece que eu ganhei, yay, estou tirando `{{value}}` yens da sua conta, ok?"
+        "you-lose": "você escolheu `{{me}}` e eu escolhi `{{clientChoice}}`, parece que eu ganhei, yay, estou tirando `{{value}}` yens da sua conta, ok?",
+        "value-not-inputed": "você não colocou nenhum valor para apostar comigo."
     },
     "no-premium": "este servidor não é premium, parceiro ou verificado.",
     "setbanner": {
-        "success": "banner alterado com sucesso.",
+        "success": "eu alterei o banner com sucesso.",
         "args-null": "você precisa enviar ou inserir o link da imagem que deseja definir como banner"
     },
     "serverbanner": {
@@ -180,7 +181,7 @@
         "rank": "Rank",
         "popularity": "Popularidade",
         "genres": "Gêneros",
-        "NotFound": "não consegui achar algo relacionado à `{{args}}`."
+        "NotFound": "eu não consegui encontrar nenhum anime com um nome parecido com `{{args}}`."
     },
     "announce": {
         "noMention": "você precisa indicar o chat que deseja enviar o anúncio",
@@ -207,8 +208,8 @@
         "server-suport": "Meu servidor",
         "twitter": "Meu twitter",
         "github": "GitHub",
-        "server-suport-url": "[clique aqui](https://discord.gg/CAm9cSU)",
-        "github-desc": "[clique aqui](https://github.com/DanielaGC/ChinoKafuu)"
+        "server-suport-url": "[Clique aqui](https://discord.gg/CAm9cSU)",
+        "github-desc": "[Clique aqui](https://github.com/DanielaGC/ChinoKafuu)"
     },
     "calc": {
         "args-null": "você precisa colocar um valor válido.",
@@ -505,16 +506,16 @@
     "dj-module": {
         "channel-null": "você não se encontra em nenhum canal de voz.",
         "another-channel": "você precisa estar no mesmo canal de voz que eu me encontro.",
-        "queue-null": "a fila atual se encontra vazia",
-        "no-playing": "não tem nenhuma música tocando atualmente."
+        "queue-null": "a minha fila atual se encontra vazia",
+        "no-playing": "eu não estou tocando nenhuma música atualmente."
     },
     "yen": {
         "totalYens": "você possui `{{yens}}` yens",
         "user-total": "{{member}} possui `{{yens}}` yens"
     },
     "daily": {
-        "daily-success": "foi depositado `{{total}}` yens na sua conta.",
-        "has-been-picked": "você já sacou o seu yen diario, aguarde `{{tempo}}` para poder pegar novamente."
+        "daily-success": "certo, eu depositei `{{total}}` yens na sua conta.",
+        "has-been-picked": "você já pegou os seus yens hoje, aguarde `{{tempo}}` para poder pegar novamente."
     },
     "mc": "informe o nick do jogador.",
     "no-reason": "Não informado.",

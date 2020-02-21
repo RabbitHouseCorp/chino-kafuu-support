@@ -56,6 +56,7 @@ module.exports = class BotinfoCommand extends Command {
 
 						const collector = msg.createReactionCollector((r, u) => (r.emoji.name === "chino_chibi" && (u.id !== client.user.id && u.id === message.author.id)))
 						collector.on("collect", r => {
+							r.users.remove(message.author.id)
 							switch (r.emoji.name) {
 								case "chino_chibi":
 									msg.edit(statusEmbed)

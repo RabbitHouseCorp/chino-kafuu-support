@@ -41,12 +41,12 @@ module.exports = class ConfigCommand extends Command {
 		const embed = new MessageEmbed()
 			.setColor(this.client.colors.default)
 			.setTitle(t("commands:config.title"))
-			message.guild.icon ? .setThumbnail(message.guild.icon.startsWith("a_") ? message.guild.iconURL({ format: "gif" }) : message.guild.iconURL({ format: "webp" })) : null
-			.addField(t("commands:config.how-use"), `${server.prefix}config <options> <set/disable>`)
-			.addField(t("commands:config.report.title"), listReport.join("\n"))
-			.addField(t("commands:config.punishment.title"), listPunish.join("\n"))
-			.addField(t("commands:config.animu.title"), listAnimu.join("\n"))
-			.addField(t("commands:config.modules"), modules.join("\n"))
+			message.guild.icon ? embed.setThumbnail(message.guild.icon.startsWith("a_") ? message.guild.iconURL({ format: "gif" }) : message.guild.iconURL({ format: "webp" })) : null
+			embed.addField(t("commands:config.how-use"), `${server.prefix}config <options> <set/disable>`)
+			embed.addField(t("commands:config.report.title"), listReport.join("\n"))
+			embed.addField(t("commands:config.punishment.title"), listPunish.join("\n"))
+			embed.addField(t("commands:config.animu.title"), listAnimu.join("\n"))
+			embed.addField(t("commands:config.modules"), modules.join("\n"))
 
 		if (!args[0]) return message.channel.send(embed)
 		if (!["report", "reportar", "punishment", "punições", "animu"].includes(args[0].toLowerCase())) return message.chinoReply("error", t("commands:config.module-not-found"))

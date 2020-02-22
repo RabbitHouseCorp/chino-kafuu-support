@@ -6,36 +6,26 @@ module.exports = class SayCommand extends Command {
 			category: "misc",
 			aliases: ["falar"],
 			UserPermission: null,
-			ClientPermission: ["MANAGE_WEBHOOK"],
+			ClientPermission: ["MANAGE_WEBHOOK", "MANAGE_CHANNELS", "MANAGE_GUILD"],
 			OnlyDevs: false
 		})
 	}
-	run({ message, args, server }, t) {
+	async run({ message, args, server }, t) {
 
-		let say = args.join(" ")
-		if (!args.join(" ")) return message.chinoReply("error", t("commands:say"))
-		if (!message.member.hasPermission("MENTION_EVERYONE")) {
-			if (!message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.createWebhook(message.author.username, { avatar: message.author.displayAvatarURL() }).then(w => {
-				w.send(args.join(" "), {
-					disableEveryone: false
-				})
-				setTimeout(() => w.delete(), 5000)
-			})
-			message.channel.send(say, {
-				disableEveryone: false
-			})
+		let query = args.join(" ")
+		if (!query) return message.chinoReply("error", t("commands:say"))
+		const disableEveryone = message.member.hasPermission("MENTION_EVERYONE")
+		const webhook = await message.channel.createWebhook(message.author.username, { avatar: message.author.displayAvatarURL() })
 
-		} else {
-
-			if (!message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.createWebhook(message.author.username, { avatar: message.author.displayAvatarURL() }).then(w => {
-				w.send(args.join(" "), {
-					disableEveryone: true
-				})
-				setTimeout(() => w.delete(), 5000)
-			})
-			message.channel.send(say, {
-				disableEveryone: true
-			})
+		if (!disableEveryone) {
+			if (!message.member.hasPermission("MANAGE_MESSAGES")) {
+				await webhook.send(query, { disableEveryone })
+				await webhook.delete()
+				return
+			}
+			return message.channel.send(query, { disableEveryone })
 		}
+
+		message.channel.send(query)
 	}
 }

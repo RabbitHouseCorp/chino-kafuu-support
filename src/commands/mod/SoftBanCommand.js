@@ -27,7 +27,7 @@ module.exports = class SoftBanCommand extends Command {
 		}
 
 		if (inGuild.id === message.author.id) return message.chinoReply("error", t("commands:ban.banAuthor"))
-		if (message.guild.members.has(inGuild.id)) {
+		if (message.guild.members.cache.has(inGuild.id)) {
 			if (message.member.roles.highest.position <= message.guild.member(member).roles.highest.position) return message.chinoReply("error", t("commands:punishment.unpunished"))
 			if (!inGuild.bannable) return message.chinoReply("error", t("commands:ban.bannable"))
 		}

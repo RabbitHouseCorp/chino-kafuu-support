@@ -17,7 +17,7 @@ module.exports = class BanCommand extends Command {
 		const member = await this.client.users.fetch(args[0].replace(/[<@!>]/g, ""))
 		if (!member) return message.chinoReply("error", t("commands:user-not-found"))
 		let inGuild
-		inGuild = message.guild.members.get(member.id)
+		inGuild = message.guild.members.cache.get(member.id)
 		if (!inGuild) {
 			inGuild = member
 		}

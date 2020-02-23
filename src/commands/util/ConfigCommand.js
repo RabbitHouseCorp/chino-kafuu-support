@@ -51,6 +51,7 @@ module.exports = class ConfigCommand extends Command {
 		if (!args[0]) return message.channel.send(embed)
 		if (!["report", "reportar", "punishment", "punições", "animu"].includes(args[0].toLowerCase())) return message.chinoReply("error", t("commands:config.module-not-found"))
 		if (["report", "reportar"].includes(args[0].toLowerCase())) {
+			if (!args[1]) return message.chinoReply("error", t("commands:config.options-not-found"))
 			if (!["desativar", "false", "disable", "definir", "set", "add"].includes(args[1].toLowerCase())) return message.chinoReply("error", t("commands:config.options-not-found"))
 			if (["desativar", "false", "disable"].includes(args[1].toLowerCase())) {
 				server.reportModule = false
@@ -60,10 +61,10 @@ module.exports = class ConfigCommand extends Command {
 				return message.chinoReply("success", t("commands:config.report.disable"))
 			}
 
+			if (!args[2]) return message.chinoReply("error", t("commands:config.channel-null"))
 			let channel = message.guild.channels.cache.get(args[2].replace(/[<#>]/g, ""))
-
+			if (!channel) return message.chinoReply("error", t("commands:config.channel-null"))
 			if (["definir", "set", "add"].includes(args[1].toLowerCase())) {
-				if (!channel) return message.chinoReply("error", t("commands:config.channel-null"))
 
 				server.reportModule = true
 				server.channelReport = channel.id
@@ -84,10 +85,10 @@ module.exports = class ConfigCommand extends Command {
 				return message.chinoReply("success", t("commands:config.punishment.disable"))
 			}
 
+			if (!args[2]) return message.chinoReply("error", t("commands:config.channel-null"))
 			let channel = message.guild.channels.cache.get(args[2].replace(/[<#>]/g, ""))
-
+			if (!channel) return message.chinoReply("error", t("commands:config.channel-null"))
 			if (["definir", "set", "add"].includes(args[1].toLowerCase())) {
-				if (!channel) return message.chinoReply("error", t("commands:config.channel-null"))
 
 				server.punishModule = true
 				server.punishChannel = channel.id
@@ -108,11 +109,10 @@ module.exports = class ConfigCommand extends Command {
 				return message.chinoReply("success", t("commands:config.animu.disable"))
 			}
 
+			if (!args[2]) return message.chinoReply("error", t("commands:config.channel-null"))
 			let channel = message.guild.channels.cache.get(args[2].replace(/[<#>]/g, ""))
-
+			if (!channel) return message.chinoReply("error", t("commands:config.channel-null"))
 			if (["definir", "set", "add"].includes(args[1].toLowerCase())) {
-				if (!channel) return message.chinoReply("error", t("commands:config.channel-null"))
-
 				server.animu = true
 				server.animuChannel = channel.id
 				server.save()

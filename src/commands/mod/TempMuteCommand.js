@@ -22,7 +22,7 @@ module.exports = class TempMuteCommand extends Command {
 		if (!reason) {
 			reason = t("commands:no-reason")
 		}
-		let role = message.guild.roles.find(r => r.name === "Silenciado")
+		let role = message.guild.roles.cache.find(r => r.name === "Silenciado")
 		if (!role) {
 			role = await message.guild.roles.create({
 				data: {

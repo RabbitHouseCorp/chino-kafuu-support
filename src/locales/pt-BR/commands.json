@@ -357,7 +357,8 @@
         "success": "meu prefix foi alterado com sucesso."
     },
     "removeemoji": {
-        "success": "emoji removido com sucesso."
+        "success": "emoji removido com sucesso.",
+        "no-guild": "eu não posso remover um emoji que não está neste servidor."
     },
     "removerole": {
         "noRole": "o usuário não está com esse cargo.",

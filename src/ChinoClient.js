@@ -2,7 +2,7 @@ const { Client, Collection } = require("discord.js")
 const { readdir } = require("fs")
 const EventManager = require("./structures/EventManager")
 
-module.exports = class Chino extends Client {
+module.exports = class ChinoClient extends Client {
 	constructor(options = {}) {
 		super(options)
 

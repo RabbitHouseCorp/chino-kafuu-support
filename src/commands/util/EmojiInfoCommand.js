@@ -17,11 +17,11 @@ module.exports = class EmojiinfoCommand extends Command {
 		moment.locale(server.lang)
 
 		if (!args[0]) return message.chinoReply("error", t("commands:emoji.args-null"))
-		let a = Util.parseEmoji(args[0]) || message.guild.emojis.find(emoji => emoji.name === args.join(" "))
+		let a = Util.parseEmoji(args[0]) || message.guild.emojis.cache.find(emoji => emoji.name === args.join(" ")) || message.guild.emojis.cache.get(a.id)
 		let emoji = message.guild.emojis.cache.get(a.id)
-		let animated = emoji.animated
-		if (emoji.animated === true) animated = t("commands:emojiinfo.animated")
-		if (emoji.animated === false) animated = t("commands:emojiinfo.noanimated")
+		let animated
+		if (emoji.animated) animated = t("commands:emojiinfo.animated")
+		if (!emoji.animated) animated = t("commands:emojiinfo.noanimated")
 
 		let embed = new MessageEmbed()
 			.setColor(this.client.colors.default)

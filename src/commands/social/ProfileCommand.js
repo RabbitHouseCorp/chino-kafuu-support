@@ -24,7 +24,7 @@ module.exports = class ProfileCommand extends Command {
 				userAvatar = member.displayAvatarURL
 			}
 
-			avatar = `https://cdn.discordapp.com/avatars/${member.id}/${member.avatar}.gif?size=2048`
+			userAvatar = `https://cdn.discordapp.com/avatars/${member.id}/${member.avatar}.gif?size=2048`
 		} else {
 			if (!member.avatar) {
 				userAvatar = member.displayAvatarURL

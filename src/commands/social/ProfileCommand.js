@@ -22,15 +22,15 @@ module.exports = class ProfileCommand extends Command {
 		if (!member.avatar.startsWith("a_")) {
 			if (!member.avatar) {
 				userAvatar = member.displayAvatarURL
+			} else {
+				userAvatar = `https://cdn.discordapp.com/avatars/${member.id}/${member.avatar}.png?size=2048`
 			}
-
-			userAvatar = `https://cdn.discordapp.com/avatars/${member.id}/${member.avatar}.gif?size=2048`
 		} else {
 			if (!member.avatar) {
 				userAvatar = member.displayAvatarURL
+			} else {
+				userAvatar = `https://cdn.discordapp.com/avatars/${member.id}/${member.avatar}.gif?size=2048`
 			}
-
-			userAvatar = `https://cdn.discordapp.com/avatars/${member.id}/${member.avatar}.png?size=2048`
 		}
 		
 		if (user.blacklist) {

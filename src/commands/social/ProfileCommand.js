@@ -73,8 +73,8 @@ module.exports = class ProfileCommand extends Command {
 		]
 		const embed = new MessageEmbed()
 		embed.setColor(user.profileColor)
-		embed.setAuthor(t("commands:profile.title", { member: member.tag }), member.displayAvatarURL({ format }))
-		embed.setThumbnail(member.displayAvatarURL({ format }))
+		embed.setAuthor(t("commands:profile.title", { member: member.tag }), userAvatar)
+		embed.setThumbnail(userAvatar)
 		embed.setDescription(description.join("\n\n"))
 
 		message.channel.send(embed)

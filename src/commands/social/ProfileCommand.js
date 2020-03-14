@@ -11,7 +11,7 @@ module.exports = class ProfileCommand extends Command {
 	}
 
 	async run({ message, args, server }, t) {
-		let member = args[0] ? await this.client.users.fetch(args[0].replace(/[<@!>]/g, "")) : message.author
+		let member = args[0] ? await this.client.shardManager.getUsers(args[0].replace(/[<@!>]/g, "")) : message.author
 		let user = await this.client.database.Users.findById(member.id)
 		if (!user) {
 			new this.client.database.Users({
@@ -62,7 +62,12 @@ module.exports = class ProfileCommand extends Command {
 			return
 		}
 
-		let marryWith = await this.client.users.fetch(user.marryWith)
+		let marryWith = await this.client.shardManager.getUsers(user.marryWith)
+		if (!marryWith) {
+			user.isMarry = false
+			user.yens += Number(7500)
+			user.save()
+		}
 		let description = [
 			`${this.client.emotes.sharo_excited} **${t("commands:profile.aboutme")} »** *\`${user.aboutme}\`*`,
 			`${this.client.emotes.rize_smile} **${t("commands:profile.user-name")} »** *\`${member.tag}\`*`,

@@ -25,18 +25,14 @@ module.exports = class UnbanCommand extends Command {
 
 		message.guild.members.unban(ban.user.id).then((user) => {
 			let avatar
-			if (!user.avatar.startsWith("a_")) {
-				if (!user.avatar) {
-					avatar = user.displayAvatarURL()
-				} else {
+			if (user.avatar) {
+				if (!user.avatar.startsWith("a_")) {
 					avatar = `https://cdn.discordapp.com/avatars/${user.id}/${user.avatar}.png?size=2048`
-				}
-			} else {
-				if (!user.avatar) {
-					avatar = user.displayAvatarURL()
 				} else {
 					avatar = `https://cdn.discordapp.com/avatars/${user.id}/${user.avatar}.gif?size=2048`
 				}
+			} else {
+				avatar = user.displayAvatarURL()
 			}
 
 			const embed = new MessageEmbed()

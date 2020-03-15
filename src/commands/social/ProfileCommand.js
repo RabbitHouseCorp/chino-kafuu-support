@@ -13,31 +13,27 @@ module.exports = class ProfileCommand extends Command {
 	async run({ message, args, server }, t) {
 		let member = args[0] ? await this.client.shardManager.getUsers(args[0].replace(/[<@!>]/g, "")) : message.author
 		let user = await this.client.database.Users.findById(member.id)
-		let userAvatar
+		let avatar
 		if (!user) {
 			new this.client.database.Users({
 				_id: member.id
 			}).save()
 		}
-		if (!member.avatar.startsWith("a_")) {
-			if (!member.avatar) {
-				userAvatar = member.displayAvatarURL
+		if (member.avatar) {
+			if (!member.avatar.startsWith("a_")) {
+				avatar = `https://cdn.discordapp.com/avatars/${member.id}/${member.avatar}.png?size=2048`
 			} else {
-				userAvatar = `https://cdn.discordapp.com/avatars/${member.id}/${member.avatar}.png?size=2048`
+				avatar = `https://cdn.discordapp.com/avatars/${member.id}/${member.avatar}.gif?size=2048`
 			}
 		} else {
-			if (!member.avatar) {
-				userAvatar = member.displayAvatarURL
-			} else {
-				userAvatar = `https://cdn.discordapp.com/avatars/${member.id}/${member.avatar}.gif?size=2048`
-			}
+			avatar = member.displayAvatarURL()
 		}
 		
 		if (user.blacklist) {
 			const bannedEmbed = new MessageEmbed()
 			bannedEmbed.setColor(this.client.colors.default)
-			bannedEmbed.setAuthor(`${member.tag} está banido.`, userAvatar)
-			bannedEmbed.setThumbnail(userAvatar)
+			bannedEmbed.setAuthor(`${member.tag} está banido.`, avatar)
+			bannedEmbed.setThumbnail(avatar)
 			bannedEmbed.addField("Motivo", user.blacklistReason)
 
 			message.channel.send(bannedEmbed)
@@ -48,7 +44,7 @@ module.exports = class ProfileCommand extends Command {
 			if (!args[1].startsWith("#")) return message.chinoReply("error", t("commands:profile.colors.hex"))
 			const colorEmbed = new MessageEmbed()
 			colorEmbed.setColor(`${args[1]}`)
-			colorEmbed.setAuthor(message.author.tag, userAvatar)
+			colorEmbed.setAuthor(message.author.tag, avatar)
 			colorEmbed.setDescription(t("commands:profile.colors.this-color"))
 
 			message.channel.send(colorEmbed).then(msg => {
@@ -92,8 +88,8 @@ module.exports = class ProfileCommand extends Command {
 		]
 		const embed = new MessageEmbed()
 		embed.setColor(user.profileColor)
-		embed.setAuthor(t("commands:profile.title", { member: member.tag }), userAvatar)
-		embed.setThumbnail(userAvatar)
+		embed.setAuthor(t("commands:profile.title", { member: member.tag }), avatar)
+		embed.setThumbnail(avatar)
 		embed.setDescription(description.join("\n\n"))
 
 		message.channel.send(embed)

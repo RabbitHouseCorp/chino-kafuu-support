@@ -45,13 +45,13 @@ module.exports = class TempMuteCommand extends Command {
 		let avatar
 		if (!member.avatar.startsWith("a_")) {
 			if (!member.avatar) {
-				avatar = member.displayAvatarURL
+				avatar = member.displayAvatarURL()
 			} else {
 				avatar = `https://cdn.discordapp.com/avatars/${member.id}/${member.avatar}.png?size=2048`
 			}
 		} else {
 			if (!member.avatar) {
-				avatar = member.displayAvatarURL
+				avatar = member.displayAvatarURL()
 			} else {
 				avatar = `https://cdn.discordapp.com/avatars/${member.id}/${member.avatar}.gif?size=2048`
 			}

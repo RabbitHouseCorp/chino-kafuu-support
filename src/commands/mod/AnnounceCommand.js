@@ -18,17 +18,17 @@ module.exports = class AnnounceCommand extends Command {
 		let announce = args.slice(1).join(" ")
 		if (!announce) return message.chinoReply("error", t("commands:announce.noMsg"))
 		let avatar
-		if (!member.avatar.startsWith("a_")) {
-			if (!member.avatar) {
-				avatar = member.displayAvatarURL
+		if (!message.author.avatar.startsWith("a_")) {
+			if (!message.author.avatar) {
+				avatar = message.author.displayAvatarURL()
 			} else {
-				avatar = `https://cdn.discordapp.com/avatars/${member.id}/${member.avatar}.png?size=2048`
+				avatar = `https://cdn.discordapp.com/avatars/${message.author.id}/${message.author.avatar}.png?size=2048`
 			}
 		} else {
-			if (!member.avatar) {
-				avatar = member.displayAvatarURL
+			if (!message.author.avatar) {
+				avatar = message.author.displayAvatarURL()
 			} else {
-				avatar = `https://cdn.discordapp.com/avatars/${member.id}/${member.avatar}.gif?size=2048`
+				avatar = `https://cdn.discordapp.com/avatars/${message.author.id}/${message.author.avatar}.gif?size=2048`
 			}
 		}
 		let format = message.guild.icon.startsWith("a_") ? "gif" : "webp"

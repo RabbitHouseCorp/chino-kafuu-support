@@ -27,15 +27,15 @@ module.exports = class UnbanCommand extends Command {
 			let avatar
 			if (!user.avatar.startsWith("a_")) {
 				if (!user.avatar) {
-					avatar = user.displayAvatarURL
+					avatar = user.displayAvatarURL()
 				} else {
 					avatar = `https://cdn.discordapp.com/avatars/${user.id}/${user.avatar}.png?size=2048`
 				}
 			} else {
 				if (!user.avatar) {
-					avatar = user.displayAvatarURL
+					avatar = user.displayAvatarURL()
 				} else {
-					avatar = `https://cdn.discordapp.com/avatars/${membuserer.id}/${user.avatar}.gif?size=2048`
+					avatar = `https://cdn.discordapp.com/avatars/${user.id}/${user.avatar}.gif?size=2048`
 				}
 			}
 

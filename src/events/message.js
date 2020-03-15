@@ -85,15 +85,15 @@ module.exports = class MessageReceive {
 					let owner = await this.client.users.fetch("395788326835322882")
 					if (user.blacklist) {
 						let avatar
-						if (!member.avatar.startsWith("a_")) {
-							if (!member.avatar) {
-								avatar = member.displayAvatarURL
+						if (!message.author.avatar.startsWith("a_")) {
+							if (!message.author.avatar) {
+								avatar = message.author.displayAvatarURL()
 							} else {
 								avatar = `https://cdn.discordapp.com/avatars/${message.author.id}/${message.author.avatar}.png?size=2048`
 							}
 						} else {
-							if (!member.avatar) {
-								avatar = member.displayAvatarURL
+							if (!message.author.avatar) {
+								avatar = message.author.displayAvatarURL()
 							} else {
 								avatar = `https://cdn.discordapp.com/avatars/${message.author.id}/${message.author.avatar}.gif?size=2048`
 							}

@@ -32,11 +32,11 @@ module.exports = class UserinfoCommand extends Command {
 			if (!member.avatar) {
 				avatar = member.displayAvatarURL()
 			} else {
-				avatar = `https://cdn.discordapp.com/avatars/${member.id}/${meber.avatar}.png?size=2048`
+				avatar = `https://cdn.discordapp.com/avatars/${member.id}/${member.avatar}.png?size=2048`
 			}
 		} else {
-			if (!user.avatar) {
-				avatar = user.displayAvatarURL()
+			if (!member.avatar) {
+				avatar = member.displayAvatarURL()
 			} else {
 				avatar = `https://cdn.discordapp.com/avatars/${member.id}/${member.avatar}.gif?size=2048`
 			}

@@ -14,7 +14,20 @@ module.exports = class AvatarCommand extends Command {
 	run({ message, args, server }, t) {
 
 		let member = message.mentions.users.first() || this.client.users.cache.get(args[0]) || message.author
-		let avatar = member.avatar.startsWith("a_") ? member.displayAvatarURL({ format: "gif", size: 2048 }) : member.displayAvatarURL({ format: "webp", size: 2048 })
+		let avatar
+		if (!member.avatar.startsWith("a_")) {
+			if (!member.avatar) {
+				avatar = member.displayAvatarURL
+			} else {
+				avatar = `https://cdn.discordapp.com/avatars/${member.id}/${member.avatar}.png?size=2048`
+			}
+		} else {
+			if (!member.avatar) {
+				avatar = member.displayAvatarURL
+			} else {
+				avatar = `https://cdn.discordapp.com/avatars/${member.id}/${member.avatar}.gif?size=2048`
+			}
+		}
 
 		const embed = new MessageEmbed()
 			.setColor(this.client.colors.default)

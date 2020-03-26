@@ -66,7 +66,7 @@ module.exports = class ProfileCommand extends Command {
 							user.profileColor = args[1]
 							user.yens -= Number(1000)
 							user.save().then(() => {
-								message.chinoReply("success", t("commands:profile.colors.success", { member: member.toString(), value: Number(realValue[0]).toLocaleString() }))
+								message.chinoReply("success", t("commands:profile.colors.success", { member: member.toString(), value: Number(1000).toLocaleString() }))
 								msg.delete()
 							})
 							break;

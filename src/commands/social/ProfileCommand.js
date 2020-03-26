@@ -11,7 +11,15 @@ module.exports = class ProfileCommand extends Command {
 	}
 
 	async run({ message, args, server }, t) {
-		let member = args[0] ? await this.client.shardManager.getUsers(args[0].replace(/[<@!>]/g, "")) : message.author
+		let member
+		if (args[0]) {
+			member = await this.client.shardManager.getUsers(args[0].replace(/[<@!>]/g, ""))
+			if (!member) {
+				member = message.author
+			}
+		} else {
+			member = message.author
+                }
 		let user = await this.client.database.Users.findById(member.id)
 		let avatar
 		if (!user) {

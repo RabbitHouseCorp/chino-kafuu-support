@@ -1,5 +1,6 @@
-const { MessageEmbed } = require("discord.js")
+const { MessageEmbed, MessageAttachment } = require("discord.js")
 const Command = require("../../structures/command")
+
 module.exports = class ProfileCommand extends Command {
 	constructor(client) {
 		super(client, {
@@ -19,7 +20,7 @@ module.exports = class ProfileCommand extends Command {
 			}
 		} else {
 			member = message.author
-                }
+		}
 		let user = await this.client.database.Users.findById(member.id)
 		let avatar
 		if (!user) {
@@ -43,7 +44,7 @@ module.exports = class ProfileCommand extends Command {
 			bannedEmbed.setAuthor(`${member.tag} está banido.`, avatar)
 			bannedEmbed.setThumbnail(avatar)
 			bannedEmbed.addField("Motivo", user.blacklistReason)
-
+			
 			message.channel.send(bannedEmbed)
 			return
 		}
@@ -54,7 +55,7 @@ module.exports = class ProfileCommand extends Command {
 			colorEmbed.setColor(`${args[1]}`)
 			colorEmbed.setAuthor(message.author.tag, avatar)
 			colorEmbed.setDescription(t("commands:profile.colors.this-color"))
-
+			
 			message.channel.send(colorEmbed).then(msg => {
 				msg.react("success:577973168342302771")
 				setTimeout(() => msg.react("error:577973245391667200"), 1000)
@@ -70,11 +71,11 @@ module.exports = class ProfileCommand extends Command {
 								msg.delete()
 							})
 							break;
-						case "error":
-							message.chinoReply("error", t("commands:profile.colors.cancel"))
-							msg.delete()
-							break;
-					}
+							case "error":
+								message.chinoReply("error", t("commands:profile.colors.cancel"))
+								msg.delete()
+								break;
+							}
 				})
 			})
 			return
@@ -86,20 +87,10 @@ module.exports = class ProfileCommand extends Command {
 			user.yens += Number(7500)
 			user.save()
 		}
-		let description = [
-			`${this.client.emotes.sharo_excited} **${t("commands:profile.aboutme")} »** *\`${user.aboutme}\`*`,
-			`${this.client.emotes.rize_smile} **${t("commands:profile.user-name")} »** *\`${member.tag}\`*`,
-			`${this.client.emotes.chino_peek} **${t("commands:profile.user-id")} »** *\`${member.id}\`*`,
-			`${this.client.emotes.cocoa_carresing_tippy} **${t("commands:profile.marred")} »** *\`${user.isMarry ? marryWith.tag : t("commands:with-nobody")}\`*`,
-			`${this.client.emotes.yen} **${t("commands:profile.yens")} »** *\`${Number(user.yens).toLocaleString()}\`*`,
-			`${this.client.emotes.sharo_hug_chino} **${t("commands:profile.rep")} »** *\`${user.rep}\`*`
-		]
-		const embed = new MessageEmbed()
-		embed.setColor(user.profileColor)
-		embed.setAuthor(t("commands:profile.title", { member: member.tag }), avatar)
-		embed.setThumbnail(avatar)
-		embed.setDescription(description.join("\n\n"))
+		delete require.cache[require.resolve("../../structures/CanvasTemplates")]
+		const { generateProfile } = require("../../structures/CanvasTemplates")
+		let image = await generateProfile(member, user)
 
-		message.channel.send(embed)
+		message.channel.send(new MessageAttachment(image, "profile.png"))
 	}
 }

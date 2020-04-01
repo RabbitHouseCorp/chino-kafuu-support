@@ -11,14 +11,14 @@ module.exports = class EvalCommand extends Command {
 			OnlyDevs: true
 		})
 	}
-	run({ message, args, server }, t) {
+	run({ message, args, server, user }, t) {
 		try {
 			let util = require("util")
-			let code = args.join(" ")
+			let code = args.join(" ").replace(/(^`{3}(\w+)?|`{3}$)/g, '')
 			let ev = eval(code)
-			let str = util.inspect(ev, {
-				depth: 1
-			})
+			let str = this.clean(util.inspect(ev, {
+				depth: 0
+			}))
 			str = `${str.replace(new RegExp(`${this.client.token}`, "g"), "undefined")}`
 			if (str.length > 1800) {
 				str = str.substr(0, 1800)
@@ -39,5 +39,9 @@ module.exports = class EvalCommand extends Command {
 
 			message.channel.send(embed)
 		}
+	}
+	clean(text) {
+		const blankSpace = String.fromCharCode(8203)
+		return typeof text === 'string' ? text.replace(/`/g, '`' + blankSpace).replace(/@/g, '@' + blankSpace) : text
 	}
 }

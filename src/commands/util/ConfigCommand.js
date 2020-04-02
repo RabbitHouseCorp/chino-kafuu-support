@@ -29,13 +29,18 @@ module.exports = class ConfigCommand extends Command {
 			`${server.prefix}config animu disable`
 		]
 
+		let listAntiFlood = [
+			`${server.prefix}config antiflood messageslimit <number>`,
+			`${server.prefix}config animu disable`
+		]
 		let modules = [
 			`**${t("commands:config.config-modules.punishment.channel")}:** ${server.punishChannel ? message.guild.channels.cache.get(server.punishChannel) : t("commands:config.no-channel")}`,
 			`**${t("commands:config.config-modules.punishment.module")}**: ${server.punishModule ? t("commands:config.config-modules.enable") : t("commands:config.config-modules.disable")}`,
 			`**${t("commands:config.config-modules.report.channel")}:** ${server.channelReport ? message.guild.channels.cache.get(server.channelReport) : t("commands:config.no-channel")}`,
 			`**${t("commands:config.config-modules.report.module")}**: ${server.reportModule ? t("commands:config.config-modules.enable") : t("commands:config.config-modules.disable")}`,
 			`**${t("commands:config.config-modules.animu.module")}**: ${server.animu ? t("commands:config.config-modules.enable") : t("commands:config.config-modules.disable")}`,
-			`**${t("commands:config.config-modules.animu.channel")}:** ${server.animuChannel ? message.guild.channels.cache.get(server.animuChannel).name : t("commands:config.no-channel")}`
+			`**${t("commands:config.config-modules.animu.channel")}:** ${server.animuChannel ? message.guild.channels.cache.get(server.animuChannel).name : t("commands:config.no-channel")}`,
+			`**${t("commands:config.antiflood.title")}** ${server.antiflood.enabled ? `${t("commands:config.config-modules.enable")} | MessagesLimit: ${server.antiflood.messagesLimit}` : t("commands:config.config-modules.disable")}`
 		]
 
 		const embed = new MessageEmbed()
@@ -46,10 +51,11 @@ module.exports = class ConfigCommand extends Command {
 			embed.addField(t("commands:config.report.title"), listReport.join("\n"))
 			embed.addField(t("commands:config.punishment.title"), listPunish.join("\n"))
 			embed.addField(t("commands:config.animu.title"), listAnimu.join("\n"))
+			embed.addField(t("commands:config.antiflood.title"), listAntiFlood.join("\n"))
 			embed.addField(t("commands:config.modules"), modules.join("\n"))
 
 		if (!args[0]) return message.channel.send(embed)
-		if (!["report", "reportar", "punishment", "punições", "animu"].includes(args[0].toLowerCase())) return message.chinoReply("error", t("commands:config.module-not-found"))
+		if (!["report", "reportar", "punishment", "antiflood", "punições", "animu"].includes(args[0].toLowerCase())) return message.chinoReply("error", t("commands:config.module-not-found"))
 		if (["report", "reportar"].includes(args[0].toLowerCase())) {
 			if (!args[1]) return message.chinoReply("error", t("commands:config.options-not-found"))
 			if (!["desativar", "false", "disable", "definir", "set", "add"].includes(args[1].toLowerCase())) return message.chinoReply("error", t("commands:config.options-not-found"))
@@ -119,6 +125,35 @@ module.exports = class ConfigCommand extends Command {
 
 				return message.chinoReply("success", t("commands:config.animu.enable"))
 			}
+		}
+
+		if (["antiflood"].includes(args[0].toLowerCase())) {
+			if (!args[1]) return message.chinoReply("error", t("commands:config.antiflood.options-not-found"))
+			if (!["enable", "ativar", "disable", "desativar", "messageslimit"].includes(args[1].toLowerCase())) return message.chinoReply("error", t("commands:config.antiflood.options-not-found"))
+			if (["enable", "ativar", "disable", "desativar"].includes(args[1].toLowerCase())) {
+				let enable = ["enable", "ativar"].includes(args[1].toLowerCase()) ? true :  (["disable", "desativar"].includes(args[1].toLowerCase())) ? false : null;
+				if (enable === null) return message.chinoReply("error", t("commands:config.antiflood.options-not-found"))
+				if (server.antiflood.enabled === enable) {
+					let msg = enable ? "already-enabled" : "already-disabled"
+					return message.chinoReply("error", t(`commands:config.antiflood.${msg}`))
+				}
+				server.antiflood.enabled = enable;
+				server.save()
+				message.chinoReply("success", `${t(`commands:config.antiflood.${enable ? "enable" : "disabled"}`)}`)
+			}
+			if (["messageslimit"].includes(args[1].toLowerCase())) {
+				let nbm = Number(args[2])
+				if (isNaN(nbm)) return message.chinoReply("error", t("commands:config.invalid-number"))
+				if (nbm <= 2) return message.chinoReply("error", t("commands:config.more-of-2"))
+
+				server.antiflood.messagesLimit = Number(nbm);
+				server.markModified('antiflood.messagesLimit')
+				server.save()
+				message.chinoReply("success", t("commands:config.antiflood.messageslimit-changed", {
+					nbm
+				}))
+			}
+
 		}
 	}
 }

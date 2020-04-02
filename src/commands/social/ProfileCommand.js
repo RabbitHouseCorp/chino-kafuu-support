@@ -82,7 +82,7 @@ module.exports = class ProfileCommand extends Command {
 		}
 
 		let marryWith = await this.client.shardManager.getUsers(user.marryWith)
-		if (!marryWith) {
+		if (!marryWith && user.isMarry) {
 			user.isMarry = false
 			user.yens += Number(7500)
 			user.save()

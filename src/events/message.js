@@ -5,13 +5,16 @@ const { MessageEmbed } = require("discord.js")
 const moment = require("moment")
 const cooldown = new Map()
 require("moment-duration-format")
+const AntiSpamManager = require('../structures/ChinoAntiFlood')
+const spam = new AntiSpamManager(this.client)
+
+
 module.exports = class MessageReceive {
 	constructor(client) {
 		this.client = client
 	}
-
+	
 	async run(message) {
-
 		if (message.channel.type === "dm") return
 		if (message.author.bot) return
 		let server = await this.client.database.Guilds.findById(message.guild.id)
@@ -35,7 +38,7 @@ module.exports = class MessageReceive {
 
 		const language = (server && server.lang) || "pt-BR"
 		setFixedT(i18next.getFixedT(language))
-
+		spam.test({message, server}, t)
 		return new Promise(async (resolve, reject) => {
 			i18next.use(translationBackend).init({
 				ns: ["commands", "events", "permissions"],

@@ -15,7 +15,7 @@ module.exports = class {
 			})
 		console.log(`${this.client.user.username} has been connected to Discord`)
 		this.client.owner = await this.client.users.fetch("395788326835322882")
-		// this.client.lavalinkManager = new lavalinkManager(this.client)
+		this.client.lavalinkManager = new lavalinkManager(this.client)
 		let status = [
 			{ name: `If you need support, use ${this.client.config.prefix}help`, type: "PLAYING" },
 			{ name: `Find out it my commands using ${this.client.config.prefix}commands`, type: "PLAYING" },

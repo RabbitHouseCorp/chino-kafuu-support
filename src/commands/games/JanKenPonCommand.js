@@ -22,20 +22,17 @@ module.exports = class JanKePonCommand extends Command {
         let invalidValue = Number(value) < 0 || Number(value) === Infinity || isNaN(value)
         if (invalidValue) return message.chinoReply("error", t("commands:pay.invalid-value"))
         if (user.yens <= value) return message.chinoReply("error", t("commands:pay.insufficient-value"))
-        let userWinOption = (
-            me === "pedra" && clientChoice === "tesoura" ||
-            me === "tesoura" && clientChoice === "papel" ||
-            me === "papel" && clientChoice === "pedra"
-        )
-        let userLoserOption = (
-            clientChoice === "pedra" && me === "tesoura" ||
-            clientChoice === "tesoura" && me === "papel" ||
-            clientChoice === "papel" && me === "pedra"
-        )
+        const clientChoiceMappings = {
+            tesoura: ['pedra', 'rock'],
+            papel: ['tesoura', 'scissors'],
+            pedra: ['papel', 'paper']
+        };
+        const userWinOption = (clientChoiceMappings[clientChoice] || []).includes(me);
+        
         if (userWinOption) {
             emoji = "chino_sad"
             result = t("commands:ppt.you-win", { me: me, clientChoice: clientChoice, value: Number(value).toLocaleString() })
-            user.yens += value
+            user.yens = value + user.yens
             user.save()
         } else if (me === clientChoice) {
             emoji = "chino_thiking"
@@ -43,7 +40,7 @@ module.exports = class JanKePonCommand extends Command {
         } else if (userLoserOption) {
             emoji = "chino_kek"
             result = t("commands:ppt.you-lose", { me: me, clientChoice: clientChoice, value: Number(value).toLocaleString() })
-            user.yens -= value
+            user.yens = user.yens - value
             user.save()
         }
 

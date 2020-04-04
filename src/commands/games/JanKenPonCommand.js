@@ -26,7 +26,12 @@ module.exports = class JanKePonCommand extends Command {
             tesoura: ['pedra', 'rock'],
             papel: ['tesoura', 'scissors'],
             pedra: ['papel', 'paper']
-        };
+        }
+        const clientDrawMappings = {
+            tesoura: ['scissors', 'tesoura'],
+            pedra: ['pedra', 'rock'],
+            papel: ['paper', 'rock']
+            }
         const userWinOption = (clientChoiceMappings[clientChoice] || []).includes(me);
         
         if (userWinOption) {
@@ -34,7 +39,7 @@ module.exports = class JanKePonCommand extends Command {
             result = t("commands:ppt.you-win", { me: me, clientChoice: clientChoice, value: Number(value).toLocaleString() })
             user.yens = value + user.yens
             user.save()
-        } else if (me === clientChoice) {
+        } else if (clientDrawMappings[clientChoice].includes(me)) {
             emoji = "chino_thiking"
             result = t("commands:ppt.tie")
         } else if (!userWinOption) {

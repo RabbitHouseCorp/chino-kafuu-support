@@ -5,13 +5,16 @@ const { MessageEmbed } = require("discord.js")
 const moment = require("moment")
 const cooldown = new Map()
 require("moment-duration-format")
+const AntiSpamManager = require('../structures/ChinoAntiFlood')
+const spam = new AntiSpamManager(this.client)
+
+
 module.exports = class MessageReceive {
 	constructor(client) {
 		this.client = client
 	}
-
+	
 	async run(message) {
-
 		if (message.channel.type === "dm") return
 		if (message.author.bot) return
 		let server = await this.client.database.Guilds.findById(message.guild.id)
@@ -35,7 +38,7 @@ module.exports = class MessageReceive {
 
 		const language = (server && server.lang) || "pt-BR"
 		setFixedT(i18next.getFixedT(language))
-
+		spam.test({message, server}, t)
 		return new Promise(async (resolve, reject) => {
 			i18next.use(translationBackend).init({
 				ns: ["commands", "events", "permissions"],
@@ -82,6 +85,7 @@ module.exports = class MessageReceive {
 					const args = message.content.slice(server.prefix.length).trim().split(/ +/g)
 					const command = args.shift().toLowerCase()
 					const comando = this.client.commands.get(command) || this.client.commands.get(this.client.aliases.get(command))
+					if (!comando) return;
 					let owner = await this.client.users.fetch("395788326835322882")
 					if (user.blacklist) {
 						let avatar
@@ -112,7 +116,7 @@ module.exports = class MessageReceive {
 						return
 					}
 
-					if (comando.config.OnlyDevs) {
+					if (comando.config && comando.config.OnlyDevs) {
 						if (!this.client.config.owners.includes(message.author.id)) return message.chinoReply("error", t("permissions:ONLY_DEVS"))
 					}
 					let c = await this.client.database.Bots.findById(comando.config.name)
@@ -121,7 +125,7 @@ module.exports = class MessageReceive {
 							return message.chinoReply("warn", t("events:debug", { reason: c.maintenanceReason }))
 						}
 					}
-					if (cooldown.has(message.author.id)) {
+					if (!this.client.config.owners.includes(message.author.id) && cooldown.has(message.author.id)) {
 						let time = cooldown.get(message.author.id)
 						return message.chinoReply("error", t("events:cooldown.message", { time: (time - Date.now() > 1000) ? moment.utc(time - Date.now()).format(`ss [${t("events:cooldown.secounds")}]`) : moment.duration(time - Date.now()).format(`[${t("events:cooldown.milliseconds")}]`) }))
 
@@ -150,7 +154,7 @@ module.exports = class MessageReceive {
 						comando.setT(t)
 						new Promise((res, rej) => {
 							message.channel.startTyping()
-							res(comando.run({ message, args, server }, t))
+							res(comando.run({ message, args, server, user }, t))
 						}).then(() => message.channel.stopTyping()).catch(err => {
 							message.channel.stopTyping()
 							if (err.stack.length > 1800) {

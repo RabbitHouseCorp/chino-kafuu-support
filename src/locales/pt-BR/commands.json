@@ -56,6 +56,8 @@
         "title": "Configurações de módulos",
         "how-use": "Como usar",
         "channel-null": "eu não encontrei nenhum canal, você tem certeza que você colocou algo ou um ID válido?",
+        "invalid-number": "este não é um numero válido, por favor use um numero valido.",
+        "more-of-2": "o numero indicado não é maior que 2, use um numero maior!",
         "report": {
             "title": "Módulo de denúncias",
             "disable": "módulo de denúncias desativado com sucesso.",
@@ -72,6 +74,15 @@
             "title": "Módulo da Rádio Animu"
         },
         "modules": "Módulos",
+        "antiflood": {
+            "title": "Modulo Anti Flood",
+            "enable": "AntiFlood ativado com sucesso.",
+            "disabled": "AntiFlood desativado com sucesso.",
+            "messageslimit-changed": "o numero de mensagens para eu considerar um flood foi alterado para `{{nbm}}`",
+            "already-disabled": "o módulo já está desativado",
+            "already-enabled": "o módulo já está ativado",
+            "options-not-found": "esta opção não foi encontrada, opções disponíveis: `disable`, `enable`, `messageslimit`"
+        },
         "config-modules": {
             "punishment": {
                 "channel": "Canal de moderação",
@@ -89,7 +100,7 @@
             "disable": "Desativado"
         },
         "no-channel": "Não definido.",
-        "module-not-found": "este módulo não foi encontrado, módulos existentes: `punishment`, `report`, `animu`.",
+        "module-not-found": "este módulo não foi encontrado, módulos existentes: `punishment`, `report`, `animu`, `antiflood`.",
         "options-not-found": "esta opção não foi encontrada, opções disponíveis: `set`, `disable`"
     },
     "report": {

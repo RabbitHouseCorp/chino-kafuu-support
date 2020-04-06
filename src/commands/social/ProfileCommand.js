@@ -65,7 +65,7 @@ module.exports = class ProfileCommand extends Command {
 					switch (r.emoji.name) {
 						case "success":
 							user.profileColor = args[1]
-							user.yens -= Number(1000)
+							user.yens = user.yens - Number(1000)
 							user.save().then(() => {
 								message.chinoReply("success", t("commands:profile.colors.success", { member: member.toString(), value: Number(1000).toLocaleString() }))
 								msg.delete()
@@ -82,9 +82,9 @@ module.exports = class ProfileCommand extends Command {
 		}
 
 		let marryWith = await this.client.shardManager.getUsers(user.marryWith)
-		if (!marryWith && user.isMarry) {
+		if (user.isMarry && !marryWith) {
 			user.isMarry = false
-			user.yens += Number(7500)
+			user.yens = user.yens + 7500
 			user.save()
 		}
 		delete require.cache[require.resolve("../../structures/CanvasTemplates")]

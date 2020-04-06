@@ -12,7 +12,7 @@ module.exports = class JanKePonCommand extends Command {
         if (!args[0]) return message.chinoReply("error", t("commands:ppt.args-null"))
         let user = await this.client.database.Users.findById(message.author.id)
         let options = ["pedra", "papel", "tesoura"]
-        if (!options.includes(args[0])) return message.chinoReply("error", t("commands:ppt.option-not-found"))
+        if (!["pedra", "papel", "tesoura", "rock", "paper", "scissors"].includes(args[0])) return message.chinoReply("error", t("commands:ppt.option-not-found"))
         let clientChoice = options[Math.floor(Math.random() * options.length)]
         let me = args[0].toLowerCase()
         let result
@@ -22,28 +22,30 @@ module.exports = class JanKePonCommand extends Command {
         let invalidValue = Number(value) < 0 || Number(value) === Infinity || isNaN(value)
         if (invalidValue) return message.chinoReply("error", t("commands:pay.invalid-value"))
         if (user.yens <= value) return message.chinoReply("error", t("commands:pay.insufficient-value"))
-        let userWinOption = (
-            me === "pedra" && clientChoice === "tesoura" ||
-            me === "tesoura" && clientChoice === "papel" ||
-            me === "papel" && clientChoice === "pedra"
-        )
-        let userLoserOption = (
-            clientChoice === "pedra" && me === "tesoura" ||
-            clientChoice === "tesoura" && me === "papel" ||
-            clientChoice === "papel" && me === "pedra"
-        )
+        const clientChoiceMappings = {
+            tesoura: ['pedra', 'rock'],
+            papel: ['tesoura', 'scissors'],
+            pedra: ['papel', 'paper']
+        }
+        const clientDrawMappings = {
+            tesoura: ['scissors', 'tesoura'],
+            pedra: ['pedra', 'rock'],
+            papel: ['paper', 'rock']
+            }
+        const userWinOption = (clientChoiceMappings[clientChoice] || []).includes(me);
+        
         if (userWinOption) {
             emoji = "chino_sad"
             result = t("commands:ppt.you-win", { me: me, clientChoice: clientChoice, value: Number(value).toLocaleString() })
-            user.yens += value
+            user.yens = value + user.yens
             user.save()
-        } else if (me === clientChoice) {
+        } else if (clientDrawMappings[clientChoice].includes(me)) {
             emoji = "chino_thiking"
             result = t("commands:ppt.tie")
-        } else if (userLoserOption) {
+        } else if (!userWinOption) {
             emoji = "chino_kek"
             result = t("commands:ppt.you-lose", { me: me, clientChoice: clientChoice, value: Number(value).toLocaleString() })
-            user.yens -= value
+            user.yens = user.yens - value
             user.save()
         }
 

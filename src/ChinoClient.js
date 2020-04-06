@@ -20,15 +20,16 @@ module.exports = class ChinoClient extends Client {
 		const command = this.commands.get(commandName) || this.commands.get(this.aliases.get(commandName))
 		if (!command) return false
 		const dir = command.dir
-		this.commands.delete(command.name)
-		delete require.cache[require.resolve(`${dir}`)]
 		try {
-			const Command = require(`${dir}`)
+			this.commands.delete(command.name)
+			delete require.cache[`${__dirname}/${dir}`]
+			const Command = require(`./${dir}`)
 			const cmd = new Command(this)
 			cmd.dir = dir
 			this.commands.set(cmd.name, cmd)
 			return true
 		} catch (e) {
+			console.log(e)
 			return e
 		}
 	}
@@ -60,7 +61,7 @@ module.exports = class ChinoClient extends Client {
 				readdir(`${__dirname}/commands/${category}`, (err, cmd) => {
 					cmd.forEach(async cmd => {
 						const command = new (require(`${__dirname}/commands/${category}/${cmd}`))(this)
-						command.dir = `${__dirname}/commands/${category}/${cmd}`
+						command.dir = `commands/${category}/${cmd}`
 						this.commands.set(command.config.name, command)
 						command.config.aliases.forEach(a => this.aliases.set(a, command.config.name))
 						let c = await this.database.Bots.findById(command.config.name)

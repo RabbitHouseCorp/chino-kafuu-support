@@ -33,6 +33,7 @@ module.exports = class ChinoAntiFlood {
             if (user.messages >= server.antiflood.messagesLimit-1 && !user.warned) {
                 message.channel.send("Para de floodar karalho")
                 user.warned = true;
+                this.remove(message.author.id)
             }
         }
     }

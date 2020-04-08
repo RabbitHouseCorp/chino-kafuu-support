@@ -138,6 +138,7 @@ module.exports = class ConfigCommand extends Command {
 					return message.chinoReply("error", t(`commands:config.antiflood.${msg}`))
 				}
 				server.antiflood.enabled = enable;
+				server.markModified('antiflood.enabled')
 				server.save()
 				message.chinoReply("success", `${t(`commands:config.antiflood.${enable ? "enable" : "disabled"}`)}`)
 			}

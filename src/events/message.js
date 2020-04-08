@@ -5,8 +5,8 @@ const { MessageEmbed } = require("discord.js")
 const moment = require("moment")
 const cooldown = new Map()
 require("moment-duration-format")
-const AntiSpamManager = require('../structures/ChinoAntiFlood')
-const spam = new AntiSpamManager(this.client)
+const AntiFloodManager = require('../structures/ChinoAntiFlood')
+const spam = new AntiFloodManager(this.client)
 
 
 module.exports = class MessageReceive {

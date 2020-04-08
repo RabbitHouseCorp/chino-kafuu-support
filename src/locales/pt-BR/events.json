@@ -10,6 +10,9 @@
     "secounds": "segundos",
     "milliseconds": "alguns milisegundos"
   },
+  "antiflood": {
+    "message": "Por favor, {{user}} pare de floodar nesse chat ou isso pode gerar punição"
+  },
   "channel-not-found": "eu não consegui encontrar o canal de texto desejado, por este motivo, eu não consegui enviar as informações lá.",
   "added-to-guild": {
     "thanks-to-add": "Obrigada por me adicionar.",

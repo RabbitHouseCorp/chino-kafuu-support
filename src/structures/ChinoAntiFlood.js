@@ -1,9 +1,10 @@
+const i18next = require("i18next");
+
 module.exports = class ChinoAntiFlood {
     constructor(client) {
         this.client = client;
 
         this.users = new Map()
-
         this.messagesLimit = 5;
     }
     test({ message, server }, t) {
@@ -18,7 +19,6 @@ module.exports = class ChinoAntiFlood {
             } else {
                 this.users.set(message.author.id, {
                     messages: 1,
-                    warned: false
                 })
             }
             setTimeout(() => {
@@ -29,9 +29,10 @@ module.exports = class ChinoAntiFlood {
 
     check({message, server}, t) {
         let user = this.users.get(message.author.id)
+        let t = i18next.getFixedT(server.lang)
         if (user) {
-            if (user.messages >= server.antiflood.messagesLimit-1 && !user.warned) {
-                message.channel.send("Para de floodar karalho")
+            if (user.messages >= server.antiflood.messagesLimit-1) {
+                message.channel.send(t("events:antiflood.message"))
                 user.warned = true;
                 this.remove(message.author.id)
             }

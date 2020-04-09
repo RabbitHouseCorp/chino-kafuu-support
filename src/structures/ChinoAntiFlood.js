@@ -29,7 +29,7 @@ module.exports = class ChinoAntiFlood {
 
     check({message, server}, t) {
         let user = this.users.get(message.author.id)
-        let t = i18next.getFixedT(server.lang)
+        t = i18next.getFixedT(server.lang)
         if (user) {
             if (user.messages >= server.antiflood.messagesLimit-1) {
                 message.channel.send(t("events:antiflood.message"))

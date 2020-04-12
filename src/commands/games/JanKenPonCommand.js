@@ -19,6 +19,7 @@ module.exports = class JanKePonCommand extends Command {
         let emoji
         let value = args[1]
         if (!value) return message.chinoReply("warn", t("commands:ppt.value-not-inputed"))
+        value = args[1].replace(/[,.]/g, "")
         let invalidValue = Number(value) < 0 || Number(value) === Infinity || isNaN(value)
         if (invalidValue) return message.chinoReply("error", t("commands:pay.invalid-value"))
         if (user.yens <= value) return message.chinoReply("error", t("commands:pay.insufficient-value"))

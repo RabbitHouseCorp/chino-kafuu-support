@@ -19,7 +19,6 @@ module.exports = class JanKePonCommand extends Command {
         let emoji
         let value = args[1]
         if (!value) return message.chinoReply("warn", t("commands:ppt.value-not-inputed"))
-        value = args[1].replace(/[,.]/g, "")
         let invalidValue = Number(value) < 0 || Number(value) === Infinity || isNaN(value)
         if (invalidValue) return message.chinoReply("error", t("commands:pay.invalid-value"))
         if (user.yens <= value) return message.chinoReply("error", t("commands:pay.insufficient-value"))
@@ -38,7 +37,7 @@ module.exports = class JanKePonCommand extends Command {
         if (userWinOption) {
             emoji = "chino_sad"
             result = t("commands:ppt.you-win", { me: me, clientChoice: clientChoice, value: Number(value).toLocaleString() })
-            user.yens = value + user.yens
+            user.yens = Math.floor(value + user.yens)
             user.save()
         } else if (clientDrawMappings[clientChoice].includes(me)) {
             emoji = "chino_thiking"
@@ -46,7 +45,7 @@ module.exports = class JanKePonCommand extends Command {
         } else if (!userWinOption) {
             emoji = "chino_kek"
             result = t("commands:ppt.you-lose", { me: me, clientChoice: clientChoice, value: Number(value).toLocaleString() })
-            user.yens = user.yens - value
+            user.yens = Math.floor(user.yens - value)
             user.save()
         }
 

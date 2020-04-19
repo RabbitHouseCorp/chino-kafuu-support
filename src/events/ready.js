@@ -18,19 +18,19 @@ module.exports = class {
 		this.client.lavalinkManager = new lavalinkManager(this.client)
 		let status = [
 			{ name: `If you need support, use ${this.client.config.prefix}help`, type: "PLAYING" },
-			{ name: `Find out it my commands using ${this.client.config.prefix}commands`, type: "PLAYING" },
+			{ name: `Find out my commands using ${this.client.config.prefix}commands`, type: "PLAYING" },
 			{ name: "With Cocoa Hoto in Rabbit House 🐰", type: "WATCHING" },
 			{ name: "🐦 Follow me in twitter: @ChinoKafuuBot", type: "PLAYING" },
-			{ name: `I was raised by ${this.client.owner.tag}`, type: "PLAYING" },
+			{ name: `I was created by ${this.client.owner.tag}`, type: "PLAYING" },
 			{ name: `Add me using ${this.client.config.prefix}invite`, type: "LISTENING" },
-			{ name: `Happiless for ${Number(users).toLocaleString()} users!`, type: "WATCHING" },
+			{ name: `Happiness for ${Number(users).toLocaleString()} users!`, type: "WATCHING" },
 			{ name: `Join in my support server using ${this.client.config.prefix}help or ${this.client.config.prefix}invite`, type: "PLAYING" },
 			{ name: "Gochuumon Wa Usagi Desu Ka?", type: "WATCHING" },
 			{ name: `If you find a bug, use ${this.client.config.prefix}help and warn my developer team.`, type: "PLAYING" },
 			{ name: "Rabbits are cute, and nobody discord this! 🐰", type: "LISTENING" },
 			{ name: `Much love for ${Number(users).toLocaleString()} users`, type: "PLAYING", url: "https://twitch.tv/danielagc" },
-			{ name: "Coffee is my favorite drink.", type: "PLAYING" },
-			{ name: `A total of ${Number(guilds).toLocaleString()} guilds`, type: "WATCHING" }
+			{ name: "Coffee is my favourite drink.", type: "PLAYING" },
+			{ name: `${Number(guilds).toLocaleString()} guilds`, type: "WATCHING" }
 		]
 
 		setInterval(() => {

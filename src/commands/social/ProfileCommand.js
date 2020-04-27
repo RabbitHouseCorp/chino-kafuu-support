@@ -89,7 +89,7 @@ module.exports = class ProfileCommand extends Command {
 		}
 		delete require.cache[require.resolve("../../structures/CanvasTemplates")]
 		const { generateProfile } = require("../../structures/CanvasTemplates")
-		let image = await generateProfile(member, user)
+		let image = await generateProfile(member, user, avatar)
 
 		message.channel.send(new MessageAttachment(image, "profile.png"))
 	}

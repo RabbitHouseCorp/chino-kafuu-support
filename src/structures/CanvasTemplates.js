@@ -1,6 +1,6 @@
 const Canvas = require("canvas")
 module.exports = class CanvasTemplates {
-    static async generateProfile(member, user) {
+    static async generateProfile(member, user, avatar) {
         const canvas = Canvas.createCanvas(1080, 720)
         const ctx = canvas.getContext("2d")
         ctx.fillStyle = "#6585FF"
@@ -15,7 +15,7 @@ module.exports = class CanvasTemplates {
         ctx.roundRect((canvas.width - 30) - 180, canvas.height - 30 - 180, 180, 180, 20, true, false)
         ctx.fillStyle = "rgb(133, 158, 255)"
 
-        let userImg = await Canvas.loadImage(member.avatarURL({ format: "png" }))
+        let userImg = await Canvas.loadImage(avatar)
         let yen = await Canvas.loadImage("https://cdn.discordapp.com/attachments/504668288798949376/694694476777521202/emoji.png")
         let ring = await Canvas.loadImage("https://cdn.discordapp.com/attachments/504668288798949376/694700468441579580/emoji.png")
         let roundedImage = await ctx.roundImageCanvas(userImg, 250, 250)

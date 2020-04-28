@@ -1,6 +1,6 @@
 const Canvas = require("canvas")
 module.exports = class CanvasTemplates {
-    static async generateProfile(member, user, avatar) {
+    static async generateProfile({ member, user, avatar, marryWith }, t) {
         const canvas = Canvas.createCanvas(1080, 720)
         const ctx = canvas.getContext("2d")
         ctx.fillStyle = "#6585FF"
@@ -31,13 +31,13 @@ module.exports = class CanvasTemplates {
         ctx.font = "bold 50px Product Sans"
         ctx.fillText("REP", 962.5, 100)
         ctx.fillText(user.rep, 962.5, 170)
-        ctx.fillText("Yens 💴 ", 962.5, 570)
+        ctx.fillText("Yens ", 962.5, 570)
         ctx.drawImage(yen, 982, 523, 60, 60)
         ctx.fillText(user.yens, 962.5, 640)
         if (user.isMarry) {
             ctx.font = "40px Product Sans"
             ctx.textAlign = "left"
-            ctx.fillText("💍 Casado com:  " + user.marryWith, 30, 367.5)
+            ctx.fillText(`💍 ${t("commands:profile.marred")}:  ${marryWith}`, 30, 367.5)
             ctx.fillStyle = "#6585FF"
             ctx.fillRect(30, 330, 40, 50, true)
             ctx.drawImage(ring, 20, 320, 55, 55)
@@ -46,7 +46,7 @@ module.exports = class CanvasTemplates {
         ctx.textAlign = "left"
         ctx.fillStyle = "#fff"
         ctx.font = "bold 50px Product Sans"
-        ctx.fillText("Sobremim:", 30, 520)
+        ctx.fillText(`${t("commands:profile.aboutme")}:`, 30, 520)
         ctx.font = "35px Product Sans"
         ctx.fillText(ctx.getLines(user.aboutme, 800).join("\n"), 30, 570)
         return canvas.toBuffer()

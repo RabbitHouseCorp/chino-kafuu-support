@@ -37,7 +37,7 @@ module.exports = class CanvasTemplates {
         if (user.isMarry) {
             ctx.font = "40px Product Sans"
             ctx.textAlign = "left"
-            ctx.fillText(`${t("commands:profile.marred")}: ${marryWith.tag}`, 110, 367.5)
+            ctx.fillText(`${t("commands:profile.marred")}: ${marryWith.tag}`, 90, 367.5)
             ctx.fillStyle = "#6585FF"
             ctx.fillRect(30, 330, 40, 50, true)
             ctx.drawImage(ring, 20, 320, 55, 55)

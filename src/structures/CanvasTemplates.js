@@ -32,12 +32,12 @@ module.exports = class CanvasTemplates {
         ctx.fillText("REP", 962.5, 100)
         ctx.fillText(user.rep, 962.5, 170)
         ctx.fillText("Yens ", 962.5, 570)
-        ctx.drawImage(yen, 982, 523, 60, 60)
+        ctx.drawImage(yen, 1050, 523, 60, 60)
         ctx.fillText(user.yens, 962.5, 640)
         if (user.isMarry) {
             ctx.font = "40px Product Sans"
             ctx.textAlign = "left"
-            ctx.fillText(`💍 ${t("commands:profile.marred")}:  ${marryWith}`, 30, 367.5)
+            ctx.fillText(` ${t("commands:profile.marred")}: ${marryWith.tag}`, 30, 367.5)
             ctx.fillStyle = "#6585FF"
             ctx.fillRect(30, 330, 40, 50, true)
             ctx.drawImage(ring, 20, 320, 55, 55)

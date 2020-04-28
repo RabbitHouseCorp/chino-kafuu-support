@@ -27,13 +27,14 @@ module.exports = class NowPlayingCommand extends Command {
 			let volume = `${this.client.player.get(message.guild.id).player.state.volume}/150`
 			let player = this.client.player.get(message.guild.id).nowPlaying
 			const embed = new MessageEmbed()
-				.setColor(this.client.colors.default)
-				.setURL(player.uri)
-				.setTitle(t("commands:np.nowplaying"))
-				.addField(t("commands:np.name"), player.title)
-				.addField(t("commands:np.time"), `${start}/${end}`)
-				.addField(t("commands:np.volume"), volume)
-				.addField(t("commands:np.url"), player.uri)
+			embed.setColor(this.client.colors.default)
+			embed.setURL(player.uri)
+			embed.setImage(`https://img.youtube.com/vi/${player.identifier}/maxresdefault.jpg`)
+			embed.setTitle(t("commands:np.nowplaying"))
+			embed.addField(t("commands:np.name"), player.title)
+			embed.addField(t("commands:np.time"), `${start}/${end}`)
+			embed.addField(t("commands:np.volume"), volume)
+			embed.addField(t("commands:np.url"), player.uri)
 
 			msg.edit(embed)
 		})

@@ -31,8 +31,8 @@ module.exports = class CanvasTemplates {
         ctx.font = "bold 40px Product Sans"
         ctx.fillText("REP", 962.5, 100)
         ctx.fillText(user.rep, 962.5, 170)
-        ctx.fillText("Yens ", 940, 570)
-        ctx.drawImage(yen, 992, 523, 60, 60)
+        ctx.fillText("Yens ", 938, 570)
+        ctx.drawImage(yen, 988, 523, 60, 60)
         ctx.fillText(user.yens, 962.5, 640)
         if (user.isMarry) {
             ctx.font = "40px Product Sans"

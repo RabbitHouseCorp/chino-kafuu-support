@@ -26,17 +26,21 @@ module.exports = class NowPlayingCommand extends Command {
 			let end = moment.duration(this.client.player.get(message.guild.id).nowPlaying.length).format("hh:mm:ss")
 			let volume = `${this.client.player.get(message.guild.id).player.state.volume}/150`
 			let player = this.client.player.get(message.guild.id).nowPlaying
+			let listInfo = [
+				`**${t("commands:np.name")}:** \`${player.title}\``,
+				`**${t("commands:np.time")}:** \`${start}/${end}\``,
+				`**${t("commands:np.volume")}:** \`${volume}\``,
+				`**${t("commands:np.url")}:** [${t("commands:click-here")}](${player.uri})`
+			]
 			const embed = new MessageEmbed()
 			embed.setColor(this.client.colors.default)
 			embed.setURL(player.uri)
 			embed.setImage(`https://img.youtube.com/vi/${player.identifier}/maxresdefault.jpg`)
 			embed.setTitle(t("commands:np.nowplaying"))
-			embed.addField(t("commands:np.name"), player.title)
-			embed.addField(t("commands:np.time"), `${start}/${end}`)
-			embed.addField(t("commands:np.volume"), volume)
-			embed.addField(t("commands:np.url"), player.uri)
+			embed.setDescription(listInfo.join("\n"))
 
-			msg.edit(embed)
+			msg.delete()
+			message.channel.send(embed)
 		})
 	}
 }

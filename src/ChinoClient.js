@@ -13,23 +13,21 @@ module.exports = class ChinoClient extends Client {
 		this.colors = require("./structures/colors")
 		this.emotes = require("./structures/emotes")
 		this.apis = require("./structures/api")
-		this.player = new Map()
 		this.config = require("../config.json")
 	}
 	reloadCommand(commandName) {
 		const command = this.commands.get(commandName) || this.commands.get(this.aliases.get(commandName))
 		if (!command) return false
 		const dir = command.dir
+		this.commands.delete(command.name)
+		delete require.cache[require.resolve(`${dir}`)]
 		try {
-			this.commands.delete(command.name)
-			delete require.cache[`${__dirname}/${dir}`]
-			const Command = require(`./${dir}`)
+			const Command = require(`${dir}`)
 			const cmd = new Command(this)
 			cmd.dir = dir
 			this.commands.set(cmd.name, cmd)
 			return true
 		} catch (e) {
-			console.log(e)
 			return e
 		}
 	}
@@ -53,6 +51,11 @@ module.exports = class ChinoClient extends Client {
 	login(token) {
 		return super.login(token)
 	}
+    loadLocales() {
+        const Locales = require("./structures/LocaleStructure")
+        const locales = new Locales(this)
+        locales.load()
+    }
 
 	loadCommands(path) {
 		readdir(`${__dirname}/commands/`, (err, files) => {
@@ -61,7 +64,7 @@ module.exports = class ChinoClient extends Client {
 				readdir(`${__dirname}/commands/${category}`, (err, cmd) => {
 					cmd.forEach(async cmd => {
 						const command = new (require(`${__dirname}/commands/${category}/${cmd}`))(this)
-						command.dir = `commands/${category}/${cmd}`
+						command.dir = `${__dirname}/commands/${category}/${cmd}`
 						this.commands.set(command.config.name, command)
 						command.config.aliases.forEach(a => this.aliases.set(a, command.config.name))
 						let c = await this.database.Bots.findById(command.config.name)

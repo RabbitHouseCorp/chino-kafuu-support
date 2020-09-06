@@ -26,7 +26,7 @@ module.exports = class KickCommand extends Command {
 
 		let avatar
 		if (member.avatar) {
-			if (!user.avatar.startsWith("a_")) {
+			if (!member.avatar.startsWith("a_")) {
 				avatar = `https://cdn.discordapp.com/avatars/${member.id}/${member.avatar}.png?size=2048`
 			} else {
 				avatar = `https://cdn.discordapp.com/avatars/${member.id}/${member.avatar}.gif?size=2048`
@@ -36,11 +36,11 @@ module.exports = class KickCommand extends Command {
 		}
 
 		const embed = new MessageEmbed()
-			.setTitle(t("commands:kick.kicked", { member: user.tag }))
+			.setTitle(t("commands:kick.kicked", { member: member.tag }))
 			.setColor(this.client.colors.moderation)
 			.setThumbnail(avatar)
-			.addField(t("commands:punishment.embed.memberName"), user.tag, true)
-			.addField(t("commands:punishment.embed.memberID"), user.id, true)
+			.addField(t("commands:punishment.embed.memberName"), member.tag, true)
+			.addField(t("commands:punishment.embed.memberID"), member.id, true)
 			.addField(t("commands:punishment.embed.staffName"), message.author.tag, true)
 			.addField(t("commands:punishment.embed.reason"), reason, true)
 

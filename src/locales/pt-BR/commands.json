@@ -27,8 +27,9 @@
         "no-option": "opções disponíveis:\n`add`, `remove`.",
         "args-emoji-null": "este emoji não se encontra neste servidor.",
         "role-null": "este cargo não se encontra no servidor.",
-        "successfully-added": "o emoji foi restrigido para os membros com o cargo `{{role}}`.",
-        "successfully-removed": "o emoji não está mais restrito ao cargo `{{role}}`;"
+        "successfully-added": "o emoji foi restrito para os membros com o cargo `{{role}}`.",
+        "successfully-removed": "o emoji não está mais restrito ao cargo `{{role}}`;",
+        "no-support": "emojis normais não são suportados."
     },
     "translate": {
         "args-null": "você não argumentou algo para mim traduzir."
@@ -56,8 +57,6 @@
         "title": "Configurações de módulos",
         "how-use": "Como usar",
         "channel-null": "eu não encontrei nenhum canal, você tem certeza que você colocou algo ou um ID válido?",
-        "invalid-number": "este não é um numero válido, por favor use um numero valido.",
-        "more-of-2": "o numero indicado não é maior que 2, use um numero maior!",
         "report": {
             "title": "Módulo de denúncias",
             "disable": "módulo de denúncias desativado com sucesso.",
@@ -74,15 +73,6 @@
             "title": "Módulo da Rádio Animu"
         },
         "modules": "Módulos",
-        "antiflood": {
-            "title": "Modulo Anti Flood",
-            "enable": "AntiFlood ativado com sucesso.",
-            "disabled": "AntiFlood desativado com sucesso.",
-            "messageslimit-changed": "o numero de mensagens para eu considerar um flood foi alterado para `{{nbm}}`",
-            "already-disabled": "o módulo já está desativado",
-            "already-enabled": "o módulo já está ativado",
-            "options-not-found": "esta opção não foi encontrada, opções disponíveis: `disable`, `enable`, `messageslimit`"
-        },
         "config-modules": {
             "punishment": {
                 "channel": "Canal de moderação",
@@ -100,7 +90,7 @@
             "disable": "Desativado"
         },
         "no-channel": "Não definido.",
-        "module-not-found": "este módulo não foi encontrado, módulos existentes: `punishment`, `report`, `animu`, `antiflood`.",
+        "module-not-found": "este módulo não foi encontrado, módulos existentes: `punishment`, `report`, `animu`.",
         "options-not-found": "esta opção não foi encontrada, opções disponíveis: `set`, `disable`"
     },
     "report": {
@@ -360,7 +350,8 @@
     "play": {
         "addedQueue": "a música `{{songTitle}}` foi adicionada a fila",
         "playingNow": "estou tocando agora `{{songTitle}}`",
-        "args-null": "você precisa indicar o nome ou URL da música."
+        "args-null": "você precisa indicar o nome ou URL da música.",
+        "unavailable": "Essa não! Meu sistema de música está temporariamente indisponível, mas você pode usar a [Meteora](https://discord.com/oauth2/authorize?client_id=464304679128530954&permissions=3509248&scope=bot) enquanto as coisas não se normalizam..."
     },
     "poke": "{{author}} catucou {{member}}",
     "prefix": {
@@ -452,7 +443,7 @@
         "discord": "discord.js",
         "uptime": "Tempo online",
         "memory": "Memória RAM",
-        "cpu-status": "Status da CPU",
+        "cpu-status": "Uso do processador",
         "system": "Sistema",
         "cpu": "Processador"
     },
@@ -544,7 +535,7 @@
     },
     "money": {
         "invalidOptions": "comando inválido!\n**Uso correto:**\t{{ prefix }}{{ name }} {de} {para} [quantidade]\n**Exemplo:**\t\t  {{ prefix }}{{ name }} BRL USD 1",
-        "invalidValue": "senpai por favor informe um valor correto!",
+        "invalidValue": "desculpe, eu não consegui reconhecer esse valor, tem certeza que isso é um número?",
         "invalidArgument":"argumento inválido: {{ arg }}",
         "success": "{{ ammount }} **{{ from }}** para **{{ to }}** = **{{ total }}**"
     },

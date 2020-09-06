@@ -34,7 +34,7 @@ module.exports = class MarryCommand extends Command {
 
 						author.isMarry = true
 						author.marryWith = member.id
-						author.yens = user.yens - Number(7500)
+						author.yens = author.yens - Number(7500)
 						author.save()
 						msg.delete()
 						message.chinoReply("tada", t("commands:marry.successfully-marred", { member: member.toString() }))

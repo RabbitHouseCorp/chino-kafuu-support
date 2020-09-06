@@ -13,7 +13,7 @@ module.exports = class ChinoAntiFlood {
             let user = this.users.get(message.author.id)
             if (user) {
 
-                this.check({message, server}, t)
+                this.check({ message, server }, t)
                 user.messages = user.messages + 1
 
             } else {
@@ -27,12 +27,12 @@ module.exports = class ChinoAntiFlood {
         }
     }
 
-    check({message, server}, t) {
+    check({ message, server }, t) {
         let user = this.users.get(message.author.id)
         t = i18next.getFixedT(server.lang)
         if (user) {
-            if (user.messages >= server.antiflood.messagesLimit-1) {
-                message.channel.send(t("events:antiflood.message"))
+            if (user.messages >= server.antiflood.messagesLimit - 1) {
+                message.chinoReply("chino_pout", t("events:antiflood.message"))
                 user.warned = true;
                 this.remove(message.author.id)
             }

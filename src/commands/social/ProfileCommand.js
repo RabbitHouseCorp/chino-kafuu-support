@@ -7,7 +7,7 @@ module.exports = class ProfileCommand extends Command {
 			name: "profile",
 			aliases: ["perfil"],
 			category: "social",
-			ClientPermission: ["EMBED_LINKS", "ADD_REACTIONS"]
+			ClientPermission: ["EMBED_LINKS", "ADD_REACTIONS", "ATTACH_FILES"]
 		})
 	}
 
@@ -37,14 +37,14 @@ module.exports = class ProfileCommand extends Command {
 		} else {
 			avatar = member.displayAvatarURL()
 		}
-		
+
 		if (user.blacklist) {
 			const bannedEmbed = new MessageEmbed()
 			bannedEmbed.setColor(this.client.colors.default)
 			bannedEmbed.setAuthor(`${member.tag} está banido.`, avatar)
 			bannedEmbed.setThumbnail(avatar)
 			bannedEmbed.addField("Motivo", user.blacklistReason)
-			
+
 			message.channel.send(bannedEmbed)
 			return
 		}
@@ -55,7 +55,7 @@ module.exports = class ProfileCommand extends Command {
 			colorEmbed.setColor(`${args[1]}`)
 			colorEmbed.setAuthor(message.author.tag, avatar)
 			colorEmbed.setDescription(t("commands:profile.colors.this-color"))
-			
+
 			message.channel.send(colorEmbed).then(msg => {
 				msg.react("success:577973168342302771")
 				setTimeout(() => msg.react("error:577973245391667200"), 1000)
@@ -71,11 +71,11 @@ module.exports = class ProfileCommand extends Command {
 								msg.delete()
 							})
 							break;
-							case "error":
-								message.chinoReply("error", t("commands:profile.colors.cancel"))
-								msg.delete()
-								break;
-							}
+						case "error":
+							message.chinoReply("error", t("commands:profile.colors.cancel"))
+							msg.delete()
+							break;
+					}
 				})
 			})
 			return

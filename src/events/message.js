@@ -71,20 +71,7 @@ module.exports = class MessageReceive {
 		let owner = await this.client.users.fetch("395788326835322882")
 		if (!comando) return
 		if (user.blacklist) {
-			let avatar
-			if (!message.author.avatar.startsWith("a_")) {
-				if (!message.author.avatar) {
-					avatar = message.author.displayAvatarURL()
-				} else {
-					avatar = `https://cdn.discordapp.com/avatars/${message.author.id}/${message.author.avatar}.png?size=2048`
-				}
-			} else {
-				if (!message.author.avatar) {
-					avatar = message.author.displayAvatarURL()
-				} else {
-					avatar = `https://cdn.discordapp.com/avatars/${message.author.id}/${message.author.avatar}.gif?size=2048`
-				}
-			}
+			let avatar = message.author.displayAvatarURL({ format: "png", dynamic: true })
 
 			const embed = new MessageEmbed()
 				.setColor(this.client.colors.moderation)
@@ -93,9 +80,7 @@ module.exports = class MessageReceive {
 				.addField("Motivo", user.blacklistReason)
 				.addField("Banido injustamente?", `Se você acha que foi banido injustamente, então entre em contato com a ${owner.tag} ou entre no meu servidor de suporte.`)
 
-			message.author.send(embed).catch(() => {
-				message.channel.send(embed)
-			})
+			message.channel.send(embed)
 			return
 		}
 

@@ -20,11 +20,10 @@ module.exports = class AnimuCommand extends Command {
             .addField(`${server.prefix}animu join`, `**Usage:** ${server.prefix}animu nowplaying\n**Aliases:** \`${server.prefix}animu np, ${server.prefix}animu tocando\``)
             .addField(`${server.prefix}animu join`, `**Usage:** ${server.prefix}animu volume\n**Aliases:** \`${server.prefix}animu vol\``)
             .addField(`${server.prefix}animu join`, `**Usage:** ${server.prefix}animu leave\n**Aliases:** \`${server.prefix}animu sair, ${server.prefix}animu parar, ${server.prefix}animu stop\``)
-        
+
         if (!args[0]) return message.channel.send(argsNullEmbed)
         let info = fetch("http://cast.animu.com.br:2199/rpc/animufm/streaminfo.get")
         let infoJson = info.then(res => res.json())
-        let format = message.guild.icon ? message.guild.icon.startsWith("a_") ? "gif" : "webp" : null
         if (["join", "entrar", "tocar", "play"].includes(args[0])) {
             message.member.voice.channel.join().then(connection => {
                 this.client.user.setPresence({ activity: { name: "Animu FM Radio Station - The Most Moe Radio of Brazil!", type: "LISTENING" } })
@@ -34,7 +33,7 @@ module.exports = class AnimuCommand extends Command {
                     let volume = message.guild.voice.connection ? message.guild.voice.connection.player.dispatcher.volume * 100 : "0"
                     const embed = new MessageEmbed()
                         .setColor(this.client.colors.default)
-                        .setAuthor(moreInfo.title, message.guild.iconURL({ format }))
+                        .setAuthor(moreInfo.title, message.guild.iconURL({ format: "png", dynamic: true }))
                         .setDescription(`**Now playing:** \`${moreInfo.song}\`\n**Total listening:** \`${moreInfo.listenertotal}\`\n**Artist:** \`${moreInfo.track.artist}\`\n**Volume**: \`${volume}\``)
 
                     message.channel.send(embed)
@@ -48,7 +47,7 @@ module.exports = class AnimuCommand extends Command {
                 let volume = message.guild.voice.connection ? message.guild.voice.connection.player.dispatcher.volume * 100 : "0"
                 const embed = new MessageEmbed()
                     .setColor(this.client.colors.default)
-                    .setAuthor(moreInfo.title, message.guild.iconURL({ format }))
+                    .setAuthor(moreInfo.title, message.guild.iconURL({ format: "png", dynamic: true }))
                     .setThumbnail(`https://cdn.statically.io/img/${moreInfo.track.imageurl.replace("https://", "")}?w=500&quality=100`)
                     .setDescription(`**Now playing:** \`${moreInfo.song}\`\n**Total listening:** \`${moreInfo.listenertotal}\`\n**Artist:** \`${moreInfo.track.artist}\`\n**Volume**: \`${volume}\``)
 

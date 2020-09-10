@@ -1,4 +1,18 @@
 {
+    "manga": {
+        "description": "Description",
+        "title": "Title",
+        "type": "Type of content",
+        "vols": "Volume",
+        "chapters": "Chapters",
+        "score": "Score",
+        "start-and-end": "Date of start and end",
+        "genres": "Genres",
+        "status": "Status",
+        "characters": "Characters",
+        "not-found": "sorry, I'm can't find anything related of: `{{args}}`.",
+        "args-null": "sorry, you didn't specify any manga tite for me to search."
+    },
     "ppt": {
         "args-null": "you didn't choose any option.",
         "option-not-found": "you can only choose between `rock`, `paper` or `scissors`.",

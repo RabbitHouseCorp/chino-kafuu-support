@@ -1,4 +1,18 @@
 {
+    "manga": {
+        "description": "Descrição",
+        "title": "Título",
+        "type": "Tipo de conteúdo",
+        "vols": "Volumes",
+        "chapters": "Capitulos",
+        "score": "Pontuação",
+        "start-and-end": "Inicio e fim de produção",
+        "genres": "Gêneros",
+        "status": "Status",
+        "characters": "Personagens",
+        "not-found": "me desculpe, eu não consegui encontrar nada relacionado a `{{args}}`.",
+        "args-null": "desculpe, você não especificou nenhum título de mangá para eu procurar."
+    },
     "ppt": {
         "args-null": "você não escolheu nenhuma das opções.",
         "option-not-found": "você só pode escolher entre `pedra`, `papel` ou `tesoura`.",

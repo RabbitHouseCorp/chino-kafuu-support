@@ -4,6 +4,7 @@ const moment = require("moment")
 const cooldown = new Map()
 require("moment-duration-format")
 const AntiFloodManager = require("../structures/ChinoAntiFlood")
+const spam = new AntiFloodManager(this.client)
 module.exports = class MessageReceive {
 	constructor(client) {
 		this.client = client
@@ -34,7 +35,6 @@ module.exports = class MessageReceive {
 
 		const language = (server && server.lang) || "pt-BR"
 		setFixedT(i18next.getFixedT(language))
-		const spam = new AntiFloodManager(this.client)
 		spam.test({ message, server }, t)
 		if (message.content.replace(/!/g, "") === message.guild.me.toString().replace(/!/g, "")) {
 			message.channel.send(`${t("events:mention.start")} ${message.author}, ${t("events:mention.end", { prefix: server.prefix })}`)

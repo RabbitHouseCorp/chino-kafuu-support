@@ -1,4 +1,10 @@
 {
+    "animu": {
+        "np": "Tocando agora",
+        "total-listening": "Total de ouvintes",
+        "artist": "Artista",
+        "volume": "Volume"
+    },
     "manga": {
         "description": "Descrição",
         "title": "Título",
@@ -327,7 +333,7 @@
     "laranjo": {
         "args-null": "o que o laranjo deve falar?"
     },
-    "leave": "estou saindo do `{{voiceChannel}}`",
+    "leave": "estou saindo do canal de voz.",
     "loop": {
         "enable": "a repetição de música foi ativada",
         "disable": "a repetição de música foi desativada"
@@ -502,10 +508,10 @@
         "no-guild": "O usuário não está no servidor"
     },
     "volume": {
-        "volume": "volume alterado para `{{volume}}/150` com sucesso.",
-        "hisVol": "o volume atual é `{{volume}}/150`",
-        "maxVolume": "o volume máximo é `150`",
-        "minVolume": "o volume minimo é `5`"
+        "volume": "volume alterado para `{{volume}}/100` com sucesso.",
+        "hisVol": "o volume atual é `{{volume}}/100`.",
+        "maxVolume": "respeite o limite, o volume máximo é `100`.",
+        "minVolume": "o volume minimo é `5`."
     },
     "vote": {
         "send-dm": "eu enviei no seu privado.",

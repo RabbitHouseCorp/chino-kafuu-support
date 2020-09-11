@@ -1,4 +1,10 @@
 {
+    "animu": {
+        "np": "Now playing",
+        "total-listening": "Total listening",
+        "artist": "Artist",
+        "volume": "Volume"
+    },
     "manga": {
         "description": "Description",
         "title": "Title",
@@ -280,7 +286,7 @@
     "laranjo": {
         "args-null": "what should the orange say?"
     },
-    "leave": "I'm leaving `{{voiceChannel}}`",
+    "leave": "I'm leaving from this channel`",
     "loop": {
         "enable": "music repeat has been enabled",
         "disable": "music repeat has been disabled"
@@ -454,9 +460,9 @@
         "no-guild": "The user is not on the server"
     },
     "volume": {
-        "volume": "successfully changed volume to `{{volume}}/150`.",
-        "hisVol": "the current volume is `{{volume}}/150`",
-        "maxVolume": "the maximum volume is `150`",
+        "volume": "successfully changed volume to `{{volume}}/100`.",
+        "hisVol": "the current volume is `{{volume}}/100`",
+        "maxVolume": "respect the limit, the maximum volume is `100`.",
         "minVolume": "the minimum volume is `5`"
     },
     "vote": {

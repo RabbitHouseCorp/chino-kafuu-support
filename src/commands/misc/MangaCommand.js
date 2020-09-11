@@ -33,7 +33,7 @@ module.exports = class MangaCommand extends Command {
             }
             const characters = []
             for (const c of result.characters) {
-                characters.push(`[${c.name}](https://anilist.co/character/${c.id})`)
+                characters.push(`${c.name}`)
             }
 
             const type = result.format.charAt(0).toUpperCase() + result.format.slice(1).toLowerCase()
@@ -44,7 +44,7 @@ module.exports = class MangaCommand extends Command {
             embed.setURL(result.siteUrl)
             embed.setTitle(result.title.userPreferred)
             embed.setThumbnail(result.coverImage.large)
-            embed.setDescription(result.description.replace(/(<br>|<Br>|<bR>|<BR>)/g, "\u200B"))
+            embed.setDescription(result.description.replace(/(<\/b>|<b>|<br>|<Br>|<bR>|<BR>)/g, "\u200B"))
             embed.addField(t("commands:manga.type"), type, true)
             embed.addField(t("commands:manga.status"), status, true)
             embed.addField(t("commands:manga.vols"), result.volumes ?? "??", true)
@@ -52,7 +52,7 @@ module.exports = class MangaCommand extends Command {
             embed.addField(t("commands:manga.score"), result.meanScore, true)
             embed.addField(t("commands:manga.start-and-end"), `${startDate.month}/${startDate.day}/${startDate.year} - ${endDate.month}/${endDate.day}/${endDate.year}`, true)
             embed.addField(t("commands:manga.genres"), result.genres.join(", "), true)
-            embed.addField(t("commands:manga.characters"), characters.join(", "), true)
+            embed.addField(t("commands:manga.characters"), characters.join(", ").slice(0, 1020), true)
 
             message.channel.send(embed)
         })

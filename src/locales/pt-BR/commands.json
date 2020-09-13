@@ -172,7 +172,7 @@
     "shuffle": "fila embaralhada com sucesso.",
     "clap": {
         "args-null": "você não informou nada para mim falar."
-     },
+    },
     "addemoji": {
         "success": "emoji adicionado com sucesso!",
         "error": "eu não consegui adicionar este emoji, talvez ele seja maior que o tamanho permitido pelo Discord, me desculpe por isso.",
@@ -315,7 +315,7 @@
         "addUrl": "Links adicionais",
         "inUrl": "[Meu convite](https://discordapp.com/oauth2/authorize?client_id=481282441294905344&scope=bot&permissions=2117578239)|[Vote em mim](https://top.gg/bot/481282441294905344)|[Meu servidor](https://discord.gg/CAm9cSU)"
     },
-    "hug":"{{author}} deu um abraço bem gostoso em {{member}}",
+    "hug": "{{author}} deu um abraço bem gostoso em {{member}}",
     "invite": {
         "MyInvite": "Convite",
         "invite": "Você quer me convidar para outros servidores/guilds do Discord? Então clique [aqui](https://discordapp.com/oauth2/authorize?client_id={{clientID}}&scope=bot&permissions=2117578239) para me adicionar em outro servidor\n\nAproveitando, entre em meu servidor de suporte, caso precise de ajuda comigo clicando [aqui](https://discord.gg/CAm9cSU)\n\nNão esqueça também de votar em mim clicando [aqui](https://top.gg/bot/481282441294905344)"
@@ -542,6 +542,10 @@
         "user-total": "{{member}} possui `{{yens}}` yens"
     },
     "daily": {
+        "almost-there": "Estamos quase lá!",
+        "description": "Para você conseguir pegar o seus yens, você precisará votar em mim para poder liberar, a cada 12 horas, você poderá pegar os seus yens.",
+        "continue": "Deseja continuar?",
+        "vote": "Se você estiver de acordo e deseja continuar, então clique [aqui](https://top.gg/bot/481282441294905344/vote), logo após votar, você precisará executar o comando novamente.",
         "daily-success": "certo, eu depositei `{{total}}` yens na sua conta.",
         "has-been-picked": "você já pegou os seus yens hoje, aguarde `{{tempo}}` para poder pegar novamente."
     },
@@ -556,7 +560,7 @@
     "money": {
         "invalidOptions": "comando inválido!\n**Uso correto:**\t{{ prefix }}{{ name }} {de} {para} [quantidade]\n**Exemplo:**\t\t  {{ prefix }}{{ name }} BRL USD 1",
         "invalidValue": "desculpe, eu não consegui reconhecer esse valor, tem certeza que isso é um número?",
-        "invalidArgument":"argumento inválido: {{ arg }}",
+        "invalidArgument": "argumento inválido: {{ arg }}",
         "success": "{{ ammount }} **{{ from }}** para **{{ to }}** = **{{ total }}**"
     },
     "click-here": "Clique aqui"

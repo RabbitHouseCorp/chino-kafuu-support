@@ -46,22 +46,25 @@ module.exports = class BotinfoCommand extends Command {
 				.addField(t("commands:status.cpu"), `\`\`\`${os.cpus().map(i => `${i.model}`)[0]}\`\`\``)
 
 			switch (args[0]) {
-				case "extended":
+				case "extended": {
 					message.channel.send(statusEmbed)
+				}
 					break
-				default:
+				default: {
 					message.channel.send(embed).then(msg => {
 						msg.react("chino_chibi:574337895838777374")
 
 						const collector = msg.createReactionCollector((r, u) => (r.emoji.name === "chino_chibi" && (u.id !== client.user.id && u.id === message.author.id)))
 						collector.on("collect", r => {
-							r.users.remove(message.author.id)
 							switch (r.emoji.name) {
-								case "chino_chibi":
+								case "chino_chibi": {
+									r.remove(r.emoji.id)
 									msg.edit(statusEmbed)
+								}
 							}
 						})
 					})
+				}
 			}
 		})
 	}

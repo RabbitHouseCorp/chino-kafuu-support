@@ -493,6 +493,10 @@
         "user-total": "{{member}} has `{{yens}}` yens"
     },
     "daily": {
+        "almost-there": "We're almost there!",
+        "description": "To get the Yens, you'll have to vote on me. Every 12 hours you'll be able to claim your Yens.",
+        "continue": "Do you want to proceed?",
+        "vote": "If so, click [here](https://top.gg/bot/481282441294905344/vote). Once you have voted, run the command again.",
         "daily-success": "has been deposited `{{total}}` yens to your account.",
         "has-been-picked": "if you have already withdrawn your daily yen, please wait `{{tempo}}` before you can get it again."
     },

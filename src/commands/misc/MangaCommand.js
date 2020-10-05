@@ -31,7 +31,7 @@ module.exports = class MangaCommand extends Command {
                 month: result.endDate.month ?? "??",
                 day: result.endDate.day ?? "??"
             }
-            
+
             const characters = []
             if (result.characters) {
                 for (const c of result.characters) {

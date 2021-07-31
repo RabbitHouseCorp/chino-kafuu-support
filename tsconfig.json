@@ -1,0 +1,22 @@
+{
+  "compilerOptions": {
+    "target": "ES2020",
+    "module": "commonjs",
+    "noImplicitAny": true,
+    "removeComments": true,
+    "preserveConstEnums": true,
+    "outDir": "./dist/",
+    "rootDir": "./src/",
+    "esModuleInterop": true,
+    "resolveJsonModule": true,
+    "sourceMap": false
+  },
+  "include": [
+    "src",
+    "src/index.ts"
+  ],
+  "exclude": [
+    "node_modules",
+    "dist"
+  ]
+}

@@ -1,5 +1,3 @@
-node_modules/
-config.json
-src/lavalink/lavalinkConfig.json
-package-lock.json
+/dist
+/node_modules
 .env

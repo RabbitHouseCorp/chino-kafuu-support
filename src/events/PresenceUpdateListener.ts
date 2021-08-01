@@ -18,7 +18,10 @@ module.exports = {
         .replace(/(https:\/\/|http:\/\/)/, "")
         .replace(/(discord\.gg|discord\.com\/invite|discordapp\.com\/invite|discord\.me|discord\.io)/, "")
         .replace("/", "")
-      if (guildInvite.find(({ code }) => code === invite) || (member.guild.vanityURL !== null && member.guild.vanityURL === invite)) return
+      if (guildInvite.find(({ code }) => code === invite) || (member.guild.vanityURL !== null && member.guild.vanityURL === invite)) {
+        if (hasMuteRole) member.removeRole(guild_support.muteRole)
+        return
+      }
       if (member.pending) return
       member.addRole(guild_support.muteRole)
     } else if (hasMuteRole && !hasInvStatus) {

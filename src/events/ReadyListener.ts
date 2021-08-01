@@ -1,10 +1,11 @@
 import { ChinoClient } from '../ChinoClient'
 import axios from 'axios'
+const { guild_support } = require('../config')
 
 module.exports = {
   name: 'ready',
   run: (client: ChinoClient) => {
-    const guild = client.guilds.get('468877023926943764')
+    const guild = client.guilds.get(guild_support.id)
     const banner = [
       'https://cdn.discordapp.com/attachments/481807707066859530/751192861365764126/Screenshot_20200731-202613_Goyabu.jpg',
       'https://cdn.discordapp.com/attachments/481807707066859530/751192867678060676/Screenshot_20200731-202639_Goyabu.jpg',

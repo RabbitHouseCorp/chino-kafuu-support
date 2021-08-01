@@ -33,15 +33,14 @@ export class AntiInviteUtils {
 
   static async inChannel(client: ChinoClient, message: Message) {
     if (!this.isInvite(message.content)) return
-    const guild = client.guilds.get(message.guildID)
     const channel = client.getChannel(guild_support.modLog) as TextChannel
     if (message.member.roles.includes(guild_support.staffRole)) return
-    const guildInvite = await client.getGuildInvites(message.guildID)
+    const guildInvite = await message.guild.getInvites()
     const messageInvite = message.content
       .replace(/(https:\/\/|http:\/\/)/, "")
       .replace(/(discord\.gg|discord\.com\/invite|discordapp\.com\/invite|discord\.me|discord\.io)/, "")
       .replace("/", "")
-    if (guildInvite.find((invite: Invite) => invite.code === messageInvite) || (guild.vanityURL !== null && guild.vanityURL === messageInvite)) return
+    if (guildInvite.find((invite: Invite) => invite.code === messageInvite) || (message.guild.vanityURL !== null && message.guild.vanityURL === messageInvite)) return
     const embed = new EmbedBuilder()
     embed.setColor('MODERATION')
     embed.setAuthor(`${message.author.username}#${message.author.discriminator} | Warned`, message.author.avatarURL)

@@ -10,7 +10,7 @@ module.exports = {
     if (message.author.bot) return
     AntiInviteUtils.inChannel(client, message)
     AntiScamUtils.isScam(client, message, guild_support)
-    BoosterUtils.start(client, client.guilds.get(message.guildID), message.member)
+    BoosterUtils.start(client, message.guild, message.member)
     CommandRunner.start(client, message)
   }
 }

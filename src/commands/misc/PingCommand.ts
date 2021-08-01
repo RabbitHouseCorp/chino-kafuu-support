@@ -7,6 +7,6 @@ module.exports = class PingCommand extends CommandListener {
   }
 
   run(client: ChinoClient, message: Message, args: string[]) {
-    message.channel.createMessage(`Ping: ${message.member.guild.shard.latency}ms\nShard: ${message.member.guild.shard.id}/${client.shards.size}`)
+    message.channel.createMessage(`Ping: ${message.guild.shard.latency}ms\nShard: ${message.guild.shard.id}/${client.shards.size}`)
   }
 }

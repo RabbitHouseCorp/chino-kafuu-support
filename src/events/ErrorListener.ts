@@ -1,5 +1,5 @@
-import { Shard } from "eris";
-import { ChinoClient } from "../ChinoClient";
+import { Shard } from 'eris'
+import { ChinoClient } from '../ChinoClient'
 
 module.exports = {
   name: 'error',

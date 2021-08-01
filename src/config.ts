@@ -27,6 +27,7 @@ module.exports = {
     botRole: '481833458306514944',
     booster: {
       boosterRole: '639201662937858049',
+      channelID: '604358550541565983',
       donateRoleID: '481829963767480360',
       value: 20000
     },

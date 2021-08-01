@@ -13,7 +13,7 @@
   "license": "MIT",
   "dependencies": {
     "axios": "^0.21.1",
-    "eris": "github:RabbitHouseCorp/eris#master",
+    "eris": "github:RabbitHouseCorp/eris#dev",
     "mongoose": "^5.13.2"
   },
   "devDependencies": {

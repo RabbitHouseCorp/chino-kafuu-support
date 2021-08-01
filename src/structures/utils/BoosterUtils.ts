@@ -19,8 +19,8 @@ export class BoosterUtils {
       user.save()
       const channel = guild.channels.get(guild_support.booster.channelID) as TextChannel
       channel.createMessage(embed.build(member.user.mention))
+      member.addRole(guild_support.booster.donateRoleID)
       try {
-        member.addRole(guild_support.booster.donateRoleID)
         const dmChannel = await member.user.getDMChannel()
         dmChannel.createMessage(`Hey ${member.user.mention}, thanks for boosting the \`${guild.name}\`, I added **${Number(guild_support.booster.value).toLocaleString()}** yens into your account.`)
       } catch {

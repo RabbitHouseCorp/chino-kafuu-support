@@ -1,7 +1,7 @@
-import { EmbedAuthor, EmbedField, EmbedFooter, EmbedImage } from "eris";
+import { EmbedAuthor, EmbedFooter, EmbedImage } from 'eris'
 
 export class EmbedBuilder {
-  fields: object[]
+  fields: Array<Object>
   author: EmbedAuthor
   description: string
   color: number
@@ -12,7 +12,7 @@ export class EmbedBuilder {
   timestamp: Date
   url: string
   constructor() {
-    this.fields = null
+    this.fields = []
     this.author = null
     this.description = null
     this.color = null
@@ -98,7 +98,7 @@ export class EmbedBuilder {
     return this
   }
 
-  build(content: string) {
+  build(content?: string) {
     return { content, embeds: [this] }
   }
 }

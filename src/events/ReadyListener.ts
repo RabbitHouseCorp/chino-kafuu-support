@@ -1,4 +1,4 @@
-import { ChinoClient } from "../ChinoClient"
+import { ChinoClient } from '../ChinoClient'
 import axios from 'axios'
 
 module.exports = {

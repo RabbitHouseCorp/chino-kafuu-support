@@ -26,6 +26,7 @@ module.exports = {
     modLog: '468881393787863052',
     botRole: '481833458306514944',
     booster: {
+      boosterRole: '639201662937858049',
       donateRoleID: '481829963767480360',
       value: 20000
     },

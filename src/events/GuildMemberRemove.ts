@@ -3,7 +3,7 @@ import { ChinoClient } from "../ChinoClient"
 import { EmbedBuilder } from "../structures"
 const { guild_support } = require('../config')
 module.exports = {
-  label: 'guildMemberRemove',
+  name: 'guildMemberRemove',
   run: (client: ChinoClient, guild: Guild, member: Member) => {
     const channel = guild.channels.get(guild_support.leaveChannel) as TextChannel
     const embed = new EmbedBuilder()

@@ -44,7 +44,7 @@ export class EmbedBuilder {
     return this
   }
 
-  setFooter(text: string, icon_url: string) {
+  setFooter(text: string, icon_url?: string) {
     this.footer = {
       text: text.toString().substring(0, 2048),
       icon_url
@@ -73,7 +73,9 @@ export class EmbedBuilder {
     const DEFAULT_COLORS: any = {
       DEFAULT: 0x7DAFFF,
       ERROR: 0xFA704D,
-      MODERATION: 0xFF4A4A
+      MODERATION: 0xFF4A4A,
+      LEAVE: 0xBDBDBD,
+      WELCOME: 0xB9FFA3
     }
 
     if (!color) color = null

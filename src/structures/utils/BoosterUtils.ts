@@ -7,7 +7,7 @@ export class BoosterUtils {
     if (guild.id !== guild_support.id) return
     if (guild.premiumSubscriptionCount > 40) return
 
-    if (member.premiumSince !== null) {
+    if (member.premiumSince !== null && member.roles.includes(guild_support.booster.boosterRole)) {
       if (member.roles.includes(guild_support.booster.donateRoleID)) return
       const embed = new EmbedBuilder()
       embed.setColor('DEFAULT')
@@ -27,7 +27,7 @@ export class BoosterUtils {
         console.error(`The direct message of ${member.user.username}#${member.user.discriminator} are closed.`)
       }
     } else {
-      if (member.roles.includes(guild_support.booster.donateRoleID)) return
+      if (!member.roles.includes(guild_support.booster.donateRoleID)) return
       member.removeRole(guild_support.booster.donateRoleID)
     }
   }

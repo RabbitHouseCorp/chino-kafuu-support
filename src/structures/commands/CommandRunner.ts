@@ -12,8 +12,8 @@ export class CommandRunner {
     const args = message.content.slice(process.env.PREFIX.length).trim().split(/ +/g)
     const commandName = args.shift().toLowerCase()
     const command = client.commands.get(commandName) || client.commands.get(client.aliases.get(commandName))
-
-    command.run(client, message, args)
+    
     if (command.config.dev && !process.env.DEV.trim().split(',').includes(message.author.id)) return
+    command.run(client, message, args)
   }
 }

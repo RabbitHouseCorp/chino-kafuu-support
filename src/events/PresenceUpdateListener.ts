@@ -15,9 +15,9 @@ module.exports = {
       if (member.roles.includes(guild_support.staffRole)) return
       const guildInvite = await client.getGuildInvites(member.guild.id)
       const invite = activities.find(status => status.type === 4 || status.type === 0).state
-        .replace(/(https:\/\/|http:\/\/)/, "")
-        .replace(/(discord\.gg|discord\.com\/invite|discordapp\.com\/invite|discord\.me|discord\.io)/, "")
-        .replace("/", "")
+        .replace(/(https:\/\/|http:\/\/)/, '')
+        .replace(/(discord\.gg|discord\.com\/invite|discordapp\.com\/invite|discord\.me|discord\.io)/, '')
+        .replace('/', '')
       if (guildInvite.find(({ code }) => code === invite) || (member.guild.vanityURL !== null && member.guild.vanityURL === invite)) {
         if (hasMuteRole) member.removeRole(guild_support.muteRole)
         return

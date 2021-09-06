@@ -1,6 +1,6 @@
-import { Invite, Message, TextChannel } from "eris"
-import { ChinoClient } from "../../ChinoClient"
-import { EmbedBuilder } from "./EmbedBuilder"
+import { Invite, Message, TextChannel } from 'eris'
+import { ChinoClient } from '../../ChinoClient'
+import { EmbedBuilder } from './EmbedBuilder'
 const { guild_support } = require('../../config')
 
 export class AntiInviteUtils {
@@ -37,9 +37,9 @@ export class AntiInviteUtils {
     if (message.member.roles.includes(guild_support.staffRole)) return
     const guildInvite = await message.guild.getInvites()
     const messageInvite = message.content
-      .replace(/(https:\/\/|http:\/\/)/, "")
-      .replace(/(discord\.gg|discord\.com\/invite|discordapp\.com\/invite|discord\.me|discord\.io)/, "")
-      .replace("/", "")
+      .replace(/(https:\/\/|http:\/\/)/, '')
+      .replace(/(discord\.gg|discord\.com\/invite|discordapp\.com\/invite|discord\.me|discord\.io)/, '')
+      .replace('/', '')
     if (guildInvite.find((invite: Invite) => invite.code === messageInvite) || (message.guild.vanityURL !== null && message.guild.vanityURL === messageInvite)) return
     const embed = new EmbedBuilder()
     embed.setColor('MODERATION')

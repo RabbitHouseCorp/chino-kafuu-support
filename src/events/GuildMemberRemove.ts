@@ -1,6 +1,6 @@
-import { Guild, Member, TextChannel } from "eris"
-import { ChinoClient } from "../ChinoClient"
-import { EmbedBuilder } from "../structures"
+import { Guild, Member, TextChannel } from 'eris'
+import { ChinoClient } from '../ChinoClient'
+import { EmbedBuilder } from '../structures'
 const { guild_support } = require('../config')
 module.exports = {
   name: 'guildMemberRemove',

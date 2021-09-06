@@ -1,7 +1,7 @@
 {
   "name": "chino-kafuu-support",
   "version": "1.0.0",
-  "description": "An Discord bot who give some support on Rabbit House Coffee's Discord server.",
+  "description": "A Discord bot who give some support on Rabbit House Coffee's Discord server.",
   "main": "dist/index.js",
   "engines": {
     "node": ">=14.0.0",

@@ -5,9 +5,9 @@ import { EmbedBuilder } from '../../structures'
 export class BoosterUtils {
   static async start(client: ChinoClient, guild: Guild, member: Member) {
     if (guild.id !== guild_support.id) return
-    if (guild.premiumSubscriptionCount > 40) return
 
     if (member.premiumSince !== null && member.roles.includes(guild_support.booster.boosterRole)) {
+      if (guild.premiumSubscriptionCount > 40) return
       if (member.roles.includes(guild_support.booster.donateRoleID)) return
       const embed = new EmbedBuilder()
       embed.setColor('DEFAULT')
@@ -27,8 +27,9 @@ export class BoosterUtils {
         console.error(`The direct message of ${member.user.username}#${member.user.discriminator} are closed.`)
       }
     } else {
-      if (!member.roles.includes(guild_support.booster.donateRoleID)) return
-      member.removeRole(guild_support.booster.donateRoleID)
+      if (member.roles.includes(guild_support.booster.donateRoleID)) {
+        member.removeRole(guild_support.booster.donateRoleID)
+      }
     }
   }
 }

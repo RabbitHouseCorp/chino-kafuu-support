@@ -16,6 +16,7 @@ module.exports = {
     embed.addField('Deleted message', `\`\`\`${message.content.slice(0, 1000)}\`\`\``)
 
     const channel = message.guild.channels.get(guild_support.eventLog) as TextChannel
+    if (!message.content) return
     channel.createMessage(embed.build())
   }
 }

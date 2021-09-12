@@ -16,6 +16,7 @@ module.exports = {
     embed.addField('New message', `\`\`\`${message.content.slice(0, 1000)}\`\`\``)
 
     if (oldMessage.content === message.content) return
+    if (!message.content) return
     const channel = message.guild.channels.get(guild_support.eventLog) as TextChannel
     channel.createMessage(embed.build())
   }

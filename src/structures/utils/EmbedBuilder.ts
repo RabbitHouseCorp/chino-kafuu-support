@@ -24,7 +24,7 @@ export class EmbedBuilder {
     this.url = null
   }
 
-  setAuthor(name: string, icon_url: string, url?: string) {
+  setAuthor(name: string, icon_url?: string, url?: string) {
     this.author = { name, icon_url, url }
     return this
   }

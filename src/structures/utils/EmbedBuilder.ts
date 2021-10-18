@@ -79,12 +79,7 @@ export class EmbedBuilder {
     }
 
     if (!color) color = null
-    if (DEFAULT_COLORS[color]) {
-      this.color = DEFAULT_COLORS[color]
-      return this
-    }
-
-    this.color = parseInt(color.replace('#', ''), 16)
+    this.color = DEFAULT_COLORS[color] ?? parseInt(color.replace('#', ''), 16)
     return this
   }
 

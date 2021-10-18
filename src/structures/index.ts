@@ -1,4 +1,4 @@
-import { AntiScamUtils } from './utils/AntiScamUtils'
+const AntiScamUtils = require('./utils/AntiScamUtils')
 import { AntiInviteUtils } from './utils/AntiInviteUtils'
 import { BoosterUtils } from './utils/BoosterUtils'
 import { CommandListener } from './commands/CommandListener'

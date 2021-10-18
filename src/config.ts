@@ -32,6 +32,6 @@ module.exports = {
       channelID: '604358550541565983',
       donateRoleID: '481829963767480360',
       value: 20000
-    },
+    }
   }
 }

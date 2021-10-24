@@ -1,8 +1,10 @@
+import { Collection } from './Collection'
+
 const guild = require('./collections/Guild')
 const user = require('./collections/User')
-import { Collection } from './Collection'
+
 const mongoose = require('mongoose')
-module.exports = class Database {
+export class Database {
   users: any
   guilds: any
   constructor() {

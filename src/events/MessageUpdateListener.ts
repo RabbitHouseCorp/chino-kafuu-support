@@ -3,7 +3,7 @@ import { ChinoClient } from '../ChinoClient'
 import { EmbedBuilder } from '../structures'
 const { guild_support } = require('../config')
 
-module.exports = {
+export default {
   name: 'messageUpdate',
   run: (client: ChinoClient, message: Message, oldMessage: Message) => {
     const embed = new EmbedBuilder()

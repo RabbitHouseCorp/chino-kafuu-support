@@ -2,7 +2,7 @@ import { Message } from 'eris'
 import { ChinoClient } from '../../ChinoClient'
 import { CommandListener } from '../../structures'
 const { guild_support } = require('../../config')
-module.exports = class NotifyCommand extends CommandListener {
+export default class NotifyCommand extends CommandListener {
   constructor() {
     super({ name: 'notify', aliases: ['notificar'] })
   }

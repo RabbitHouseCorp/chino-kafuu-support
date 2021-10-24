@@ -2,7 +2,7 @@ import { ChinoClient } from '../ChinoClient'
 import axios from 'axios'
 const { guild_support } = require('../config')
 
-module.exports = {
+export default {
   name: 'ready',
   run: (client: ChinoClient) => {
     const guild = client.guilds.get(guild_support.id)

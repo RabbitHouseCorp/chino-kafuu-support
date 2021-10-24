@@ -3,7 +3,7 @@ import { ChinoClient } from '../ChinoClient'
 import { EmbedBuilder } from '../structures'
 const { guild_support } = require('../config')
 
-module.exports = {
+export default {
   name: 'guildMemberAdd',
   run: async (client: ChinoClient, guild: Guild, member: Member) => {
     if (member.user.bot) {

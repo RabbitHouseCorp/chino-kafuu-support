@@ -3,7 +3,7 @@ import { ChinoClient } from '../ChinoClient'
 import { AntiInviteUtils } from '../structures'
 const { guild_support } = require('../config')
 
-module.exports = {
+export default {
   name: 'presenceUpdate',
   run: async (client: ChinoClient, member: Member, oldPresence: object) => {
     if (member.guild.id !== guild_support.id) return

@@ -1,5 +1,5 @@
 import 'dotenv/config'
-module.exports = {
+export const Config = {
   options: {
     defaultImageFormat: 'png',
     defaultImageSize: 2048,

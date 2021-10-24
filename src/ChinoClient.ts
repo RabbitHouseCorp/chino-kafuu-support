@@ -1,10 +1,12 @@
 import { Client } from 'eris'
 import { readdir } from 'fs'
+import { CommandListener } from './structures'
+import { Database } from './structures/database/Database'
 const database = require('./structures/database/Database')
 export class ChinoClient extends Client {
   aliases: Map<string, string>
   commands: Map<string, any>
-  database: any
+  database: Database
   options: object
   token: string
   public constructor(token: string, options: object) {
@@ -12,7 +14,7 @@ export class ChinoClient extends Client {
 
     this.aliases = new Map()
     this.commands = new Map()
-    this.database = new database()
+    this.database = new Database()
   }
 
   commandLoader() {
@@ -22,7 +24,8 @@ export class ChinoClient extends Client {
         readdir(`${__dirname}/commands/${category}`, (e, cmd) => {
           if (e) return console.error(e.message)
           cmd.forEach((cmd) => {
-            const Command = require(`${__dirname}/commands/${category}/${cmd}`)
+            var Command = require(`${__dirname}/commands/${category}/${cmd}`).default
+       
             const command = new Command()
             this.commands.set(command.config.name, command)
             command.config.aliases.forEach((alias: string) => this.aliases.set(alias, command.config.name))
@@ -36,7 +39,7 @@ export class ChinoClient extends Client {
     readdir(`${__dirname}/events`, (e, f) => {
       if (e) return console.error(e.message)
       f.forEach((event: string) => {
-        const events = require(`${__dirname}/events/${event}`)
+        const events = require(`${__dirname}/events/${event}`).default
         super.on(events.name, (...args) => events.run(this, ...args))
       })
     })

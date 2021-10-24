@@ -1,12 +1,19 @@
 interface Command {
-  name: String,
+  name: string,
   aliases?: string[]
   permissions?: string[]
   dev?: boolean
 }
 
+interface CommandConfig {
+  name: string
+  aliases?: Array<any>
+  permissions?: Array<any>
+  dev?: boolean
+}
+
 export class CommandListener {
-  config: object
+  config: CommandConfig
   constructor(options: Command) {
     this.config = {
       name: options.name,

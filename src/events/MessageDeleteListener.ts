@@ -3,7 +3,7 @@ import { ChinoClient } from '../ChinoClient'
 import { EmbedBuilder } from '../structures'
 const { guild_support } = require('../config')
 
-module.exports = {
+export default {
   name: 'messageDelete',
   run: (client: ChinoClient, message: Message) => {
     if (!message.author) return

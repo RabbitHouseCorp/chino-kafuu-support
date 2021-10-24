@@ -2,7 +2,7 @@ import { Message } from 'eris'
 import { ChinoClient } from '../../ChinoClient'
 import { CommandListener, EmbedBuilder } from '../../structures'
 import { inspect } from 'util'
-module.exports = class EvalCommand extends CommandListener {
+export default class EvalCommand extends CommandListener {
   constructor() {
     super({ name: 'eval', dev: true })
   }

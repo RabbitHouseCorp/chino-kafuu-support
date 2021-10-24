@@ -1,6 +1,6 @@
 import { Message, TextableChannel } from 'eris'
-import { ChinoClient } from '../../ChinoClient'
 import { EmbedBuilder } from '..'
+import { ChinoClient } from '../../ChinoClient'
 interface GuildSupport {
   id: string
   notifyRole: string
@@ -22,7 +22,7 @@ interface GuildSupport {
   }
 }
 
-module.exports.isScam = function isScam(client: ChinoClient, message: Message<TextableChannel>, guild_support: GuildSupport) {
+export function isScam(client: ChinoClient, message: Message<TextableChannel>, guild_support: GuildSupport) {
   if (message.member.roles.includes(guild_support.staffRole)) return
   const regex = (/(?:stmeacomunnitty\.ru|steamcomminuty\.ru|steamcommunytu\.ru|steamcommunytru\.ru|steancomminyitu\.ru|steamcommuntry\.ru|steamcommunytiy\.ru|steancommunytiu\.ru|steancommunnity\.co|steancommunnity\.ru|steancommunnity\.ru|steancommunnity\.co|streammcnmuunity\.ru|streammcomuunity\.ru|steamcommunitlu\.com)/g)
   if (regex.test(message.content.toLowerCase())) {

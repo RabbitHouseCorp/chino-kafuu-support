@@ -1,4 +1,4 @@
-import { Schema, model } from 'mongoose'
+import { model, Schema } from 'mongoose'
 
 const Guild = new Schema({
   id: { type: String },
@@ -21,4 +21,4 @@ const Guild = new Schema({
 })
 
 const guilds = model('Guilds', Guild)
-module.exports = guilds
+export default { guilds }

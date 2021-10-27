@@ -1,9 +1,10 @@
 import { Shard } from 'eris'
 import { ChinoClient } from '../ChinoClient'
+import { Logger } from '../utils/Logger'
 
 export default {
   name: 'error',
   run: (client: ChinoClient, error: Error, shard: Shard) => {
-    console.log(`A error on shard ${shard}: ${error.message}`)
+    Logger.error(`A error on shard ${shard}: ${error.message}`)
   }
 }

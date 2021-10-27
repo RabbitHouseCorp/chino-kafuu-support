@@ -1,10 +1,12 @@
 import { ChinoClient } from '../ChinoClient'
 import axios from 'axios'
+import { Logger } from '../utils/Logger'
 const { guild_support } = require('../config')
 
 export default {
   name: 'ready',
   run: (client: ChinoClient) => {
+    Logger.log('Online, finally.')
     const guild = client.guilds.get(guild_support.id)
     const banner = [
       'https://cdn.discordapp.com/attachments/481807707066859530/751192861365764126/Screenshot_20200731-202613_Goyabu.jpg',
@@ -24,7 +26,7 @@ export default {
         banner: base64Banner
       })
     }, 900000)
-    console.log('Online, finally.')
+  
     client.editStatus('dnd', { name: 'Providing support to you, user.' })
   }
 }

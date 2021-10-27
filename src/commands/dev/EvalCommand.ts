@@ -1,13 +1,13 @@
-import { Message } from 'eris'
-import { ChinoClient } from '../../ChinoClient'
-import { CommandListener, EmbedBuilder } from '../../structures'
 import { inspect } from 'util'
+import { CommandListener, EmbedBuilder } from '../../structures'
+import { CommandRunOptions } from '../../structures/commands/CommandListener'
 export default class EvalCommand extends CommandListener {
   constructor() {
     super({ name: 'eval', dev: true })
   }
 
-  async run(client: ChinoClient, message: Message, args: string[]) {
+
+  async run({ message, client, args }: CommandRunOptions) {
     try {
       let evaled = inspect(await eval(args.join(' ')), { depth: 1 })
       evaled = evaled.replace(new RegExp(`${client.token}`, 'g'), '[REDACTED]')
@@ -19,7 +19,7 @@ export default class EvalCommand extends CommandListener {
       embed.setColor('ERROR')
       embed.setTitle('Whoops, there is something wrong, check out now.')
       embed.setDescription(error.stack.slice(0, 1800))
-      
+
       message.channel.createMessage(embed.build())
     }
   }

@@ -5,7 +5,7 @@ import { Database } from './structures/database/Database'
 const database = require('./structures/database/Database')
 export class ChinoClient extends Client {
   aliases: Map<string, string>
-  commands: Map<string, any>
+  commands: Map<string, CommandListener>
   database: Database
   options: object
   token: string

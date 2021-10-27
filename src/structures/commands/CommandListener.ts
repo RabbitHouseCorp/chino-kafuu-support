@@ -1,3 +1,6 @@
+import { Message } from 'eris'
+import { ChinoClient } from '../../ChinoClient'
+
 interface Command {
   name: string,
   aliases?: string[]
@@ -12,7 +15,17 @@ interface CommandConfig {
   dev?: boolean
 }
 
-export class CommandListener {
+export interface CommandRunOptions {
+  readonly client: ChinoClient
+  readonly message: Message
+  readonly args: string[]
+}
+
+export interface CommandInterface {
+  run({}: CommandRunOptions): void
+}
+
+export class CommandListener implements CommandInterface {
   config: CommandConfig
   constructor(options: Command) {
     this.config = {
@@ -22,4 +35,9 @@ export class CommandListener {
       dev: options.dev || false
     }
   }
+  run({ }: CommandRunOptions): void {
+    throw new Error('Method not implemented.')
+  }
+
+
 }

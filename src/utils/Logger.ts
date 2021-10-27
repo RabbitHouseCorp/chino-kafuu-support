@@ -23,7 +23,7 @@ export const Logger = {
     if (message instanceof Error) {
       const msg = message.stack.split('\n')
       msg.shift()
-      console.error(`\n${chalk.gray(`[${messages_count}]`)}  ${chalk.bgYellowBright.black('[WARN]')} ${chalk.yellowBright(`Chino@Helper ~`)} ${s(message.name)} ${chalk.gray(msg.join('\n').replace(/(\([A-Za-z_0-9\-\\//!+\.:?]+\))/g, (a) => chalk.blueBright(a)))}\n`)
+      console.error(`\n${chalk.gray(`[${messages_count}]`)}  ${chalk.bgYellowBright.black('[WARN]')} ${chalk.yellowBright(`Chino@Helper ~`)} ${s(message.message)} ${chalk.gray(msg.join('\n').replace(/(\([A-Za-z_0-9\-\\//!+\.:?]+\))/g, (a) => chalk.blueBright(a)))}\n`)
 
     } else {
       console.warn(`${chalk.gray(`[${messages_count}]`)}  ${chalk.bgYellowBright.black('[WARN]')} ${chalk.yellowBright(`Chino@Helper ~`)} ${s(message)} ${took == null ? '' : `(${took - Date.now()}ms)`}`)

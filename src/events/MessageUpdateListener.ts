@@ -1,7 +1,7 @@
 import { Message, TextChannel } from 'eris'
 import { ChinoClient } from '../ChinoClient'
 import { EmbedBuilder } from '../structures'
-const { guild_support } = require('../config')
+const { Config: { guild_support } } = require('../config')
 
 export default {
   name: 'messageUpdate',

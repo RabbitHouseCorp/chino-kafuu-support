@@ -1,11 +1,11 @@
 import { CommandListener } from '../../structures'
 import { CommandRunOptions } from '../../structures/commands/CommandListener'
-const { guild_support } = require('../../config')
+const { Config: { guild_support } } = require('../../config')
 export default class NotifyCommand extends CommandListener {
   constructor() {
     super({ name: 'notify', aliases: ['notificar'] })
   }
-  
+
   run({ message }: CommandRunOptions) {
     if (message.member.roles.includes(guild_support.notifyRole)) {
       message.member.removeRole(guild_support.notifyRole).then(() => {

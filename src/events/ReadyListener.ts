@@ -1,7 +1,7 @@
 import { ChinoClient } from '../ChinoClient'
 import axios from 'axios'
 import { Logger } from '../utils/Logger'
-const { guild_support } = require('../config')
+const { Config: { guild_support } } = require('../config')
 
 export default {
   name: 'ready',
@@ -26,7 +26,7 @@ export default {
         banner: base64Banner
       })
     }, 900000)
-  
+
     client.editStatus('dnd', { name: 'Providing support to you, user.' })
   }
 }

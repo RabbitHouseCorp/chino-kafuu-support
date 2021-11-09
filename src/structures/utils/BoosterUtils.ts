@@ -1,6 +1,6 @@
 import { ChinoClient } from '../../ChinoClient'
 import { Guild, Member, TextChannel } from 'eris'
-const { guild_support } = require('../../config')
+const { Config: { guild_support } } = require('../../config')
 import { EmbedBuilder } from '../../structures'
 export class BoosterUtils {
   static async start(client: ChinoClient, guild: Guild, member: Member) {

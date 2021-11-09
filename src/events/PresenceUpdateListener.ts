@@ -1,7 +1,7 @@
 import { Member } from 'eris'
 import { ChinoClient } from '../ChinoClient'
 import { AntiInviteUtils } from '../structures'
-const { guild_support } = require('../config')
+const { Config: { guild_support } } = require('../config')
 
 export default {
   name: 'presenceUpdate',

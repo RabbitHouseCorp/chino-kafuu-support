@@ -1,7 +1,7 @@
 import { BoosterUtils, EmbedBuilder } from '../structures'
 import { ChinoClient } from '../ChinoClient'
 import { Guild, Member, TextChannel } from 'eris'
-const { guild_support } = require('../config')
+const { Config: { guild_support } } = require('../config')
 export default {
   name: 'guildMemberUpdate',
   run: async (client: ChinoClient, guild: Guild, member: Member, oldMember: Member) => {

@@ -1,7 +1,7 @@
 import { Invite, Message, TextChannel } from 'eris'
 import { ChinoClient } from '../../ChinoClient'
 import { EmbedBuilder } from './EmbedBuilder'
-const { guild_support } = require('../../config')
+const { Config: { guild_support } } = require('../../config')
 
 export class AntiInviteUtils {
   public static hasInviteOnStatus(activities: object[]) {

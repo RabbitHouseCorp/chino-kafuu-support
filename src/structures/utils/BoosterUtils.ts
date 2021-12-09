@@ -7,7 +7,7 @@ export class BoosterUtils {
     if (guild.id !== guild_support.id) return
 
     if (member.premiumSince !== null && member.roles.includes(guild_support.booster.boosterRole)) {
-      if (guild.premiumSubscriptionCount > 40) return
+      if (guild.premiumSubscriptionCount > 25) return
       if (member.roles.includes(guild_support.booster.donateRoleID)) return
       const embed = new EmbedBuilder()
       embed.setColor('DEFAULT')

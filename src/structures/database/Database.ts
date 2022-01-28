@@ -9,7 +9,7 @@ export class Database {
   users: any
   guilds: any
   constructor() {
-    mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true }, (err: Error) => {
+    mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true }, (err: Error) => {
       if (err) return console.error(`Unable to connect to the database: ${err.message}`)
       Logger.log('Connected to the database')
       

@@ -13,7 +13,7 @@ export default {
     embed.setDescription(`${member.user.mention} **Changed they nickname**\n\n**Old nickname:** \`${oldMember.nick ?? 'None'}\`\n**New nickname:** \`${member.nick ?? 'None'}\``)
 
     const channel = guild.channels.get(guild_support.eventLog) as TextChannel
-    if ((member.nick && !oldMember.nick) || (!member.nick && oldMember.nick) || (member.nick && oldMember.nick)) {
+    if ((member.nick && !oldMember.nick) || (!member.nick && oldMember.nick)) {
       channel.createMessage(embed.build())
     }
 

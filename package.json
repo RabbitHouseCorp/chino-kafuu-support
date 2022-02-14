@@ -14,7 +14,7 @@
   "author": "DanielaGC_",
   "license": "MIT",
   "dependencies": {
-    "axios": "^0.25.0",
+    "axios": "^0.26.0",
     "chalk": "^4.1.2",
     "eris": "github:RabbitHouseCorp/eris#dev",
     "mongoose": "^5.13.13"

@@ -1,6 +1,6 @@
 import { Shard } from 'eris'
 import { ChinoClient } from '../ChinoClient'
-import { Logger } from '../utils/Logger'
+import { Logger } from '../structures/utils/Logger'
 
 export default {
   name: 'error',

@@ -1,5 +1,5 @@
 import { Config } from './config'
-import { Logger } from './utils/Logger'
+import { Logger } from './structures/utils/Logger'
 
 const { ChinoClient } = require('./ChinoClient')
 

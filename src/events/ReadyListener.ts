@@ -1,6 +1,6 @@
 import { ChinoClient } from '../ChinoClient'
 import axios from 'axios'
-import { Logger } from '../utils/Logger'
+import { Logger } from '../structures/utils/Logger'
 const { Config: { guild_support } } = require('../config')
 
 export default {

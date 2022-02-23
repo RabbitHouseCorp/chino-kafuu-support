@@ -5,11 +5,11 @@ const { Config: { guild_support } } = require('../config')
 
 export default {
   name: 'messageCreate',
-  run: (client: ChinoClient, message: Message) => {
+  run: async (client: ChinoClient, message: Message) => {
     if (message.channel.type === 1) return
     if (message.author.bot) return
     AntiInviteUtils.inChannel(client, message)
-    AntiScamUtils.isScam(client, message, guild_support)
+    await AntiScamUtils.isScam(client, message, guild_support)
     BoosterUtils.start(client, message.guild, message.member)
     CommandRunner.start(client, message)
   }

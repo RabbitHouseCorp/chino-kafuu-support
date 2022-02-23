@@ -6,8 +6,8 @@ import { EmbedBuilder } from './utils/EmbedBuilder'
 const AntiScamUtils = require('./utils/AntiScamUtils')
 
 export {
-  AntiScamUtils,
   AntiInviteUtils,
+  AntiScamUtils,
   BoosterUtils,
   CommandListener,
   CommandRunner,

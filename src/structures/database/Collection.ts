@@ -4,8 +4,8 @@ export class Collection {
     this.model = model
   }
 
-  findOneById(id: string) {
-    return this.model.findOne({ id })
+  async findOneById(id: string) {
+    return await this.model.findOne({ id })
   }
 
   async getOrCreate(id: string, defaultValues: object) {

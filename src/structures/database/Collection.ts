@@ -5,11 +5,7 @@ export class Collection {
   }
 
   findOneById(id: string) {
-    return this.findOne({ id })
-  }
-
-  findOne(...args: any) {
-    return this.model.findOne(...args)
+    return this.model.findOne({ id })
   }
 
   async getOrCreate(id: string, defaultValues: object) {

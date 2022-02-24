@@ -15,7 +15,7 @@
   "license": "MIT",
   "dependencies": {
     "axios": "^0.26.0",
-    "chalk": "^4.1.2",
+    "chalk": "^5.0.0",
     "eris": "github:RabbitHouseCorp/eris#dev",
     "mongoose": "^6.2.3"
   },

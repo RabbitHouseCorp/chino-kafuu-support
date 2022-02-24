@@ -2,7 +2,6 @@ import { Client } from 'eris'
 import { readdir } from 'fs'
 import { CommandListener } from './structures'
 import { Database } from './structures/database/Database'
-const database = require('./structures/database/Database')
 export class ChinoClient extends Client {
   aliases: Map<string, string>
   commands: Map<string, CommandListener>

@@ -1,7 +1,7 @@
 import { Invite, Message, TextChannel } from 'eris'
 import { ChinoClient } from '../../ChinoClient'
 import { EmbedBuilder } from './EmbedBuilder'
-const { Config: { guild_support } } = require('../../config')
+import { Config } from '../../config'
 
 export class AntiInviteUtils {
   public static hasInviteOnStatus(activities: object[]) {
@@ -33,8 +33,8 @@ export class AntiInviteUtils {
 
   static async inChannel(client: ChinoClient, message: Message) {
     if (!this.isInvite(message.content)) return
-    const channel = client.getChannel(guild_support.modLog) as TextChannel
-    if (message.member.roles.includes(guild_support.staffRole)) return
+    const channel = client.getChannel(Config.guild_support.modLog) as TextChannel
+    if (message.member.roles.includes(Config.guild_support.staffRole)) return
     const guildInvite = await message.guild.getInvites()
     const messageInvite = message.content
       .replace(/(https:\/\/|http:\/\/)/, '')

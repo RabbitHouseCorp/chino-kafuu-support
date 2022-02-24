@@ -17,5 +17,4 @@ const User = new Schema({
   shipValue: { type: String, default: null }
 })
 
-const users = model('Users', User)
-export default { users }
+export const user = model('Users', User)

@@ -1,7 +1,7 @@
 import { Message } from 'eris'
 import { ChinoClient } from '../ChinoClient'
 import { AntiInviteUtils, AntiScamUtils, BoosterUtils, CommandRunner } from '../structures'
-const { Config: { guild_support } } = require('../config')
+import { Config } from '../config'
 
 export default {
   name: 'messageCreate',
@@ -9,7 +9,7 @@ export default {
     if (message.channel.type === 1) return
     if (message.author.bot) return
     AntiInviteUtils.inChannel(client, message)
-    await AntiScamUtils.isScam(client, message, guild_support)
+    await AntiScamUtils(client, message, Config.guild_support)
     BoosterUtils.start(client, message.guild, message.member)
     CommandRunner.start(client, message)
   }

@@ -1,7 +1,7 @@
 import { Message, TextChannel } from 'eris'
 import { ChinoClient } from '../ChinoClient'
 import { EmbedBuilder } from '../structures'
-const { Config: { guild_support } } = require('../config')
+import { Config } from '../config'
 
 export default {
   name: 'messageUpdate',
@@ -17,7 +17,7 @@ export default {
 
     if (oldMessage.content === message.content) return
     if (!message.content) return
-    const channel = message.guild.channels.get(guild_support.eventLog) as TextChannel
+    const channel = message.guild.channels.get(Config.guild_support.eventLog) as TextChannel
     channel.createMessage(embed.build())
   }
 }

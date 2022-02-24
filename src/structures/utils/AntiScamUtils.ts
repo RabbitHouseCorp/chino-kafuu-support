@@ -24,7 +24,7 @@ interface GuildSupport {
   }
 }
 
-export async function isScam(client: ChinoClient, message: Message<TextableChannel>, guild_support: GuildSupport) {
+export default async function isScam(client: ChinoClient, message: Message<TextableChannel>, guild_support: GuildSupport) {
   if (message.member.roles.includes(guild_support.staffRole)) return
   try {
     const { data: { domains } } = await axios.get('https://raw.githubusercontent.com/nikolaischunk/discord-phishing-links/main/domain-list.json', { responseType: 'json' })

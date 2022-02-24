@@ -20,5 +20,4 @@ const Guild = new Schema({
   }
 })
 
-const guilds = model('Guilds', Guild)
-export default { guilds }
+export const guild = model('Guilds', Guild)

@@ -1,10 +1,9 @@
 import { Logger } from '../utils/Logger'
 import { Collection } from './Collection'
+import { guild } from './collections/Guild'
+import { user } from './collections/User'
+import mongoose from 'mongoose'
 
-const guild = require('./collections/Guild')
-const user = require('./collections/User')
-
-const mongoose = require('mongoose')
 export class Database {
   users: any
   guilds: any

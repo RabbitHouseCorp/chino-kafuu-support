@@ -3,7 +3,7 @@ import { CommandRunner } from './commands/CommandRunner'
 import { AntiInviteUtils } from './utils/AntiInviteUtils'
 import { BoosterUtils } from './utils/BoosterUtils'
 import { EmbedBuilder } from './utils/EmbedBuilder'
-const AntiScamUtils = require('./utils/AntiScamUtils')
+import AntiScamUtils from './utils/AntiScamUtils'
 
 export {
   AntiInviteUtils,

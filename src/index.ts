@@ -1,8 +1,6 @@
 import { Config } from './config'
 import { Logger } from './structures/utils/Logger'
-
-const { ChinoClient } = require('./ChinoClient')
-
+import { ChinoClient } from './ChinoClient'
 const client = new ChinoClient(process.env.TOKEN, Config.options)
 client.start()
 

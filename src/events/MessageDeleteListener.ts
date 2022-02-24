@@ -1,7 +1,7 @@
 import { Message, TextChannel } from 'eris'
 import { ChinoClient } from '../ChinoClient'
 import { EmbedBuilder } from '../structures'
-const { Config: { guild_support } } = require('../config')
+import { Config } from '../config'
 
 export default {
   name: 'messageDelete',
@@ -15,7 +15,7 @@ export default {
     embed.setDescription(`${message.author.mention} **deleted a message**\n\n**Text channel:** ${message.channel.mention}`)
     embed.addField('Deleted message', `\`\`\`${message.content.slice(0, 1000)}\`\`\``)
 
-    const channel = message.guild.channels.get(guild_support.eventLog) as TextChannel
+    const channel = message.guild.channels.get(Config.guild_support.eventLog) as TextChannel
     if (!message.content) return
     channel.createMessage(embed.build())
   }

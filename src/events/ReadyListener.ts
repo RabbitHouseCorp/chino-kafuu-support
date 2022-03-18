@@ -51,7 +51,7 @@ export default {
 
     setInterval(() => {
       const game = status[Math.round(Math.random() * status.length)]
-      if (game.type === 0) {
+      if (game?.type === 0) {
         client.editStatus('idle', game) 
       } else {
         client.editStatus('online', game)

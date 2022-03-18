@@ -2,6 +2,7 @@ import { ChinoClient } from '../ChinoClient'
 import axios from 'axios'
 import { Logger } from '../structures/utils/Logger'
 import { Config } from '../config'
+import { ActivityPartial } from 'eris'
 
 export default {
   name: 'ready',
@@ -26,7 +27,35 @@ export default {
         banner: base64Banner
       })
     }, 900000)
+    const status: ActivityPartial[] = [
+      {
+        name: 'Trying to give support you.',
+        type: 3
+      },
+      {
+        name: 'DM me if you need help!',
+        type: 3
+      },
+      {
+        name: 'If you need support or have a question, please, DM me.',
+        type: 3
+      },
+      {
+        name: 'Miracle Girls Festival',
+        type: 0
+      },
+      {
+        name: 'Chimame Chronicle',
+        type: 0
+      }]
 
-    client.editStatus('dnd', { name: 'Providing support to you, user.' })
+    setInterval(() => {
+      const game = status[Math.round(Math.random() * status.length)]
+      if (game.type === 0) {
+        client.editStatus('idle', game) 
+      } else {
+        client.editStatus('online', game)
+      }
+    }, 15000)
   }
 }

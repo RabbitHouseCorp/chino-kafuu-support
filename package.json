@@ -1,29 +1,38 @@
 {
-  "name": "chino-kafuu-support",
+  "name": "chinokafuusupport",
   "version": "1.0.0",
-  "description": "A Discord bot who give some support on Rabbit House Coffee's Discord server.",
-  "main": "dist/index.js",
+  "description": "All global files of Chino Kafuu are here.",
+  "main": "build/index.js",
+  "type": "module",
   "engines": {
-    "node": ">=14.0.0",
-    "npm": ">=7.0.0"
+    "node": ">=16.0.0",
+    "npm": ">=6.0.0"
   },
   "scripts": {
-    "start": "tsc && node .",
-    "build": "tsc"
+    "start": "tsc && node --experimental-specifier-resolution=node .",
+    "build": "tsc",
+    "lint:ts": "eslint -c .eslintrc.ts.yml *.ts",
+    "lint:ts:fix": "eslint -c .eslintrc.ts.yml *.ts --fix && echo \"\u001b[1m\u001b[32mOK\u001b[39m\u001b[22m\" || echo \"\u001b[1m\u001b[31mNot OK\u001b[39m\u001b[22m\""
   },
+  "keywords": [],
   "author": "DanielaGC_",
-  "license": "MIT",
+  "license": "AGPL-3.0",
   "dependencies": {
     "axios": "^0.26.1",
-    "chalk": "^4.1.2",
-    "eris": "github:RabbitHouseCorp/eris#dev",
-    "mongoose": "^6.2.7"
+    "chalk": "^5.0.1",
+    "eris": "RabbitHouseCorp/eris#dev",
+    "mongoose": "^6.2.9",
+    "revolt.js": "^5.2.8"
   },
   "devDependencies": {
     "@types/node": "^17.0.21",
     "@types/ws": "^8.5.3",
-    "bson": "^4.5.2",
+    "@typescript-eslint/eslint-plugin": "^5.14.0",
+    "@typescript-eslint/parser": "^5.14.0",
+    "bson": "^4.6.2",
     "dotenv": "^16.0.0",
-    "typescript": "^4.6.2"
+    "eslint": "^8.10.0",
+    "eslint-plugin-sort-class-members": "^1.14.1",
+    "typescript": "^4.7.0-dev.20220331"
   }
 }

@@ -1,8 +1,9 @@
-import { model, Schema } from 'mongoose'
+import pkg from 'mongoose'
+const { model, Schema } = pkg
 
 const Guild = new Schema({
   id: { type: String },
-  prefix: { type: String, default: process.env.PREFIX },
+  prefix: { type: String, default: process.env.DISCORD_BOT_PREFIX },
   channelReport: { type: String, default: '' },
   reportModule: { type: Boolean, default: false },
   lang: { type: String, default: 'en-US' },

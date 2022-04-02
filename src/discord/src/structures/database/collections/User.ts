@@ -1,4 +1,5 @@
-import { model, Schema } from 'mongoose'
+import pkg from 'mongoose'
+const { model, Schema } = pkg
 
 const User = new Schema({
   id: { type: String },

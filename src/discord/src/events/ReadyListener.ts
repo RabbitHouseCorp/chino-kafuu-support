@@ -28,26 +28,12 @@ export default {
       })
     }, 900000)
     const status: ActivityPartial[] = [
-      {
-        name: 'Trying to give support you.',
-        type: 3
-      },
-      {
-        name: 'DM me if you need help!',
-        type: 3
-      },
-      {
-        name: 'If you need support or have a question, please, DM me.',
-        type: 3
-      },
-      {
-        name: 'Miracle Girls Festival',
-        type: 0
-      },
-      {
-        name: 'Chimame Chronicle',
-        type: 0
-      }]
+      { name: 'Trying to give support you.', type: 3 },
+      { name: 'DM me if you need help!', type: 3 },
+      { name: 'If you need support or have a question, please, DM me.', type: 3 },
+      { name: 'Miracle Girls Festival', type: 0 },
+      { name: 'Chimame Chronicle', type: 0 }
+    ]
 
     setInterval(() => {
       const game = status[Math.round(Math.random() * status.length)]

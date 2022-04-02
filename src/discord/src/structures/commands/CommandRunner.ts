@@ -8,12 +8,12 @@ export class CommandRunner {
       await message.addReaction('👎')
       await message.addReaction('😍')
     }
-    if (message.content.indexOf(process.env.PREFIX) < 0) return
-    const args = message.content.slice(process.env.PREFIX.length).trim().split(/ +/g)
+    if (message.content.indexOf(process.env.DISCORD_BOT_PREFIX) < 0) return
+    const args = message.content.slice(process.env.DISCORD_BOT_PREFIX.length).trim().split(/ +/g)
     const commandName = args.shift().toLowerCase()
     const command = client.commands.get(commandName) || client.commands.get(client.aliases.get(commandName))
-    
-    if (command.config.dev && !process.env.DEV.trim().split(',').includes(message.author.id)) return
-    command.run({client, message, args})
+
+    if (command.config.dev && !process.env.DISCORD_BOT_DEVELOPERS.trim().split(',').includes(message.author.id)) return
+    command.run({ client, message, args })
   }
 }

@@ -21,7 +21,7 @@
     "axios": "^0.26.1",
     "chalk": "^5.0.1",
     "eris": "RabbitHouseCorp/eris#dev",
-    "mongoose": "^6.2.9",
+    "mongoose": "^6.3.0",
     "revolt.js": "^5.2.8"
   },
   "devDependencies": {

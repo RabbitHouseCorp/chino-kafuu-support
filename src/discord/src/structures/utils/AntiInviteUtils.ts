@@ -23,6 +23,7 @@ export class AntiInviteUtils {
   }
 
   static async inChannel(client: ChinoClient, message: Message) {
+    if (message.guildID !== Config.guild_support.id) return
     if (!this.isInvite(message.content)) return
     const channel = client.getChannel(Config.guild_support.modLog) as TextChannel
     if (message.member.roles.includes(Config.guild_support.staffRole)) return

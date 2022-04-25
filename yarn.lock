@@ -1059,10 +1059,10 @@ type-fest@^0.20.2:
   resolved "https://registry.yarnpkg.com/type-fest/-/type-fest-0.20.2.tgz#1bf207f4b28f91583666cb5fbd327887301cd5f4"
   integrity sha512-Ne+eE4r0/iWnpAxD852z3A+N0Bt5RN//NjJwRd2VFHEmrywxf5vsZlh4R6lixl6B+wz/8d+maTSAkN1FIkI3LQ==
 
-typescript@^4.7.0-dev.20220422:
-  version "4.7.0-dev.20220422"
-  resolved "https://registry.yarnpkg.com/typescript/-/typescript-4.7.0-dev.20220422.tgz#19dccf6adb94ebf87c5e1cc13d85ee8b5c54621d"
-  integrity sha512-Kqw1BNhbhJ+Gvg+Mydh9mcb+hCHfoflVpA+H6pnSdcUxAT7kLMj+kna0IX35J1cHsogZolaiLKM8G3FJnZcURQ==
+typescript@^4.7.0-dev.20220425:
+  version "4.7.0-dev.20220425"
+  resolved "https://registry.yarnpkg.com/typescript/-/typescript-4.7.0-dev.20220425.tgz#9b7b76e5514f92352098c802df0cc80249b1e38c"
+  integrity sha512-fMwLQ7gLYOCEH+fwhUajRCDSrEu8Pu26mL6HV1yk734f+00QGcKsAJTjgAyZ79rnYqQFzjIilegksYhZ7zrJAA==
 
 ulid@^2.3.0:
   version "2.3.0"

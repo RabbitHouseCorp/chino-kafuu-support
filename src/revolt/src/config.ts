@@ -7,5 +7,7 @@ export const options: ClientOptions = {
   heartbeat: 1,
   debug: false,
   autoReconnect: true,
-  ackRateLimiter: true
+  ackRateLimiter: true,
+  onPongTimeout: 'RECONNECT',
+  pongTimeout: 10
 }

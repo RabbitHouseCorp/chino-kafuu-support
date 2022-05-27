@@ -9,9 +9,10 @@ export class Collection {
   }
 
   async getOrCreate(id: string, defaultValues: object) {
-    const data = await this.findOneById(id)
+    if (!id) return undefined
+    let data = await this.findOneById(id)
     if (!data) {
-      this.model({ id, ...defaultValues }).save()
+      data = this.model({ id, ...defaultValues }).save()
     }
 
     return data

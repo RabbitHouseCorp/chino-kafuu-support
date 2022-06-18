@@ -8,6 +8,7 @@
     "preserveConstEnums": true,
     "outDir": "./build/",
     "rootDir": "./src/",
+    "skipLibCheck": true,
     "resolveJsonModule": true,
     "esModuleInterop": true,
     "sourceMap": false

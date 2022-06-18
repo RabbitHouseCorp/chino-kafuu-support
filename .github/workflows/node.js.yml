@@ -30,4 +30,3 @@ jobs:
     - run: npm run build --if-present
     - run: rpm install typescript -g
     - run: tsc
-    - run: npm test

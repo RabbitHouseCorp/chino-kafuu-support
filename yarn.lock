@@ -994,19 +994,19 @@ reusify@^1.0.4:
   resolved "https://registry.yarnpkg.com/reusify/-/reusify-1.0.4.tgz#90da382b1e126efc02146e90845a88db12925d76"
   integrity sha512-U9nH88a3fc/ekCF1l0/UP1IosiuIjyTh7hBvXVMHYgVcfGvt897Xguj2UOLDeI5BG2m7/uwyaLVT6fbtCwTyzw==
 
-revolt-api@0.5.3-7:
-  version "0.5.3-7"
-  resolved "https://registry.yarnpkg.com/revolt-api/-/revolt-api-0.5.3-7.tgz#d6123654ed39321b1d745fdcec9f1c0bd4018bce"
-  integrity sha512-mBpM30OufJCS+6u1H/k0t8hbtFTur4eX6MtlEpCwBw/69FwMnO//isSwMMGnhGtwYiSM8o7xOlhF9Pb4OlKA0A==
+revolt-api@0.5.4:
+  version "0.5.4"
+  resolved "https://registry.yarnpkg.com/revolt-api/-/revolt-api-0.5.4.tgz#cefbb05cbeeb7deb437aca9efb80ce277b8c04e4"
+  integrity sha512-JBoEzakPn11lq43BN2VMwyfeU8pC11Q6O07BuWjagMqBrjY8GdMdQIdmtmvudSiTogux6VsbGkV+0eVUUZ44xw==
   dependencies:
     "@insertish/oapi" "0.1.16"
     axios "^0.26.1"
     lodash.defaultsdeep "^4.6.1"
 
-revolt.js@^6.0.3:
-  version "6.0.3"
-  resolved "https://registry.yarnpkg.com/revolt.js/-/revolt.js-6.0.3.tgz#55e5f14f8fb0b508046c2af6fcdf81bb5773a13e"
-  integrity sha512-svBCKZJc/upaOoDZN+0pcDF2lwYTeOqYz7Gl37QEh5TQkyy5aUOSNhBBl6OBs93H6d2HaCUJtlJ2J+aAnA1ZqQ==
+revolt.js@^6.0.6:
+  version "6.0.6"
+  resolved "https://registry.yarnpkg.com/revolt.js/-/revolt.js-6.0.6.tgz#20c0ebd04c11e01b0f77106f4611d346772cdbd9"
+  integrity sha512-1qt0aiQs/Ahx/xVdKRN8Ogwfz0U/4YgGU1MPtxh7UzTtDU6bjRlNpzBdFuqH9HlvJF7m0F12tq/5e9RbluKDvg==
   dependencies:
     "@insertish/exponential-backoff" "3.1.0-patch.2"
     "@insertish/isomorphic-ws" "^4.0.1"
@@ -1017,7 +1017,7 @@ revolt.js@^6.0.3:
     lodash.isequal "^4.5.0"
     long "^5.2.0"
     mobx "^6.3.2"
-    revolt-api "0.5.3-7"
+    revolt-api "0.5.4"
     ulid "^2.3.0"
     ws "^8.2.2"
 

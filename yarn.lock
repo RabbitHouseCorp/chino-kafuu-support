@@ -389,9 +389,9 @@ dotenv@^16.0.1:
   integrity sha512-1K6hR6wtk2FviQ4kEiSjFiH5rpzEVi8WW0x96aztHVMhEspNpc4DVOUTEHtEva5VThQ8IaBX1Pe4gSzpVVUsKQ==
 
 eris@RabbitHouseCorp/eris#dev:
-  version "0.16.2-custom"
-  uid e9a250d6ad5cdfef22bc1180e85041d87253bb5a
-  resolved "https://codeload.github.com/RabbitHouseCorp/eris/tar.gz/e9a250d6ad5cdfef22bc1180e85041d87253bb5a"
+  version "0.16.3-custom"
+  uid "9d506cc3414baab112d0c3281442d38b3c02161f"
+  resolved "https://codeload.github.com/RabbitHouseCorp/eris/tar.gz/9d506cc3414baab112d0c3281442d38b3c02161f"
   dependencies:
     ws "^8.5.0"
   optionalDependencies:

@@ -1057,10 +1057,10 @@ revolt-api@0.5.5:
     axios "^0.26.1"
     lodash.defaultsdeep "^4.6.1"
 
-revolt.js@^6.0.13:
-  version "6.0.13"
-  resolved "https://registry.yarnpkg.com/revolt.js/-/revolt.js-6.0.13.tgz#ad2151d275b5b2f73a27f2cac76baa9c7848c982"
-  integrity sha512-DZNdO/D9F+aRwfxvJadjeS/3oG6+ZcbUtiqUaHJex9AL5l+J95zhY5wEV87zljqvr3TCgnmen+Yq0bqGQDhqHw==
+revolt.js@^6.0.16:
+  version "6.0.16"
+  resolved "https://registry.yarnpkg.com/revolt.js/-/revolt.js-6.0.16.tgz#666f8a361d1684cf2366f050031e1da11d210d60"
+  integrity sha512-O3mQLswpQEhkLDdrViHhjjnkeJ36KogDU+nPG3DcTz5an2vTlgBSEKLsWEzd1EZmwx6MUF+X0mhU6dHka5DdkQ==
   dependencies:
     "@insertish/exponential-backoff" "3.1.0-patch.2"
     "@insertish/isomorphic-ws" "^4.0.1"

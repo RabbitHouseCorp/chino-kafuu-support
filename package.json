@@ -22,7 +22,7 @@
     "chalk": "^5.1.2",
     "eris": "RabbitHouseCorp/eris#dev",
     "mongoose": "^6.7.3",
-    "revolt.js": "^6.0.18"
+    "revolt.js": "^6.0.19"
   },
   "devDependencies": {
     "@types/node": "^18.11.9",

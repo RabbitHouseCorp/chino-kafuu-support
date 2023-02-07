@@ -28,7 +28,7 @@
     "@types/node": "^18.11.18",
     "@types/ws": "^8.5.4",
     "@typescript-eslint/eslint-plugin": "^5.51.0",
-    "@typescript-eslint/parser": "^5.48.2",
+    "@typescript-eslint/parser": "^5.51.0",
     "bson": "^4.7.2",
     "dotenv": "^16.0.3",
     "eslint": "^8.32.0",

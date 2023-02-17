@@ -29,7 +29,7 @@
     "@types/ws": "^8.5.4",
     "@typescript-eslint/eslint-plugin": "^5.52.0",
     "@typescript-eslint/parser": "^5.52.0",
-    "bson": "^5.0.0",
+    "bson": "^5.0.1",
     "dotenv": "^16.0.3",
     "eslint": "^8.34.0",
     "eslint-plugin-sort-class-members": "^1.16.0",

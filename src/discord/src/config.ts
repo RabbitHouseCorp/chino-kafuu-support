@@ -4,7 +4,7 @@ export const Config = {
     defaultImageFormat: 'png',
     defaultImageSize: 2048,
     getAllUsers: true,
-    intents: 14207,
+    intents: 34799,
     maxShards: 2,
     restMode: true,
     allowedMentions: {

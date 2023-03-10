@@ -38,6 +38,4 @@ export class CommandListener implements CommandInterface {
   run({ }: CommandRunOptions): void {
     throw new Error('Method not implemented.')
   }
-
-
 }

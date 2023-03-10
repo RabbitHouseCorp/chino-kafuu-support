@@ -25,17 +25,6 @@ export class ChinoClient extends Client {
         command.config.aliases.forEach((alias: string) => this.aliases.set(alias, command.config.name))
       })
     })
-    // readdir(`${__dirname}/commands`, (e, f) => {
-    //   if (e) return console.error(e.message)
-    //   f.forEach((category: string) => {
-    //     readdir(`${__dirname}/commands/${category}`, (e, cmd) => {
-    //       if (e) return console.error(e.message)
-    //       cmd.forEach(async (cmd) => {
-            
-    //       })
-    //     })
-    //   })
-    // })
   }
 
   eventLoader() {

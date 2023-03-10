@@ -1835,7 +1835,7 @@ revolt-api@0.5.7:
     axios "^0.26.1"
     lodash.defaultsdeep "^4.6.1"
 
-revolt.js@^6.0.20:
+revolt.js@^6.0.17:
   version "6.0.20"
   resolved "https://registry.yarnpkg.com/revolt.js/-/revolt.js-6.0.20.tgz#05988036ffb7cea1d13f67d60ee7ab14dd4f75cd"
   integrity sha512-iG0FmEmpHTWCQhlVd/jKXapCeoSyWCjPpmyjuQNGZYc1MqsgslK/dM2AbMRguANGRu8+z5/VljWgGNQh/+8zLA==

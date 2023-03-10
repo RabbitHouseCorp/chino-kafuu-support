@@ -2,14 +2,10 @@ import { ChinoClient } from '../ChinoClient'
 import { Logger } from '../structures'
 
 export default {
-  name: 'ready',
+  name: 'connected',
   run: async (client: ChinoClient) => {
     const me = await client.servers.get(process.env.REVOLT_MAIN_SERVER)?.fetchMember(client.user._id)
-    if (!me.nickname) {
-      me.edit({
-        nickname: 'Chino Kafuu (Support)'
-      })
-    }
+ 
     const status = [
       'Trying to give you support.',
       'Moderating my support server!',

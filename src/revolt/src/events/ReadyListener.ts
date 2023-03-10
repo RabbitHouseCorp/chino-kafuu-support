@@ -10,6 +10,18 @@ export default {
         nickname: 'Chino Kafuu (Support)'
       })
     }
+    const status = [
+      'Trying to give you support.',
+      'Moderating my support server!',
+      'If you need support or have a question, please, go to the #support channel.',
+      'Miracle Girls Festival',
+      'Chimame Chronicle',
+    ]
+
+    setInterval(() => {
+      const game = status[Math.round(Math.random() * status.length)]
+      client.user.update({ status: game, presence: 'Busy' })
+    }, 15000)
     
     Logger.log('I\'m online now.')
   }

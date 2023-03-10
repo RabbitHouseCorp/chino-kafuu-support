@@ -7,13 +7,28 @@ import mongoose from 'mongoose'
 export class Database {
   users: any
   guilds: any
+  connected: Boolean
   constructor() {
-    mongoose.connect(process.env.DISCORD_MONGO_URI, { autoIndex: true }, (err:Error) => {
-      if (err) return console.error(`Unable to connect to the database: ${err.message}`)
-      Logger.log('Connected to the database')
-    })
-
     this.users = new Collection(user)
     this.guilds = new Collection(guild)
+    this.connected = false
+  }
+  
+  _connect() {
+    function connect() {
+      mongoose.connect(process.env.DISCORD_MONGO_URI, { autoIndex: true } => {
+        this.connected = true
+        Logger.log('Connected to the database')
+      })
+    }
+
+    mongoose.connection.on('error', err: Error => {
+      if (err) return Logger.error(`Unable to connect to the database: ${err.message}`)
+    })
+    
+    mongoose.connection.on('disconnected', () => {
+      this.connected = false
+      connect()
+    })
   }
 }

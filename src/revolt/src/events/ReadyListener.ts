@@ -18,10 +18,10 @@ export default {
       'Chimame Chronicle',
     ]
 
-    setInterval(() => {
+    /* setInterval(() => {
       const game = status[Math.round(Math.random() * status.length)]
       client.user.update({ status: { text: game, presence: 'Busy' } })
-    }, 15000)
+    }, 15000) */
     
     Logger.log('I\'m online now.')
   }

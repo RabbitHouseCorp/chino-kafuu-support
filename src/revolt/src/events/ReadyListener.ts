@@ -20,7 +20,7 @@ export default {
 
     setInterval(() => {
       const game = status[Math.round(Math.random() * status.length)]
-      client.user.update({ status: game, presence: 'Busy' })
+      client.user.update({ status: { text: game, presence: 'Busy' } })
     }, 15000)
     
     Logger.log('I\'m online now.')

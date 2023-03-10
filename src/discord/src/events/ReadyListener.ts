@@ -28,9 +28,9 @@ export default {
       })
     }, 900000)
     const status: ActivityPartial[] = [
-      { name: 'Trying to give support you.', type: 3 },
-      { name: 'DM me if you need help!', type: 3 },
-      { name: 'If you need support or have a question, please, DM me.', type: 3 },
+      { name: 'Trying to give you support.', type: 3 },
+      { name: 'Moderating my support server!', type: 3 },
+      { name: 'If you need support or have a question, please, go to the #support channel.', type: 3 },
       { name: 'Miracle Girls Festival', type: 0 },
       { name: 'Chimame Chronicle', type: 0 }
     ]
@@ -38,7 +38,7 @@ export default {
     setInterval(() => {
       const game = status[Math.round(Math.random() * status.length)]
       if (game?.type === 0) {
-        client.editStatus('idle', game) 
+        client.editStatus('dnd', game) 
       } else {
         client.editStatus('online', game)
       }

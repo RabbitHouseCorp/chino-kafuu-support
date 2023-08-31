@@ -9,7 +9,7 @@ export class Database {
   guilds: any
   constructor() {
     mongoose.set('strictQuery', false)
-    mongoose.connect(process.env.DISCORD_MONGO_URI).catch(error => console.error(`I'm unable to connect the MongoDB's database: ${error.message}`)
+    mongoose.connect(process.env.DISCORD_MONGO_URI).catch(error => console.error(`I'm unable to connect the MongoDB's database: ${error.message}`))
 
     this.users = new Collection(user)
     this.guilds = new Collection(guild)

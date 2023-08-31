@@ -9,7 +9,7 @@ export class Database {
   guilds: any
   constructor() {
     mongoose.set('strictQuery', false)
-    mongoose.connect(process.env.DISCORD_MONGO_URI, (err: Error) => {
+    mongoose.connect(process.env.DISCORD_MONGO_URI, (err: mongoose.ConnectOptions) => {
       if (err) return console.error(`Unable to connect to the database: ${err.message}`)
       Logger.log('Connected to the database')
     })

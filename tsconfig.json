@@ -1,20 +1,25 @@
 {
   "compilerOptions": {
-    "target": "ES2020",
+    "target": "ESNext",
     "module": "ESNext",
     "moduleResolution": "node",
     "noImplicitAny": true,
     "removeComments": true,
     "preserveConstEnums": true,
     "outDir": "./build/",
-    "rootDir": "./src/",
+    "rootDir": ".",
     "skipLibCheck": true,
     "resolveJsonModule": true,
     "esModuleInterop": true,
-    "sourceMap": false
+    "sourceMap": false,
+    "typeRoots": [
+      "./@types/index.d.ts"
+    ]
   },
   "include": [
     "src",
+    "tsconfig.json",
+    "@types"
   ],
   "exclude": [
     "node_modules",

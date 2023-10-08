@@ -2,13 +2,15 @@
   "name": "chinokafuusupport",
   "version": "1.0.0",
   "description": "All global files of Chino Kafuu are here.",
-  "main": "build/index.js",
+  "main": "build/src/index.js",
   "type": "module",
+  "types": "@types/index.d.ts",
   "engines": {
     "node": ">=16.0.0",
     "npm": ">=6.0.0"
   },
   "scripts": {
+    "postinstall": "tsc",
     "start": "tsc && node --experimental-specifier-resolution=node .",
     "build": "tsc",
     "lint:ts": "eslint -c .eslintrc.ts.yml *.ts",
@@ -22,7 +24,7 @@
     "chalk": "^5.3.0",
     "eris": "RabbitHouseCorp/eris#dev",
     "mongoose": "^7.5.1",
-    "revolt.js": "^6.0.17"
+    "revolt.io": "^1.0.0"
   },
   "devDependencies": {
     "@types/node": "^20.6.1",

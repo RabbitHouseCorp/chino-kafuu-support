@@ -374,7 +374,11 @@ export class Resource {
       } 
       this.start()
       if (typeof func === 'function') {
-        func()
+        try {
+          func()
+        } catch (_) {
+          logger.error(_)
+        }
       }
     }
     const ready = <T = any>(output: T) => (() => {
@@ -387,15 +391,19 @@ export class Resource {
     const getResource = (name: string, opts?: { filter: Type[] }) => this.base.fetchResource(name, opts)
     const getPath = () => this.dir
     const fetchResource = this.base.fetchResource.bind(this.base)
-    this._file.opts.init({
-      ready,
-      restart,
-      getResource,
-      started: Date.now(),
-      main,
-      fetchResource,
-      getPath
-    })
+    try {
+      this._file.opts.init({
+        ready,
+        restart,
+        getResource,
+        started: Date.now(),
+        main,
+        fetchResource,
+        getPath
+      })
+    } catch (_) {
+      logger.error(_)
+    }
   }
   
   private setOptions(): LauncherOptions  {

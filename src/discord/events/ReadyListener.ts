@@ -16,7 +16,6 @@ export default {
       'https://cdn.discordapp.com/attachments/481807707066859530/751192879334162452/Screenshot_20200731-202804_Goyabu.jpg',
       'https://cdn.discordapp.com/attachments/481807707066859530/751192885956706394/Screenshot_20200731-210716_Goyabu.jpg',
       'https://cdn.discordapp.com/attachments/481807707066859530/751192889421463622/Screenshot_20200801-233101_Goyabu.jpg',
-      'https://cdn.discordapp.com/attachments/481807707066859530/751192899294855238/Screenshot_20200801-235637_Goyabu.jpg',
       'https://cdn.discordapp.com/attachments/481807707066859530/751192907985322005/Screenshot_20200802-003003_Goyabu.jpg'
     ]
     setInterval(async () => {

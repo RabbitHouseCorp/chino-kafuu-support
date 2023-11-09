@@ -19,7 +19,7 @@ export default {
       'https://cdn.discordapp.com/attachments/481807707066859530/751192907985322005/Screenshot_20200802-003003_Goyabu.jpg'
     ]
     setInterval(async () => {
-      if (!guild.features.includes('BANNER')) return
+      if (!guild?.features?.includes('BANNER')) return
       const buffer = await axios.get(banner[Math.floor(Math.random() * banner.length)], { responseType: 'arraybuffer' }).then(d => Buffer.from(d.data, 'binary').toString('base64'))
       const base64Banner = `data:image/${banner[Math.floor(Math.random() * banner.length)].substr(banner[Math.floor(Math.random() * banner.length)].length - 3)};base64,${buffer}`
       guild.edit({

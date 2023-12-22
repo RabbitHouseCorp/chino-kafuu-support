@@ -8,8 +8,9 @@ export class CommandRunner {
       await message.addReaction('👎')
       await message.addReaction('😍')
     }
-    if (message.content.indexOf(process.env.DISCORD_BOT_PREFIX) < 0) return
-    const args = message.content.slice(process.env.DISCORD_BOT_PREFIX.length).trim().split(/ +/g)
+    const prefix = process?.env?.DISCORD_BOT_PREFIX || process?.env?.BOT_PREFIX
+    if (message.content.indexOf(prefix) < 0) return
+    const args = message.content.slice(prefix.length).trim().split(/ +/g)
     const commandName = args.shift().toLowerCase()
     const command = client.commands.get(commandName) || client.commands.get(client.aliases.get(commandName))
 

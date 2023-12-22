@@ -13,11 +13,11 @@ export class Database {
   revolt: DatabaseStruct
   constructor(output?: <T = Database>(arg: T) => void) {
     mongoose.set('strictQuery', false)
-    const timestamp = Date.now()
+    const timestamp = performance.now()
     mongoose.connection.on('open', () => logger.debug('MongoDB connected!', timestamp))
     mongoose.connect(process.env.MONGO_URI)
     .then((_) => output(this))
-    .catch(error => console.error(`I'm unable to connect the MongoDB's database: ${error.message}`))
+    .catch(error => logger.error(`I'm unable to connect the MongoDB's database: ${error.message}`))
     
     this.revolt = {
       users: new Collection(userRevolt),

@@ -1,6 +1,6 @@
 import { Shard } from 'eris'
+import { Logger } from '../../Logger'
 import { ChinoClient } from '../ChinoClient.platform'
-import {Logger} from '../../Logger'
 const logger = new Logger('DiscordPlatform.events.ErrorListener')
 export default {
   name: 'error',
@@ -10,7 +10,7 @@ export default {
       'Connection reset by peer'
     ]
     if (!uselessErrors.includes(error.message)) {
-      logger.error(`A error on shard ${shard}: ${error.message}`)
+      console.error(`A error on shard ${shard}: `, error)
     }
   }
 }

@@ -1,18 +1,31 @@
-import 'dotenv/config'
-export const Config = {
+import { ClientOptions } from 'eris'
+
+export type ConfigOptions = {
+  options: ClientOptions
+  guild_support: any
+}
+
+export const Config: ConfigOptions = {
   options: {
     defaultImageFormat: 'png',
     defaultImageSize: 2048,
     getAllUsers: true,
     intents: 34799,
-    maxShards: 2,
     restMode: true,
+    compress: true,
+    maxReconnectAttempts: Infinity,
+    maxResumeAttempts: 20,
+    connectionTimeout: 10 * 1000,
+    ws: {
+      perMessageDeflate: true
+    },
     allowedMentions: {
       everyone: false,
       roles: false,
       users: true,
       repliedUser: true
-    }
+    },
+    autoreconnect: true
   },
   guild_support: {
     id: '468877023926943764',

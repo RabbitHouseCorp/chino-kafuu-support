@@ -239,7 +239,7 @@ export class ResourceBlock {
       return
     return new Promise((resolve, reject) => {
       loggerResource.debug('Loading file...')
-      const timestamp = Date.now()
+      const timestamp = performance.now()
       Resource.create(this.opts.path, this.launcher).then((resource) => {
         loggerResource.debug(`File was loaded with success: ${resource.dir}`, timestamp)
         this._file = resource
@@ -416,7 +416,7 @@ export class Resource {
         ready,
         restart,
         getResource,
-        started: Date.now(),
+        started: performance.now(),
         main,
         fetchResource,
         getPath

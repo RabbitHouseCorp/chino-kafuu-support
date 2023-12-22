@@ -4,9 +4,11 @@ import { ChinoClient } from '../../ChinoClient.platform'
 export class CommandRunner {
   static async start(client: ChinoClient, message: Message) {
     if (message.channel.id === '468880249023889408') {
-      await message.addReaction('👍')
-      await message.addReaction('👎')
-      await message.addReaction('😍')
+      Promise.all([
+        message.addReaction('👍'),
+        message.addReaction('👎'),
+        message.addReaction('😍')
+      ]).catch((error) => console.error(error))
     }
     const prefix = process?.env?.DISCORD_BOT_PREFIX || process?.env?.BOT_PREFIX
     if (message.content.indexOf(prefix) < 0) return

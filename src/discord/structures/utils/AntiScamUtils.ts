@@ -1,8 +1,8 @@
+import axios from 'axios'
 import { Message, TextableChannel } from 'eris'
 import { EmbedBuilder } from '..'
-import { ChinoClient } from '../../ChinoClient.platform'
-import axios from 'axios'
 import { Logger } from '../../../Logger'
+import { ChinoClient } from '../../ChinoClient.platform'
 const logger = new Logger('DiscordPlatform.structures.utils.AntiScamUtils')
 interface GuildSupport {
   id: string
@@ -40,10 +40,13 @@ export default async function isScam(client: ChinoClient, message: Message<Texta
       embed.addField('Who punished', `${client.user.username}#${client.user.discriminator} (\`${client.user.id}\`)`)
       embed.addField('Reason', '[AUTO MOD] SPAMBOT - Sending a malicious or NSFW URL is not allowed in our guild. Get away from here!')
 
-      guild.banMember(message.author.id, 7, '[AUTO MOD] SPAMBOT - Sending a malicious or NSFW URL is not allowed in our guild. Get away from here!')
-      return message.channel.createMessage(embed.build())
+      Promise.all([
+        guild.banMember(message.author.id, 7, '[AUTO MOD] SPAMBOT - Sending a malicious or NSFW URL is not allowed in our guild. Get away from here!'),
+        message.channel.createMessage(embed.build())
+      ]).catch((error) => console.error(error))
     }
-  } catch {
+  } catch(err) {
     logger.error('I can\'t access this GitHub\'s raw for an unknown reason...')
+    console.log(err)
   }
 }

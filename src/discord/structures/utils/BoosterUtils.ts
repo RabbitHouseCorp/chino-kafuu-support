@@ -1,5 +1,5 @@
-import { ChinoClient } from '../../ChinoClient.platform'
 import { Guild, Member, TextChannel } from 'eris'
+import { ChinoClient } from '../../ChinoClient.platform'
 import { Config } from '../../config'
 import { EmbedBuilder } from '../../structures'
 export class BoosterUtils {
@@ -16,10 +16,12 @@ export class BoosterUtils {
       embed.setThumbnail(member.user.avatarURL)
       let user = await client.database.users.getOrCreate(member.user.id, {})
       user.yens += Math.round(Config.guild_support.booster.value)
-      user.save()
       const channel = guild.channels.get(Config.guild_support.booster.channelID) as TextChannel
-      channel.createMessage(embed.build(member.user.mention))
-      member.addRole(Config.guild_support.booster.donateRoleID)
+      Promise.all([
+        user.save(),
+        channel.createMessage(embed.build(member.user.mention)),
+        member.addRole(Config.guild_support.booster.donateRoleID)
+      ]).catch((error) => console.error(error))
       try {
         const dmChannel = await member.user.getDMChannel()
         dmChannel.createMessage(`Hey ${member.user.mention}, thanks for boosting the \`${guild.name}\`, I added **${Number(Config.guild_support.booster.value).toLocaleString()}** yens into your account.`)

@@ -54,6 +54,6 @@ export class AntiInviteUtils {
       message.delete(),
       message.channel.createMessage(`Hey ${message.author.mention}! Stop right there. You can't adversiting others Discord guild here.`),
       channel.createMessage(embed.build())
-    ])
+    ]).catch((error) => console.error(error))
   }
 }

@@ -28,12 +28,12 @@ export class Logger {
     messages_count++
     console.log(`${chalk.gray(`[${messages_count}]`.padEnd(len, ' '))} ${chalk.bgBlueBright.white('[LOG]'.padEnd(7, ' '))} ${chalk.blueBright(`${this.pathName} ~`)} ${s(message.replace(process.cwd(), ''))} ${took == null ? '' : `[${chalk.gray.bold('timestamp:')}(${chalk.bgYellowBright.bold(`${(performance.now() - took).toFixed(2)}ms`)})]`}`)
   }
-  debug(message: string, took?: number) {
+  debug(message: string, took?: number, ...obj: any) {
     if (!process.argv.includes('--debug') && !process.argv.includes('-D')) return
     messages_count++
-    console.debug(`${chalk.gray(`[${messages_count}]`.padEnd(len, ' '))} ${chalk.bgMagentaBright.whiteBright('[DEBUG]')} ${chalk.magentaBright(`${this.pathName} ~`)} ${s(message.replace(process.cwd(), ''))} ${took == null ? '' : `[${chalk.gray.bold('timestamp:')}(${chalk.bgYellowBright.bold(`${(performance.now() - took).toFixed(2)}ms`)})]`}`)
+    console.debug(chalk.gray(`[${messages_count}]`.padEnd(len, ' ')), chalk.bgMagentaBright.whiteBright('[DEBUG]'), chalk.magentaBright(`${this.pathName} ~`), s(message.replace(process.cwd(), '')), ...obj, took == null ? '' : `[${chalk.gray.bold('timestamp:')}(${chalk.bgYellowBright.bold(`${(performance.now() - took).toFixed(2)}ms`)})]`)
   }
-  warn(message: string | Error, took?: number) {
+  warn(message: string | Error | any, ...obj: any) {
     messages_count++
     if (message instanceof Error) {
       const msg = message.stack.split('\n')
@@ -41,7 +41,10 @@ export class Logger {
       console.error(`\n${chalk.gray(`[${messages_count}]`.padEnd(len, ' '))}  ${chalk.bgYellowBright.black('[WARN]')} ${chalk.yellowBright(`${this.pathName} ~`)} ${s(message.message.replace(process.cwd(), ''))} ${chalk.gray(msg.join('\n').replace(/(\([A-Za-z_0-9\-\\//!+\.:?]+\))/g, (a) => chalk.blueBright(a)))}\n`)
 
     } else {
-      console.warn(`${chalk.gray(`[${messages_count}]`.padEnd(len, ' '))}  ${chalk.bgYellowBright.black('[WARN]')} ${chalk.yellowBright(`${this.pathName} ~`)} ${s(message.replace(process.cwd(), ''))} ${took == null ? '' : `(${(performance.now() - took).toFixed(2)}ms)`}`)
+      console.warn(
+        chalk.gray(`[${messages_count}]`.padEnd(len, ' ')),
+        chalk.bgYellowBright.black('[WARN]'), chalk.yellowBright(`${this.pathName} ~`),
+        s(message.replace(process.cwd(), '')), ...obj)
     }
   }
   info(message: string, took?: number) {

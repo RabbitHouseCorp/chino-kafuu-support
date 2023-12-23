@@ -36,7 +36,13 @@ export class ChinoClient extends Client {
     path = join(path, 'events')
     readdirSync(path).forEach(async (event: string) => {
       const events = await import('file://' + join(path, event.split('.').at(0)))
-      this.on(events.default.name, (...args) => events.default.run(this, ...args))
+      this.on(events.default.name, (...args) => {
+        try {
+          events.default.run(this, ...args)
+        } catch (error) {
+          console.error(error)
+        }
+      })
     })
   }
 

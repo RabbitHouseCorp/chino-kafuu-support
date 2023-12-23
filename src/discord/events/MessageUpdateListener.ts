@@ -18,6 +18,10 @@ export default {
     if (oldMessage.content === message.content) return
     if (!message.content) return
     const channel = message.guild.channels.get(Config.guild_support.eventLog) as TextChannel
-    channel.createMessage(embed.build())
+    try {
+      channel.createMessage(embed.build())
+    } catch (error) {
+      console.error(error)
+    }
   }
 }

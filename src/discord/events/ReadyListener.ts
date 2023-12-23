@@ -43,7 +43,7 @@ export default {
         } else {
           client.editStatus('online', game)
         }
-      }, 15000)])
+      }, 15000)]).catch((error) => console.error(error))
     } catch (err) {
       logger.error(err)
     }

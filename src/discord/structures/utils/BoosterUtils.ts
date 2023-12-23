@@ -30,7 +30,11 @@ export class BoosterUtils {
       }
     } else {
       if (member.roles.includes(Config.guild_support.booster.donateRoleID)) {
-        member.removeRole(Config.guild_support.booster.donateRoleID)
+        try {
+          member.removeRole(Config.guild_support.booster.donateRoleID)
+        } catch (error) {
+          console.error(error)
+        }
       }
     }
   }

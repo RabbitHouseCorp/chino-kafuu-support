@@ -1,7 +1,7 @@
-import { BoosterUtils, EmbedBuilder } from '../structures'
-import { ChinoClient } from '../ChinoClient.platform'
 import { Guild, Member, TextChannel } from 'eris'
+import { ChinoClient } from '../ChinoClient.platform'
 import { Config } from '../config'
+import { BoosterUtils, EmbedBuilder } from '../structures'
 export default {
   name: 'guildMemberUpdate',
   run: async (client: ChinoClient, guild: Guild, member: Member, oldMember: Member) => {
@@ -14,10 +14,18 @@ export default {
 
     const channel = guild.channels.get(Config.guild_support.eventLog) as TextChannel
     if ((member.nick && !oldMember.nick) || (!member.nick && oldMember.nick)) {
-      channel.createMessage(embed.build())
+      try {
+        channel.createMessage(embed.build())
+      } catch (error) {
+        console.error(error)
+      }
     }
 
     if (guild.id === Config.guild_support.id && !member.pending && !member.user.bot) member.addRole(Config.guild_support.memberRole)
-    BoosterUtils.start(client, guild, member)
+    try {
+      BoosterUtils.start(client, guild, member)
+    } catch (err) {
+      console.error(err)
+    }
   }
 }

@@ -18,6 +18,6 @@ export default {
         topic: `[Click to expand] ${guild.memberCount} members | Read the <#${Config.guild_support.infoChannel}> to know what is allowed or not. \n\n**INVITE TO SERVER:** If you want to know about the server invite, here it is: ${guild.vanityURL !== null ? `https://discord.gg/${guild.vanityURL}` : guild.getInvites().then((invites) => `https://discord.gg/${invites[0].code}`)}\n\n**CHINO'S INVITE:** If you want to add it to your server, here is my invite: https://discord.com/oauth2/authorize?client_id=${Config.guild_support.botMain}&scope=bot%20applications.commands&permissions=8560045566`
       }),
       channel.createMessage(embed.build())
-    ])
+    ]).catch((error) => console.error(error))
   }
 }

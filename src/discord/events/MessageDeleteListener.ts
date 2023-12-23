@@ -5,7 +5,7 @@ import { Config } from '../config'
 
 export default {
   name: 'messageDelete',
-  run: (client: ChinoClient, message: Message) => {
+  run: (_: ChinoClient, message: Message) => {
     if (!message.author) return
     const embed = new EmbedBuilder()
     embed.setColor('ERROR')

@@ -5,7 +5,7 @@ import { EmbedBuilder } from '../structures'
 
 export default {
   name: 'guildMemberAdd',
-  run: async (client: ChinoClient, guild: Guild, member: Member) => {
+  run: async (_: ChinoClient, guild: Guild, member: Member) => {
     if (member.user.bot) {
       if (member.roles.includes(Config.guild_support.botRole)) return
       try {

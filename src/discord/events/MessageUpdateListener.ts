@@ -5,7 +5,7 @@ import { Config } from '../config'
 
 export default {
   name: 'messageUpdate',
-  run: (client: ChinoClient, message: Message, oldMessage: Message) => {
+  run: (_: ChinoClient, message: Message, oldMessage: Message) => {
     const embed = new EmbedBuilder()
     embed.setColor('DEFAULT')
     embed.setAuthor(`${message.author.username}#${message.author.discriminator}`, message.author.avatarURL)

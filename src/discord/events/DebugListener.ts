@@ -7,7 +7,7 @@ const logger = new Logger('DiscordPlatform.events.DebugListener')
 
 export default {
   name: 'debug',
-  run: async (client: ChinoClient, message: any) => {
+  run: async (_: ChinoClient, message: any) => {
     logger.debug(message)
   }
 }

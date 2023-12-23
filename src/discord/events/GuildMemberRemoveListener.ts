@@ -4,7 +4,7 @@ import { Config } from '../config'
 import { EmbedBuilder } from '../structures'
 export default {
   name: 'guildMemberRemove',
-  run: (client: ChinoClient, guild: Guild, member: Member) => {
+  run: (_: ChinoClient, guild: Guild, member: Member) => {
     const channel = guild.channels.get(Config.guild_support.leaveChannel) as TextChannel
     const embed = new EmbedBuilder()
     embed.setColor('LEAVE')
